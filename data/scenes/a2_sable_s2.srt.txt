@@ -1,4 +1,37 @@
 triggers {
+  name: "Set Up Map"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Enable/Disable Manual Turn Mode"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5535bfa7346435700f004dd0"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
   name: "Stairs Up Freemove"
   events {
     ops {
@@ -1145,6 +1178,138 @@ characters {
     char_name: "New Actor"
     enabled_at_start: true
     pc_spawn_number: 2
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -15
+    y: 0
+    z: 57
+  }
+  orientation: ORIENTATION_S
+  displayName: "Destin Model"
+  idRef {
+    id: "5535bf85346435700f004dce"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Core/OrkMale"
+    character_sheet_id: "AGChemie_Cyberzombie_Lv1"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        dodge: 0
+      }
+      specializations {
+        rifle: 0
+        edged: 0
+        unarmed: 0
+      }
+      archetypeName: "Player"
+      vulnerabilities {
+      }
+    }
+    equipment {
+      prefab_name: "RiggerTrenchcoat"
+    }
+    team_id: "Shadowrunners"
+    char_name: "Destin"
+    pc_spawn_number: -1
+    portrait {
+      filename: "NPC_TrollMale_CyberZombie"
+    }
+    portrait_code_override: "s2h5c4"
+    karma: 174
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -6
+    y: 0
+    z: 9
+  }
+  orientation: ORIENTATION_S
+  displayName: "Persi Core"
+  idRef {
+    id: "5535bf85346435700f004dcf"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Core/HumanFemale"
+    character_sheet_id: "AGChemie_Cyberzombie_Lv1"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        dodge: 0
+      }
+      specializations {
+        rifle: 0
+        edged: 0
+        unarmed: 0
+      }
+      archetypeName: "Player"
+      vulnerabilities {
+      }
+    }
+    equipment {
+      prefab_name: "AdeptCombatvest"
+    }
+    team_id: "Shadowrunners"
+    char_name: "Persi"
+    pc_spawn_number: -1
+    portrait {
+      filename: "pc_orkfemale_06"
+    }
+    portrait_code_override: "s5h6c6b0"
+    karma: 174
   }
 }
 mapEvents: "Transition"
