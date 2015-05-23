@@ -1,0 +1,273 @@
+idRef {
+  id: "555ff635346435cc1e005a00"
+}
+ui_name: "test_reactive"
+nodes {
+  idRef {
+    id: "555ff642346435cc1e005a0a"
+  }
+  index: 0
+  text: "Hello, there!"
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Compare Actor Race"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Race"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 1
+  }
+  branches {
+    responseText: ""
+    nextNodeIndex: 9
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "555ff658346435cc1e005a0e"
+  }
+  index: 1
+  text: "I see that you are a human."
+  branches {
+    responseText: ""
+    nextNodeIndex: 2
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "555ff698346435cc1e005a1a"
+  }
+  index: 2
+  text: "Not that I hold that against you. Now, let\'s explore a tree."
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Compare Actor Race"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Race"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 3
+  }
+  branches {
+    responseText: ""
+    nextNodeIndex: 4
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "555ff874346435cc1e005b54"
+  }
+  index: 3
+  text: "Did I already mention that you are a human?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 4
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "555ff8a4346435cc1e005b5b"
+  }
+  index: 4
+  text: ""
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Compare Actor Gender"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Gender"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 5
+    comment: "Is female"
+  }
+  branches {
+    responseText: ""
+    nextNodeIndex: 6
+    auxiliaryLink: true
+    comment: "Not a female"
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "Checking gender"
+}
+nodes {
+  idRef {
+    id: "555ff891346435cc1e005b58"
+  }
+  index: 5
+  text: "You are a female."
+  branches {
+    responseText: ""
+    nextNodeIndex: 6
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "555ff8b7346435cc1e005b62"
+  }
+  index: 6
+  text: ""
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Actor is Player Controlled"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 7
+    comment: "Is controlled by the player."
+  }
+  branches {
+    responseText: ""
+    nextNodeIndex: 8
+    auxiliaryLink: true
+    comment: "Not controlled by the player."
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "Checking player control"
+}
+nodes {
+  idRef {
+    id: "555ff8cb346435cc1e005b65"
+  }
+  index: 7
+  text: "You are controlled by the player."
+  branches {
+    responseText: ""
+    nextNodeIndex: 8
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "555ff8dc346435cc1e005b68"
+  }
+  index: 8
+  text: "The End."
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "555ff662346435cc1e005a11"
+  }
+  index: 9
+  text: "I see that you are a/an $(l.race)."
+  branches {
+    responseText: ""
+    nextNodeIndex: 2
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  nextNodeIndex: 0
+}
