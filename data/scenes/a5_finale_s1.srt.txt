@@ -195,7 +195,7 @@ triggers {
       }
     }
   }
-  isActive: false
+  isActive: true
   idRef {
     id: "554e503e3464351421004545"
   }
@@ -280,7 +280,7 @@ triggers {
       }
     }
   }
-  isActive: true
+  isActive: false
   idRef {
     id: "555bf49334643520190008e1"
   }
@@ -640,6 +640,28 @@ triggers {
           functionName: "Get Map Item (Event)"
           args {
             string_value: "Move Light L"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Flip Light 1 Off"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Flip Light 2 Off"
           }
         }
       }
@@ -1016,6 +1038,238 @@ triggers {
   isActive: true
   idRef {
     id: "55616523346435d81b00603a"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Flip Light 1 Off"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Flip Light 1 Off"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Flip Light 1 On"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Random (float)"
+          args {
+            float_value: 1
+          }
+          args {
+            float_value: 3
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Light Transition"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "5561600e346435d81b00602b"
+          }
+        }
+      }
+      args {
+        string_value: "cubic:1:00000000"
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55616a13346435d81b00603f"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Flip Light 1 On"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Flip Light 1 On"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Flip Light 1 Off"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Random (float)"
+          args {
+            float_value: 1
+          }
+          args {
+            float_value: 4
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Light Transition"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "5561600e346435d81b00602b"
+          }
+        }
+      }
+      args {
+        string_value: "cubic:1:FFFFFFFF"
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55616a60346435d81b006040"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Flip Light 2 Off"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Flip Light 2 Off"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Flip Light 2 On"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Random (float)"
+          args {
+            float_value: 1
+          }
+          args {
+            float_value: 2
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Light Transition"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "5561676f346435d81b00603e"
+          }
+        }
+      }
+      args {
+        string_value: "cubic:1:00000000"
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55616d7e346435d81b006041"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Flip Light 2 On"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Flip Light 2 On"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Flip Light 2 Off"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Random (float)"
+          args {
+            float_value: 1
+          }
+          args {
+            float_value: 5
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Light Transition"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "5561676f346435d81b00603e"
+          }
+        }
+      }
+      args {
+        string_value: "cubic:1:FFFFFFFF"
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55616d7e346435d81b006042"
   }
   elseActions {
   }
@@ -1428,6 +1682,10 @@ mapEvents: "Move Light M"
 mapEvents: "Move Light N"
 mapEvents: "Move Light L"
 mapEvents: "Move Light O"
+mapEvents: "Flip Light 1 Off"
+mapEvents: "Flip Light 1 On"
+mapEvents: "Flip Light 2 Off"
+mapEvents: "Flip Light 2 On"
 worldMapLocation {
   filename: ""
   location {
