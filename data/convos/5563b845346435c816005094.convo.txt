@@ -1,0 +1,716 @@
+idRef {
+  id: "5563b845346435c816005094"
+}
+ui_name: "cc_banter-16_Persi"
+nodes {
+  idRef {
+    id: "5563b84d346435c81600509a"
+  }
+  index: 0
+  text: "Ugh\342\200\246 hold on, boss. My RCC is acting up again."
+  branches {
+    responseText: "Is that bad?"
+    nextNodeIndex: 1
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Can I help?"
+    nextNodeIndex: 1
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Is there something I can hit to make it better?"
+    nextNodeIndex: 1
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "5563b875346435c81600509f"
+  }
+  index: 1
+  text: "{{GM}}Persi pulls out her rigger control console, frowning as she scans the readout while flipping switches.{{/GM}}\n\nShit. Shoulda taken care of this back at base. Never have a damn soldering iron when I need one\342\200\246"
+  branches {
+    responseText: ""
+    nextNodeIndex: 2
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "5563b8b8346435c8160050a5"
+  }
+  index: 2
+  text: "I just need to reboot it. I hate to pull the old \342\200\234turn it off and back on again\342\200\235 trick, but that\342\200\231s the best I can do for a field repair.\n\n{{GM}}She busies herself with the controls. A long time passes.{{/GM}}"
+  branches {
+    responseText: "Uh\342\200\246 Persi?"
+    nextNodeIndex: 3
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "You doing okay?"
+    nextNodeIndex: 3
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "I\342\200\231m going to miss my shows if you don\342\200\231t hurry it up."
+    nextNodeIndex: 3
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "5563b8e9346435c8160050aa"
+  }
+  index: 3
+  text: "What?!\n\n{{GM}}She seems peeved, though more at herself than at you.{{/GM}}\n\nSorry, boss. It\342\200\231s just that I need to depress the reset switch while holding both override buttons, and it\342\200\231s kinda hard to do with just two thumbs\342\200\246"
+  branches {
+    responseText: "I can hold the box while you do your thing."
+    nextNodeIndex: 4
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Here, let me get at that button."
+    nextNodeIndex: 4
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "I\342\200\231ll do anything that lets us keep moving."
+    nextNodeIndex: 4
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "5563b96e346435c8160050b2"
+  }
+  index: 4
+  text: "Oh\342\200\246 okay. Sure."
+  branches {
+    responseText: ""
+    nextNodeIndex: 5
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "5563b981346435c8160050b5"
+  }
+  index: 5
+  text: "{{GM}}You lend a hand, and a few seconds later, a chiming noise indicates that the reboot was successful.{{/GM}}\n\nWow. That was, uh, a lot faster than usual. I appreciate it."
+  branches {
+    responseText: ""
+    nextNodeIndex: 6
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "5563b995346435c8160050b8"
+  }
+  index: 6
+  text: "I\342\200\231ve been runnin\' solo for so long, I\342\200\231m used to doin\342\200\231 everything myself. Got pretty decent at it, too. But I guess that running with a team has some advantages\342\200\246 I may need to start unlearnin\342\200\231 some of those old habits."
+  branches {
+    responseText: "It\342\200\231s great that you can take care of stuff on your own. Having helpers is just a bonus."
+    nextNodeIndex: 7
+  }
+  branches {
+    responseText: "We\342\200\231re all here to support each other."
+    nextNodeIndex: 8
+  }
+  branches {
+    responseText: "Don\342\200\231t let your pride slow us down."
+    nextNodeIndex: 9
+  }
+  branches {
+    responseText: "Maybe you should let someone else handle the tech from now on."
+    nextNodeIndex: 10
+  }
+  branches {
+    responseText: "{{CC}}Flirt{{/CC}} I think we\342\200\231d each do a lot better if we spent more time together."
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_CanFlirtWithPersi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_PersiLoveTalks"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    nextNodeIndex: 11
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "{{CC}}Flirt{{/CC}} Just give the word any time you need any of your buttons pressed."
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_CanFlirtWithPersi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_PersiLoveTalks"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    nextNodeIndex: 12
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "We\342\200\231re making a great team, Persi. Both on the field and off."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_PersiLoveTalks"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    nextNodeIndex: 13
+    hideIfUnavailable: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "5563b9d1346435c8160050c2"
+  }
+  index: 7
+  text: "Hey, thanks! Yeah, it\342\200\231s not like I\342\200\231ll forget how to do things the hard way. But there\342\200\231s no sense in making things rougher on myself than necessary."
+  branches {
+    responseText: ""
+    nextNodeIndex: 14
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+  actions {
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isPersi"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "String_GainedFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Persi"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5563bb51346435c8160050f2"
+  }
+  index: 8
+  text: "Thanks, boss. This a kinda different situation for me, I\342\200\231m still figurin\342\200\231 it out as we go along."
+  branches {
+    responseText: ""
+    nextNodeIndex: 14
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "5563bb77346435c8160050f4"
+  }
+  index: 9
+  text: "No worries, boss. I only care about results. You\342\200\231ll never find me getting hung up on some stupid ego trip."
+  branches {
+    responseText: ""
+    nextNodeIndex: 14
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "5563bb87346435c8160050f6"
+  }
+  index: 10
+  text: "Ha! Nobody else could handle this rig, not after I\342\200\231ve customized it seven ways from Sunday. You\342\200\231re stuck with it, and with me."
+  branches {
+    responseText: ""
+    nextNodeIndex: 14
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+  actions {
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isPersi"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "String_LostFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Persi"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5563bcf8346435c816005158"
+  }
+  index: 11
+  text: "We\342\200\231re already\342\200\246 er, that is\342\200\246 um\342\200\246\n\nSpeak for yourself, $(l.name). I\342\200\231m doin\342\200\231 pretty well on my own. \342\200\230Course, maybe I could be persuaded to try somethin\342\200\231 new..."
+  branches {
+    responseText: ""
+    nextNodeIndex: 14
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Romance_PersiFlirtCount"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isPersi"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "String_GainedFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Persi"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5563ba0b346435c8160050c9"
+  }
+  index: 12
+  text: "Ha! I\342\200\231m perfectly capable of pressin\342\200\231 my own buttons, $(l.sir).\n\n\342\200\230Course, if you ever want to demonstrate your technique, I might be interested in a lesson."
+  branches {
+    responseText: ""
+    nextNodeIndex: 14
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Romance_PersiFlirtCount"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5563bc7e346435c81600514a"
+  }
+  index: 13
+  text: "{{GM}}She gives your hand a quick squeeze.{{/GM}}\n\nThat we do, $(l.name). I\342\200\231m still learnin\342\200\231 just how true that is."
+  branches {
+    responseText: ""
+    nextNodeIndex: 14
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "5563bc99346435c81600514d"
+  }
+  index: 14
+  text: "Okay, this thing is finally ready to go again. \n\nDon\342\200\231t worry, I\342\200\231ll patch it up properly the next chance I get. Now, let\342\200\231s keep movin\342\200\231."
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+roots {
+  nextNodeIndex: 0
+}

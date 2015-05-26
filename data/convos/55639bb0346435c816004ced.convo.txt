@@ -1,0 +1,705 @@
+idRef {
+  id: "55639bb0346435c816004ced"
+}
+ui_name: "cc_banter-14_Destin"
+nodes {
+  idRef {
+    id: "55639bb8346435c816004cf3"
+  }
+  index: 0
+  text: "$(l.name), we should probably have a quick chat."
+  branches {
+    responseText: "I hope it\342\200\231s important."
+    nextNodeIndex: 1
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Of course."
+    nextNodeIndex: 1
+  }
+  branches {
+    responseText: "Absolutely not."
+    nextNodeIndex: 16
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "55639be5346435c816004cfa"
+  }
+  index: 1
+  text: "Back before that bad scene in the Gauntlet went down, I met with my Halferville contact to pass along some intel on rail operations. I\342\200\231ve been pretty diligent at compartmentalizing different parts of my life, but now that my worlds are colliding, I\342\200\231d like to shed some light on that whole situation."
+  branches {
+    responseText: ""
+    nextNodeIndex: 2
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "55639c0b346435c816004cfd"
+  }
+  index: 2
+  text: ""
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Dialogue_Banter14DestinQuestions"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+    }
+    nextNodeIndex: 3
+  }
+  branches {
+    responseText: "Where exactly do your loyalties lie?"
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Dialogue_Banter14DestinQuestions"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    nextNodeIndex: 9
+    onlyOnce: true
+    idRef {
+      id: "5563a28c346435c816004d14"
+    }
+  }
+  branches {
+    responseText: "What are you getting out of these arrangements?"
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Dialogue_Banter14DestinQuestions"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    nextNodeIndex: 12
+    onlyOnce: true
+    idRef {
+      id: "5563a28f346435c816004d15"
+    }
+  }
+  branches {
+    responseText: "You don\342\200\231t have to say anything. I trust you."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Dialogue_Banter14DestinQuestions"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    nextNodeIndex: 14
+  }
+  branches {
+    responseText: "Don\342\200\231t say anything more. You\342\200\231re clearly untrustworthy."
+    nextNodeIndex: 15
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+  comment: "Empty query node"
+}
+nodes {
+  idRef {
+    id: "5563a3bc346435c816004d38"
+  }
+  index: 3
+  text: "I hope that clears things up."
+  branches {
+    responseText: "We\342\200\231re all good, Destin."
+    nextNodeIndex: 4
+  }
+  branches {
+    responseText: "We\342\200\231re clear, but please don\342\200\231t keep things from me in the future."
+    nextNodeIndex: 5
+  }
+  branches {
+    responseText: "I\342\200\231ll be keeping a close eye on your activities."
+    nextNodeIndex: 6
+  }
+  branches {
+    responseText: "I can\342\200\231t work with an ork who serves multiple masters."
+    nextNodeIndex: 7
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5563a3fa346435c816004d3e"
+  }
+  index: 4
+  text: "{{GM}}He looks visibly relieved.{{/GM}}\n\nI had been concerned. I\342\200\231m glad to hear that we can move forward on a clear path."
+  branches {
+    responseText: ""
+    nextNodeIndex: 8
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+  actions {
+    ops {
+      functionName: "Apply Skill Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isDestin"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorSkills"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "Gained Favor"
+          }
+          args {
+            string_value: "String_GainedFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Destin"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5563a403346435c816004d44"
+  }
+  index: 5
+  text: " Of course! We were merely workplace proximity associates before. Now we are bound together on a dangerous mission. My secrets will be yours, as I hope any relevant ones of yours will be mine."
+  branches {
+    responseText: ""
+    nextNodeIndex: 8
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "5563a401346435c816004d42"
+  }
+  index: 6
+  text: "That\342\200\231s your prerogative, but you have nothing to fear. We\342\200\231ll be working closely together from here until the end. Your attention may be put to better use elsewhere."
+  branches {
+    responseText: ""
+    nextNodeIndex: 8
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "5563a3fe346435c816004d40"
+  }
+  index: 7
+  text: "We all serve multiple masters. The state, our employers, our families, the laws of nature, the laws of man\342\200\246 what\342\200\231s important is that we recognize our priorities, and act accordingly."
+  branches {
+    responseText: ""
+    nextNodeIndex: 8
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+  actions {
+    ops {
+      functionName: "Apply Skill Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isDestin"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorSkills"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "String_LostFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Destin"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5563a419346435c816004d47"
+  }
+  index: 8
+  text: "In any case, I\342\200\231ll be far too busy with this current job to be of much direct use to my Halferville associates. \n\nSpeaking of which, we should be on our way."
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "5563a29b346435c816004d17"
+  }
+  index: 9
+  text: "Loyalty is earned, not given. You\342\200\231ve earned my loyalty by walking the beat with me and supporting me when I needed it. Kora has earned my loyalty by accepting me and helping me become a better person."
+  branches {
+    responseText: ""
+    nextNodeIndex: 10
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "5563a2be346435c816004d1a"
+  }
+  index: 10
+  text: "Shiawase has given me nuyen, and a whole lot of grief. I did their job for as long as they paid me, but I feel zero obligation towards them."
+  branches {
+    responseText: ""
+    nextNodeIndex: 11
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "5563a2fb346435c816004d1d"
+  }
+  index: 11
+  text: "The Halferville contacts are about midway between you and Shiawase on my loyalty scale. They keep their distance, but they\342\200\231ve shown consistent good faith, and are actively working to help promote Kora\'s ideals. "
+  branches {
+    responseText: ""
+    nextNodeIndex: 2
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "5563a31e346435c816004d2d"
+  }
+  index: 12
+  text: "Mostly money, and a little access. Money helps cover some of the cost for Kora\342\200\231s medical prescriptions, and we donate a share of it to the People\'s University. They also let us know when their contacts have picked up information about activity in our home region."
+  branches {
+    responseText: ""
+    nextNodeIndex: 13
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "5563a34b346435c816004d30"
+  }
+  index: 13
+  text: "The dwarves get most of their income from tolls on trains going through the Caldecott tunnel, so it\342\200\231s in their interest to keep the trains safe too. Even though the corps hate the dwarves, both sides need us doing our jobs. The dwarves pay a little something under the table, the corps a little more on top, and everyone\342\200\231s happy."
+  branches {
+    responseText: ""
+    nextNodeIndex: 2
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "5563a382346435c816004d34"
+  }
+  index: 14
+  text: "Thanks, $(l.name). That means a lot to me."
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Destin"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Apply Skill Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isDestin"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorSkills"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "Gained Favor"
+          }
+          args {
+            string_value: "String_GainedFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5563a39b346435c816004d36"
+  }
+  index: 15
+  text: "I\342\200\231d hoped you would know me better than that.\n\n{{GM}}He sighs in disappointment.{{/GM}}\n\nPerhaps it\342\200\231s my own fault for not opening up to you earlier. Oh, well. Water under the bridge now, I suppose."
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+  actions {
+    ops {
+      functionName: "Apply Skill Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isDestin"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorSkills"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "String_LostFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Destin"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+  }
+  comment: "TODO: Approval loss."
+}
+nodes {
+  idRef {
+    id: "55639bda346435c816004cf8"
+  }
+  index: 16
+  text: " All right, never mind then."
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+roots {
+  nextNodeIndex: 0
+}
