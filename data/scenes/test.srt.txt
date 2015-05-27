@@ -4386,9 +4386,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -2
+    x: -13
     y: 0
-    z: -2
+    z: -9
   }
   orientation: ORIENTATION_S
   GeneralTags: "isDestin"
@@ -4650,15 +4650,51 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -14
+    x: -3
     y: 0
-    z: -11
+    z: -1
   }
   orientation: ORIENTATION_S
   GeneralTags: "isPersi"
   displayName: "Persi Core"
   idRef {
     id: "5562ad05346435c816004484"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksPersi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+    }
+    conversationPoint {
+      conversationID: "55654a75346435ac07005f91"
+      turnToFace: true
+    }
+    interaction_info_text: ""
   }
   lod: 0
   character_instance {
@@ -4697,14 +4733,14 @@ characters {
         edged: 0
         unarmed: 0
       }
-      archetypeName: "Player"
+      archetypeName: "Non-Combatant"
       vulnerabilities {
       }
     }
     equipment {
       prefab_name: "AdeptCombatvest"
     }
-    team_id: "Shadowrunners"
+    team_id: "Civilians"
     char_name: "Persi"
     GeneralTags: "isPersi"
     enabled_at_start: true
@@ -4721,6 +4757,22 @@ variables {
   variableref_value {
     scope: TsVariableScope_Scene
     name: "CanBanter"
+    typeName: "bool"
+  }
+}
+variables {
+  int_value: 0
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "numTalksPersi"
+    typeName: "int"
+  }
+}
+variables {
+  bool_value: false
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "didGreetPersi"
     typeName: "bool"
   }
 }
