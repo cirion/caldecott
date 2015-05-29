@@ -171,6 +171,34 @@ nodes {
           int_value: 2
         }
       }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_PersiLoveTalks"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
     }
     actions {
       ops {
@@ -194,10 +222,224 @@ nodes {
     idRef {
       id: "55654f6e346435ac07006081"
     }
+    comment: "# Lovetalk 1"
+  }
+  branches {
+    responseText: "Let\342\200\231s pick up from where we were before your drone started acting up\342\200\246"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_PersiLoveTalks"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_PersiLoveTalks"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksPersi"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    nextNodeIndex: 29
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "5567d8ff346435ac07006739"
+    }
+    comment: "Lovetalk 2"
+  }
+  branches {
+    responseText: "Hey, you. Come here."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 5
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_PersiLoveTalks"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksPersi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_PersiLoveTalks"
+            }
+          }
+        }
+        args {
+          int_value: 3
+        }
+      }
+    }
+    nextNodeIndex: 56
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "5567e561346435ac07006f8a"
+    }
+    comment: "Lovetalk 3"
   }
   branches {
     responseText: "Goodbye."
-    nextNodeIndex: 14
+    nextNodeIndex: 83
   }
   nodeType: ConversationNodeType_Simple
   actions {
@@ -519,7 +761,8 @@ nodes {
   text: "Ah. Didn\342\200\231t think so."
   branches {
     responseText: ""
-    nextNodeIndex: -1
+    nextNodeIndex: 14
+    auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -531,16 +774,1698 @@ nodes {
   text: "Er\342\200\246 yeah. After the first couple of times, I figured there was a trend here. Well."
   branches {
     responseText: ""
-    nextNodeIndex: -1
-    comment: "TODO: Handle Sable reactivity here."
+    nextNodeIndex: 14
   }
   nodeType: ConversationNodeType_Simple
 }
 nodes {
   idRef {
-    id: "55654e18346435ac07006077"
+    id: "55668387346435ac070065a7"
   }
   index: 14
+  text: ""
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_SableFlirtCount"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    nextNodeIndex: 15
+    comment: "# Currently flirting with Sable"
+  }
+  branches {
+    responseText: ""
+    nextNodeIndex: 19
+    comment: "# Not flirting with Sable"
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "# What\'s up with Sable?"
+}
+nodes {
+  idRef {
+    id: "55667f7a346435ac0700638b"
+  }
+  index: 15
+  text: "Thing is, you haven\342\200\231t just been sayin\342\200\231 nice things to me. We got a small team here, I know you seem sweet on Sable too\n\n Nothin\342\200\231 wrong with that by itself: he seems friendly, an\342\200\231 looks fine. But this whole thing feels kinda weird already, I don\342\200\231t think I can handle gettin\342\200\231 involved in whatever you an\342\200\231 Sable have goin\342\200\231 on, too."
+  branches {
+    responseText: "Don\342\200\231t worry about it. The troll and I aren\342\200\231t serious."
+    nextNodeIndex: 16
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Sable\342\200\231s great, but you\342\200\231re better. If I have to choose, I choose you."
+    nextNodeIndex: 16
+  }
+  branches {
+    responseText: "You sound like the jealous type. That\342\200\231s going to be a problem."
+    nextNodeIndex: 17
+  }
+  branches {
+    responseText: "You\342\200\231re a cool gal, but Sable has something more that I need."
+    nextNodeIndex: 18
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55667ffb346435ac07006397"
+  }
+  index: 16
+  text: "Got it. Well, Sable\342\200\231s been around the block before, I doubt he\342\200\231ll be too broken up over this."
+  branches {
+    responseText: ""
+    nextNodeIndex: 20
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5566801d346435ac070063a0"
+  }
+  index: 17
+  text: "Well, not jealous, exactly. More confused an\342\200\231 tryin\342\200\231 to keep it together.\n\nIn any case, I\342\200\231ll just bow out of this little dance an\342\200\231 let you an\342\200\231 Sable take it from here. Best wishes for you two!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 9
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55668022346435ac070063a3"
+  }
+  index: 18
+  text: "Ouch! So I\342\200\231m good enough to flirt with, but not enough to sacrifice for?\n\nEh, that\342\200\231s okay. If I were in your shoes, I might be a bit worried about gettin\342\200\231 involved with me, too."
+  branches {
+    responseText: ""
+    nextNodeIndex: 9
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55667fcc346435ac07006392"
+  }
+  index: 19
+  text: "Persi runs a hand through her hair and takes a deep breath. If anything, she seems even more tense now."
+  branches {
+    responseText: ""
+    nextNodeIndex: 20
+  }
+  nodeType: ConversationNodeType_GM_Speaker_Voice
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Romance_CanFlirtWithSable"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Romance_SableFlirtCount"
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Romance_SableLoveTalks"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Romance_PersiLoveTalks"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  comment: "# Update romance flags and continue with Persi"
+}
+nodes {
+  idRef {
+    id: "55667fea346435ac07006395"
+  }
+  index: 20
+  text: "I gotta admit, I\342\200\231ve had my eye on you for a while, too. Not like I was lookin\342\200\231 for someone in my life right now, but still, you got a special somethin\342\200\231 goin\342\200\231 on."
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "isMostlyARigger"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 21
+    comment: "Rigger"
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "isMostlySmart"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 22
+    comment: "Smart"
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "isMostlyChi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 23
+    comment: "Chi"
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "isMostlyStrong"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 24
+    comment: "Strong"
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "isMostlyRanged"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 25
+    comment: "Ranged"
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "isMostlyMagic"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 26
+    comment: "Magic"
+  }
+  branches {
+    responseText: ""
+    nextNodeIndex: 27
+    comment: "Default / Charisma"
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5566814e346435ac070063b0"
+  }
+  index: 21
+  text: "Yer one of the few people I\342\200\231ve met who really gets me an\342\200\231 what I\342\200\231m all about. I see you pay attention to your own drones an\342\200\231 care for \342\200\230em. They ain\342\200\231t just tools like hammers an\342\200\231 nails. They\342\200\231re like little kids, armed with shotguns. We rely on their help, but we also worry about them hurtin\342\200\231 themselves."
+  branches {
+    responseText: ""
+    nextNodeIndex: 28
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5566817f346435ac070063ba"
+  }
+  index: 22
+  text: "Lotsa people who are as smart as you lord it over everyone else, talkin\342\200\231 down to us an\342\200\231 actin\342\200\231 all snooty.\n\nYou ain\342\200\231t like that. You\342\200\231re down here in the real world, usin\342\200\231 that brain to help us out.\n\nIt\342\200\231s damn rare to run into someone like you, an\342\200\231 I\342\200\231m glad I did."
+  branches {
+    responseText: ""
+    nextNodeIndex: 28
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55668185346435ac070063be"
+  }
+  index: 23
+  text: "You\342\200\231re just so\342\200\246 graceful. I know, that\342\200\231s an awfully corny thing to say, but it\342\200\231s true!\n\nWhen I see ya runnin\342\200\231 into battle, ready to lay down some hurt, ya just FLOW from one spot to the next. I try not to stare, but\342\200\246 \n\n{{GM}}She grins, slightly bashful.{{/GM}}"
+  branches {
+    responseText: ""
+    nextNodeIndex: 28
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5566818c346435ac070063c2"
+  }
+  index: 24
+  text: "I mean, I try not to be shallow, but\342\200\246 you are BUILT!\n\n{{GM}}Persi squeezes your bicep, whistling in admiration.{{/GM}}\n\nHeh... I\342\200\231ve wanted to do that for a while. Got the perfect excuse now."
+  branches {
+    responseText: ""
+    nextNodeIndex: 28
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55668191346435ac070063c6"
+  }
+  index: 25
+  text: "I\342\200\231ve met a lotta shooters in my day. They\342\200\231re a dime a dozen. But you\342\200\246 you\342\200\231re different.\n\nWhen you line someone up in your sights, they die. End of story. I get a shiver down my spine each time I see it. You meld with your gun, in a way that makes me think\342\200\246 er, that is\342\200\246 uh\342\200\246"
+  branches {
+    responseText: ""
+    nextNodeIndex: 28
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55668197346435ac070063ca"
+  }
+  index: 26
+  text: "I tend not to have much truck with magic folks. Probably due to old fights with my sis, or whatever. Anyways, you\342\200\231re different. When you cast, it isn\342\200\231t scary, it doesn\342\200\231t feel wrong. I feel like you\342\200\231re tiltin\342\200\231 the universe to one side, changin\342\200\231 things just a little so they\342\200\231ll turn out better for the rest of us.\n\nI like that."
+  branches {
+    responseText: ""
+    nextNodeIndex: 28
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55668161346435ac070063b2"
+  }
+  index: 27
+  text: "Well, you know that I ain\342\200\231t much for followin\342\200\231 orders. But with you, it never feels like orders. You just show us the way, and we decide to do it, because it makes the most sense, ya? No wonder you can convince everyone to do what you want. You got the magic tongue, that old reality distortion field thing. I can see it working, but I don\342\200\231t care: I like watchin\342\200\231 the show."
+  branches {
+    responseText: ""
+    nextNodeIndex: 28
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5566816a346435ac070063b5"
+  }
+  index: 28
+  text: ""
+  branches {
+    responseText: "You\342\200\231re awfully cute, Persi."
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Every day with you feels like an adventure. I want to have more of those days."
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "There\342\200\231s just something\342\200\246 electrical between us. "
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "All I know is, I need you in my life."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "# You respond to Persi\'s compliment"
+}
+nodes {
+  idRef {
+    id: "5567d8fd346435ac07006738"
+  }
+  index: 29
+  text: "That\342\200\231s right! I owe ya a kiss."
+  branches {
+    responseText: ""
+    nextNodeIndex: 30
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567d914346435ac070067b6"
+  }
+  index: 30
+  text: "{{GM}}Smiling, Persi pulls out her rigger control console again, placing it into silent mode.{{/GM}}\n\nThere, that should keep the kids quiet for a bit."
+  branches {
+    responseText: ""
+    nextNodeIndex: 31
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567d925346435ac070067ba"
+  }
+  index: 31
+  text: "As promised, Persi delivers her kiss. This time you are ready.\n\nEyes closed, each of you begins to tentatively explore the other\'s body. Running your fingers up and down her bare arm, you feel the sleek muscles of an ork who has struggled for everything she\342\200\231s achieved in life."
+  branches {
+    responseText: ""
+    nextNodeIndex: 32
+  }
+  nodeType: ConversationNodeType_GM_Speaker_Voice
+}
+nodes {
+  idRef {
+    id: "5567da13346435ac0700683b"
+  }
+  index: 32
+  text: "Persi seems uncharacteristically shy at first, waiting for your initiatives before returning her own affections. As the seconds slip by, she grows more animated. You can feel her hunger, her desire, her longing as she takes matters into her own hands."
+  branches {
+    responseText: ""
+    nextNodeIndex: 33
+  }
+  nodeType: ConversationNodeType_GM_Speaker_Voice
+}
+nodes {
+  idRef {
+    id: "5567da47346435ac0700683f"
+  }
+  index: 33
+  text: "Her breath grows labored and heavy. And then, something turns.\n\nShe relaxes, leaning on your frame. You realize that this is the first time since you\342\200\231ve met Persi that she has seemed\342\200\246 peaceful. Content.\n\nPerhaps even happy."
+  branches {
+    responseText: ""
+    nextNodeIndex: 34
+  }
+  nodeType: ConversationNodeType_GM_Speaker_Voice
+}
+nodes {
+  idRef {
+    id: "5567da79346435ac07006842"
+  }
+  index: 34
+  text: "Ya know\342\200\246 this is nice.\n\n{{GM}}Persi\342\200\231s typical guarded expression has vanished. In its place is\342\200\246 a smile? Persi looks as though the universe has just told her a pleasant joke.{{/GM}}"
+  branches {
+    responseText: ""
+    nextNodeIndex: 35
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567da93346435ac07006845"
+  }
+  index: 35
+  text: "You gently tug Persi down to the floor. As you sit, she nestles her head in your lap, eyes staring up at you, her smile fading but still present."
+  branches {
+    responseText: ""
+    nextNodeIndex: 36
+  }
+  nodeType: ConversationNodeType_GM_Speaker_Voice
+  actions {
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Berlin:General/standing_idle_sitting"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Nearest Tagged Actor to Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isPersi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Berlin:General/standing_idle_sitting"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5567db01346435ac07006848"
+  }
+  index: 36
+  text: "Do ya remember the first time we met?"
+  branches {
+    responseText: "Of course."
+    nextNodeIndex: 37
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "I could never forget."
+    nextNodeIndex: 37
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Hm, jog my memory\342\200\246"
+    nextNodeIndex: 37
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567db28346435ac0700684d"
+  }
+  index: 37
+  text: "I\342\200\231ll never forget the first words that popped into my mind: \342\200\234Oh, shit.\342\200\235 Quickly followed by \342\200\234What is that damn fool $(l.race) DOING?\342\200\235\n\n{{GM}}She laughs heartily, sending vibrations throughout your body.{{/GM}}"
+  branches {
+    responseText: ""
+    nextNodeIndex: 38
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567db46346435ac07006853"
+  }
+  index: 38
+  text: "Of course, I wasn\342\200\231t really thinkin\342\200\231 about takin\342\200\231 a mate in that moment. Still, what with all the blood an\342\200\231 the explosions an\342\200\231 the gunfire\342\200\246 well, there sure was a lotta adrenaline an\342\200\231 endorphins pumpin\342\200\231 that day, ya?\n\nYa gotta wonder\342\200\246 does that have somethin\342\200\231 to do with us? Wantin\342\200\231 to recapture that natural chemical high we had the first time we experienced one another?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 39
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567db5b346435ac07006856"
+  }
+  index: 39
+  text: "{{GM}}She snuggles in more deeply, turning her head to one side.{{/GM}}\n\n\342\200\230Course, if you\342\200\231d been stupid enough to ask me out then, I\342\200\231d have said \342\200\234no.\342\200\235 I was seein\342\200\231 another ork back then, name of Celadon. We lasted\342\200\246 oh, about a year. Real tall. Not so good with honesty."
+  branches {
+    responseText: ""
+    nextNodeIndex: 40
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567db72346435ac07006859"
+  }
+  index: 40
+  text: "{{GM}}Persi lazily raises an arm and starts circling your ear with her finger.{{/GM}}\n\nI guess this is the part where we talk about ex-lovers, huh? How about you? Did you have lots of girlfriends before me?"
+  branches {
+    responseText: "There were several."
+    nextNodeIndex: 41
+  }
+  branches {
+    responseText: "Not so much."
+    nextNodeIndex: 42
+  }
+  branches {
+    responseText: "I\342\200\231m still wondering about this \342\200\234Celadon\342\200\235 character\342\200\246"
+    nextNodeIndex: 43
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567dbaf346435ac07006869"
+  }
+  index: 41
+  text: "Mmm. Can\342\200\231t say I\342\200\231m surprised. Nothin\342\200\231 wrong with experience, ya? Maybe we can teach each other somethin\342\200\231 new."
+  branches {
+    responseText: ""
+    nextNodeIndex: 44
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567dba9346435ac07006865"
+  }
+  index: 42
+  text: "Aw, really? That\342\200\231s actually kinda sweet. I\342\200\231m sure it wasn\342\200\231t from lack of opportunity."
+  branches {
+    responseText: ""
+    nextNodeIndex: 44
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567db96346435ac0700685f"
+  }
+  index: 43
+  text: "{{GM}}She abruptly tugs on your earlobe.{{/GM}}\n\nHey, now! Don\342\200\231t change the subject."
+  branches {
+    responseText: ""
+    nextNodeIndex: 44
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567dba2346435ac07006862"
+  }
+  index: 44
+  text: "So: your last girlfriend. What happened there?"
+  branches {
+    responseText: "We had a rough breakup."
+    nextNodeIndex: 45
+  }
+  branches {
+    responseText: "We just drifted apart."
+    nextNodeIndex: 46
+  }
+  branches {
+    responseText: "It was\342\200\246 complicated."
+    nextNodeIndex: 47
+  }
+  branches {
+    responseText: "I\342\200\231d rather not talk about it."
+    nextNodeIndex: 48
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567dbfc346435ac0700687f"
+  }
+  index: 45
+  text: "Poor baby! \n\nI shouldn\342\200\231t kid you; feelings are real, even though we like to pretend they ain\342\200\231t. If it helps, I can promise that I\342\200\231ll try to be gentle."
+  branches {
+    responseText: ""
+    nextNodeIndex: 49
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567dbf5346435ac0700687b"
+  }
+  index: 46
+  text: "Way of the world, huh? Especially with you an\342\200\231 your shadowrunning job an\342\200\231 all that. It\342\200\231s kinda surprising that any of us last long."
+  branches {
+    responseText: ""
+    nextNodeIndex: 49
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567dbee346435ac07006877"
+  }
+  index: 47
+  text: "Oooh, sounds juicy! Well, if you need to build up to it, take your time. Or I can just wait for the trideo to come out."
+  branches {
+    responseText: ""
+    nextNodeIndex: 49
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567dbe4346435ac07006871"
+  }
+  index: 48
+  text: "{{GM}}She sighs in disappointment.{{/GM}}\n\nI was hopin\342\200\231 to hear a story. Oh, well. Maybe some other time."
+  branches {
+    responseText: ""
+    nextNodeIndex: 49
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567dbe9346435ac07006874"
+  }
+  index: 49
+  text: "Persi closes her eyes. You can\342\200\231t tell if she\342\200\231s sleeping or merely resting, but either way, she\342\200\231s more peaceful than you\342\200\231ve ever seen her before. \n\nMinutes pass. Bystanders give you a respectful berth as you gaze down into Persi\342\200\231s features, the last glimmer of that smile still twinkling at the edge of her lips."
+  branches {
+    responseText: ""
+    nextNodeIndex: 50
+  }
+  nodeType: ConversationNodeType_GM_Speaker_Voice
+}
+nodes {
+  idRef {
+    id: "5567dcc8346435ac07006884"
+  }
+  index: 50
+  text: "You feel pinpricks as your legs begin to fall asleep. You start gently stroking Persi\342\200\231s hair, fingers lightly playing along her mahogany tresses.\n\nAfter another minute passes, Persi stirs, her grin returning to full force as she opens her eyes."
+  branches {
+    responseText: ""
+    nextNodeIndex: 51
+  }
+  nodeType: ConversationNodeType_GM_Speaker_Voice
+}
+nodes {
+  idRef {
+    id: "5567dce6346435ac07006887"
+  }
+  index: 51
+  text: "Hey, you."
+  branches {
+    responseText: "Hey."
+    nextNodeIndex: 53
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Did I wake you?"
+    nextNodeIndex: 52
+  }
+  branches {
+    responseText: "\342\200\230Sup?"
+    nextNodeIndex: 53
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567dd1d346435ac07006890"
+  }
+  index: 52
+  text: "Naw. I mean\342\200\246 I don\342\200\231t think so. I was just restin\342\200\231 my eyes."
+  branches {
+    responseText: ""
+    nextNodeIndex: 53
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567dd06346435ac0700688c"
+  }
+  index: 53
+  text: "{{GM}}Persi stretches widely, then lifts herself back upright. Your legs howl in relief.{{/GM}}\n\nMmm\342\200\246 Well. Always nice spendin\342\200\231 time with you, ya? "
+  branches {
+    responseText: ""
+    nextNodeIndex: 54
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Seattle:General/standing_idle_calm"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Nearest Tagged Actor to Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isPersi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Seattle:General/standing_idle_calm"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5567dd34346435ac07006895"
+  }
+  index: 54
+  text: "{{GM}}Persi shakes her head in disgust.{{/GM}}\n\nGah! I need better words for talkin\342\200\231 to ya now. Well. Hopefully ya know how I feel, even if I can\342\200\231t say it for shit."
+  branches {
+    responseText: ""
+    nextNodeIndex: 55
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567dd4d346435ac07006898"
+  }
+  index: 55
+  text: "I gotta check in and make sure that the drones didn\342\200\231t burn down the house while we were busy. \n\n{{GM}}Persi leans back over her console, obviously in a much better mood than before.{{/GM}}"
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567def9346435ac07006a1b"
+  }
+  index: 56
+  text: "Persi obeys, but seems listless. She doesn\342\200\231t respond to your touch."
+  branches {
+    responseText: "Something\342\200\231s obviously bothering you."
+    nextNodeIndex: 58
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Hey. If anything\342\200\231s off, we should talk."
+    nextNodeIndex: 58
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Let\342\200\231s do this!"
+    nextNodeIndex: 57
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567df1c346435ac07006a20"
+  }
+  index: 57
+  text: "You repeat the same motions as before, bringing Persi in and rubbing warmth into her body, but it feels mechanical, forced. Eventually it becomes clear that she\342\200\231s far too distracted to participate."
+  branches {
+    responseText: ""
+    nextNodeIndex: 58
+  }
+  nodeType: ConversationNodeType_GM_Voice
+}
+nodes {
+  idRef {
+    id: "5567df34346435ac07006a23"
+  }
+  index: 58
+  text: "I\342\200\231m sorry. You ready for a cliche? Here it comes: \342\200\234It ain\342\200\231t you, it\342\200\231s me.\342\200\235\n\nOr, more specifically, it\342\200\231s me thinkin\342\200\231 about you."
+  branches {
+    responseText: ""
+    nextNodeIndex: 59
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567df4b346435ac07006a29"
+  }
+  index: 59
+  text: "{{GM}}Persi sighs deeply.{{/GM}}\n\nI gotta be blunt. I\342\200\231ve had other $(story.men) before. An\342\200\231 I don\342\200\231t really expect \342\200\230em to last, right? I mean\342\200\246 not, like, die, but I don\342\200\231t see myself growin\342\200\231 old with someone else."
+  branches {
+    responseText: ""
+    nextNodeIndex: 60
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567df60346435ac07006a2c"
+  }
+  index: 60
+  text: "In the time we\342\200\231ve spent together, though, I find myself thinkin\342\200\231 that way. Not deliberately or nothin\342\200\231, just the sorta thought that creeps over my mind when I catch sight of ya while we\342\200\231re on a mission. \342\200\234Gee, I sure hope nothin\342\200\231 happens to $(l.name)!\342\200\235 That kinda thing."
+  branches {
+    responseText: "I don\342\200\231t see what the problem is."
+    nextNodeIndex: 61
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "That\342\200\231s sweet, Persi."
+    nextNodeIndex: 61
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "I hope nothing happens to me, either."
+    nextNodeIndex: 61
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567df97346435ac07006a33"
+  }
+  index: 61
+  text: "Thing is\342\200\246 \n\nI\342\200\231ve always been independent, ya? As in, it\342\200\231s the single most important thing to me. \n\nBein\342\200\231 able to pull up stakes, hit the road, travel to greener pastures, leavin\342\200\231 your crummy past behind and headin\342\200\231 to a better future\342\200\246 it\342\200\231s what I need most."
+  branches {
+    responseText: ""
+    nextNodeIndex: 62
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567dfb7346435ac07006a39"
+  }
+  index: 62
+  text: "But this thing we have\342\200\246 it screws with that. I can\342\200\231t just up an\342\200\231 leave without leavin\342\200\231 you, too\n\n But I don\342\200\231t want to leave you.\n\nBut I don\342\200\231t want to lose this part of who I am, either\342\200\246"
+  branches {
+    responseText: ""
+    nextNodeIndex: 63
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567dfe4346435ac07006b12"
+  }
+  index: 63
+  text: "{{GM}}She angrily punches a convenient wall.{{/GM}}\n\nGah! I know I sound ungrateful. Lotsa gals would love to have this problem. But I\342\200\231m worried that one day I\342\200\231ll need to leave ya, and it\342\200\231s gonna suck.\n\nI\342\200\231d rather nip the bud while this thing is still startin\342\200\231, instead of waitin\342\200\231 until we\342\200\231re both in too deep."
+  branches {
+    responseText: "You\342\200\231re too pessimistic. Don\342\200\231t just focus on the bad outcomes."
+    nextNodeIndex: 64
+  }
+  branches {
+    responseText: "Breaking up now would still suck."
+    nextNodeIndex: 65
+  }
+  branches {
+    responseText: "So, this is only a problem because of how strong your feelings are for me."
+    nextNodeIndex: 66
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Order Actor to Face Direction"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Target Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Triggering Target Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Seattle:General/standing_attack_unarmed"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "weapons"
+          }
+          args {
+            string_value: "PunchHit"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5567e067346435ac07006b15"
+  }
+  index: 64
+  text: "I ain\342\200\231t gonna ignore them, either. It\342\200\231s foolish to just assume that everything ends up wonderful, even if that is how most Californians think."
+  branches {
+    responseText: ""
+    nextNodeIndex: 67
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567e08d346435ac07006b21"
+  }
+  index: 65
+  text: "I\342\200\246 I know! You think this is easy for me?!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 67
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567e083346435ac07006b1a"
+  }
+  index: 66
+  text: "Ironic, huh? I never had a problem with the $(story.men) I didn\342\200\231t care for that much. I coulda 86\342\200\231d any one of \342\200\230em at any time. But now\342\200\246 ugh."
+  branches {
+    responseText: ""
+    nextNodeIndex: 67
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567e087346435ac07006b1d"
+  }
+  index: 67
+  text: "I still like ya. Like I said, don\342\200\231t take this personal. But we should kill this thing before it changes who we are."
+  branches {
+    responseText: "Maybe that change is a good thing. Change could make us both better people."
+    nextNodeIndex: 68
+  }
+  branches {
+    responseText: "You\342\200\231re assuming I\342\200\231m staying here. We could go together if you ever needed to leave."
+    nextNodeIndex: 70
+  }
+  branches {
+    responseText: "We could both die tomorrow. Let\342\200\231s enjoy this while we can instead of worrying about the future."
+    nextNodeIndex: 72
+  }
+  branches {
+    responseText: "You\342\200\231re right. We should stop seeing each other."
+    nextNodeIndex: 81
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Order Actor to Face Point"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Target Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Current Location of Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5567e16c346435ac07006b3d"
+  }
+  index: 68
+  text: "{{GM}}Persi cocks her head to one side, staring at you. You wait as she reflects on your words.{{/GM}}\n\nWell\342\200\246 I mean, I like who I am. But there are some things I don\342\200\231t like. Some things that could be better. Same with you, I s\342\200\231pose."
+  branches {
+    responseText: ""
+    nextNodeIndex: 69
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567e214346435ac07006b41"
+  }
+  index: 69
+  text: "Maybe it\342\200\231s worth tryin\342\200\231. I mean, we don\342\200\231t know until we try, right?\n\nI shouldn\342\200\231t be runnin\342\200\231 from  this thing if it scares me. I should be facin\342\200\231 it head-on."
+  branches {
+    responseText: ""
+    nextNodeIndex: 74
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567e165346435ac07006b39"
+  }
+  index: 70
+  text: "You\342\200\246 you would do that?\n\n{{GM}}Persi stares at you wide-eyed. Clearly the possibility hadn\342\200\231t crossed her mind.{{/GM}}\n\nI\342\200\231ve always been on my own, but\342\200\246 well, we run well together in this team. You would be a great shotgun rider on a cross-country trip."
+  branches {
+    responseText: ""
+    nextNodeIndex: 71
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567e231346435ac07006b45"
+  }
+  index: 71
+  text: "Well. This changes everythin\342\200\231! If you can follow me, then there\342\200\231s no reason for us to be apart."
+  branches {
+    responseText: ""
+    nextNodeIndex: 74
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567e153346435ac07006b33"
+  }
+  index: 72
+  text: "{{GM}}Tears unexpectedly begin to well up in Persi\342\200\231s eyes.{{/GM}}\n\nFuck, I don\342\200\231t think I could deal with that. If we parted like this, an\342\200\231 then you died an\342\200\231 the whole thing was meaningless anyways\342\200\246 no way."
+  branches {
+    responseText: ""
+    nextNodeIndex: 73
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567e161346435ac07006b36"
+  }
+  index: 73
+  text: "All right.\n\nI\342\200\231ll try an\342\200\231 take my eyes off the future, stay in the moment. We take it one day at a time, same as always. If pain comes later on, we deal with it then."
+  branches {
+    responseText: ""
+    nextNodeIndex: 74
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567e278346435ac07006b4a"
+  }
+  index: 74
+  text: "Now\342\200\246 where were we?\n\n{{GM}}Smiling, Persi advances on you. You playfully back up, hands in the air, until you feel your rear bump into the wall behind you.{{/GM}}"
+  branches {
+    responseText: ""
+    nextNodeIndex: 75
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Seattle:General/standing_cast_buff"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Triggering Target Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Berlin:General/standing_attack_unarmed_throw_double"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5567e2c2346435ac07006b50"
+  }
+  index: 75
+  text: "Aha, gotcha! Lemme show you how ex-California Rangers deal with miscreants like you."
+  branches {
+    responseText: ""
+    nextNodeIndex: 76
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567e376346435ac07006b53"
+  }
+  index: 76
+  text: "Apparently, the California Rangers\342\200\231 law-enforcement tactics include strip-searches, light paddlings, and inappropriate mouth-to-suspect contact. However, they are easily dissuaded from their duties when captives respond with heavily localized massages."
+  branches {
+    responseText: ""
+    nextNodeIndex: 77
+  }
+  nodeType: ConversationNodeType_GM_Speaker_Voice
+  actions {
+    ops {
+      functionName: "Teleport Camera To Point"
+      args {
+        call_value {
+          functionName: "Current Location of Prop"
+          args {
+            call_value {
+              functionName: "Get Map Item (Prop)"
+              args {
+                string_value: "5567e3c2346435ac07006c58"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5567e422346435ac07006d5d"
+  }
+  index: 77
+  text: "Mmmm\342\200\246 yeah, babe. That\342\200\231s the spot. Just keep workin\342\200\231 it\342\200\246 Ah!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 78
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "player"
+          }
+          args {
+            string_value: "FemaleHit"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5567e42e346435ac07006d60"
+  }
+  index: 78
+  text: "{{GM}}Grinning, Persi seizes your head between her hands and laughs heartily.{{/GM}}\n\nI can\342\200\231t believe I was gonna let you just walk outta here! What the hell was I thinkin\342\200\231? I can be so stupid sometimes\342\200\246"
+  branches {
+    responseText: "All\342\200\231s well that ends well, right?"
+    nextNodeIndex: 79
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "I\342\200\231m just glad we\342\200\231re past that."
+    nextNodeIndex: 79
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Well, I wasn\342\200\231t going to say anything, but\342\200\246"
+    nextNodeIndex: 79
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567e49c346435ac07006d67"
+  }
+  index: 79
+  text: "Mmmm. I\342\200\231m gonna hold on to you from now on. Hold on to ya with everythin\342\200\231 I got.\n\nAnd you know I have a tight grip."
+  branches {
+    responseText: ""
+    nextNodeIndex: 80
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567e4b9346435ac07006d6d"
+  }
+  index: 80
+  text: "{{GM}}Grinning, Persi saunters away. She calls back over her shoulder.{{/GM}}\n\nI owe ya one, $(l.name). Let me know when you\342\200\231re ready for some payback."
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Teleport Camera To Actor"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+    }
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Seattle:General/standing_idle_calm"
+          }
+        }
+      }
+    }
+  }
+  comment: "TODO: Maybe have Persi actually walk away from here? Once I have the region established, at least."
+}
+nodes {
+  idRef {
+    id: "5567e0e2346435ac07006b29"
+  }
+  index: 81
+  text: "Yeah. Exactly.\n\n{{GM}}Persi sounds sad, despite getting her way.{{/GM}}\n\nNo hard feelin\342\200\231s or nothin\342\200\231. An\342\200\231 for what it\342\200\231s worth, you\342\200\231re a damn fine lover. I hope the next gal you meet works out for ya.\n"
+  branches {
+    responseText: "You too, Persi."
+    nextNodeIndex: 82
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "It\342\200\231s been good."
+    nextNodeIndex: 82
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Whatever."
+    nextNodeIndex: 82
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5567e108346435ac07006b2e"
+  }
+  index: 82
+  text: "{{GM}}Persi shakes your hand, and a bit of color creeps back into her face.{{/GM}}\n\nS\342\200\231been an interestin\342\200\231 couple of weeks, huh? Well. Pals, then. "
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Romance_PersiLoveTalks"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Romance_PersiFlirtCount"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Romance_CanFlirtWithPersi"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "55654e18346435ac07006077"
+  }
+  index: 83
   text: ""
   branches {
     responseText: ""
@@ -617,7 +2542,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 15
+    nextNodeIndex: 84
     comment: "#She likes you! She really likes you!"
   }
   branches {
@@ -660,12 +2585,12 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 16
+    nextNodeIndex: 85
     comment: "#You\'re okay."
   }
   branches {
     responseText: ""
-    nextNodeIndex: 17
+    nextNodeIndex: 86
     comment: "#Bad news: she doesn\'t care for you much."
   }
   nodeType: ConversationNodeType_Simple
@@ -675,7 +2600,7 @@ nodes {
   idRef {
     id: "55654e71346435ac0700607c"
   }
-  index: 15
+  index: 84
   text: "See ya around!"
   nodeType: ConversationNodeType_Simple
 }
@@ -683,7 +2608,7 @@ nodes {
   idRef {
     id: "55654e86346435ac0700607e"
   }
-  index: 16
+  index: 85
   text: "Take care."
   nodeType: ConversationNodeType_Simple
 }
@@ -691,7 +2616,7 @@ nodes {
   idRef {
     id: "55654efb346435ac07006080"
   }
-  index: 17
+  index: 86
   text: "{{GM}}She nods curtly, and returns to examining her drones.{{/GM}}"
   nodeType: ConversationNodeType_Simple
 }
@@ -699,7 +2624,7 @@ nodes {
   idRef {
     id: "55654b2f346435ac07005fa1"
   }
-  index: 18
+  index: 87
   text: "Ugh. This had better be important."
   branches {
     responseText: ""
@@ -712,7 +2637,7 @@ nodes {
   idRef {
     id: "55654b45346435ac07005fa6"
   }
-  index: 19
+  index: 88
   text: "Yeah? What\342\200\231s up, boss?"
   branches {
     responseText: ""
@@ -725,7 +2650,7 @@ nodes {
   idRef {
     id: "55654b5f346435ac07005faa"
   }
-  index: 20
+  index: 89
   text: "{{GM}}Persi flashes you two thumbs up.{{/GM}}\n\nAll good, boss. I\342\200\231m ready for more action."
   branches {
     responseText: ""
@@ -738,7 +2663,7 @@ nodes {
   idRef {
     id: "55654b85346435ac07005fae"
   }
-  index: 21
+  index: 90
   text: "{{GM}}Persi lets out a whoop.{{/GM}}\n\nHooah! I can\342\200\231t wait to get back into it again! You always find the best missions."
   branches {
     responseText: ""
@@ -1017,7 +2942,7 @@ roots {
       }
     }
   }
-  nextNodeIndex: 18
+  nextNodeIndex: 87
   comment: "#Persi dislikes you"
 }
 roots {
@@ -1060,7 +2985,7 @@ roots {
       }
     }
   }
-  nextNodeIndex: 19
+  nextNodeIndex: 88
   comment: "#Persi is neutral"
 }
 roots {
@@ -1103,11 +3028,11 @@ roots {
       }
     }
   }
-  nextNodeIndex: 20
+  nextNodeIndex: 89
   comment: "#Persi approves of you"
 }
 roots {
   responseText: ""
-  nextNodeIndex: 21
+  nextNodeIndex: 90
   comment: "#Persi strongly approves of you"
 }
