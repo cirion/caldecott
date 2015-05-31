@@ -168,7 +168,15 @@ nodes {
           }
         }
         args {
-          int_value: 2
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Const_ConvosPerHubVisit"
+            }
+          }
         }
       }
       ops {
@@ -406,7 +414,15 @@ nodes {
           }
         }
         args {
-          int_value: 2
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Const_ConvosPerHubVisit"
+            }
+          }
         }
       }
     }
@@ -438,8 +454,218 @@ nodes {
     comment: "Lovetalk 3"
   }
   branches {
-    responseText: "Goodbye."
+    responseText: "You aren\342\200\231t originally from here, are you?"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksPersi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Const_ConvosPerHubVisit"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Persi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksPersi"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Persi"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: 83
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "556b746e34643528130065a3"
+    }
+  }
+  branches {
+    responseText: "It\342\200\231s a little weird seeing you out of your uniform."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksPersi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Const_ConvosPerHubVisit"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Persi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksPersi"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Persi"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    nextNodeIndex: 117
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "556b7a1a3464352813006ed1"
+    }
+  }
+  branches {
+    responseText: "Goodbye."
+    nextNodeIndex: 144
   }
   nodeType: ConversationNodeType_Simple
   actions {
@@ -2463,9 +2689,1683 @@ nodes {
 }
 nodes {
   idRef {
-    id: "55654e18346435ac07006077"
+    id: "556b747634643528130065a5"
   }
   index: 83
+  text: "What tipped ya off?"
+  branches {
+    responseText: "You aren\342\200\231t as laid-back as most folks here."
+    nextNodeIndex: 84
+  }
+  branches {
+    responseText: " I just get that vibe from you."
+    nextNodeIndex: 85
+  }
+  branches {
+    responseText: "You never say \342\200\234hella.\342\200\235"
+    nextNodeIndex: 86
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b74dd34643528130065b4"
+  }
+  index: 84
+  text: "{{GM}}She arches an eyebrow in surprise.{{/GM}}\n\nThat right? Should I take that as a compliment? Never did like how Bay Areans always act like everythin\342\200\231s gonna turn out great no matter what."
+  branches {
+    responseText: ""
+    nextNodeIndex: 87
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b74d634643528130065b0"
+  }
+  index: 85
+  text: "Ya? Weird. Don\342\200\231t suppose there\342\200\231s much I can do about that."
+  branches {
+    responseText: ""
+    nextNodeIndex: 87
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b74cf34643528130065aa"
+  }
+  index: 86
+  text: "{{GM}}She flashes a quick grin.{{/GM}}\n\nRight on. Gotta keep my pride. Ain\342\200\231t gonna find me conformin\342\200\231 to stupid slang."
+  branches {
+    responseText: ""
+    nextNodeIndex: 87
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b74d334643528130065ad"
+  }
+  index: 87
+  text: "Naw, I came here from the Central Valley. Grew up near Sacramento, got the hell outta there a few years back. Just before the two of us first bumped into each other, actually. \n\nAnd yourself? Where do ya hail from?"
+  branches {
+    responseText: "I\342\200\231m a local. Grew up around here."
+    nextNodeIndex: 88
+  }
+  branches {
+    responseText: "I was born in CalFree, came here later in life."
+    nextNodeIndex: 89
+  }
+  branches {
+    responseText: "I\342\200\231m originally from Seattle. "
+    nextNodeIndex: 90
+  }
+  branches {
+    responseText: "I hail from Denver."
+    nextNodeIndex: 91
+  }
+  branches {
+    responseText: "I\342\200\231m from UCAS."
+    nextNodeIndex: 92
+  }
+  branches {
+    responseText: "I arrived here from Europe."
+    nextNodeIndex: 93
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "I used to live in Asia."
+    nextNodeIndex: 93
+  }
+  branches {
+    responseText: "I come from far away."
+    nextNodeIndex: 94
+  }
+  branches {
+    responseText: "It doesn\342\200\231t matter."
+    nextNodeIndex: 95
+  }
+  branches {
+    responseText: "None of your business."
+    nextNodeIndex: 96
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b75f134643528130065e7"
+  }
+  index: 88
+  text: "Wow, really? An honest-to-goodness native? People like you are extremely rare. Almost everyone I\342\200\231ve met comes here from somewhere else."
+  branches {
+    responseText: ""
+    nextNodeIndex: 97
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b75eb34643528130065e3"
+  }
+  index: 89
+  text: "{{GM}}She nods in recognition.{{/GM}}\n\nA fellow traveler, eh. Yeah, not much else goin\342\200\231 on in CalFree outside the Bay Area.\n\nEver since Saito landed, all the nuyen has dried up, along with most of the action. Anyone who wants to get stuff done ends up comin\342\200\231 out here."
+  branches {
+    responseText: ""
+    nextNodeIndex: 97
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b75e634643528130065df"
+  }
+  index: 90
+  text: "Wow, cool. Lotsa interestin\342\200\231 stuff happenin\342\200\231 out that way these days. I hear stories about the Emerald City Ripper, the Aneki Corporation, and some mysterious stuff about the Sinsearach. And you left it all behind!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 97
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b75e134643528130065db"
+  }
+  index: 91
+  text: "Treaty City, eh? Cool. I\342\200\231d like to see it someday. Sounds dangerous and exciting, lotsa opportunities for smuggling or just toolin\342\200\231 around."
+  branches {
+    responseText: ""
+    nextNodeIndex: 97
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b75dc34643528130065d7"
+  }
+  index: 92
+  text: "Ah. The late, great U.S. of A.\n\nWelcome to our little slice of paradise. I\342\200\231m afraid our government\342\200\231s at least as corrupt and ineffective as yours, but at least we get more sunshine out here."
+  branches {
+    responseText: ""
+    nextNodeIndex: 97
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b757234643528130065c4"
+  }
+  index: 93
+  text: "Ooh, cool! I haven\342\200\231t met too many folks from that far away. Did ya come over here on a plane? Or take the slow boat? Eh, never mind, you\342\200\231re makin\342\200\231 me jealous. I\342\200\231d love ta travel that far one day."
+  branches {
+    responseText: ""
+    nextNodeIndex: 97
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b75d734643528130065d3"
+  }
+  index: 94
+  text: "Nice. I like to meet a wanderer. There\342\200\231s a great big world out there, seems a shame when folks stick close to home."
+  branches {
+    responseText: ""
+    nextNodeIndex: 97
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b75d134643528130065cf"
+  }
+  index: 95
+  text: "What, are you tryin\342\200\231 to be all mysterious or somethin\342\200\231? Eh, whatever."
+  branches {
+    responseText: ""
+    nextNodeIndex: 97
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b757034643528130065c2"
+  }
+  index: 96
+  text: "Hey, you asked me first, remember? Turnabout\342\200\231s fair play."
+  branches {
+    responseText: ""
+    nextNodeIndex: 97
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b779134643528130068a2"
+  }
+  index: 97
+  text: "And how do ya like it here, anyways?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 98
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b757f34643528130065ca"
+  }
+  index: 98
+  text: ""
+  branches {
+    responseText: "{{CC}}Metatype: $+(s.race){{/CC}} Life here in Oakland is chaotic but pretty good. I just need to be careful not to cross the bridge and I\342\200\231m fine."
+    conditions {
+      ops {
+        functionName: "OR"
+        args {
+          call_value {
+            functionName: "Compare Actor Race"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "IsOrIsNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Race"
+                }
+                args {
+                  int_value: 3
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Compare Actor Race"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "IsOrIsNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Race"
+                }
+                args {
+                  int_value: 4
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 99
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "{{CC}}Metatype: Elf{{/CC}} Can\342\200\231t complain. Even though metahumans aren\342\200\231t officially allowed in San Francisco, elves like me can usually bend the rules."
+    conditions {
+      ops {
+        functionName: "Compare Actor Race"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Race"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 100
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "{{CC}}Metatype: Human{{/CC}} I suppose I\342\200\231m one of the lucky ones. I can do pretty much anything without getting hassled."
+    conditions {
+      ops {
+        functionName: "Compare Actor Race"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Race"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 101
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "{{CC}}Metatype: Dwarf{{/CC}} It\342\200\231s pretty good. I keep my head down, avoid San Francisco, and get my business done."
+    conditions {
+      ops {
+        functionName: "Compare Actor Race"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Race"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 102
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "It\342\200\231s fine. People make too much of this place. Anywhere you go is more or less the same."
+    nextNodeIndex: 103
+  }
+  branches {
+    responseText: "The Bay Area has been good to me. I think I\342\200\231ll stick around for a while."
+    nextNodeIndex: 104
+  }
+  branches {
+    responseText: "We\342\200\231ve got dictators, megacorps, and gangs. What\342\200\231s NOT to like?"
+    nextNodeIndex: 105
+  }
+  branches {
+    responseText: "{{CC}}Flirt{{/CC}} I like it a lot. The riggers here are beautiful and talented."
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "FlirtedPersiConvo1"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_CanFlirtWithPersi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_PersiFlirtCount"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    nextNodeIndex: 114
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "556b81ac3464352813007848"
+    }
+  }
+  branches {
+    responseText: "{{CC}}Flirt{{/CC}} I\342\200\231d like it more if I had someone here to pass the time with. But where can I find an attractive ork willing to give me the time of day?"
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_CanFlirtWithPersi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "FlirtedPersiConvo1"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_PersiFlirtCount"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    nextNodeIndex: 115
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "556b81a93464352813007847"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b77f034643528130068cf"
+  }
+  index: 99
+  text: "I hear ya. We\342\200\231re all living the pen life over here."
+  branches {
+    responseText: ""
+    nextNodeIndex: 106
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b77f034643528130068cf"
+  }
+  index: 100
+  text: "Yeah, and if if that ever changes, what\342\200\231s the worst that would happen? Maybe you need to go to Tir Tairngire and live in the most powerful nation on Earth for a while? Poor you."
+  branches {
+    responseText: ""
+    nextNodeIndex: 106
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b77f034643528130068cf"
+  }
+  index: 101
+  text: "Hey, at least you realize it. I know lotsa breeders who whine about how hard they have it, and don\342\200\231t even realize that orks need to be careful about where they walk if they don\342\200\231t wanna get capped."
+  branches {
+    responseText: ""
+    nextNodeIndex: 106
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b77f034643528130068cf"
+  }
+  index: 102
+  text: "{{GM}}She rolls her eyes.{{/GM}}\n\n\342\200\234Keep your head down.\342\200\235 I get it, real clever.\n\nLucky you. Lotsa dwarves around here are good at lookin\342\200\231 out for each other. Ya seem to stick together much better than we orks do."
+  branches {
+    responseText: ""
+    nextNodeIndex: 106
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b77f034643528130068cf"
+  }
+  index: 103
+  text: "I dunno. Have you ever been to Sacramento? Now that place is a stinkin\342\200\231 shithole.\n\nMaybe the Bay Area ain\342\200\231t all it\342\200\231s cracked up to be, but there are way worse places out there."
+  branches {
+    responseText: ""
+    nextNodeIndex: 106
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b77f034643528130068cf"
+  }
+  index: 104
+  text: "Cool. There\342\200\231s a lot goin\342\200\231 on here, always a chance for excitement if that\342\200\231s what yer lookin\342\200\231 for."
+  branches {
+    responseText: ""
+    nextNodeIndex: 106
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b77e834643528130068c9"
+  }
+  index: 105
+  text: "Heh\342\200\246 that\342\200\231s true. Still, facin\342\200\231 obstacles like that can bring out the best in people. Life would be borin\342\200\231 if it was too easy, y\342\200\231know?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 106
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b77eb34643528130068cc"
+  }
+  index: 106
+  text: "Myself, I\342\200\231ve had a bit of an adjustment since movin\342\200\231 out here. It\342\200\231s way more crowded than I\342\200\231m used to, and I don\342\200\231t like that so much.\n\nWhat\342\200\231s the point of soupin\342\200\231 up a hot-rod rig that can reach 300 klicks if the roads are so congested you just run into whoever\342\200\231s in front of ya?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 107
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b78983464352813006a44"
+  }
+  index: 107
+  text: "Fortunately, I installed a cow-catcher on ole\342\200\231 Bessy, and now people know ta get the hell outta my way when they see me comin\342\200\231."
+  branches {
+    responseText: ""
+    nextNodeIndex: 108
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b78983464352813006a44"
+  }
+  index: 108
+  text: "I used to hate the geography around here, too. So many mountains and water, way too close to each other\342\200\246 back in the Valley I could build up a nice head of steam and just blast ahead full power for hours and hours. Out here ya need to always watch where you\342\200\231re goin\342\200\231."
+  branches {
+    responseText: ""
+    nextNodeIndex: 109
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b78983464352813006a44"
+  }
+  index: 109
+  text: "But then I figured, hey, make yer problem into an opportunity, y\342\200\231know? So I learned how to make amphibious vehicles, and add VTOL to my four-wheelers, and now, well, Diablo or the Bay ain\342\200\231t gonna stop me when I need a quick getaway."
+  branches {
+    responseText: ""
+    nextNodeIndex: 110
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b78983464352813006a44"
+  }
+  index: 110
+  text: "Plus, folks are pretty friendly to orks out here. That\342\200\231s a nice change of pace from the Valley. Nobody has much patience for Humanis or the Native Californians, \342\200\230specially not here in Orkland."
+  branches {
+    responseText: ""
+    nextNodeIndex: 111
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b78983464352813006a44"
+  }
+  index: 111
+  text: "So, yeah. Bay Area. Cool. Was that it?"
+  branches {
+    responseText: "About the Alameda job\342\200\246"
+    nextNodeIndex: 112
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "I wanted to talk to you about what went down last time\342\200\246"
+    nextNodeIndex: 112
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Look, you can\342\200\231t keep avoiding\342\200\246"
+    nextNodeIndex: 112
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b790d3464352813006a53"
+  }
+  index: 112
+  text: "{{GM}}She abruptly cuts you off.{{/GM}}\n\nLook. History is fascinatin\342\200\231 an\342\200\231 all that, but ya can\342\200\231t always focus on what\342\200\231s in the past. Like driving a car, ya? Gotta keep yer eye on the windshield in front of ya, not the rear view mirror.\n\nFuture\342\200\231s where the action\342\200\231s at."
+  branches {
+    responseText: ""
+    nextNodeIndex: 113
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b79223464352813006a56"
+  }
+  index: 113
+  text: "If it\342\200\231s ever important, we can talk about it. I don\342\200\231t see how \342\200\230s relevant right now, though. So let\342\200\231s just smile and drop it, okay? Cool. Good talk, boss."
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b77a334643528130068c2"
+  }
+  index: 114
+  text: "{{GM}}She rolls her eyes in mock-annoyance.{{/GM}}\n\nCute. Real cute. Hey, if you\342\200\231re feelin\342\200\231 lonely, I can build you a toy to keep ya company. Might even wear ya out by the time you\'re done with it."
+  branches {
+    responseText: ""
+    nextNodeIndex: 116
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "FlirtedPersiConvo1"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "556b7768346435281300673f"
+  }
+  index: 115
+  text: "Ugh, I know just what you mean. Every $(l.race) $(l.man) I meet is just SO ugly and annoying!\n\n{{GM}}She suppresses an impish grin.{{/GM}}"
+  branches {
+    responseText: ""
+    nextNodeIndex: 116
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "FlirtedPersiConvo1"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "556b77793464352813006742"
+  }
+  index: 116
+  text: "C\342\200\231mon, now, I asked ya a question. Do you like it here?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 98
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b7a2c3464352813006ed3"
+  }
+  index: 117
+  text: "Heh, right\342\200\246 \342\200\234uniform.\342\200\235\n\n{{GM}}Persi snorts in derision.{{/GM}}\n\nThat\342\200\231s a bit of a stretch. I wore, what, a gold badge? I think that was about it. Even that was more than some California Rangers had. We\342\200\246 they\342\200\246 ain\342\200\231t exactly the most disciplined force on the planet, ya may have noticed."
+  branches {
+    responseText: ""
+    nextNodeIndex: 118
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b7a443464352813006ed6"
+  }
+  index: 118
+  text: ""
+  branches {
+    responseText: "What was your time with the Rangers like?"
+    nextNodeIndex: 119
+  }
+  branches {
+    responseText: "Do you miss being a Ranger?"
+    nextNodeIndex: 120
+  }
+  branches {
+    responseText: "Were you as crazy as the rest of them?"
+    nextNodeIndex: 121
+  }
+  branches {
+    responseText: "{{CC}}Flirt{{/CC}} Ooh, a gold star. Did they award you that for your stunning good looks, or your winning personality?"
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "FlirtedPersiConvo2"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_CanFlirtWithPersi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_PersiFlirtCount"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "FlirtedPersiConvo2"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 142
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "556b7b2d3464352813007062"
+    }
+  }
+  branches {
+    responseText: "{{CC}}Flirt{{/CC}} I thought your uniform looked VERY fetching."
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "FlirtedPersiConvo2"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_CanFlirtWithPersi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "FlirtedPersiConvo2"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_PersiFlirtCount"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    nextNodeIndex: 143
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "556b7b2a3464352813007061"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b7bfa346435281300707c"
+  }
+  index: 119
+  text: "It had its ups and downs. Specifically, it started up, and mostly went down."
+  branches {
+    responseText: ""
+    nextNodeIndex: 122
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b7bf23464352813007078"
+  }
+  index: 120
+  text: "Parts. Not all of it."
+  branches {
+    responseText: ""
+    nextNodeIndex: 122
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b7bea3464352813007072"
+  }
+  index: 121
+  text: "Oh, craziness is relative. I\342\200\231d say they were more nuts, and they\342\200\231d say the same about me."
+  branches {
+    responseText: ""
+    nextNodeIndex: 122
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b7bee3464352813007075"
+  }
+  index: 122
+  text: "I was a Ranger. As ya probably know, all Rangers are Riggers. And as ya may have noticed, most riggers around here tend to be men. Bein\342\200\231 a California Ranger means bein\342\200\231 in a boys\342\200\231 club, and those boys sure love their toys."
+  branches {
+    responseText: ""
+    nextNodeIndex: 123
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b7e3c3464352813007081"
+  }
+  index: 123
+  text: "I was happy for the work - and hell, I loved what I did on the job. Chasin\342\200\231 down toll evaders, splatterin\342\200\231 freaked-out gangers across the pavement, hirin\342\200\231 local strivers to patch up the road an\342\200\231 keep things movin\342\200\231 smoothly.\n\nBut what went on back at headquarters\342\200\246 well, that was not so fun."
+  branches {
+    responseText: ""
+    nextNodeIndex: 124
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b7e4f3464352813007084"
+  }
+  index: 124
+  text: "Hey, have ya noticed that I\342\200\231m an ork? It\342\200\231s true! \n\n{{GM}}She bares her very full set of teeth at you.{{/GM}}\n\nLotsa riggers who grew up in The City or the Valley end up believin\342\200\231 that orks ain\342\200\231t so smart. An\342\200\231 they don\342\200\231t see many women tinkerin\342\200\231 with drones, so they assume we ain\342\200\231t so good at fixin\342\200\231 stuff up."
+  branches {
+    responseText: ""
+    nextNodeIndex: 125
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b7e4f3464352813007084"
+  }
+  index: 125
+  text: "So I had to deal with their shit, day in day out, every time I met a new Ranger movin\342\200\231 through town. \342\200\234Hey, nice drone. Who built it for you!\342\200\235 \342\200\234Who taught you how to pilot that UAV?\342\200\235 I\342\200\231d be like, \342\200\234Uh, actually, I did it myself, motherfucker! And fuck you for assuming I didn\342\200\231t!\342\200\235"
+  branches {
+    responseText: ""
+    nextNodeIndex: 126
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b7e4f3464352813007084"
+  }
+  index: 126
+  text: "It just started to wear on me after a while, y\342\200\231know? Lotsa other riggers show up in headquarters, and none of them get challenged to prove anything. They just assume that some dwarf with a beard and tats is hot shit, and that the ork chick is a poser. Even though my vehicles could run circles around his! Pisses me off."
+  branches {
+    responseText: "Ugh, tell me about it. It isn\342\200\231t just the Rangers, I have to deal with that crap all the time."
+    conditions {
+      ops {
+        functionName: "Compare Actor Gender"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Gender"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 127
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "556b7eb93464352813007090"
+    }
+  }
+  branches {
+    responseText: "I guess I\342\200\231ve been lucky, I don\342\200\231t often run into those attitudes."
+    conditions {
+      ops {
+        functionName: "Compare Actor Gender"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Gender"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 128
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "556b7ebc3464352813007091"
+    }
+  }
+  branches {
+    responseText: "I see."
+    nextNodeIndex: 131
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "You have my sympathy."
+    nextNodeIndex: 129
+  }
+  branches {
+    responseText: "Quit your whining!"
+    nextNodeIndex: 130
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b7f5634643528130070a0"
+  }
+  index: 127
+  text: "Yeah. The sixth world brought all sortsa cool stuff, but a lotta people still act like neanderthals. Well, screw \342\200\230em."
+  branches {
+    responseText: ""
+    nextNodeIndex: 131
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b7f51346435281300709c"
+  }
+  index: 128
+  text: "You must be choosin\342\200\231 better company than I have."
+  branches {
+    responseText: ""
+    nextNodeIndex: 131
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b7f5d34643528130070a4"
+  }
+  index: 129
+  text: "Don\342\200\231t need yer sympathy, but thanks anyways. I just gotta vent every once in a while."
+  branches {
+    responseText: ""
+    nextNodeIndex: 131
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b7f443464352813007095"
+  }
+  index: 130
+  text: "Hey, don\342\200\231t tell me what to do! How would YOU like it if I say, \342\200\234Oh, $(l.name) is just like all the other $(l.race_plural), they ain\342\200\231t no good at anythin\342\200\231?\342\200\235\n\nIt may not be true, but words have power, and ya need to fight against them or people start to believe it."
+  branches {
+    responseText: ""
+    nextNodeIndex: 131
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Persi Disapproves"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "556b7f493464352813007098"
+  }
+  index: 131
+  text: "Things got more and more tense. I did great work on my route, but hated goin\342\200\231 back to HQ, and never did much care for paperwork.\n\nThere are lotsa cool Rangers out there, but also some real tools, and the tools started actin\342\200\231 all snide an\342\200\231 stuff. Claimed I wasn\342\200\231t a real rigger, said I was goin\342\200\231 to take away their toys, dumb stuff like that."
+  branches {
+    responseText: ""
+    nextNodeIndex: 132
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b7fbb34643528130070a9"
+  }
+  index: 132
+  text: "I put up with it for a while, then got the hell outta Dodge. I love my vehicles, love what I do, and ain\342\200\231t gonna let anyone ruin it for me. Now I wish I\342\200\231d left years before. I\342\200\231ve never been much for organizations or hierarchies. Just me an\342\200\231 the open road, that\342\200\231s where I\342\200\231m happiest."
+  branches {
+    responseText: "Sounds to me like you have an attitude problem. Suck it up, keep quiet, and learn to take orders."
+    nextNodeIndex: 133
+  }
+  branches {
+    responseText: "They probably don\342\200\231t respect you because you lack training. You should go back to school and get a proper degree."
+    nextNodeIndex: 134
+  }
+  branches {
+    responseText: "It\342\200\231s their loss. They could have had an awesome rigger in their corner, and they blew it."
+    nextNodeIndex: 135
+  }
+  branches {
+    responseText: "You don\342\200\231t need them. Do your own thing and don\342\200\231t let them hold you back."
+    nextNodeIndex: 136
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b7ff534643528130070b5"
+  }
+  index: 133
+  text: "Fuck no! Let\342\200\231s get one thing straight: you need me a hell of a lot more than I need you.\n\nAs long as our goals align, I\342\200\231m happy to work with ya. As soon as ya try to shove me into a box, though, I\342\200\231m gonna hightail it outta here, and you\342\200\231ll be lucky if I don\342\200\231t cut ya."
+  branches {
+    responseText: ""
+    nextNodeIndex: 137
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Persi Disapproves"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "556b7ff534643528130070b5"
+  }
+  index: 134
+  text: "Screw that! There\342\200\231s nothin\342\200\231 a teacher could tell me that I haven\342\200\231t already learned better than them.\n\nI ain\342\200\231t gonna sacrifice years of my life just to get some dumb piece of paper that hangs on a wall. If anyone respects that piece of paper more than my actual skills, then I don\342\200\231t respect them."
+  branches {
+    responseText: ""
+    nextNodeIndex: 137
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Persi Disapproves"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "556b7ff534643528130070b5"
+  }
+  index: 135
+  text: "I know, right? An\342\200\231 what do they get outta drivin\342\200\231 me away, anyways? Were they intimidated? Or ignorant?\n\nEither way, screw \342\200\230em."
+  branches {
+    responseText: ""
+    nextNodeIndex: 137
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Persi Approves"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "556b7feb34643528130070af"
+  }
+  index: 136
+  text: "Hey\342\200\246 now you\342\200\231re speakin\342\200\231 my language!\n\nYeah, some of those rangers bugged me, but they ain\342\200\231t worth my time. I\342\200\231ve got way more important things to spend my brain cells on than some untalented hacks."
+  branches {
+    responseText: ""
+    nextNodeIndex: 137
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Persi Approves"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "556b7fef34643528130070b2"
+  }
+  index: 137
+  text: "Is this gonna be a problem? My past with the Rangers?"
+  branches {
+    responseText: "I\342\200\231m a little concerned you might turn us in to the authorities."
+    nextNodeIndex: 138
+  }
+  branches {
+    responseText: "If you made any enemies in that organization, I need to know about it."
+    nextNodeIndex: 139
+  }
+  branches {
+    responseText: "I was hoping you could give me some guidance counseling."
+    nextNodeIndex: 140
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b809634643528130070cb"
+  }
+  index: 138
+  text: "Well, no need to worry about that. No Ranger in this state gives two shits about any crime that goes down outside their territory. And since the corps own the right-of-way on the rail line, there ain\342\200\231t no Rangers patrolling it. Even if I did tip \342\200\230em off, nobody would bother stoppin\342\200\231 ya."
+  branches {
+    responseText: ""
+    nextNodeIndex: 141
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b809634643528130070cb"
+  }
+  index: 139
+  text: "Eh. I like to complain, but it isn\342\200\231t, like, a blood grudge or nothin\342\200\231, and I\342\200\231m pretty sure they\342\200\231ve forgotten about me by now. I\342\200\231m just another Ranger dropout to them. And I\342\200\231m not gonna waste my time and energy on some petty revenge scheme, if that\342\200\231s what you\342\200\231re worried about."
+  branches {
+    responseText: ""
+    nextNodeIndex: 141
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b808e34643528130070c5"
+  }
+  index: 140
+  text: "Ha! Well, don\342\200\231t try an\342\200\231 join the California Rangers if you\342\200\231re an ork woman, I guess that\342\200\231s my first tip. Or do, maybe. Show \342\200\230em the error of their ways.\n\n\342\200\246 yeah, I got nothin\342\200\231. Still tryin\342\200\231 to figure it out for myself, in case you hadn\342\200\231t noticed."
+  branches {
+    responseText: ""
+    nextNodeIndex: 141
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b809234643528130070c8"
+  }
+  index: 141
+  text: "All right, enough chatter. We\342\200\231ve got a train to rob."
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b7b73346435281300706e"
+  }
+  index: 142
+  text: "For perfect attendance. I had to trade in twelve smiley-face stickers to get the star. It was totally worth it.\n\n{{GM}}Persi stares at you, deadpan.{{/GM}}\n\nI probably still have some Mr. Yuk stickers left over, too. I should start awarding you one each time you use a bad line on me."
+  branches {
+    responseText: ""
+    nextNodeIndex: 118
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556b7b63346435281300706a"
+  }
+  index: 143
+  text: "{{GM}}For a moment, Persi looks nonplussed.{{/GM}}\n\nWell\342\200\246 thanks, I guess? Really wasn\342\200\231t anythin\342\200\231 special, though. Leather armor. Gold badge. If I knew you dug it so much, I woulda kept it for you to try on."
+  branches {
+    responseText: ""
+    nextNodeIndex: 118
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55654e18346435ac07006077"
+  }
+  index: 144
   text: ""
   branches {
     responseText: ""
@@ -2542,7 +4442,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 84
+    nextNodeIndex: 145
     comment: "#She likes you! She really likes you!"
   }
   branches {
@@ -2585,12 +4485,12 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 85
+    nextNodeIndex: 146
     comment: "#You\'re okay."
   }
   branches {
     responseText: ""
-    nextNodeIndex: 86
+    nextNodeIndex: 147
     comment: "#Bad news: she doesn\'t care for you much."
   }
   nodeType: ConversationNodeType_Simple
@@ -2600,7 +4500,7 @@ nodes {
   idRef {
     id: "55654e71346435ac0700607c"
   }
-  index: 84
+  index: 145
   text: "See ya around!"
   nodeType: ConversationNodeType_Simple
 }
@@ -2608,7 +4508,7 @@ nodes {
   idRef {
     id: "55654e86346435ac0700607e"
   }
-  index: 85
+  index: 146
   text: "Take care."
   nodeType: ConversationNodeType_Simple
 }
@@ -2616,7 +4516,7 @@ nodes {
   idRef {
     id: "55654efb346435ac07006080"
   }
-  index: 86
+  index: 147
   text: "{{GM}}She nods curtly, and returns to examining her drones.{{/GM}}"
   nodeType: ConversationNodeType_Simple
 }
@@ -2624,7 +4524,7 @@ nodes {
   idRef {
     id: "55654b2f346435ac07005fa1"
   }
-  index: 87
+  index: 148
   text: "Ugh. This had better be important."
   branches {
     responseText: ""
@@ -2637,7 +4537,7 @@ nodes {
   idRef {
     id: "55654b45346435ac07005fa6"
   }
-  index: 88
+  index: 149
   text: "Yeah? What\342\200\231s up, boss?"
   branches {
     responseText: ""
@@ -2650,7 +4550,7 @@ nodes {
   idRef {
     id: "55654b5f346435ac07005faa"
   }
-  index: 89
+  index: 150
   text: "{{GM}}Persi flashes you two thumbs up.{{/GM}}\n\nAll good, boss. I\342\200\231m ready for more action."
   branches {
     responseText: ""
@@ -2663,7 +4563,7 @@ nodes {
   idRef {
     id: "55654b85346435ac07005fae"
   }
-  index: 90
+  index: 151
   text: "{{GM}}Persi lets out a whoop.{{/GM}}\n\nHooah! I can\342\200\231t wait to get back into it again! You always find the best missions."
   branches {
     responseText: ""
@@ -2942,7 +4842,7 @@ roots {
       }
     }
   }
-  nextNodeIndex: 87
+  nextNodeIndex: 148
   comment: "#Persi dislikes you"
 }
 roots {
@@ -2985,7 +4885,7 @@ roots {
       }
     }
   }
-  nextNodeIndex: 88
+  nextNodeIndex: 149
   comment: "#Persi is neutral"
 }
 roots {
@@ -3028,11 +4928,11 @@ roots {
       }
     }
   }
-  nextNodeIndex: 89
+  nextNodeIndex: 150
   comment: "#Persi approves of you"
 }
 roots {
   responseText: ""
-  nextNodeIndex: 90
+  nextNodeIndex: 151
   comment: "#Persi strongly approves of you"
 }
