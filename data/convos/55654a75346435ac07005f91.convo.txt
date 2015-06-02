@@ -10,12 +10,12 @@ nodes {
   text: "I gotta say, boss: I\342\200\231m feelin\342\200\231 antsy about this heist."
   branches {
     responseText: "Why is that?"
-    nextNodeIndex: 1
+    nextNodeIndex: 2
     auxiliaryLink: true
   }
   branches {
     responseText: "Can I help?"
-    nextNodeIndex: 1
+    nextNodeIndex: 2
     auxiliaryLink: true
   }
   branches {
@@ -71,8 +71,37 @@ nodes {
   }
   branches {
     responseText: "Considering what we\342\200\231ve shared, I would hope that you could trust me."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_PersiLoveTalks"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 4
-    comment: "TODO - Prereq for romance"
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -223,6 +252,19 @@ nodes {
     nextNodeIndex: 14
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Persi Greatly Disapproves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -249,6 +291,19 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Persi Approves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -270,14 +325,81 @@ nodes {
   }
   branches {
     responseText: "Because I love you, you doofus."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_PersiLoveTalks"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 20
     hideIfUnavailable: true
-    comment: "TODO - Romance required"
+    onlyOnce: true
+    idRef {
+      id: "556d190e346435801400719c"
+    }
   }
   branches {
     responseText: "I care about you, Persi. I want to go on this adventure with you."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_PersiLoveTalks"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 23
-    comment: "TODO - Romance required"
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "556d1907346435801400719b"
+    }
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -293,6 +415,19 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Persi Approves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -306,6 +441,19 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Persi Greatly Disapproves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -331,6 +479,19 @@ nodes {
     nextNodeIndex: 21
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Persi Approves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -369,6 +530,19 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Persi Approves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -402,6 +576,19 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Persi Greatly Disapproves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -415,6 +602,19 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Persi Approves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -456,7 +656,8 @@ nodes {
   text: "Of course!\n\n{{GM}}Persi momentarily shudders.{{/GM}}\n\nGah\342\200\246 I\342\200\231ve mentioned that I don\342\200\231t like trains, right? Well. No worries, I\342\200\231ll get this one rollin\342\200\231 when the time comes."
   branches {
     responseText: ""
-    nextNodeIndex: -1
+    nextNodeIndex: 32
+    auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -468,7 +669,7 @@ nodes {
   text: "Thanks, boss. One last meal before the execution, yeah?"
   branches {
     responseText: ""
-    nextNodeIndex: 30
+    nextNodeIndex: 32
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
@@ -1114,6 +1315,34 @@ nodes {
           int_value: 1
         }
       }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
     }
     actions {
       ops {
@@ -1158,6 +1387,130 @@ nodes {
   }
   branches {
     responseText: "I think we need to talk about the Alameda job now."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksPersi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Const_ConvosPerHubVisit"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Persi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksPersi"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Persi"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: 177
     hideIfUnavailable: true
     onlyOnce: true
@@ -1168,6 +1521,130 @@ nodes {
   }
   branches {
     responseText: "I\342\200\231m interested in hearing more about what went down after the Webster Street Tube collapsed."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksPersi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Const_ConvosPerHubVisit"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Persi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 3
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 3
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Persi"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksPersi"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: 201
     hideIfUnavailable: true
     onlyOnce: true
@@ -1178,6 +1655,130 @@ nodes {
   }
   branches {
     responseText: "Are you feeling nervous about the job?"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Persi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 5
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksPersi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Const_ConvosPerHubVisit"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 5
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Persi"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksPersi"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: 226
     hideIfUnavailable: true
     onlyOnce: true
@@ -4929,11 +5530,245 @@ nodes {
   }
   branches {
     responseText: "{{CC}}Flirt{{/CC}} I was chasing my enemy, little suspecting that I would find a vision of beauty at the end of that tunnel."
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "FlirtedPersiConvo3"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_CanFlirtWithPersi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_PersiFlirtCount"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "FlirtedPersiConvo3"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 179
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "556d17d33464358014006b72"
+    }
   }
   branches {
     responseText: "{{CC}}Flirt{{/CC}} I thought it was going to be one of the worst days of my life, but it turned out to be one of the best: the day I met you."
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "FlirtedPersiConvo3"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_CanFlirtWithPersi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_PersiFlirtCount"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "FlirtedPersiConvo3"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 180
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "556d17cf3464358014006b71"
+    }
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -4945,7 +5780,8 @@ nodes {
   text: "{{GM}}She blushes.{{/GM}}\n\nStop it! Ugh, I can\342\200\231t handle mindless flattery, no matter how sweet it sounds."
   branches {
     responseText: ""
-    nextNodeIndex: -1
+    nextNodeIndex: 181
+    auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -4967,7 +5803,7 @@ nodes {
     id: "556c7b8d643431437ca40baa"
   }
   index: 181
-  text: "You describe how you and Destin raced to the Gauntlet after hearing an enormous explosion. The elevated track lay in a twisted heap on the streets, its supporting pillars blown into chunks of concrete embedded in nearby buildings.\n\nYou quickly pieced together the story: the No There Theres, a go-gang affiliated with the Metahuman People\342\200\231s Army, had stolen a SAM launcher and struck back against the rail line, a symbol of humanist supremacy over their neighborhood."
+  text: "You describe how you and Destin raced to the Gauntlet after hearing an enormous explosion. The elevated track lay in a twisted heap on the streets, its supporting pillars blown into chunks of concrete embedded in nearby buildings.\n\nYou quickly grasped the situation: the No There Theres, a go-gang affiliated with the Metahuman People\342\200\231s Army, had stolen a SAM launcher and struck back against the rail line, a symbol of humanist supremacy over their neighborhood."
   branches {
     responseText: ""
     nextNodeIndex: 182
@@ -5021,7 +5857,7 @@ nodes {
     id: "556c7c29643431437ca41167"
   }
   index: 185
-  text: "Those guys caused me way too much grief. They\342\200\231d set off their homemade bombs and fuck up my road, an\342\200\231 scatter before I could arrive. I discovered that they were operatin\342\200\231 out of Alameda, though, so I cooked up a plan. "
+  text: "Those guys caused me way too much grief. They would set off their homemade bombs and fuck up my road, then scatter before I\'d arrive. I discovered that they were operatin\342\200\231 out of Alameda, though, so I cooked up a plan. "
   branches {
     responseText: ""
     nextNodeIndex: 186
@@ -5165,18 +6001,70 @@ nodes {
   text: "\342\200\230Course, you know the rest of this story.\n\nBig bang. Blew a hole in the tunnel wall. Water pourin\342\200\231 in everywhere. My drones shorting out, everyone\342\200\231s vehicles fried. Gangers who\342\200\231d probably never swum before in their lives desperately flailing into the bay, an\342\200\231 us just tryin\342\200\231 to hold our breaths.\n\nTryin\342\200\231 to survive."
   branches {
     responseText: "That was crazy, but thrilling. I felt like I was an action star in a Hollywood trideo."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Persi Approves"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 196
   }
   branches {
     responseText: "I\342\200\231m glad that you\342\200\231re able to improvise so quickly. Whatever shit gets thrown in your direction, you find a way to bounce back and kick ass."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Persi Approves"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 197
   }
   branches {
     responseText: "That \342\200\234plan\342\200\235 of yours was irresponsible from start to finish. You could have killed me!"
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Persi Disapproves"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 198
   }
   branches {
     responseText: "No wonder the Rangers didn\342\200\231t want to have anything to do with you. You need to learn to follow procedure. When you don\342\200\231t follow procedure, tunnels blow up."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Persi Disapproves"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 199
   }
   nodeType: ConversationNodeType_Simple
@@ -5257,7 +6145,7 @@ nodes {
     id: "556c7e43643431437ca41be8"
   }
   index: 202
-  text: "I lost track of ya, an\342\200\231 ended up on the Alameda side. Took me a bit to catch my breath, but I noticed that a lotta the other gangers had made it out too. They met up with some friends of theirs an\342\200\231 ran back home."
+  text: "I lost track of ya, an\342\200\231 ended up on the Alameda side. Took me a bit to catch my breath, but I noticed that a lotta the other gangers had made it out, too. They met up with some friends of theirs an\342\200\231 ran back home."
   branches {
     responseText: ""
     nextNodeIndex: 203
@@ -5327,7 +6215,7 @@ nodes {
     id: "556c7eb7643431437ca41bfa"
   }
   index: 207
-  text: "I traded in a favor with a decker pal of mine, who hacked into their security grid an\342\200\231 turned control of the defense drones over to me.\n\nThen, I went all Cambodia on their ass. Turned the defense to offense, an\342\200\231 rained hellfire down on their own heads for twenty minutes straight."
+  text: "I traded in a favor with a decker pal of mine, who hacked into their security grid an\342\200\231 turned control of the defense drones over to me.\n\nThen, I went all Cambodia on their ass. Switched the defense to offense, an\342\200\231 rained hellfire down on their own heads for twenty minutes straight."
   branches {
     responseText: ""
     nextNodeIndex: 208
@@ -5503,18 +6391,70 @@ nodes {
   text: "Life is funny, ain\342\200\231t it?\n\nBack when we ran into each other, it seemed like the most excitin\342\200\231 thing ever. The ending of a crazy story.\n\nNow, though, it seems like a prologue to everythin\342\200\231 that\342\200\231s happenin\342\200\231 now. Just the start of a much bigger story."
   branches {
     responseText: "That\342\200\231s fate. Something much more powerful than any of us has a plan."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Persi Disapproves"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 219
   }
   branches {
     responseText: "Yeah, what a crazy coincidence. It\342\200\231s funny to think about how things may have turned out differently."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Persi Approves"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 221
   }
   branches {
     responseText: "You\342\200\231re a force of nature, Persi. Things around you have a tendency to become exciting."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Persi Approves"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 223
   }
   branches {
     responseText: "You\342\200\231re a walking disaster. Once this is over, I hope to never see you again."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Persi Disapproves"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 224
   }
   nodeType: ConversationNodeType_Simple
@@ -5643,7 +6583,7 @@ nodes {
     id: "556ce018643431b10aa42400"
   }
   index: 229
-  text: "I dunno\342\200\246 could I start a company based on that? How do companies work, anyways?\n\nI mean, you could pay me a thousand nuyen and I could build you a drone, right? But I want somethin\342\200\231 bigger than that. Like, factories an\342\200\231 shit. Where I come up with an idea, an\342\200\231 draw it, an\342\200\231 other people make an\342\200\231 sell it."
+  text: "I dunno\342\200\246 could I start a company based on that? How do companies work, anyways?\n\nI mean, you could pay me a thousand nuyen and I could build you a drone, right? But I want somethin\342\200\231 bigger than that. Like, factories an\342\200\231 shit. Where I come up with an idea, an\342\200\231 draw it, an\342\200\231 then other people make an\342\200\231 sell it."
   branches {
     responseText: "Well, you\342\200\231ll need capital, and connections, and reliable employees\342\200\246"
     nextNodeIndex: 230
@@ -5696,18 +6636,75 @@ nodes {
   }
   branches {
     responseText: "Mmm, babe, you would look FANTASTIC in a nice suit."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_PersiLoveTalks"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 241
     hideIfUnavailable: true
-    comment: "TODO - Needs romance"
   }
   branches {
     responseText: "We can achieve our dreams together, hon. We don\342\200\231t need to suck from the corporate teat."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_PersiLoveTalks"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 243
     hideIfUnavailable: true
-    comment: "TODO - Needs romance"
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO - In addition to approval, also set global var for her ultimate actions in finale"
 }
 nodes {
   idRef {
@@ -5721,6 +6718,19 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Persi Approves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -5734,6 +6744,19 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Persi Disapproves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -5746,6 +6769,44 @@ nodes {
     nextNodeIndex: 235
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Persi Approves"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_End_AdvisedPersiToStartBusiness"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -5771,6 +6832,44 @@ nodes {
     nextNodeIndex: 237
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Persi Disapproves"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_End_AdvisedPersiToStartBusiness"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -5827,6 +6926,44 @@ nodes {
     nextNodeIndex: 242
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_End_AdvisedPersiToStartBusiness"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Persi Approves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -5836,10 +6973,45 @@ nodes {
   text: "{{GM}}Persi grins as she spins around, then pauses to smooth an imaginary suit jacket over her hips.{{/GM}}\n\nYou\342\200\231ll go shopping with me to pick out a nice power ensemble, all right?"
   branches {
     responseText: ""
+    actions {
+      ops {
+        functionName: "Play Animation From Manifest"
+        args {
+          call_value {
+            functionName: "Triggering Target Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Animation)"
+            args {
+              string_value: "Seattle:General/standing_idle_calm"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: -1
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Animation?"
+  actions {
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Triggering Target Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Seattle:General/standing_idle_preen"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -5854,6 +7026,19 @@ nodes {
   nodeType: ConversationNodeType_GM_Speaker_Voice
   sourceInSceneRef {
     id: "555ff0d9346435cc1e0059d6"
+  }
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Persi Approves"
+          }
+        }
+      }
+    }
   }
 }
 nodes {
@@ -6081,6 +7266,130 @@ nodes {
 }
 roots {
   responseText: ""
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Convos_Persi"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 4
+      }
+    }
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "numTalksPersi"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 4
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Const_ConvosPerHubVisit"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_numMissionsCompleted"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 4
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "numTalksPersi"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Convos_Persi"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
   nextNodeIndex: 0
   comment: "INTERJECTION - Persi 5 (Crisis)"
 }
@@ -6197,6 +7506,34 @@ roots {
         int_value: 1
       }
     }
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Persi"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
   }
   nextNodeIndex: 34
   comment: "#Established romance with Persi"
@@ -6265,6 +7602,34 @@ roots {
             int_value: 0
           }
         }
+      }
+    }
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Persi"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
       }
     }
   }
