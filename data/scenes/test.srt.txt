@@ -4706,6 +4706,48 @@ triggers {
   }
   is_oneshot: false
 }
+triggers {
+  name: "INIT GLOBAL TAGS - PC0"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Add Tag to Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isPC0"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Active Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556d24173464358014009eac"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Camera"
   position {
@@ -5690,6 +5732,7 @@ senseTags: "isDestin"
 senseTags: "isPersi"
 senseTags: "isSable"
 senseTags: "isDorbi"
+senseTags: "isPC0"
 worldMapLocation {
   filename: ""
   location {
