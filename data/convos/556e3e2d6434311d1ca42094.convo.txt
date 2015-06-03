@@ -26,7 +26,65 @@ nodes {
   }
   branches {
     responseText: "So, uh\342\200\246 tell me about the October 25th Alliance."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          int_value: 0
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Orion"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Orion"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: 3
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "556e7499346435e01400729b"
+    }
+  }
+  branches {
+    responseText: "Goodbye."
+    nextNodeIndex: 18
   }
   nodeType: ConversationNodeType_Simple
   comment: "Empty root node"
@@ -95,7 +153,7 @@ nodes {
     id: "556e3eba6434311d1ca420b6"
   }
   index: 6
-  text: "Our figurehead was Emperor Norton, a delusional visionary and pacifist, who badly wanted to replace Saito\342\200\231s hate with a platform of love. Norton\342\200\231s Army provided refuge for those with no place to go, and we eventually helped support the forces of Redding in the Battle of Shasta Dam."
+  text: "Our figurehead was Emperor Norton, a delusional visionary and pacifist, who dearly wanted to replace Saito\342\200\231s hate with a platform of love. Norton\342\200\231s Army provided refuge for those with no place to go, and over time we developed into a force that assisted the defenders of Redding during the Battle of Shasta Dam."
   branches {
     responseText: ""
     nextNodeIndex: 7
@@ -135,14 +193,26 @@ nodes {
   branches {
     responseText: "What sorts of direct action do you take?"
     nextNodeIndex: 10
+    onlyOnce: true
+    idRef {
+      id: "556e740a346435e01400721e"
+    }
   }
   branches {
-    responseText: "So are you enemies with the MPA?"
+    responseText: "Do you oppose the MPA?"
     nextNodeIndex: 12
+    onlyOnce: true
+    idRef {
+      id: "556e740d346435e01400721f"
+    }
   }
   branches {
     responseText: "How effective are you?"
     nextNodeIndex: 15
+    onlyOnce: true
+    idRef {
+      id: "556e7412346435e014007220"
+    }
   }
   branches {
     responseText: "I see."
@@ -243,7 +313,7 @@ nodes {
     id: "556e40146434311d1ca420fc"
   }
   index: 17
-  text: "I welcome your sight."
+  text: "Indeed."
   branches {
     responseText: ""
     nextNodeIndex: 1
@@ -253,22 +323,18 @@ nodes {
 }
 nodes {
   idRef {
-    id: "556e3e586434311d1ca4209b"
+    id: "556e74a9346435e0140072db"
   }
   index: 18
-  text: "I greet you."
-  branches {
-    responseText: ""
-    nextNodeIndex: 19
-  }
+  text: "Fare you well."
   nodeType: ConversationNodeType_Simple
 }
 nodes {
   idRef {
-    id: "556e3e626434311d1ca4209e"
+    id: "556e3e586434311d1ca4209b"
   }
   index: 19
-  text: "On behalf of all metahumankind, I thank you for considering commerce with me. To avert future surprises, allow me to explicitly state my affiliations: I am an ork, and I am a proud member of the October 25th Alliance."
+  text: "I greet you."
   branches {
     responseText: ""
     nextNodeIndex: 20
@@ -277,9 +343,21 @@ nodes {
 }
 nodes {
   idRef {
-    id: "556e3e6d6434311d1ca420a1"
+    id: "556e3e626434311d1ca4209e"
   }
   index: 20
+  text: "On behalf of all metahumankind, I thank you for considering commerce with me. To avert future surprises, allow me to explicitly state my affiliations: I am an ork, and I am a proud member of the October 25th Alliance."
+  branches {
+    responseText: ""
+    nextNodeIndex: 21
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556e3e6d6434311d1ca420a1"
+  }
+  index: 21
   text: "Should you wish to purchase armaments from me to protect your body, I will gladly sell them to you. Should you wish to discuss the plight of metahumans in the Bay Area and the great struggle to lift them up, I will gladly speak for free."
   branches {
     responseText: ""
@@ -289,12 +367,77 @@ nodes {
   nodeType: ConversationNodeType_Simple
 }
 roots {
-  responseText: "It gladdens me to see you return."
+  responseText: ""
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Hub_GreetedOrion"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
   nextNodeIndex: 0
-  comment: "TODO - Pre-reqs. Subsequent visits."
+  comment: "Subsequent visit"
 }
 roots {
   responseText: ""
-  nextNodeIndex: 18
-  comment: "TODO - Update flag. First visit."
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Hub_GreetedOrion"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  nextNodeIndex: 19
+  comment: "First visit."
 }
