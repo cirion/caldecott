@@ -183,7 +183,7 @@ nodes {
     idRef {
       id: "556927b0346435ac07007786"
     }
-    comment: "Lovetalk 1"
+    comment: "Lovetalk 1 TODO reactivity???"
   }
   branches {
     responseText: "I\342\200\231m ready to collect that interest you owe me\342\200\246"
@@ -483,7 +483,7 @@ nodes {
     idRef {
       id: "556927bc346435ac07007789"
     }
-    comment: "Lovetalk 4"
+    comment: "Lovetalk 4 TODO reactive??!?!?!!g!"
   }
   branches {
     responseText: "Welcome to our base of operations."
@@ -584,6 +584,7 @@ nodes {
       }
     }
     nextNodeIndex: 50
+    hideIfUnavailable: true
     comment: "Friendship 1"
   }
   branches {
@@ -713,17 +714,343 @@ nodes {
       }
     }
     nextNodeIndex: 82
+    hideIfUnavailable: true
     comment: "Friendship 2"
   }
   branches {
     responseText: "I still don\342\200\231t understand how someone like you ends up in a gang."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksSable"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Const_ConvosPerHubVisit"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Sable"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Hub_LeftSableConvo3Hanging"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Hub_LeftSableConvo3Hanging"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 105
-    comment: "TODO pre-reqs Friendship 3, don\'t increment num convos yet"
+    hideIfUnavailable: true
+    comment: "Friendship 3. Note convo #s are incremented within a branch."
   }
   branches {
-    responseText: ""
+    responseText: "On second thought, go ahead and tell me that story of how you joined the gangs."
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Hub_LeftSableConvo3Hanging"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 107
+    hideIfUnavailable: true
+    auxiliaryLink: true
+    comment: "Friendship 3 alternate entrance"
+  }
+  branches {
+    responseText: "What do you think of the other people on our crew?"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksSable"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Const_ConvosPerHubVisit"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Sable"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 3
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 3
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksSable"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Sable"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: 129
-    comment: "TODO pre-reqs TODO needs reactivity Friendship 4"
+    hideIfUnavailable: true
+    comment: "TODO needs reactivity Friendship 4"
   }
   branches {
     responseText: "See you later."
@@ -1670,7 +1997,7 @@ nodes {
   text: "Indeed? How tragic. Many would say that it\342\200\231s hardest to know someone and lose them, but I think it\342\200\231s far worse to never know them to begin with. You are missing the memories that many of us can carry throughout our lives."
   branches {
     responseText: ""
-    nextNodeIndex: 57
+    nextNodeIndex: 58
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
@@ -1683,7 +2010,7 @@ nodes {
   text: "Ah, I certainly understand that. As one grows older, one changes into a different person, which necessarily changes the nature of your relationships with other people. And as you become your own person, the odds of you remaining compatible with your origin diminish."
   branches {
     responseText: ""
-    nextNodeIndex: 57
+    nextNodeIndex: 58
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
@@ -1696,7 +2023,7 @@ nodes {
   text: "How sad! I find, though, that those who experience tragedy early in life often move on to accomplish great things. There\342\200\231s something about the experience of abandonment that prompts people to become more motivated and excel in their own time."
   branches {
     responseText: ""
-    nextNodeIndex: 57
+    nextNodeIndex: 58
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
@@ -1749,7 +2076,7 @@ nodes {
   text: "Ah, how unfortunate. Have you not kept abreast of recent political developments? Or do you feel disaffected by the machinations of those with much greater power than yourself?\n\nIn either case, you are certainly not alone. Few people enjoy thinking deeply about events over which they have no control."
   branches {
     responseText: ""
-    nextNodeIndex: 63
+    nextNodeIndex: 64
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
@@ -1762,7 +2089,7 @@ nodes {
   text: "It would be difficult to believe otherwise.\n\nWith each passing year his grip over San Francisco grows tighter, his ties to Japan weaken, and his avarice increases. Many feel that The City is already lost to the ages. If Saito chooses to march eastward, who could stop him?"
   branches {
     responseText: ""
-    nextNodeIndex: 63
+    nextNodeIndex: 64
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
@@ -1775,7 +2102,7 @@ nodes {
   text: "Indeed, as they do everywhere. But their pinch is particularly strong here. Where else can you find the continental headquarters for four of the largest megacorps within a few miles of one another?\n\nI suppose we can take some slight solace in the thought that they pay so much attention to each others\342\200\231 activities that the rest of us can escape their interest."
   branches {
     responseText: ""
-    nextNodeIndex: 63
+    nextNodeIndex: 64
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
@@ -1788,7 +2115,7 @@ nodes {
   text: "An interesting thought! It is true that acronyms proliferate over here - the MPA, the PU, the O25A, and who knows how many semi-affiliated go-gangs. And they do occasionally lash out against one another or compete for limited turf.\n\nStill, I believe that as long as Saito and the megacorps pose a threat, the smaller factions on this side of the bridge will see the logic of maintaining amicable relations."
   branches {
     responseText: ""
-    nextNodeIndex: 63
+    nextNodeIndex: 64
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
@@ -1942,6 +2269,11 @@ nodes {
       }
     }
     nextNodeIndex: 69
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "556e7b36346435e014008889"
+    }
   }
   branches {
     responseText: "{{CC}}Flirt{{/CC}} What\342\200\231s that? I\342\200\231m sorry, I was distracted by your melodious voice and piercing gaze."
@@ -2366,7 +2698,7 @@ nodes {
     id: "556ceeff643431b10aa4341c"
   }
   index: 83
-  text: "Like pretty much any talented keyboard jockey, I got started as a kid.\n\nI was jacking into systems before I could ride a bicycle. On my first day of school, they put me into the \342\200\234Intro to Networks\342\200\235 class. I went home, hacked into the school\342\200\231s system, and figured out who the toughest teachers in school were. I made sure to join all of those classes."
+  text: "Like pretty much any talented keyboard jockey, I got started as a kid.\n\nI was jacking into systems before I could ride a bicycle. On my first day of school, I sat in the \342\200\234Intro to Networks\342\200\235 class. I went home, hacked into the school\342\200\231s system, and figured out who the toughest teachers in school were. I made sure to join all of those classes."
   branches {
     responseText: ""
     nextNodeIndex: 84
@@ -2627,6 +2959,11 @@ nodes {
       }
     }
     nextNodeIndex: 94
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "556e7b40346435e01400888a"
+    }
   }
   branches {
     responseText: "{{CC}}Flirt{{/CC}} Mmm, wouldn\342\200\231t you like to break into something\342\200\246 a little more comfortable?"
@@ -3001,6 +3338,64 @@ nodes {
     nextNodeIndex: 108
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "numTalksSable"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Convos_Sable"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Hub_LeftSableConvo3Hanging"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -3083,13 +3478,237 @@ nodes {
   }
   branches {
     responseText: "{{CC}}Flirt{{/CC}} I would gladly have rescued you myself."
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_CanFlirtWithSable"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "FlirtedSableConvo3"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_SableFlirtCount"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "FlirtedSableConvo3"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 113
     hideIfUnavailable: true
-    comment: "TODO: Romance flags here and below"
   }
   branches {
     responseText: "{{CC}}Flirt{{/CC}} How dashing! You must have cut quite a figure."
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_CanFlirtWithSable"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "FlirtedSableConvo3"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_SableFlirtCount"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "FlirtedSableConvo3"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 114
+    hideIfUnavailable: true
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -3249,6 +3868,19 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Sable Disapproves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -3262,6 +3894,19 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Sable Disapproves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -3275,6 +3920,19 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Sable Approves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -3287,6 +3945,19 @@ nodes {
     nextNodeIndex: 127
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Sable Approves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
