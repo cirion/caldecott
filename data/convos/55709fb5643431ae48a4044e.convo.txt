@@ -96,13 +96,47 @@ nodes {
   }
   branches {
     responseText: "What does Saito have against the PU?"
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "didKoraMentionSaito"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 10
     hideIfUnavailable: true
     onlyOnce: true
     idRef {
       id: "5570a1fc643431ae48a404b3"
     }
-    comment: "TODO: Scene pre-req var"
   }
   branches {
     responseText: "Thanks for letting me crash here."
@@ -151,6 +185,30 @@ nodes {
     nextNodeIndex: 9
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "didKoraMentionSaito"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -238,27 +296,437 @@ nodes {
   text: ""
   branches {
     responseText: "Do you enjoy working with the People\'s University?"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Kora"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Kora"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: 17
-    comment: "TODO: Pre-reqs Kora 2"
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "557110743464359c1b006b2a"
+    }
+    comment: "Kora 2"
   }
   branches {
     responseText: "How\342\200\231s the PU matrix host holding up?"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Kora"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Kora"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: 46
-    comment: "TODO pre-reqs Kora 3"
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "557110713464359c1b006b29"
+    }
+    comment: "Kora 3"
   }
   branches {
     responseText: "What\342\200\231s new?"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Kora"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 3
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Kora"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: 57
-    comment: "TODO pre-reqs Kora 4"
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "5571106c3464359c1b006b28"
+    }
+    comment: "Kora 4"
   }
   branches {
     responseText: "Are you happy to be living in Halferville now?"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Kora"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 3
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Kora"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: 76
-    comment: "TODO pre-reqs Kora 5"
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "557110683464359c1b006b27"
+    }
+    comment: "Kora 5"
   }
   branches {
-    responseText: ""
+    responseText: "How have you and Destin been doing since moving out to Halferville?"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Kora"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 5
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Kora"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: -1
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "557110643464359c1b006b26"
+    }
     comment: "TODO reactivity Kora 6"
   }
   branches {
@@ -317,6 +785,10 @@ nodes {
   branches {
     responseText: "How do they compare to some of the other activist groups?"
     nextNodeIndex: 30
+    onlyOnce: true
+    idRef {
+      id: "557111993464359c1b0070c5"
+    }
   }
   branches {
     responseText: "Got it."
@@ -448,6 +920,7 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
 }
 nodes {
   idRef {
@@ -478,7 +951,7 @@ nodes {
     id: "5570a44a643431ae48a40614"
   }
   index: 32
-  text: "Of the three main resistance groups, the PU is the only one completely devoted to non-violence. Most of us fear that launching attacks against the humans would just encourage retaliation, and would spark a racewar that none of us want.\n\nWe seek to set an example for a better future, one based on tolerance and cooperation."
+  text: "Of the three main resistance groups, the PU is the only one completely committed to non-violence. Most of us fear that launching attacks against the humans would just encourage retaliation, and would spark a racewar that none of us want.\n\nWe seek to set an example for a better future, one based on tolerance and cooperation."
   branches {
     responseText: ""
     nextNodeIndex: 33
@@ -684,18 +1157,34 @@ nodes {
   branches {
     responseText: "Why does the PU do so much online in the first place?"
     nextNodeIndex: 48
+    onlyOnce: true
+    idRef {
+      id: "5571126a3464359c1b0071b5"
+    }
   }
   branches {
     responseText: "Who is behind these attacks?"
     nextNodeIndex: 51
+    onlyOnce: true
+    idRef {
+      id: "5571126c3464359c1b0071b6"
+    }
   }
   branches {
     responseText: "What can you do to defend against them?"
     nextNodeIndex: 52
+    onlyOnce: true
+    idRef {
+      id: "5571126e3464359c1b0071b7"
+    }
   }
   branches {
     responseText: "Can you move to a new host?"
     nextNodeIndex: 54
+    onlyOnce: true
+    idRef {
+      id: "557112713464359c1b0071b8"
+    }
   }
   branches {
     responseText: "Good luck."
@@ -709,7 +1198,7 @@ nodes {
     id: "5570afc7643431ae48a40877"
   }
   index: 48
-  text: "In the early days, they used to hold informal sessions in meatspace, typically in old University of California buildings.\n\nSaito hates the idea of public gatherings, though, and our leaders would get arrested by marines or attacked by paramilitary thugs. When the meetings were held, the corps would try and plant spies in the groups, which made everyone paranoid."
+  text: "In the early days, they used to hold informal sessions in meatspace, typically in old University of California buildings.\n\nSaito hates the idea of public gatherings, though, and our teachers would get arrested by marines or attacked by paramilitary thugs. When the meetings were held, the corps would try and plant spies in the groups, which made everyone paranoid."
   branches {
     responseText: ""
     nextNodeIndex: 49
@@ -868,13 +1357,77 @@ nodes {
   }
   branches {
     responseText: "I was actually just thinking about him\342\200\246"
+    conditions {
+      ops {
+        functionName: "OR"
+        args {
+          call_value {
+            functionName: "Comparison (int)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "5505a99b346435a418004d07"
+                }
+                args {
+                  string_value: "Global_Romance_SableFlirtCount"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Comparison Ops"
+                }
+                args {
+                  int_value: 2
+                }
+              }
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Comparison (int)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "5505a99b346435a418004d07"
+                }
+                args {
+                  string_value: "Global_Romance_SableLoveTalks"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Comparison Ops"
+                }
+                args {
+                  int_value: 2
+                }
+              }
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 67
     hideIfUnavailable: true
     onlyOnce: true
     idRef {
       id: "5570b18c643431ae48a409f5"
     }
-    comment: "TODO romance pre-reqs"
   }
   branches {
     responseText: "Thanks for the insight."
@@ -1140,18 +1693,34 @@ nodes {
   branches {
     responseText: "How long have you and Destin had your network of contacts?"
     nextNodeIndex: 80
+    onlyOnce: true
+    idRef {
+      id: "557113193464359c1b0072a8"
+    }
   }
   branches {
     responseText: "What exactly do you do for the PU?"
     nextNodeIndex: 82
+    onlyOnce: true
+    idRef {
+      id: "5571131b3464359c1b0072a9"
+    }
   }
   branches {
     responseText: "How has your work changed now that you\342\200\231ve actually here?"
     nextNodeIndex: 84
+    onlyOnce: true
+    idRef {
+      id: "5571131d3464359c1b0072aa"
+    }
   }
   branches {
     responseText: "Do you think the contacts will impact our upcoming job?"
     nextNodeIndex: 86
+    onlyOnce: true
+    idRef {
+      id: "5571131f3464359c1b0072ab"
+    }
   }
   branches {
     responseText: "Take care."
@@ -1202,7 +1771,7 @@ nodes {
     id: "5570b395643431ae48a40c1f"
   }
   index: 83
-  text: "There is a mercenary aspect to it as well, though. A lot of this information is valuable to merchants, so we\342\200\231ll tell certain people about upcoming opportunities, and in exchange they provide food and supplies for PU members who need it."
+  text: "There is a mercenary aspect to it as well, though. A lot of this information is valuable to traders, so we\342\200\231ll tell certain people about upcoming opportunities, and in exchange they provide food and supplies for PU members who need it."
   branches {
     responseText: ""
     nextNodeIndex: 79
