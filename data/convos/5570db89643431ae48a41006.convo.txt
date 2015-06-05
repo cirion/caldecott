@@ -65,14 +65,26 @@ nodes {
   branches {
     responseText: "Were you affected by the Hemlock deployment?"
     nextNodeIndex: 5
+    onlyOnce: true
+    idRef {
+      id: "557119613464359c1b007642"
+    }
   }
   branches {
     responseText: "Has there been any further violence against orks and trolls here?"
     nextNodeIndex: 8
+    onlyOnce: true
+    idRef {
+      id: "5571195f3464359c1b007641"
+    }
   }
   branches {
     responseText: "How have you responded to this event?"
     nextNodeIndex: 10
+    onlyOnce: true
+    idRef {
+      id: "5571195d3464359c1b007640"
+    }
   }
   branches {
     responseText: "That\'s all."
@@ -182,11 +194,68 @@ nodes {
   nodeType: ConversationNodeType_Simple
 }
 roots {
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "didGreatA5Orion"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
   nextNodeIndex: 0
-  comment: "TODO pre-req second visit"
 }
 roots {
   responseText: ""
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "didGreatA5Orion"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
   nextNodeIndex: 3
-  comment: "TODO first visit"
 }
