@@ -83,8 +83,28 @@ nodes {
     }
   }
   branches {
-    responseText: "Goodbye."
+    responseText: "Are you in communication with Alliance members in other areas?"
     nextNodeIndex: 18
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "556f229d6434310428a405af"
+    }
+    comment: "TODO: Pre-reqs"
+  }
+  branches {
+    responseText: "What\342\200\231s your vision for a post-Saito region?"
+    nextNodeIndex: 27
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "556f22986434310428a405ae"
+    }
+    comment: "TODO: Pre-reqs"
+  }
+  branches {
+    responseText: "Goodbye."
+    nextNodeIndex: 36
   }
   nodeType: ConversationNodeType_Simple
   comment: "Empty root node"
@@ -323,30 +343,59 @@ nodes {
 }
 nodes {
   idRef {
-    id: "556e74a9346435e0140072db"
+    id: "556f21786434310428a4048f"
   }
   index: 18
-  text: "Fare you well."
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "556e3e586434311d1ca4209b"
-  }
-  index: 19
-  text: "I greet you."
+  text: "Indeed. I serve on the Alliance Cabinet, and regularly coordinate my findings with others."
   branches {
     responseText: ""
-    nextNodeIndex: 20
+    nextNodeIndex: 19
   }
   nodeType: ConversationNodeType_Simple
 }
 nodes {
   idRef {
-    id: "556e3e626434311d1ca4209e"
+    id: "556f217a6434310428a40492"
+  }
+  index: 19
+  text: ""
+  branches {
+    responseText: "What are your responsibilities on the Cabinet?"
+    nextNodeIndex: 20
+    onlyOnce: true
+    idRef {
+      id: "556f21a46434310428a404dd"
+    }
+  }
+  branches {
+    responseText: "Have you reported anything in particular from Halferville?"
+    nextNodeIndex: 22
+    onlyOnce: true
+    idRef {
+      id: "556f21a46434310428a404dd"
+    }
+  }
+  branches {
+    responseText: "What news have you heard from other Alliance members?"
+    nextNodeIndex: 24
+    onlyOnce: true
+    idRef {
+      id: "556f21a46434310428a404dd"
+    }
+  }
+  branches {
+    responseText: "That\342\200\231s all."
+    nextNodeIndex: 26
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "Empty interior node"
+}
+nodes {
+  idRef {
+    id: "556f21996434310428a404d8"
   }
   index: 20
-  text: "On behalf of all metahumankind, I thank you for considering commerce with me. To avert future surprises, allow me to explicitly state my affiliations: I am an ork, and I am a proud member of the October 25th Alliance."
+  text: "I am the Eastern Regional Director, overseeing Alliance operations from Halferville to Walnut Creek and all points in between.\n\nOf course, my weapons distribution is a major component of my job. The markup from selling armaments to persons like yourself goes into our self-defense fund, which in turn covers the price of distributing weapons to those who need and want them."
   branches {
     responseText: ""
     nextNodeIndex: 21
@@ -355,9 +404,254 @@ nodes {
 }
 nodes {
   idRef {
-    id: "556e3e6d6434311d1ca420a1"
+    id: "556f219d6434310428a404db"
   }
   index: 21
+  text: "Other Directors also oversee Alliance actions in their territories: planning raids, escorting VIPs out of danger, and so on.\n\nTruthfully, the Eastern district is very quiet in comparison to the others. Many metahumans live in the east, and the danger comes from the city, so Oakland bears much of the violence before it even reaches us."
+  branches {
+    responseText: ""
+    nextNodeIndex: 19
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556f21996434310428a404d8"
+  }
+  index: 22
+  text: "That frightening incident with the HPF you helped stop was only the latest in a long trend of abuse by dwarves against orks, and I fear it will continue to escalate. It has now become a matter of pride among a certain type of dwarf: they boast to one another, each seeking to outdo the next in invective, until one decides to impress his or her friends by taking action."
+  branches {
+    responseText: ""
+    nextNodeIndex: 23
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556f219d6434310428a404db"
+  }
+  index: 23
+  text: "I am frankly unsure of how best to respond.\n\nIn the big picture, it is vital that dwarves and orks stand united against Saito: an alliance of all metahumans may topple him, while fighting amongst ourselves will do his job for him. I cannot arm the orks here without risking a full-blown civil war, nor can I stand by as I watch my comrades slaughtered for no good reason."
+  branches {
+    responseText: ""
+    nextNodeIndex: 19
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556f21996434310428a404d8"
+  }
+  index: 24
+  text: "Much of the information I receive is sadly classified and cannot be shared with a non-Alliance member. But I can tell you that the undeclared war for Oakland is growing bloodier every day. In truth, the Alliance has started pulling back from our positions there, because the Metahuman People\342\200\231s Army has become so aggressive in confronting Saito\342\200\231s Marines."
+  branches {
+    responseText: ""
+    nextNodeIndex: 25
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556f219d6434310428a404db"
+  }
+  index: 25
+  text: "Therefore, the Alliance now primarily focuses on defense in the Berkeley and Alameda areas. Still, the situation in Oakland worries me. The MPA indiscriminately causes carnage, and while they hurt the Marines, they kill far too many civilians.\n\nIf their anger is not focused, they may destroy any chance we have at a grand alliance of metahumans."
+  branches {
+    responseText: ""
+    nextNodeIndex: 19
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556f222f6434310428a40503"
+  }
+  index: 26
+  text: "As you say."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556f22596434310428a405ac"
+  }
+  index: 27
+  text: "{{GM}}Orion visibly brightens at your question. Clearly this is a favorite topic of his.{{/GM}}\n\nI will tell you, although I do not know when this day will come. Perhaps next month, after a successful assassination; perhaps several years later, after a grand coup; perhaps many decades from now, after he has died of old age safely in his bed."
+  branches {
+    responseText: ""
+    nextNodeIndex: 28
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556f22a46434310428a405b1"
+  }
+  index: 28
+  text: "In truth, it matters not. The struggle we face now may feel incredibly important, but the actions taken by you or I will not alter the course of history.\n\nImplacable forces are at work, and the eventual triumph of metahumans over humankind is inevitable."
+  branches {
+    responseText: ""
+    nextNodeIndex: 29
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556f22a76434310428a405b4"
+  }
+  index: 29
+  text: ""
+  branches {
+    responseText: "Why are you so confident that metahumans will win?"
+    nextNodeIndex: 30
+    onlyOnce: true
+    idRef {
+      id: "556f22e66434310428a405be"
+    }
+  }
+  branches {
+    responseText: "Can\342\200\231t metahumans and humans coexist?"
+    nextNodeIndex: 32
+    onlyOnce: true
+    idRef {
+      id: "556f22e66434310428a405be"
+    }
+  }
+  branches {
+    responseText: "If it doesn\342\200\231t matter, then why work with the Alliance?"
+    nextNodeIndex: 34
+    onlyOnce: true
+    idRef {
+      id: "556f22e66434310428a405be"
+    }
+  }
+  branches {
+    responseText: "I see."
+    nextNodeIndex: 35
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "Empty interior node"
+}
+nodes {
+  idRef {
+    id: "556f22cd6434310428a405b8"
+  }
+  index: 30
+  text: "Metahumans are, as a whole, simply superior.\n\nElves are swifter, trolls are sturdier, dwarves have greater resilience. And do not forget that orks bear significantly more children than any other race. We have the numbers and the abilities.\n\nAll that humans have on their side is inherited wealth and power, which they are rapidly losing."
+  branches {
+    responseText: ""
+    nextNodeIndex: 31
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556f22d16434310428a405bb"
+  }
+  index: 31
+  text: "This will not be a quick process. In the short term, humans will gain and lose power multiple times. But once you expand your timeline to centuries, millennia, you can see the inevitable outcome.\n\nJust as homo sapiens replaced cro-magnon man, so metahumans will replace humans. Our time has come."
+  branches {
+    responseText: ""
+    nextNodeIndex: 29
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556f22cd6434310428a405b8"
+  }
+  index: 32
+  text: "No.\n\nDo not mistake me for some sort of racist; I bear no ill will towards the vast majority of humans. But incidents like the Night of Rage and October 25th teach us that conflict is deeply ingrained within us. "
+  branches {
+    responseText: ""
+    nextNodeIndex: 33
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556f22d16434310428a405bb"
+  }
+  index: 33
+  text: "As long as humans survive, there will be human supremacists. As long as there are human supremacists, there will be strife. As long as there is strife, metahumans will kill humans.\n\nAnd any war between metahumans and humans will ultimately end in victory for my kind."
+  branches {
+    responseText: ""
+    nextNodeIndex: 29
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556f22cd6434310428a405b8"
+  }
+  index: 34
+  text: "Because I must.\n\nA stone does not choose to fall; it does so because the laws of nature demand it. I am an ork in the Sixth World, so the laws of history demand that I fight humans.\n\nI cannot resist my fate any more than the stone can choose to remain aloft."
+  branches {
+    responseText: ""
+    nextNodeIndex: 29
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556f235e6434310428a4064a"
+  }
+  index: 35
+  text: "Do you wish for anything else?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556e74a9346435e0140072db"
+  }
+  index: 36
+  text: "Fare you well."
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556e3e586434311d1ca4209b"
+  }
+  index: 37
+  text: "I greet you."
+  branches {
+    responseText: ""
+    nextNodeIndex: 38
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556e3e626434311d1ca4209e"
+  }
+  index: 38
+  text: "On behalf of all metahumankind, I thank you for considering commerce with me. To avert future surprises, allow me to explicitly state my affiliations: I am an ork, and I am a proud member of the October 25th Alliance."
+  branches {
+    responseText: ""
+    nextNodeIndex: 39
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556e3e6d6434311d1ca420a1"
+  }
+  index: 39
   text: "Should you wish to purchase armaments from me to protect your body, I will gladly sell them to you. Should you wish to discuss the plight of metahumans in the Bay Area and the great struggle to lift them up, I will gladly speak for free."
   branches {
     responseText: ""
@@ -438,6 +732,6 @@ roots {
       }
     }
   }
-  nextNodeIndex: 19
+  nextNodeIndex: 37
   comment: "First visit."
 }
