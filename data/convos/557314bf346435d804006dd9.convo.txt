@@ -1,0 +1,369 @@
+idRef {
+  id: "557314bf346435d804006dd9"
+}
+ui_name: "cc_a5_finale-Orion"
+nodes {
+  idRef {
+    id: "557314cb346435d804006ddf"
+  }
+  index: 0
+  text: "I congratulate you on a job well done, $(l.sir). Alliance communications channels have been filled with enthusiastic reports describing Saito\342\200\231s rage at the loss of the doomsday weapon he coveted."
+  branches {
+    responseText: "All in a day\342\200\231s work."
+    nextNodeIndex: 1
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "I was happy to help."
+    nextNodeIndex: 1
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "\342\200\234Saito\342\200\231s rage\342\200\235? I think I prefer the remix version."
+    nextNodeIndex: 1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "557314e7346435d804006de4"
+  }
+  index: 1
+  text: "History marches on inexorably, but every once in a while we have the privilege of witnessing an individual propel time along its course. You are such a $(l.man).\n\nBy destroying Hemlock, you have righted the course of metahuman progress and secured our inevitable future."
+  branches {
+    responseText: ""
+    nextNodeIndex: 2
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "557314fc346435d804006dea"
+  }
+  index: 2
+  text: "Hemlock was a rash, futile attempt by the rear guards of humanity to protect their old power and prevent an ork ascendancy. If they had succeeded in deploying it, they might have delayed the ork uprising for another century or two."
+  branches {
+    responseText: ""
+    nextNodeIndex: 3
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55731510346435d804006ded"
+  }
+  index: 3
+  text: "By destroying this artificial attack on nature\342\200\231s course, you have ensured the triumph of the fittest: orks and the other metahuman races will claim their rightful place as Earth\342\200\231s apex predators."
+  branches {
+    responseText: "{{CC}}Metatype: Ork{{/CC}} Our day is long overdue. Glad I could help it along."
+    conditions {
+      ops {
+        functionName: "Compare Actor Race"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Race"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 4
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "{{CC}}Metatype: $+(s.race){{/CC}} I hope you orks don\'t forget that we $(s.race_plural) helped you out when it counted."
+    conditions {
+      ops {
+        functionName: "OR"
+        args {
+          call_value {
+            functionName: "Compare Actor Race"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "IsOrIsNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Race"
+                }
+                args {
+                  int_value: 2
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "OR"
+            args {
+              call_value {
+                functionName: "Compare Actor Race"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Player)"
+                    args {
+                      int_value: 0
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "IsOrIsNot"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "Race"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Compare Actor Race"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Player)"
+                    args {
+                      int_value: 0
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "IsOrIsNot"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "Race"
+                    }
+                    args {
+                      int_value: 4
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 5
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "{{CC}}Metatype: Human{{/CC}} You make me sound like a race traitor."
+    conditions {
+      ops {
+        functionName: "Compare Actor Race"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Race"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 6
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "I\342\200\231ll leave that for the scholars to figure out. I just took care of the problem in front of me."
+    nextNodeIndex: 7
+  }
+  branches {
+    responseText: "I\342\200\231m just glad that I was able to avert the suffering of even more orks."
+    nextNodeIndex: 8
+  }
+  branches {
+    responseText: "I hope history remembers the contributions I made."
+    nextNodeIndex: 9
+  }
+  branches {
+    responseText: "When you put it like that, I\342\200\231m not so sure I did the right thing."
+    nextNodeIndex: 10
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5573152e346435d804006df0"
+  }
+  index: 4
+  text: "Our day will come when it comes. A reckoning will not be postponed indefinitely. Be serene in the knowledge that our victory is inevitable."
+  branches {
+    responseText: ""
+    nextNodeIndex: 11
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5573152e346435d804006df0"
+  }
+  index: 5
+  text: "Indeed. All of metahumanity matters, and each type will have its own role to play. You are a wonderful exemplar of the potential of $(l.race_plural)."
+  branches {
+    responseText: ""
+    nextNodeIndex: 11
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5573152e346435d804006df0"
+  }
+  index: 6
+  text: "Fear not. Even if you had not acted, humanity would still have perished from this planet.\n\nYour contributions have helped ensure that humanity\342\200\231s affairs are wound down gracefully, without even more unnecessary bloodshed and strife."
+  branches {
+    responseText: ""
+    nextNodeIndex: 11
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5573152e346435d804006df0"
+  }
+  index: 7
+  text: "History does not need your approval or your comprehension. It does not diminish the significance of your contribution. Your actions have spoken louder than your words ever could."
+  branches {
+    responseText: ""
+    nextNodeIndex: 11
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5573152e346435d804006df0"
+  }
+  index: 8
+  text: "That is a very magnanimous motivation on your part. Pain and suffering seem incredibly important when they stare us in the face, and people often feel compelled to soothe the hurt.\n\nIn the grand sweep of history, however, such concerns fade away. Even if your actions had caused a great deal more suffering, it would have been justified by the results you achieved."
+  branches {
+    responseText: ""
+    nextNodeIndex: 11
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5573152e346435d804006df0"
+  }
+  index: 9
+  text: "Fear not! If it is fame you desire, fame shall be yours for the taking.\n\nIn the short term, Saito and Shiawase will try to cover up news of their embarrassment. Orks like me will remember, though, and when the annals are written, your name will be prominently featured as one who helped us reach our final victory."
+  branches {
+    responseText: ""
+    nextNodeIndex: 11
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5573152e346435d804006df0"
+  }
+  index: 10
+  text: "There is no right or wrong, only what happens. History has happened, and cannot be undone. You are a product of history, and cannot be held responsible for your actions, any more than your descendants will be responsible for the world they have inherited."
+  branches {
+    responseText: ""
+    nextNodeIndex: 11
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5573153b346435d804006e08"
+  }
+  index: 11
+  text: "{{GM}}Orion firmly grasps your arm in farewell.{{/GM}}\n\nIt has been a rare privilege to witness one such as you. I return now to the great work of the Alliance. It may not always be pleasant, but it is necessary.\n\nI will continue to observe your progress. I believe that you have not yet finished making your mark upon the world."
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  nextNodeIndex: 0
+}
