@@ -1,0 +1,89 @@
+idRef {
+  id: "557262bf346435d8040066a1"
+}
+ui_name: "cc_a1_clinic_s1-Injured"
+nodes {
+  idRef {
+    id: "557262cc346435d8040066a7"
+  }
+  index: 0
+  text: "Hot white pain unexpectedly arcs through your entire body. You let out a gasp as you stumble.\n\nDestin grabs you before you reach the ground."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+  }
+  nodeType: ConversationNodeType_GM_Speaker_Voice
+  sourceInSceneRef {
+    id: "55061ba7346435a41800508d"
+  }
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "In Pain"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "557262cc346435d8040066a7"
+  }
+  index: 1
+  text: "$(l.name)! You okay?"
+  branches {
+    responseText: "It hurts."
+    nextNodeIndex: 2
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Just happy to be alive."
+    nextNodeIndex: 2
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "I\342\200\231m becoming a connoisseur of pain."
+    nextNodeIndex: 2
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "557263d7346435d8040066b2"
+  }
+  index: 2
+  text: "Just hold it together, champ. We can\342\200\231t let you slip away from this world quite yet."
+  branches {
+    responseText: ""
+    nextNodeIndex: 3
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "557263fe346435d8040066b8"
+  }
+  index: 3
+  text: "Just think of all you have left to do. See a dragon, trend on Truly Trideo, get the hell out of Oakland."
+  branches {
+    responseText: ""
+    nextNodeIndex: 4
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5572640f346435d8040066bb"
+  }
+  index: 4
+  text: "We really need to get back to my place. Kora will have some ideas. She\342\200\231s a wiz at managing chronic pain, after all she\342\200\231s been through."
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  nextNodeIndex: 0
+}

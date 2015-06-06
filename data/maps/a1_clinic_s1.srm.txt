@@ -1,7 +1,7 @@
 minX: -21
-minZ: -11
+minZ: -12
 numX: 47
-numZ: 28
+numZ: 29
 props {
   name: "office_wall_edge01"
   gridPoint {
@@ -1472,11 +1472,54 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Compare Actor Team"
+        args {
+          call_value {
+            functionName: "Get Map Item (Actor)"
+            args {
+              string_value: "55725b36346435d804006104"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+    }
     doorPoint {
       doorState: false
       aiOnlyDoor: false
-      doorSound: ""
-      doorSoundBundle: ""
+      doorSound: "DoorSlide"
+      doorSoundBundle: "props"
     }
     interaction_info_text: ""
   }
@@ -1490,6 +1533,7 @@ props {
     z: -1
   }
   orientation: ORIENTATION_E
+  displayName: "Exit Door"
   idRef {
     id: "55061ab2346435a41800502a"
   }
@@ -1497,10 +1541,10 @@ props {
     isEnabled: true
     interactionRadius: 1
     transitionPoint {
-      scene_name: "downtownseattle"
-      confirmation_text: ""
+      scene_name: "hub_apartment"
+      confirmation_text: "Are you ready to travel to Destin and Kora\'s apartment?"
     }
-    interaction_info_text: ""
+    interaction_info_text: "Exit"
   }
   lod: 0
 }
@@ -4283,4 +4327,184 @@ props {
     }
     intensity: 3
   }
+}
+props {
+  name: "morgue_floor_tile01"
+  gridPoint {
+    x: -19
+    y: 0
+    z: -11
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "55725bbd346435d80400610b"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -17
+    y: 0
+    z: -11
+  }
+  orientation: ORIENTATION_S
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -17
+    y: 0
+    z: -10
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "55725bcb346435d80400610c"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -17
+    y: 0
+    z: -9
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "55725bcc346435d80400610d"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -18
+    y: 0
+    z: -9
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "55725bcd346435d80400610e"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -19
+    y: 0
+    z: -9
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "55725bcd346435d80400610f"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -20
+    y: 0
+    z: -9
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "55725bce346435d804006110"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -20
+    y: 0
+    z: -11
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "55725bcf346435d804006111"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -20
+    y: 0
+    z: -10
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "55725bd0346435d804006112"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -20
+    y: 0
+    z: -12
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "55725bd1346435d804006113"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -19
+    y: 0
+    z: -12
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "55725bd2346435d804006114"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -18
+    y: 0
+    z: -12
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "55725bd2346435d804006115"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -17
+    y: 0
+    z: -12
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "55725bd3346435d804006116"
+  }
+  lod: 0
+}
+props {
+  name: "vfx_fx_cameraEast"
+  gridPoint {
+    x: -16
+    y: 0.7
+    z: 1
+  }
+  orientation: ORIENTATION_S
+  properties {
+    property_id: "fxScript"
+    string_value: "Berlin:EnvironmentCameraEast"
+  }
+  lod: 0
 }
