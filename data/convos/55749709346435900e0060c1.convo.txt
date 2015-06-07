@@ -1,0 +1,1370 @@
+idRef {
+  id: "55749709346435900e0060c1"
+}
+ui_name: "cc_hub-Council2"
+nodes {
+  idRef {
+    id: "55749722346435900e0060c7"
+  }
+  index: 0
+  text: "What do you say, champ?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "55749731346435900e0060ca"
+  }
+  index: 1
+  text: ""
+  branches {
+    responseText: "We should discuss who gets what share."
+    nextNodeIndex: 2
+    onlyOnce: true
+    idRef {
+      id: "55749740346435900e0060cc"
+    }
+  }
+  branches {
+    responseText: "I have some thoughts on hitting the train."
+    actions {
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "convoCouncilDidDiscussRoute"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 23
+    onlyOnce: true
+    idRef {
+      id: "55749aef346435900e0062ef"
+    }
+  }
+  branches {
+    responseText: "We\342\200\231ll need to get more detailed information on the train\342\200\231s security systems."
+    nextNodeIndex: 43
+    onlyOnce: true
+    idRef {
+      id: "55749cb6346435900e00640a"
+    }
+  }
+  branches {
+    responseText: "Let\342\200\231s review the likely haul."
+    nextNodeIndex: 52
+    onlyOnce: true
+    idRef {
+      id: "55749d84346435900e006529"
+    }
+  }
+  branches {
+    responseText: "How are we going to get the cargo off the train?"
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "convoCouncilDidDiscussRoute"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 58
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "55749e1d346435900e006771"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "Root node"
+}
+nodes {
+  idRef {
+    id: "55749748346435900e0060ce"
+  }
+  index: 2
+  text: "I figured we\342\200\231d each get an equal share, ya?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 3
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "55749757346435900e0060d1"
+  }
+  index: 3
+  text: "There\342\200\231s six of us, so that\342\200\231s \342\205\231 each. A bit over 16% apiece. Doesn\342\200\231t sound like that much when you put it that way, does it?\n\nStill, if the haul is big enough, that could be a lot!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 4
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isSable"
+}
+nodes {
+  idRef {
+    id: "55749757346435900e0060d1"
+  }
+  index: 4
+  text: "That... seems fair to me."
+  branches {
+    responseText: ""
+    nextNodeIndex: 5
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isKora"
+}
+nodes {
+  idRef {
+    id: "55749777346435900e0060d8"
+  }
+  index: 5
+  text: ""
+  branches {
+    responseText: "Destin? Dorbi?"
+    nextNodeIndex: 6
+    onlyOnce: true
+    idRef {
+      id: "5574978b346435900e0060da"
+    }
+  }
+  branches {
+    responseText: "Should Kora and Destin each get a full share, though?"
+    nextNodeIndex: 8
+    onlyOnce: true
+    idRef {
+      id: "55749805346435900e006125"
+    }
+  }
+  branches {
+    responseText: "Let\342\200\231s split up the whole take."
+    nextNodeIndex: 16
+    onlyOnce: true
+    idRef {
+      id: "557499e8346435900e00621c"
+    }
+  }
+  branches {
+    responseText: "We started this to pay for my operation. That\342\200\231s fixed, we can split what\342\200\231s left over."
+    nextNodeIndex: 18
+    onlyOnce: true
+    idRef {
+      id: "557499ef346435900e00621f"
+    }
+  }
+  branches {
+    responseText: "I\342\200\231m just in this for my life. The rest of you can split what\342\200\231s left over."
+    nextNodeIndex: 20
+    onlyOnce: true
+    idRef {
+      id: "557499f2346435900e006220"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "Empty interior - splitting shares"
+}
+nodes {
+  idRef {
+    id: "55749757346435900e0060d1"
+  }
+  index: 6
+  text: "It\342\200\231ll be more nuyen than I see in a year of legitimate wages. And more nuyen than I see in a month of illegitimate gifts from my friends. I\342\200\231m not picky."
+  branches {
+    responseText: ""
+    nextNodeIndex: 7
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "55749757346435900e0060d1"
+  }
+  index: 7
+  text: "{{GM}}She airily waves away the question.{{/GM}}\n\nNumbers are overrated. I\342\200\231ll take whatever\342\200\231s coming to me."
+  branches {
+    responseText: ""
+    nextNodeIndex: 5
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDorbi"
+}
+nodes {
+  idRef {
+    id: "55749815346435900e00612d"
+  }
+  index: 8
+  text: "What do you mean?\n\n{{GM}}Destin looks wounded at the suggestion.{{/GM}}\n\nKora helped put this whole thing together. She works as hard as anyone! Just because she can\342\200\231t get around so well doesn\342\200\231t mean she\342\200\231s worth less than us."
+  branches {
+    responseText: ""
+    nextNodeIndex: 9
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "55749815346435900e00612d"
+  }
+  index: 9
+  text: "I\342\200\246 we should excuse ourselves if you want to talk this over without us here."
+  branches {
+    responseText: ""
+    nextNodeIndex: 10
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isKora"
+}
+nodes {
+  idRef {
+    id: "55749815346435900e00612d"
+  }
+  index: 10
+  text: "I don\342\200\231t wish to antagonize anyone, but $(l.name) does have a point.\n\nKora and Destin live together, so anything they buy would automatically be shared between them. Perhaps it would be fair to jointly give them, say, one and a half shares?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 11
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isSable"
+}
+nodes {
+  idRef {
+    id: "55749815346435900e00612d"
+  }
+  index: 11
+  text: "That\342\200\231s still a lotta credits. It ain\342\200\231t like we\342\200\231re just doing this for the money, yeah? They\342\200\231re just as happy to hit the corps as anyone."
+  branches {
+    responseText: ""
+    nextNodeIndex: 12
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "55749815346435900e00612d"
+  }
+  index: 12
+  text: "I couldn\342\200\231t care less. $(l.name), what do you want to do?"
+  branches {
+    responseText: "Kora and Destin are my friends and integral to our operation. They deserve full shares."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Destin Approves"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Persi Disapproves"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Sable Disapproves"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 13
+  }
+  branches {
+    responseText: "Kora\342\200\231s been a big help, but can\342\200\231t be involved in the actual mission. Half a share would be fair."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Destin Disapproves"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Sable Approves"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Persi Approves"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 15
+  }
+  branches {
+    responseText: "{{CC}}Etiquette: Corporate{{/CC}} Kora is a silent partner in our enterprise. She\342\200\231s contributed much of the intellectual capital, and is entitled to a full share."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Destin Approves"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Sable Approves"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 13
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "{{CC}}Etiquette: Gang{{/CC}} Kora is an associate in my crew, but the rest of you are lieutenants. She\342\200\231ll get a fair, smaller share."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Persi Approves"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Sable Approves"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 15
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDorbi"
+}
+nodes {
+  idRef {
+    id: "557498d1346435900e00613f"
+  }
+  index: 13
+  text: "That\342\200\231s hella nice of you, but it\342\200\231s okay if you change your mind\342\200\246"
+  branches {
+    responseText: ""
+    nextNodeIndex: 14
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isKora"
+}
+nodes {
+  idRef {
+    id: "557498de346435900e006142"
+  }
+  index: 14
+  text: "Nope. You earned this, honey. Don\342\200\231t let anyone take it from you."
+  branches {
+    responseText: ""
+    nextNodeIndex: 5
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "55749910346435900e006185"
+  }
+  index: 15
+  text: "That\342\200\231s fine. I really don\342\200\231t mind."
+  branches {
+    responseText: ""
+    nextNodeIndex: 5
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isKora"
+}
+nodes {
+  idRef {
+    id: "55749a29346435900e006222"
+  }
+  index: 16
+  text: "Good deal."
+  branches {
+    responseText: ""
+    nextNodeIndex: 17
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Destin Approves"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Persi Approves"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "55749a2d346435900e006225"
+  }
+  index: 17
+  text: "Great!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isSable"
+}
+nodes {
+  idRef {
+    id: "55749a29346435900e006222"
+  }
+  index: 18
+  text: "Well, that doesn\342\200\231t seem very fair. "
+  branches {
+    responseText: ""
+    nextNodeIndex: 19
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Persi Disapproves"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Sable Disapproves"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "55749a2d346435900e006225"
+  }
+  index: 19
+  text: "You\342\200\231re the boss!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isSable"
+}
+nodes {
+  idRef {
+    id: "55749a29346435900e006222"
+  }
+  index: 20
+  text: "That\342\200\231s much too nice of you."
+  branches {
+    responseText: ""
+    nextNodeIndex: 21
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isKora"
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Destin Approves"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "55749a2d346435900e006225"
+  }
+  index: 21
+  text: "We don\342\200\231t know how big the take will be. You could be throwing away millions."
+  branches {
+    responseText: ""
+    nextNodeIndex: 22
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "55749a79346435900e006270"
+  }
+  index: 22
+  text: "Let\342\200\231s put a pin in this until later."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isSable"
+}
+nodes {
+  idRef {
+    id: "55749af6346435900e0062f1"
+  }
+  index: 23
+  text: "You explain that the depots in San Francisco and Walnut Creek are far too heavily guarded for your team to penetrate."
+  branches {
+    responseText: ""
+    nextNodeIndex: 24
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPC0"
+}
+nodes {
+  idRef {
+    id: "55749af6346435900e0062f1"
+  }
+  index: 24
+  text: "$(l.name) is right. Those places are armed to the teeth, covered in surveillance, and run like clockwork. We might be able to sneak a person or two onto the train, but there\342\200\231s no way we\342\200\231ll be able to move major cargo off it."
+  branches {
+    responseText: ""
+    nextNodeIndex: 25
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "55749af6346435900e0062f1"
+  }
+  index: 25
+  text: "Then the solution is clear! We will need to hijack the train while it is in motion between the two stations."
+  branches {
+    responseText: ""
+    nextNodeIndex: 26
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isSable"
+}
+nodes {
+  idRef {
+    id: "55749af6346435900e0062f1"
+  }
+  index: 26
+  text: "Oh, is that all?!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 27
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDorbi"
+}
+nodes {
+  idRef {
+    id: "55749af6346435900e0062f1"
+  }
+  index: 27
+  text: "Sure, there\342\200\231s no guards on the tracks, but once you\342\200\231re out in the open, anyone can see ya.\n\n{{GM}}She gestures upwards, conspiratorially.{{/GM}}\n\nEyes in the sky. Governor Moonbeam, plus orbitals for all the major corps. Mapping all motion on the planet 24/7. We make any move, it\342\200\231s recorded for all to see."
+  branches {
+    responseText: ""
+    nextNodeIndex: 28
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "55749af6346435900e0062f1"
+  }
+  index: 28
+  text: "Indeed! Then we will need to find a way to block the satellites. How can we do so?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 29
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isSable"
+}
+nodes {
+  idRef {
+    id: "55749af6346435900e0062f1"
+  }
+  index: 29
+  text: "No way we can knock \342\200\230em out of the sky, much as I\342\200\231d like to. EMP burst won\342\200\231t reach that high.\n\nMagic, maybe?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 30
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "55749af6346435900e0062f1"
+  }
+  index: 30
+  text: "Illusion isn\342\200\231t really my thing. Have you noticed how nobody casts invisibility any more? "
+  branches {
+    responseText: ""
+    nextNodeIndex: 31
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDorbi"
+}
+nodes {
+  idRef {
+    id: "55749b80346435900e006304"
+  }
+  index: 31
+  text: "If not illusion, then how about occlusion? Taking advantage of our environment?\n\n{{GM}}Kora points to a map of the train\342\200\231s route, her finger hovering over where it crosses the Diablo Range.{{/GM}}\n\nHere."
+  branches {
+    responseText: ""
+    nextNodeIndex: 32
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isKora"
+}
+nodes {
+  idRef {
+    id: "55749af6346435900e0062f1"
+  }
+  index: 32
+  text: "Of course. The Caldecott!"
+  branches {
+    responseText: "What\342\200\231s that?"
+    nextNodeIndex: 33
+  }
+  branches {
+    responseText: "I see."
+    nextNodeIndex: 36
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Good idea."
+    nextNodeIndex: 36
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "55749bae346435900e00630d"
+  }
+  index: 33
+  text: "A set of tunnels dug through the Diablo Range. "
+  branches {
+    responseText: ""
+    nextNodeIndex: 34
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "55749bae346435900e00630d"
+  }
+  index: 34
+  text: "Used to carry traffic on the old Highway 24, before the corps took it over to run their godawful trains through."
+  branches {
+    responseText: ""
+    nextNodeIndex: 35
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "55749bae346435900e00630d"
+  }
+  index: 35
+  text: "Halferville repaired it after the \342\200\23048 quake, and now they run the thing themselves, charging the corps a toll and kicking a share back to Sacramento."
+  branches {
+    responseText: ""
+    nextNodeIndex: 36
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isKora"
+}
+nodes {
+  idRef {
+    id: "55749bac346435900e00630b"
+  }
+  index: 36
+  text: "Anything happens in that tunnel, nobody\342\200\231s gonna see it who isn\342\200\231t there already."
+  branches {
+    responseText: ""
+    nextNodeIndex: 37
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "55749bac346435900e00630b"
+  }
+  index: 37
+  text: "And it\342\200\231s conveniently close to our base of operations, too. This sounds perfect!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 38
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "55749bac346435900e00630b"
+  }
+  index: 38
+  text: "But what about the risk to Halferville? If a train gets knocked over on their turf, the corps might use it as an excuse to invade this place. They\342\200\231ve had their eyes on it for years."
+  branches {
+    responseText: ""
+    nextNodeIndex: 39
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isKora"
+}
+nodes {
+  idRef {
+    id: "55749bac346435900e00630b"
+  }
+  index: 39
+  text: "Let them come! Nothing like a little invasion to rile up the populace, get everyone on the same page, maybe start looking for a charismatic leader to give them orders\342\200\246"
+  branches {
+    responseText: "The tunnel is our best shot. We have to do this."
+    nextNodeIndex: 40
+  }
+  branches {
+    responseText: "We\342\200\231ll try to avoid causing problems for Halferville."
+    nextNodeIndex: 41
+  }
+  branches {
+    responseText: "What they don\342\200\231t know can\342\200\231t hurt them."
+    nextNodeIndex: 42
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDorbi"
+}
+nodes {
+  idRef {
+    id: "55749c5e346435900e006324"
+  }
+  index: 40
+  text: "Lookit this! $+(l.man) of action, takin\342\200\231 charge!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "55749c5e346435900e006324"
+  }
+  index: 41
+  text: "I\342\200\231m sure they\342\200\231ll appreciate it. They\342\200\231ve been good to shelter us. If anything goes down, we can help get their backs."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "55749c5e346435900e006324"
+  }
+  index: 42
+  text: "I\342\200\231m not sure if that\342\200\231s true."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isKora"
+}
+nodes {
+  idRef {
+    id: "55749c5e346435900e006324"
+  }
+  index: 43
+  text: "I can chat with some old friends in the depot, but I can\342\200\231t investigate too deeply without tipping our hands. At best I might be able to get some duty rosters."
+  branches {
+    responseText: ""
+    nextNodeIndex: 44
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "55749c5e346435900e006324"
+  }
+  index: 44
+  text: "We\342\200\231ll need to get access to the Shiawase datastores to find out more."
+  branches {
+    responseText: ""
+    nextNodeIndex: 45
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isKora"
+}
+nodes {
+  idRef {
+    id: "55749c5e346435900e006324"
+  }
+  index: 45
+  text: "The really good stuff won\342\200\231t be available on the public Matrix. We should be able to find high-security data like passcodes and emergency protocols, but those things are kept in isolated nodes only available from corp buildings."
+  branches {
+    responseText: ""
+    nextNodeIndex: 46
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isSable"
+}
+nodes {
+  idRef {
+    id: "55749c5e346435900e006324"
+  }
+  index: 46
+  text: "Have you looked at us lately? We aren\342\200\231t exactly the sort of folks who can stroll the streets of San Francisco."
+  branches {
+    responseText: ""
+    nextNodeIndex: 47
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDorbi"
+}
+nodes {
+  idRef {
+    id: "55749c5e346435900e006324"
+  }
+  index: 47
+  text: "Nah, but we can crawl. Now that Saito has kicked all the metas outta the city, the corps bus in all sorts to cook an\342\200\231 clean an\342\200\231 empty their garbage. "
+  branches {
+    responseText: ""
+    nextNodeIndex: 48
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "55749c5e346435900e006324"
+  }
+  index: 48
+  text: "That\342\200\231s right. Lots of folks from the People\342\200\231s University and October 25 Alliance disguise themselves as peons to sneak into the city."
+  branches {
+    responseText: ""
+    nextNodeIndex: 49
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isKora"
+}
+nodes {
+  idRef {
+    id: "55749c5e346435900e006324"
+  }
+  index: 49
+  text: "You just have to be sure nobody catches you there after dark. Saito\342\200\231s curfews are strict and lethal."
+  branches {
+    responseText: ""
+    nextNodeIndex: 50
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "55749c5e346435900e006324"
+  }
+  index: 50
+  text: "I can get ya into the city, no problem."
+  branches {
+    responseText: ""
+    nextNodeIndex: 51
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "55749c5e346435900e006324"
+  }
+  index: 51
+  text: "Once we\342\200\231re in the facility, I or another decker can find what we need. I do hope it\342\200\231s me!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isSable"
+}
+nodes {
+  idRef {
+    id: "55749d9b346435900e0065ab"
+  }
+  index: 52
+  text: "Well\342\200\246 we don\342\200\231t know EXACTLY what the cargo will be."
+  branches {
+    responseText: ""
+    nextNodeIndex: 53
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "55749d9b346435900e0065ab"
+  }
+  index: 53
+  text: "What?! What happens if we knock it over and end up with seven thousand frozen soyburgers?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 54
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDorbi"
+}
+nodes {
+  idRef {
+    id: "55749d9b346435900e0065ab"
+  }
+  index: 54
+  text: "They wouldn\342\200\231t bother using corp lines for anything cheap like that. It\342\200\231s gotta be a special delivery."
+  branches {
+    responseText: ""
+    nextNodeIndex: 55
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "55749d9b346435900e0065ab"
+  }
+  index: 55
+  text: "At a minimum, they\342\200\231ll be hauling a bunch of certified credsticks. That\342\200\231s how they paid people like $(l.name) and me."
+  branches {
+    responseText: ""
+    nextNodeIndex: 56
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "55749d9b346435900e0065ab"
+  }
+  index: 56
+  text: "I wonder if they might carry some paydata as well?\n\nLots of executives commute to work, and would use a secured car to transport any projects they want to work on from home. Prototypes, schematics, and other items of that nature.\n\nI\342\200\231d love to get my hands on those things!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 57
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isSable"
+}
+nodes {
+  idRef {
+    id: "55749d9b346435900e0065ab"
+  }
+  index: 57
+  text: "Not to mention actual, legitimate cargo. Corporations sell things, after all. Most cargo comes in from the Pacific, and they need to move some of it into the Diablo Valley to sell."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isKora"
+}
+nodes {
+  idRef {
+    id: "5574b2c8346435900e0068a4"
+  }
+  index: 58
+  text: "You big strong men will carry it, right?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 59
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDorbi"
+}
+nodes {
+  idRef {
+    id: "5574b2c8346435900e0068a4"
+  }
+  index: 59
+  text: "Ha! I\342\200\231d volunteer, but my back has been acting up."
+  branches {
+    responseText: ""
+    nextNodeIndex: 60
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isSable"
+}
+nodes {
+  idRef {
+    id: "5574b2c8346435900e0068a4"
+  }
+  index: 60
+  text: "We could grab the credsticks and run, but then we\342\200\231d be missing out on most of the haul."
+  branches {
+    responseText: ""
+    nextNodeIndex: 61
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "5574b2c8346435900e0068a4"
+  }
+  index: 61
+  text: "That would be a waste. We need to get a vehicle in there to carry the loot out."
+  branches {
+    responseText: ""
+    nextNodeIndex: 62
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isKora"
+}
+nodes {
+  idRef {
+    id: "5574b2c8346435900e0068a4"
+  }
+  index: 62
+  text: "You do know how trains in tunnels work, right? They kind of fill it.\n\nCan\342\200\231t drive a vehicle in while a goddam train is on the tracks."
+  branches {
+    responseText: ""
+    nextNodeIndex: 63
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "5574b2c8346435900e0068a4"
+  }
+  index: 63
+  text: "How about one of those pretty drones of yours?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 64
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDorbi"
+}
+nodes {
+  idRef {
+    id: "5574b2c8346435900e0068a4"
+  }
+  index: 64
+  text: "Uh, probably not. They\342\200\231re okay for tacocopters, but anything over ten kilos and they\342\200\231ll start scrapin\342\200\231 the ground."
+  branches {
+    responseText: ""
+    nextNodeIndex: 65
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "5574b2c8346435900e0068a4"
+  }
+  index: 65
+  text: "What about this?\n\n{{GM}}Kora has been studying a map, and points to a faint line adjacent to the Caldecott Tunnel.{{/GM}}\n\nIs this another entrance?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 66
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isKora"
+}
+nodes {
+  idRef {
+    id: "5574b2c8346435900e0068a4"
+  }
+  index: 66
+  text: "Oh, yeah! The Fifth Bore!"
+  branches {
+    responseText: "What\342\200\231s that?"
+    nextNodeIndex: 68
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Is that something we can use?"
+    nextNodeIndex: 68
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "You\342\200\231re the fifth bore!"
+    nextNodeIndex: 67
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDorbi"
+}
+nodes {
+  idRef {
+    id: "5574b37d346435900e006a0c"
+  }
+  index: 67
+  text: "Is that from your new standup routine? Don\342\200\231t quit your day job. Or whatever it is you do when you aren\342\200\231t robbing trains."
+  branches {
+    responseText: ""
+    nextNodeIndex: 68
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDorbi"
+}
+nodes {
+  idRef {
+    id: "5574b381346435900e006a0f"
+  }
+  index: 68
+  text: "There are currently four bores that make up the Caldecott Tunnel. Each is wide enough for a single train. Two north, two south."
+  branches {
+    responseText: ""
+    nextNodeIndex: 69
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDestin"
+}
+nodes {
+  idRef {
+    id: "5574b3a7346435900e006a15"
+  }
+  index: 69
+  text: "Back in the 30\342\200\231s, congestion was getting bad, so CalFree started work on a fifth bore. It was intended for emergency overloads."
+  branches {
+    responseText: ""
+    nextNodeIndex: 70
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDorbi"
+}
+nodes {
+  idRef {
+    id: "5574b3a7346435900e006a15"
+  }
+  index: 70
+  text: "Then there was the secession, and the first Tir invasion, and, the state went hella broke."
+  branches {
+    responseText: ""
+    nextNodeIndex: 71
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isKora"
+}
+nodes {
+  idRef {
+    id: "5574b3a7346435900e006a15"
+  }
+  index: 71
+  text: "They only finished the eastern half of it. They never broke through to the western side near the Bay."
+  branches {
+    responseText: "That\342\200\231s how we\342\200\231ll get our cargo out."
+    nextNodeIndex: 72
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "We can make a safe getaway through there."
+    nextNodeIndex: 72
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "I\342\200\231m astonished that Sacramento did something useful."
+    nextNodeIndex: 72
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDorbi"
+}
+nodes {
+  idRef {
+    id: "5574b41d346435900e006a20"
+  }
+  index: 72
+  text: "Yeah\342\200\246 now, this, THIS I can work with.\n\n{{GM}}She hunches over the map, joining the excitement.{{/GM}}\n\nSnip off a cargo car, bring it through one of the cross-cut channels here, and hook it up to an engine waiting in the fifth bore."
+  branches {
+    responseText: ""
+    nextNodeIndex: 73
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "5574b4bb346435900e006b9c"
+  }
+  index: 73
+  text: "Then\342\200\246 choo-choo, motherfuckers! We haul ass outta there, through an abandoned line nobody\342\200\231s watchin\'."
+  branches {
+    responseText: ""
+    nextNodeIndex: 74
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+nodes {
+  idRef {
+    id: "5574b4bb346435900e006b9c"
+  }
+  index: 74
+  text: "It gets better! We can hook up to Halferville\342\200\231s tunnel system from that bore. Lose any pursuers, and unload it at our leisure."
+  branches {
+    responseText: ""
+    nextNodeIndex: 75
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isKora"
+}
+nodes {
+  idRef {
+    id: "5574b4bb346435900e006b9c"
+  }
+  index: 75
+  text: "An excellent plan!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isSable"
+}
+roots {
+  nextNodeIndex: 0
+}
