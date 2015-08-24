@@ -5487,6 +5487,63 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Double Talk"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "556a79c734643528130062e7"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "5574964a346435900e005fe8"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55628483346435d807000387"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55975b41346435d01b006d74"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Camera"
   position {
@@ -5497,6 +5554,8 @@ regions {
   }
   enabledAtStart: true
   is_camera_region: true
+  is_matrix_node: false
+  is_vfx_fill_region: false
   idRef {
     id: "555ff0e6346435cc1e0059d7"
   }
@@ -5532,6 +5591,16 @@ regions {
   loop_combat_music: true
   loop_default_music: false
   no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
 }
 regions {
   name: "Region A"
@@ -5543,6 +5612,8 @@ regions {
   }
   enabledAtStart: true
   is_camera_region: false
+  is_matrix_node: false
+  is_vfx_fill_region: false
   idRef {
     id: "555ff114346435cc1e0059d9"
   }
@@ -5578,6 +5649,16 @@ regions {
   loop_combat_music: true
   loop_default_music: false
   no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
 }
 regions {
   name: "Region B"
@@ -5589,6 +5670,8 @@ regions {
   }
   enabledAtStart: true
   is_camera_region: false
+  is_matrix_node: false
+  is_vfx_fill_region: false
   idRef {
     id: "555ff11e346435cc1e0059da"
   }
@@ -5624,6 +5707,16 @@ regions {
   loop_combat_music: true
   loop_default_music: false
   no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
 }
 regions {
   name: "Banter Trigger"
@@ -5635,6 +5728,8 @@ regions {
   }
   enabledAtStart: true
   is_camera_region: false
+  is_matrix_node: false
+  is_vfx_fill_region: false
   idRef {
     id: "55626d03346435d80700030b"
   }
@@ -5670,6 +5765,16 @@ regions {
   loop_combat_music: true
   loop_default_music: false
   no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
 }
 regions {
   name: "Holding Camera"
@@ -5681,6 +5786,8 @@ regions {
   }
   enabledAtStart: true
   is_camera_region: true
+  is_matrix_node: false
+  is_vfx_fill_region: false
   idRef {
     id: "55627044346435d807000346"
   }
@@ -5716,6 +5823,16 @@ regions {
   loop_combat_music: true
   loop_default_music: false
   no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
 }
 regions {
   name: "Camera Nowhere"
@@ -5727,6 +5844,8 @@ regions {
   }
   enabledAtStart: true
   is_camera_region: true
+  is_matrix_node: false
+  is_vfx_fill_region: false
   idRef {
     id: "5567e3a6346435ac07006c56"
   }
@@ -5762,6 +5881,16 @@ regions {
   loop_combat_music: true
   loop_default_music: false
   no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
 }
 characters {
   name: "system_spawner_playerSpawner"
@@ -5810,7 +5939,7 @@ characters {
   lod: 0
   character_instance {
     prefab_name: "Berlin:Gangers/OrkMaleBerlinGanger"
-    character_sheet_id: "Lvl5_Merc_Ork_UrbanShaman"
+    character_sheet_id: "Errant_Lv5_Captain"
     character_mod {
       stats {
         body: 0
@@ -5855,6 +5984,7 @@ characters {
         etiquette_shadowrunner: 0
         etiquette_street: 0
         etiquette_academic: 0
+        cyberware_affinity: 0
       }
       specializations {
         pistol: 0
@@ -5867,7 +5997,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "Guard - Protect"
+      archetypeName: "Guard - Seek And Destroy"
       attitude: AttitudeAggressive
       vulnerabilities {
       }
@@ -5879,15 +6009,15 @@ characters {
     portrait {
       filename: "pc_orkmale_04_slick"
     }
-    karma: 97
+    karma: 114
   }
 }
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -3
+    x: -14
     y: 0
-    z: 0
+    z: -10
   }
   orientation: ORIENTATION_S
   GeneralTags: "isSable"
@@ -5899,7 +6029,7 @@ characters {
     isEnabled: true
     interactionRadius: 1
     conversationPoint {
-      conversationID: "5573247e346435d8040070c3"
+      conversationID: "5574964a346435900e005fe8"
       turnToFace: true
     }
     interaction_info_text: ""
@@ -6297,9 +6427,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -14
+    x: -3
     y: 0
-    z: -10
+    z: -1
   }
   orientation: ORIENTATION_S
   GeneralTags: "isSable"
@@ -6311,7 +6441,7 @@ characters {
     isEnabled: true
     interactionRadius: 1
     conversationPoint {
-      conversationID: "556e3e2d6434311d1ca42094"
+      conversationID: "5574964a346435900e005fe8"
       turnToFace: true
     }
     interaction_info_text: ""
@@ -6706,9 +6836,9 @@ worldMapLocation {
 mapName: "test"
 parentStory: ""
 scene_title: "Test Scene"
-scene_subtitle: ""
-scene_synopsis: ""
-scene_image: ""
+scene_subtitle: "Subtitle"
+scene_synopsis: "Synopsis"
+scene_image: "loadingimage_badqi_s1"
 scene_continue_button_skip: false
 scene_restore_runner_health: false
 directional_light_dir {
