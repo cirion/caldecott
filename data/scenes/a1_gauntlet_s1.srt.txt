@@ -83,6 +83,217 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Rafik Disapproves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Rafik Disapproves"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Rafik"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isRafik"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "String_LostFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556b73b53464352813006457"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Rafik Approves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Rafik Approves"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Rafik"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isRafik"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "String_GainedFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556b73f33464352813006493"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
 regions {
   name: "Camera"
   position {
@@ -229,8 +440,8 @@ characters {
     z: 23
   }
   orientation: ORIENTATION_S
-  GeneralTags: "isDestin"
-  displayName: "Destin"
+  GeneralTags: "isRafik"
+  displayName: "Rafik"
   idRef {
     id: "5565d1b9346435ac070062de"
   }
@@ -301,8 +512,8 @@ characters {
       }
     }
     team_id: "Shadowrunners"
-    char_name: "Destin"
-    GeneralTags: "isDestin"
+    char_name: "Rafik"
+    GeneralTags: "isRafik"
     pc_spawn_number: -1
     portrait {
       filename: "pc_orkmale_04_slick"
@@ -310,14 +521,35 @@ characters {
     karma: 6
   }
 }
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: 0
+    y: 0
+    z: 4
+  }
+  orientation: ORIENTATION_S
+  displayName: "Dwarf Contact"
+  idRef {
+    id: "55de27e86434314f1006db1e"
+  }
+  lod: 0
+  character_instance {
+    team_id: "Civilians"
+    char_name: "Shady Dwarf"
+    pc_spawn_number: -1
+  }
+}
 variables {
   int_value: 0
   variableref_value {
     scope: TsVariableScope_Scene
-    name: "destinMeetingContactState"
+    name: "rafikMeetingContactState"
     typeName: "int"
   }
 }
+mapEvents: "Rafik Approves"
+mapEvents: "Rafik Disapproves"
 worldMapLocation {
   filename: ""
   location {
@@ -329,7 +561,7 @@ mapName: "a1_gauntlet_s1"
 parentStory: ""
 scene_title: "The Gauntlet"
 scene_subtitle: ""
-scene_synopsis: "Some folks think shadowrunners lead glamorous lives. Those who enter the shadows quickly learn otherwise. Being a runner means taking the jobs that come your way, no matter how dangerous, no matter how unpopular.\n\nToday starts the same as every day has for the last three miserable years: patrolling the Gauntlet, the most dangerous zone in the deadliest city in the Bay Area Sprawl. The life of a rent-a-cop is decidedly unglamorous, and tends to be short as well. You\342\200\231ve lasted this long thanks in part to a highly-developed sense of paranoia, and thanks in part to Destin Toth, who has walked this beat even longer than you."
+scene_synopsis: "Some folks think shadowrunners lead glamorous lives. Those who enter the shadows quickly learn otherwise. Being a runner means taking the jobs that come your way, no matter how dangerous, no matter how unpopular.\n\nToday starts the same as every day has for the last three miserable years: patrolling the Gauntlet, the most dangerous zone in the deadliest city in the Bay Area Sprawl. The life of a rent-a-cop is decidedly unglamorous, and tends to be short as well. You\342\200\231ve lasted this long thanks in part to a highly-developed sense of paranoia, and thanks in part to Rafik Toth, who has walked this beat even longer than you."
 scene_image: ""
 scene_continue_button_skip: false
 scene_restore_runner_health: false
