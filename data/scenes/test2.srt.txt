@@ -578,6 +578,50 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Dummy"
+  events {
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "CharacterScaleAmount"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  actions {
+  }
+  isActive: true
+  idRef {
+    id: "55e15cc46434316555cec37d"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Camera"
   position {
@@ -755,8 +799,7 @@ characters {
     y: 0
     z: 3
   }
-  orientation: ORIENTATION_S
-  GeneralTags: "isRafik"
+  orientation: ORIENTATION_W
   displayName: "Enemy"
   idRef {
     id: "55647eb6346435842b005f93"
@@ -764,7 +807,8 @@ characters {
   lod: 0
   character_instance {
     prefab_name: "Seattle:Gangers/DwarfMaleGangerMohawk_Cutter"
-    character_sheet_id: "Adept_Lv5_HtH"
+    character_sheet_id: "Errant_Lv1_Human_Pistol"
+    equipment_sheet_id: "Errant_Lv1_Pistol"
     character_mod {
       stats {
         body: 0
@@ -829,12 +873,12 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Enemy"
-    GeneralTags: "isRafik"
     pc_spawn_number: -1
     portrait {
       filename: ""
     }
-    karma: 189
+    karma: 41
+    scale_character_sheet: true
   }
 }
 characters {
@@ -926,6 +970,8 @@ team_affiliations {
 scene_dimensions {
   dimension_name: "Default"
 }
+character_roster {
+}
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {
   prereq_description: ""
@@ -975,6 +1021,34 @@ roster_overrides {
   roster_entries {
     reference_id: "Crew_Lv2_Sable"
     hiring_conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "CharacterScaleAmount"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
     }
     hiring_cost: -1
     content_pack_source: "5505a99b346435a418004d07"
