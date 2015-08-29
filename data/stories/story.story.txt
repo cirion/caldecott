@@ -228,6 +228,18 @@ variables {
   }
 }
 variables {
+  name: "CharacterScaleAmount"
+  typeName: "int"
+  defaultValue {
+    int_value: 0
+    variableref_value {
+      scope: TsVariableScope_Story
+      name: "CharacterScaleAmount"
+      typeName: "int"
+    }
+  }
+}
+variables {
   name: "Const_ApprovalDislike"
   typeName: "int"
   defaultValue {
@@ -619,6 +631,18 @@ variables {
     variableref_value {
       scope: TsVariableScope_Story
       name: "Global_numMissionsCompleted"
+      typeName: "int"
+    }
+  }
+}
+variables {
+  name: "Global_RafikTeamState"
+  typeName: "int"
+  defaultValue {
+    int_value: 1
+    variableref_value {
+      scope: TsVariableScope_Story
+      name: "Global_RafikTeamState"
       typeName: "int"
     }
   }
@@ -1263,6 +1287,20 @@ character_roster {
     hiring_cost: 1
     content_pack_source: "54469bed32343784240005f9"
   }
+  roster_entries {
+    reference_id: "Crew_Lv1_Sable"
+    hiring_conditions {
+    }
+    hiring_cost: 73
+    content_pack_source: "5505a99b346435a418004d07"
+  }
+  roster_entries {
+    reference_id: "Crew_Lv2_Sable"
+    hiring_conditions {
+    }
+    hiring_cost: 73
+    content_pack_source: "5505a99b346435a418004d07"
+  }
 }
 use_crew_advancement: true
 crew_list {
@@ -1270,6 +1308,34 @@ crew_list {
   name: "Sable"
   title: "Decker"
   prerequisites {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_RafikTeamState"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
   }
   active_nodes {
     name: "LV1"
@@ -1277,6 +1343,13 @@ crew_list {
     associated_char_sheet: "Crew_Lv1_Sable"
     node_idx: 0
   }
+  active_nodes {
+    name: "LV2"
+    scale_level: 1
+    associated_char_sheet: "Crew_Lv2_Sable"
+    node_idx: 1
+  }
   scale_variable: "CharacterScaleAmount"
 }
 crew_advancement_variable: "CharacterScaleAmount"
+crew_advancement_min_val: 1
