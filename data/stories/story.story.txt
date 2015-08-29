@@ -231,7 +231,7 @@ variables {
   name: "CharacterScaleAmount"
   typeName: "int"
   defaultValue {
-    int_value: 0
+    int_value: 1
     variableref_value {
       scope: TsVariableScope_Story
       name: "CharacterScaleAmount"
@@ -720,6 +720,18 @@ variables {
   }
 }
 variables {
+  name: "Global_SableTeamState"
+  typeName: "int"
+  defaultValue {
+    int_value: 1
+    variableref_value {
+      scope: TsVariableScope_Story
+      name: "Global_SableTeamState"
+      typeName: "int"
+    }
+  }
+}
+variables {
   name: "men"
   typeName: "string"
   defaultValue {
@@ -818,8 +830,8 @@ variables {
 description: "Super-duper-early development version. Be wary, here lie bugs."
 startScene: "test"
 allowCharacterGen: true
-allowFallbackCharacter: false
-fallbackCharacterName: "lvl4_merc_human_allmagic"
+allowFallbackCharacter: true
+fallbackCharacterName: "crew_lv6_gaichu"
 storyKarmaLevel: 55
 resalePercent: 50
 upgradeToThreeApLevel: -1
@@ -1288,14 +1300,42 @@ character_roster {
     content_pack_source: "54469bed32343784240005f9"
   }
   roster_entries {
-    reference_id: "Crew_Lv1_Sable"
+    reference_id: "crew_lv1_sable"
     hiring_conditions {
     }
     hiring_cost: 73
     content_pack_source: "5505a99b346435a418004d07"
   }
   roster_entries {
-    reference_id: "Crew_Lv2_Sable"
+    reference_id: "crew_lv2_sable"
+    hiring_conditions {
+    }
+    hiring_cost: 73
+    content_pack_source: "5505a99b346435a418004d07"
+  }
+  roster_entries {
+    reference_id: "crew_lv3_sable"
+    hiring_conditions {
+    }
+    hiring_cost: 73
+    content_pack_source: "5505a99b346435a418004d07"
+  }
+  roster_entries {
+    reference_id: "crew_lv4_sable"
+    hiring_conditions {
+    }
+    hiring_cost: 73
+    content_pack_source: "5505a99b346435a418004d07"
+  }
+  roster_entries {
+    reference_id: "crew_lv5_sable"
+    hiring_conditions {
+    }
+    hiring_cost: 73
+    content_pack_source: "5505a99b346435a418004d07"
+  }
+  roster_entries {
+    reference_id: "crew_lv6_sable"
     hiring_conditions {
     }
     hiring_cost: 73
@@ -1317,7 +1357,7 @@ crew_list {
             string_value: "5505a99b346435a418004d07"
           }
           args {
-            string_value: "Global_RafikTeamState"
+            string_value: "Global_SableTeamState"
           }
         }
       }
@@ -1346,8 +1386,42 @@ crew_list {
   active_nodes {
     name: "LV2"
     scale_level: 1
+    crew_variants: "Sable_Hacker_1"
+    crew_variants: "Sable_Slasher_1"
     associated_char_sheet: "Crew_Lv2_Sable"
     node_idx: 1
+  }
+  active_nodes {
+    name: "LV3"
+    scale_level: 2
+    crew_variants: "Sable_Hacker_2"
+    crew_variants: "Sable_Slasher_2"
+    associated_char_sheet: "Crew_Lv3_Sable"
+    node_idx: 2
+  }
+  active_nodes {
+    name: "LV4"
+    scale_level: 3
+    crew_variants: "Sable_Hacker_3"
+    crew_variants: "Sable_Slasher_3"
+    associated_char_sheet: "Crew_Lv4_Sable"
+    node_idx: 3
+  }
+  active_nodes {
+    name: "LV5"
+    scale_level: 4
+    crew_variants: "Sable_Hacker_4"
+    crew_variants: "Sable_Slasher_4"
+    associated_char_sheet: "Crew_Lv5_Sable"
+    node_idx: 4
+  }
+  active_nodes {
+    name: "LV6"
+    scale_level: 5
+    crew_variants: "Sable_Hacker_5"
+    crew_variants: "Sable_Slasher_5"
+    associated_char_sheet: "Crew_Lv6_Sable"
+    node_idx: 5
   }
   scale_variable: "CharacterScaleAmount"
 }
