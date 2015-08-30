@@ -25,6 +25,19 @@ nodes {
   text: "You\342\200\231ve known for some time that Rafik makes extra creds on the side. Nothing too obvious, but he has a habit of brief absences and hushed conversations in the middle of your route."
   branches {
     responseText: "{{GM}}Nod.{{/GM}}"
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Rafik Approves"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 2
     idRef {
       id: "5565d2dc346435ac07006327:55de2586643431670e06db17"
@@ -75,6 +88,10 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_GM_Speaker_Voice
+  sourceInSceneRef {
+    id: "55e2012d346435c419003ee5"
+  }
+  speaker_override_id: "55e24521346435b01800015b"
 }
 nodes {
   idRef {
@@ -104,6 +121,59 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Kill Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "55e2012d346435c419003ee5"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "DeathMethod"
+          }
+          args {
+            int_value: 3
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -141,7 +211,7 @@ nodes {
     id: "55df3ccb643431201b06db2a"
   }
   index: 8
-  text: "All right. If you were going to turn me in, you would have done it years ago. Let\342\200\231s go."
+  text: "All right. If you were going to turn me in, you would have done it years ago. Let\342\200\231s go.\n\n{{GM}}Rafik casually waves to the figure lurking in the alley.{{/GM}}"
   branches {
     responseText: ""
     nextNodeIndex: 9
@@ -165,13 +235,17 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55e2012d346435c419003ee5"
+  }
+  speaker_override_id: "55e24521346435b01800015b"
 }
 nodes {
   idRef {
     id: "55df3ce6643431201b06db48"
   }
   index: 10
-  text: "None of your business. He\342\200\231s offering me protection."
+  text: "None of your business. $+(l.he)\'s offering me protection."
   branches {
     responseText: ""
     nextNodeIndex: 11
@@ -209,6 +283,7 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  speaker_override_id: "55e24521346435b01800015b"
 }
 nodes {
   idRef {
@@ -224,6 +299,10 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55e2012d346435c419003ee5"
+  }
+  speaker_override_id: "55e24521346435b01800015b"
 }
 nodes {
   idRef {
@@ -254,6 +333,10 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55e2012d346435c419003ee5"
+  }
+  speaker_override_id: "55e24521346435b01800015b"
 }
 nodes {
   idRef {
@@ -268,7 +351,10 @@ nodes {
       id: "5565d2dc346435ac07006327:55df3d82643431201b06db92"
     }
   }
-  nodeType: ConversationNodeType_Simple
+  nodeType: ConversationNodeType_GM_Speaker_Voice
+  sourceInSceneRef {
+    id: "55e2012d346435c419003ee5"
+  }
 }
 nodes {
   idRef {
@@ -284,14 +370,17 @@ nodes {
     }
     auxiliaryLink: true
   }
-  nodeType: ConversationNodeType_GM_Voice
+  nodeType: ConversationNodeType_GM_Speaker_Voice
+  sourceInSceneRef {
+    id: "55e2019e346435c419003ee7"
+  }
 }
 nodes {
   idRef {
     id: "55df3d23643431201b06db77"
   }
   index: 17
-  text: "<Name>. Likewise."
+  text: "Viv. Likewise."
   branches {
     responseText: ""
     nextNodeIndex: 12
@@ -301,6 +390,33 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55e2012d346435c419003ee5"
+  }
+  speaker_override_id: "55e24521346435b01800015b"
+  actions {
+    ops {
+      functionName: "Set Actor Display Name"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "55e242b1346435b018000125"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        string_value: "Viv"
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -317,6 +433,9 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55e2012d346435c419003ee5"
+  }
 }
 nodes {
   idRef {
@@ -333,7 +452,30 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO - Set local var to pay out nuyen later"
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55e245b8346435b018000190"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0
@@ -341,3 +483,4 @@ roots {
     id: "5565d2dc346435ac07006327:55de2586643431670e06db11"
   }
 }
+speaker_override_id: "55e13144346435e0140016a8"

@@ -313,7 +313,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Recruit Elf"
+  name: "Can Advance"
   events {
     ops {
       functionName: "On Item Interaction"
@@ -331,56 +331,15 @@ triggers {
   }
   actions {
     ops {
-      functionName: "Change Actor Team"
+      functionName: "Set Variable (bool)"
       args {
         call_value {
-          functionName: "Specific Actor"
+          functionName: "Get Story Variable (bool)"
           args {
-            call_value {
-              functionName: "Get Map Item (Actor)"
-              args {
-                string_value: "555ff282346435cc1e0059e7"
-              }
-            }
+            string_value: "5505a99b346435a418004d07"
           }
           args {
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (string)"
-          args {
-            string_value: "FactionList"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (SceneDimension)"
-          args {
-            string_value: "Default"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Change Actor Control"
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Actor)"
-              args {
-                string_value: "555ff282346435cc1e0059e7"
-              }
-            }
-          }
-          args {
+            string_value: "Global_Hub_CanAdvanceCrew"
           }
         }
       }
@@ -388,61 +347,10 @@ triggers {
         call_value {
           functionName: "Get Preset Value (int)"
           args {
-            string_value: "PlayerOrAI"
+            string_value: "bool"
           }
           args {
-            int_value: 0
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Teleport Actor near Actor"
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Actor)"
-              args {
-                string_value: "555ff282346435cc1e0059e7"
-              }
-            }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        int_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Player)"
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "FacingDirection"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "TeleportMethod"
-          }
-          args {
-            int_value: 0
+            int_value: 1
           }
         }
       }

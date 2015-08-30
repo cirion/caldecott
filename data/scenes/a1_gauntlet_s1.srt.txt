@@ -179,6 +179,28 @@ triggers {
         int_value: 0
       }
     }
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55e23fd2346435c419003ee8"
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -285,6 +307,28 @@ triggers {
         int_value: 0
       }
     }
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55e23fd2346435c419003ee8"
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -293,6 +337,304 @@ triggers {
   elseActions {
   }
   is_oneshot: false
+}
+triggers {
+  name: "UI Help Approval_OFF"
+  events {
+    ops {
+      functionName: "On Conversation Complete"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "UI_Help_ShowedApproval"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Display Text In Popup"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "UI_Help_ApprovalBody"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PopupType"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: " "
+          }
+          args {
+            string_value: "UI_Help_ApprovalTitle"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "UI_Help_ShowedApproval"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: false
+  idRef {
+    id: "55e23fd2346435c419003ee8"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Opening Convo"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "5565d201346435ac070062df"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55e2019e346435c419003ee7"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55e24170346435c419003ee9"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Post First Convo_OFF"
+  events {
+    ops {
+      functionName: "On Conversation Complete"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Patrol the Gauntlet"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: false
+  idRef {
+    id: "55e2418c346435c419003eea"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Paid Nuyen from Rafik_OFF"
+  events {
+    ops {
+      functionName: "On Conversation Complete"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Add Nuyen"
+      args {
+        int_value: 100
+      }
+    }
+  }
+  isActive: false
+  idRef {
+    id: "55e245b8346435b018000190"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Rafik Sees Dwarf Contact"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "55e2424d346435c419003f23"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "5565d2dc346435ac07006327"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55e2019e346435c419003ee7"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55e24afa346435b018000233"
+  }
+  elseActions {
+  }
+  is_oneshot: true
 }
 regions {
   name: "Camera"
@@ -410,6 +752,132 @@ regions {
   combat_outro_stinger: ""
   vfx_fill_prefab_name: ""
 }
+regions {
+  name: "Spot Dwarf"
+  position {
+    x: -22
+    y: 35
+    width: 1
+    height: 13
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  is_matrix_node: false
+  is_vfx_fill_region: false
+  idRef {
+    id: "55e2424d346435c419003f23"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -25
+    y: 0
+    z: 30
+  }
+  orientation: ORIENTATION_E
+  displayName: "Dwarf Contact"
+  idRef {
+    id: "55e2012d346435c419003ee5"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Core/DwarfFemale"
+    character_sheet_id: "Adept_Lv1_HtH"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 2
+        close_combat: 0
+        dodge: 0
+        chi_casting: 0
+      }
+      specializations {
+        unarmed: 0
+      }
+      archetypeName: "Non-Combatant"
+      vulnerabilities {
+      }
+    }
+    equipment {
+      prefab_name: "Pi 1 Fichetti Security 500"
+    }
+    equipment {
+      prefab_name: "SamuraiMilitary"
+    }
+    team_id: "Civilians"
+    char_name: "Shady Dwarf"
+    pc_spawn_number: -1
+    portrait {
+      filename: "pc_dwarffemale_03a_soldier"
+    }
+    portrait_code_override: "s6h18c8b0c0t0"
+    karma: 75
+  }
+}
 characters {
   name: "system_spawner_playerSpawner"
   gridPoint {
@@ -419,7 +887,7 @@ characters {
   }
   orientation: ORIENTATION_E
   idRef {
-    id: "5505bc3e346435a418004db4"
+    id: "55e2012d346435c419003ee6"
   }
   lod: 0
   character_instance {
@@ -435,20 +903,20 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 11
+    x: 12
     y: 0
-    z: 23
+    z: 24
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_N
   GeneralTags: "isRafik"
-  displayName: "Rafik"
+  GeneralTags: "isCrew"
   idRef {
-    id: "5565d1b9346435ac070062de"
+    id: "55e2019e346435c419003ee7"
   }
   lod: 0
   character_instance {
-    prefab_name: "Berlin:Gangers/OrkMaleBerlinGanger"
-    character_sheet_id: "BaseCivilian"
+    prefab_name: "Seattle:Core/OrkMale"
+    character_sheet_id: "Crew_Rafik_Lv1"
     character_mod {
       stats {
         body: 0
@@ -511,33 +979,44 @@ characters {
       vulnerabilities {
       }
     }
+    equipment {
+      prefab_name: "NPC_HK_Tech_RiggerTrench"
+    }
+    equipment {
+      prefab_name: "HealthPack_med"
+    }
+    equipment {
+      prefab_name: "Pi 1 Ceska Black Scorpion"
+    }
+    equipment {
+      prefab_name: "Spell Armor 1"
+    }
+    equipment {
+      prefab_name: "TotemBear"
+    }
+    equipment {
+      prefab_name: "Rilaxin"
+    }
+    equipment {
+      prefab_name: "Spell Silence 1"
+    }
     team_id: "Shadowrunners"
     char_name: "Rafik"
     GeneralTags: "isRafik"
+    GeneralTags: "isCrew"
     pc_spawn_number: -1
+    hiring_type: HiringType_Hireable
     portrait {
       filename: "pc_orkmale_04_slick"
     }
-    karma: 6
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: 0
-    y: 0
-    z: 4
-  }
-  orientation: ORIENTATION_S
-  displayName: "Dwarf Contact"
-  idRef {
-    id: "55de27e86434314f1006db1e"
-  }
-  lod: 0
-  character_instance {
-    team_id: "Civilians"
-    char_name: "Shady Dwarf"
-    pc_spawn_number: -1
+    portrait_code_override: "s1h11c8b0c0t0"
+    karma: 75
+    hiring_cost_override: 0
+    hiring_tag: "Crew: Shaman"
+    id: "crew_lv1_rafik"
+    first_name: "Rafik"
+    last_name: "Toth"
+    crew_id: "Rafik"
   }
 }
 variables {
@@ -550,6 +1029,16 @@ variables {
 }
 mapEvents: "Rafik Approves"
 mapEvents: "Rafik Disapproves"
+goals {
+  name: "Patrol the Gauntlet"
+  type: GoalType_Primary
+  status: GoalStatus_Hidden
+}
+goals {
+  name: "You died."
+  type: GoalType_Primary
+  status: GoalStatus_Hidden
+}
 worldMapLocation {
   filename: ""
   location {
