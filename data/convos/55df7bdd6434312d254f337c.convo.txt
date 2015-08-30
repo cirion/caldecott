@@ -31,21 +31,126 @@ nodes {
     }
   }
   branches {
-    responseText: "{{CC}}Skill: Biotech 2{{/CC}} {{GM}}Examine his wares.{{/GM}}"
+    responseText: "{{CC}}Skill: Biotech 3{{/CC}} {{GM}}Examine his wares.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 11
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 3
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "hasSpottedSammyWares"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 3
     onlyOnce: true
     idRef {
       id: "55df7bdd6434312d254f337c:55df7c126434312d254f338d"
     }
-    comment: "TODO: Pre-req"
   }
   branches {
     responseText: "Looks like you\342\200\231ve been busy rebranding. Those gels aren\342\200\231t legit."
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "hasSpottedSammyWares"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 4
+    hideIfUnavailable: true
+    onlyOnce: true
     idRef {
       id: "55df7bdd6434312d254f337c:55df7c136434312d254f338f"
     }
-    comment: "TODO: Need to have examined wares"
   }
   branches {
     responseText: "You need to pay up for the Raiders\' protection."
@@ -79,7 +184,16 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Open sheet"
+  actions {
+    ops {
+      functionName: "Open Store Screen From Actor"
+      args {
+        call_value {
+          functionName: "Triggering Target Actor"
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -94,7 +208,6 @@ nodes {
       id: "55df7bdd6434312d254f337c:55df7c586434312d254f33ae"
     }
     auxiliaryLink: true
-    comment: "TODO: Unlock interior node."
   }
   nodeType: ConversationNodeType_GM_Voice
 }
@@ -120,6 +233,30 @@ nodes {
   index: 5
   text: "But, tell you what\342\200\246 why don\342\200\231t you take this cash. Keep your mouth shut, and don\342\200\231t bother me again."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55e32a373464355c0200096f"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Update goal, disable Sammy"
 }
 nodes {
@@ -130,20 +267,110 @@ nodes {
   text: "No way! The Raiders are just upstarts. The MPA is here to stay. If I try to play both sides, I\342\200\231ll get got."
   branches {
     responseText: "{{CC}}Etiquette: Academic{{/CC}} The Raiders are like junkies looking for a fix, they just need a hit of power. It\342\200\231ll keep them off your back until the MPA wipes them clean."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 18
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 7
     idRef {
       id: "55df7bdd6434312d254f337c:55df7cf36434312d254f33d2"
     }
     auxiliaryLink: true
-    comment: "TODO: Etiquette"
   }
   branches {
     responseText: "{{CC}}Charisma: 4{{/CC}} This is just the price of doing business in the Gauntlet, my friend. You have to look at the problem right in front of you, not the threat lurking far away."
+    conditions {
+      ops {
+        functionName: "Compare Actor Attribute"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorAttributes"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+    }
     nextNodeIndex: 7
     idRef {
       id: "55df7bdd6434312d254f337c:55df7cf36434312d254f33d4"
     }
-    comment: "TODO: Etiquette"
   }
   branches {
     responseText: "I\342\200\231m getting this payment out of you, one way or another. {{GM}}Attack.{{/GM}}"
@@ -168,6 +395,30 @@ nodes {
   index: 7
   text: "Fine, fine. Take it.\n\nThe Raiders had better actually deliver, though. Small fries like me don\'t stand a chance in the crossfire between rival gangs."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55e32a373464355c0200096f"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Nuyen, goals, disable."
 }
 nodes {
@@ -177,6 +428,30 @@ nodes {
   index: 8
   text: "You double-dealing, conscienceless, corporate lapdog scum! "
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55e32a2f3464355c0200096e"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Combat."
 }
 nodes {
