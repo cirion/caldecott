@@ -5508,6 +5508,44 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Animate"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "556a79c734643528130062e7"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Berlin:General/standing_idle_shuffledance"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55e3a49b346435e41a000173"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Camera"
   position {
