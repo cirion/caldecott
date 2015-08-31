@@ -445,6 +445,29 @@ nodes {
           int_value: 100
         }
       }
+      ops {
+        functionName: "Add Tag to Actor"
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "has100Nuyen"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Target Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+      }
     }
     nextNodeIndex: 13
     idRef {
@@ -458,6 +481,13 @@ nodes {
       id: "55df557f643431201b06dea0:55df5c0f6434312d254f32bf"
     }
     auxiliaryLink: true
+  }
+  branches {
+    responseText: "Hang tight, I\'ll be right back."
+    nextNodeIndex: -1
+    idRef {
+      id: "55df557f643431201b06dea0:55e39e76346435e41a0000c6"
+    }
   }
   nodeType: ConversationNodeType_Simple
 }
