@@ -1,4 +1,125 @@
 triggers {
+  name: "Map Start"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55725b36346435d804006104"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "HongKong:General/standing_idle_clamoring"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Actor Run Speed"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "RunSpeedMethod"
+          }
+          args {
+            int_value: 3
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play FX on Actor"
+      args {
+        string_value: "Berlin:LoopedSmokingIdle"
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "55725b0e346435d804006103"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Animation State Of Actor To Animation Modifier"
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "AnimationState"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (AnimationModifiers)"
+          args {
+            string_value: "injured"
+          }
+          args {
+            string_value: "injured"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55e46bfd3464355022001365"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
   name: "Rafik Approves"
   events {
     ops {
@@ -119,7 +240,10 @@ triggers {
       functionName: "Compare Actor Gender"
       args {
         call_value {
-          functionName: "Triggering Actor"
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
         }
       }
       args {
@@ -489,10 +613,228 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Set Animation State Of Actor To Animation Modifier"
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "AnimationState"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (AnimationModifiers)"
+          args {
+            string_value: "injured_left"
+          }
+          args {
+            string_value: "injured_coyote"
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
     id: "5572655c346435d8040066d4"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "UI Help Approval_OFF"
+  events {
+    ops {
+      functionName: "On Conversation Complete"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "UI_Help_ShowedApproval"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Display Text In Popup"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "UI_Help_ApprovalBody"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PopupType"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: " "
+          }
+          args {
+            string_value: "UI_Help_ApprovalTitle"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "UI_Help_ShowedApproval"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: false
+  idRef {
+    id: "55e23fd2346435c419003ee8"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Start Talking"
+  events {
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55725b36346435d804006104"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Seattle:General/standing_idle_talking"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55e47345346435581c004e85"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Stop Talking"
+  events {
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55725b36346435d804006104"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Seattle:General/standing_idle"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55e475cc346435581c005229"
   }
   elseActions {
   }
@@ -650,7 +992,7 @@ characters {
   }
   lod: 0
   character_instance {
-    prefab_name: "Seattle:Scientist/HumanFemaleScientistCoatMask"
+    prefab_name: "Seattle:Core/HumanFemale"
     character_sheet_id: "BaseCivilian"
     character_mod {
       stats {
@@ -708,16 +1050,21 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
+      archetypeName: "Non-Combatant"
       attitude: AttitudeAggressive
       vulnerabilities {
       }
     }
+    equipment {
+      prefab_name: "RiggerTrenchcoat"
+    }
     team_id: "Civilians"
-    char_name: "Tolar"
+    char_name: "Woman"
     pc_spawn_number: -1
     portrait {
-      filename: "generic_humanmale_scientist01"
+      filename: "pc_humanfemale_02a_detective"
     }
+    portrait_code_override: "s5h8c11b0c0t0"
     karma: 6
   }
 }
@@ -924,9 +1271,9 @@ worldMapLocation {
 }
 mapName: "a1_clinic_s1"
 parentStory: ""
-scene_title: "Charon\342\200\231s Toll"
+scene_title: "CHARON\'S TOLL"
 scene_subtitle: ""
-scene_synopsis: "You remember nothing. It all ends. But\342\200\246 how could you have known that it ended, unless it started again?\n\nA thought. You cling to it desperately, grasping on as it pulls you back towards consciousness: I think. I must exist. I may still live."
+scene_synopsis: "You remember nothing. It all ends.\n\nBut\342\200\246 how could you have known that it ended, unless it started again?\n\nA thought. You grasp on to it, clinging desperately as it pulls you back towards consciousness: I think. I must exist.\n\nI may still live."
 scene_image: ""
 scene_continue_button_skip: false
 scene_restore_runner_health: true
