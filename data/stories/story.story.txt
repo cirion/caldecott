@@ -1438,7 +1438,49 @@ character_roster {
     content_pack_source: "5505a99b346435a418004d07"
   }
   roster_entries {
+    reference_id: "crew_lv1_dorbi"
+    hiring_conditions {
+    }
+    hiring_cost: 76
+    content_pack_source: "5505a99b346435a418004d07"
+  }
+  roster_entries {
     reference_id: "crew_lv1_rafik"
+    hiring_conditions {
+    }
+    hiring_cost: 75
+    content_pack_source: "5505a99b346435a418004d07"
+  }
+  roster_entries {
+    reference_id: "crew_lv2_rafik"
+    hiring_conditions {
+    }
+    hiring_cost: 75
+    content_pack_source: "5505a99b346435a418004d07"
+  }
+  roster_entries {
+    reference_id: "crew_lv3_rafik"
+    hiring_conditions {
+    }
+    hiring_cost: 75
+    content_pack_source: "5505a99b346435a418004d07"
+  }
+  roster_entries {
+    reference_id: "crew_lv4_rafik"
+    hiring_conditions {
+    }
+    hiring_cost: 75
+    content_pack_source: "5505a99b346435a418004d07"
+  }
+  roster_entries {
+    reference_id: "crew_lv5_rafik"
+    hiring_conditions {
+    }
+    hiring_cost: 75
+    content_pack_source: "5505a99b346435a418004d07"
+  }
+  roster_entries {
+    reference_id: "crew_lv6_rafik"
     hiring_conditions {
     }
     hiring_cost: 75
@@ -1477,42 +1519,6 @@ crew_list {
       }
       args {
         int_value: 1
-      }
-    }
-    ops {
-      functionName: "Comparison (bool)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (bool)"
-          args {
-            string_value: "5505a99b346435a418004d07"
-          }
-          args {
-            string_value: "Global_Hub_CanAdvanceCrew"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "IsOrIsNot"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "bool"
-          }
-          args {
-            int_value: 1
-          }
-        }
       }
     }
   }
@@ -1564,21 +1570,22 @@ crew_list {
     associated_char_sheet: "Crew_Lv6_Sable"
     node_idx: 5
   }
+  hide_when_unavailable: true
   scale_variable: "CharacterScaleAmount"
 }
 crew_list {
-  id: "Gaichu"
+  id: "Rafik"
   prerequisites {
     ops {
-      functionName: "Comparison (bool)"
+      functionName: "Comparison (int)"
       args {
         call_value {
-          functionName: "Get Preset Value (int)"
+          functionName: "Get Story Variable (int)"
           args {
-            string_value: "bool"
+            string_value: "5505a99b346435a418004d07"
           }
           args {
-            int_value: 1
+            string_value: "Global_SableTeamState"
           }
         }
       }
@@ -1586,62 +1593,67 @@ crew_list {
         call_value {
           functionName: "Get Preset Value (int)"
           args {
-            string_value: "IsOrIsNot"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "bool"
+            string_value: "Comparison Ops"
           }
           args {
             int_value: 0
           }
         }
       }
+      args {
+        int_value: 1
+      }
     }
   }
   active_nodes {
     name: "LV1"
     scale_level: 0
-    associated_char_sheet: "crew_lv1_gaichu"
+    associated_char_sheet: "crew_lv1_rafik"
     node_idx: 0
   }
   active_nodes {
     name: "LV2"
     scale_level: 1
-    associated_char_sheet: "crew_lv2_gaichu"
+    crew_variants: "Rafik_Faith_1"
+    crew_variants: "Rafik_Action_1"
+    associated_char_sheet: "crew_lv2_rafik"
     node_idx: 1
   }
   active_nodes {
     name: "LV3"
     scale_level: 2
-    associated_char_sheet: "crew_lv3_gaichu"
+    crew_variants: "Rafik_Faith_2"
+    crew_variants: "Rafik_Action_2"
+    associated_char_sheet: "crew_lv3_rafik"
     node_idx: 2
   }
   active_nodes {
     name: "LV4"
     scale_level: 3
-    associated_char_sheet: "crew_lv4_gaichu"
+    crew_variants: "Rafik_Faith_3"
+    crew_variants: "Rafik_Action_3"
+    associated_char_sheet: "crew_lv4_rafik"
     node_idx: 3
   }
   active_nodes {
     name: "LV5"
     scale_level: 4
-    associated_char_sheet: "crew_lv5_gaichu"
+    crew_variants: "Rafik_Faith_4"
+    crew_variants: "Rafik_Action_4"
+    hide_when_unavailable: true
+    associated_char_sheet: "crew_lv5_rafik"
     node_idx: 4
   }
   active_nodes {
     name: "LV6"
     scale_level: 5
-    associated_char_sheet: "crew_lv6_gaichu"
+    crew_variants: "Rafik_Faith_5"
+    crew_variants: "Rafik_Action_5"
+    hide_when_unavailable: true
+    associated_char_sheet: "crew_lv6_rafik"
     node_idx: 5
   }
+  hide_when_unavailable: true
   scale_variable: "CharacterScaleAmount"
 }
 crew_advancement_variable: "CharacterScaleAmount"
