@@ -1,0 +1,70 @@
+id: "SP Venom Splash 2"
+type: ItemType_Spell
+uirep {
+  icon: "icon_spirit_venomsplash_2"
+  name: "Venom Splash II"
+  description: "A venomous spray that travels to the next adjacent target."
+}
+anim_type: AnimType_Spell
+coreAttribute: Attribute_Willpower
+coreSkill: Skill_Spellcasting
+forceRating: 5
+apCost: 1
+baseHPDamage: 16
+baseAPDamage: 0
+rangeModTable: 10
+rangeModTable: 9
+rangeModTable: 8
+rangeModTable: 7
+rangeModTable: 6
+rangeModTable: 5
+rangeModTable: 4
+rangeModTable: 3
+rangeModTable: 2
+rangeModTable: 1
+rangeModTable: 0
+rangeModTable: 0
+rangeModTable: -1
+rangeModTable: -2
+rangeModTable: -3
+rangeModTable: -4
+rangeModTable: -5
+rangeModTable: -6
+rangeModTable: -7
+rangeModTable: -8
+noiseLevel: 4
+noiseRounds: 1
+modelessAbilities: "Stunbolt"
+rpPenetrate: 1
+affectsFriendly: false
+affectsEnemy: true
+canTargetActor: true
+canTargetOccupiedGridPoint: false
+canTargetUnoccupiedGridPoint: false
+cooldown: 1
+isMagic: false
+effectDuration: 2
+fxrep {
+  preActionFxName: "AcidSpellPrepare"
+  actionFxName: "AcidStreamThrowAction"
+  postActionFxName: ""
+  hitReactionFxName: "AcidHitReaction"
+  missReactionFxName: "GenericSpellMissReaction"
+}
+activationStatusEffects {
+  uirep {
+    icon: "icon_acidstream1"
+    name: "Venom: HP -2 per RND"
+  }
+  stackingCategory: "Venom"
+  statMods {
+    attribute: Attribute_HP
+    intModValue: -2
+    damageType: VulnerabilityType_Poison
+  }
+  fxScript: "AcidBurnStatus"
+  is_debuff: true
+}
+store_cost: 300
+sorting_group: "Spirit Powers"
+spell_bounce_list: "BounceOnce_ParentSpell_Attack"

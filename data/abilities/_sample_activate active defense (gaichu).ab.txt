@@ -1,0 +1,68 @@
+id: "Activate Active Defense (Gaichu)"
+uirep {
+  icon: "icon_supportspells_ActivateActiveDefense"
+  name: "Active Defense"
+  description: "Gaichu uses his elite Red Samurai training to temporarily bolster his defense. He gains 2 Armor and 1 Dodge for 2 RNDs."
+}
+apCostMod: 0
+hpDamageMod: 0
+apDamageMod: 0
+accuracyMod: 0
+prereqStrings: "TAG.Gaichu_Samurai_1 EXISTS"
+damageBucket {
+  successEntries {
+    weight: 0.25
+    value: 2
+  }
+  successEntries {
+    weight: 0.25
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 0.5
+  }
+}
+offensiveAbility: false
+effectDuration: 2
+cooldown: 5
+fxrep {
+  preActionFxName: ""
+  actionFxName: "UseNonconsumableItem"
+  postActionFxName: ""
+  hitReactionFxName: "GenericEmptyReaction"
+  missReactionFxName: ""
+}
+toHitFunction: "autoHitActorInRange"
+damageFunction: "buffTarget"
+override_item_targetting: true
+affectsFriendly: true
+affectsEnemy: false
+canTargetSelf: true
+activationStatusEffects {
+  uirep {
+    icon: "icon_armor1"
+    name: "Active Defense: Armor +2, Dodge +1"
+  }
+  stackingCategory: "GaichuActiveDefense"
+  statMods {
+    attribute: Attribute_Armor
+    intModValue: 2
+  }
+  statMods {
+    skill: Skill_Dodge
+    intModValue: 1
+  }
+  fxScript: "HongKong:SamuraiDefenseBoostStatus"
+  is_buff: true
+}
+send_event_on_activation: true
+instantAction: true

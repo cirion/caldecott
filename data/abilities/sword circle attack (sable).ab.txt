@@ -1,0 +1,49 @@
+id: "Circle Attack (Sable)"
+uirep {
+  icon: "icon_ability_gaichu_katanaWhirlwind"
+  name: "Circle Attack"
+  description: "A sword attack that can hit adjacent targets."
+}
+anim_action: AnimAction_Attack
+apCostMod: 0
+hpDamageMod: 0
+apDamageMod: 0
+accuracyMod: 0
+prereqStrings: "TAG.Sable_Slasher_3 EXISTS"
+damageBucket {
+  successEntries {
+    weight: 0.1
+    value: 2
+  }
+  successEntries {
+    weight: 0.3
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.6
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 0.5
+  }
+}
+attackRatingMod: 0
+offensiveAbility: true
+cooldown: 2
+spreadAngle: 55
+effectModTable: 1
+effectModTable: 1
+fxrep {
+  preActionFxName: ""
+  actionFxName: "HongKong:SamuraiWhirlwindSlashAction"
+  postActionFxName: ""
+  hitReactionFxName: "UnarmedHitReaction"
+  missReactionFxName: "UnarmedMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"

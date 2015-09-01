@@ -1,0 +1,60 @@
+id: "Underslung BeanBag (Duncan)"
+uirep {
+  icon: "icon_ability_duncan_underslungbeanbag"
+  name: "Bean Bag Shot"
+  description: "Fires a bean bag round from an underslung launcher. Does 2 AP damage and imbalances targets, making them easier to hit on subsequent attacks. This ability cannot do critical DMG."
+}
+anim_action: AnimAction_Attack
+apCostMod: 0
+hpDamageMod: -99
+apDamageMod: 2
+accuracyMod: 0
+prereqStrings: "Item.FLAG.WEAPON_CUR_AMMO > 0"
+prereqStrings: "TAG.Duncan_CrowdControl_1 EXISTS"
+damageBucket {
+  successEntries {
+    weight: 0.25
+    value: 1
+  }
+  successEntries {
+    weight: 0.25
+    value: 1
+  }
+  successEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+}
+attackRatingMod: 0
+offensiveAbility: true
+ammoCost: 0
+cooldown: 2
+fxrep {
+  preActionFxName: ""
+  actionFxName: "HongKong:UnderslungBeanbagShootAction"
+  postActionFxName: ""
+  hitReactionFxName: "GunHitReaction"
+  missReactionFxName: "GunMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"
+activationStatusEffects {
+  uirep {
+    icon: "icon_disintegrate1"
+    name: "Unbalanced"
+  }
+  stackingCategory: "BeanBag"
+  statMods {
+    attribute: Attribute_Accuracy_Reduction_Mod
+    intModValue: -6
+  }
+  is_debuff: true
+}

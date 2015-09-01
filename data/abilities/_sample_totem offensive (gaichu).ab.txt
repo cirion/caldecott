@@ -1,0 +1,37 @@
+id: "Totem Offensive (Gaichu)"
+uirep {
+  icon: "icon_ability_gaichu_totemOffensive"
+  name: "Disease"
+  description: "Gaichu has begun to exude a putrid spore cloud that damages and poisons enemies within his vicinity. Lasts 3 RNDs."
+}
+apCostMod: 0
+hpDamageMod: 0
+apDamageMod: 0
+accuracyMod: 0
+prereqStrings: "TAG.Gaichu_Ghoul_4 EXISTS"
+damageBucket {
+  successEntries {
+    weight: 0.25
+    value: 2
+  }
+  successEntries {
+    weight: 0.25
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 0.5
+  }
+}
+attackRatingMod: 0
+offensiveAbility: true
+toHitFunction: "autoHitTotemNotSelfInRange"
+damageFunction: "weaponDamage"

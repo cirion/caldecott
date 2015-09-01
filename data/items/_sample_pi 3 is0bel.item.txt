@@ -1,0 +1,85 @@
+id: "Pi 3 Is0bel"
+type: ItemType_Pistol
+uirep {
+  icon: "icon_weapon_pi_is0bel"
+  name: "Customized Slivergun"
+  description: "Pistol: This weapon fires metal slivers, which can cause mild to extreme bleeding in the target."
+}
+equipPrefabName: "HongKong:pistolIs0bel"
+anim_type: AnimType_Pistol
+coreAttribute: Attribute_Quickness
+coreSkill: Skill_RangedCombat
+coreSpecialization: Specialization_RC_Pistol
+apCost: 1
+prereqStrings: "Player.RACE != RACE.DRONE"
+prereqStrings: "Player.RACE != RACE.FREEDRONE"
+maxAmmo: 20
+baseHPDamage: 14
+baseAPDamage: 0
+rangeModTable: 8
+rangeModTable: 8
+rangeModTable: 8
+rangeModTable: 6
+rangeModTable: 4
+rangeModTable: 2
+rangeModTable: 0
+rangeModTable: -2
+rangeModTable: -4
+rangeModTable: -6
+rangeModTable: -8
+rangeModTable: -10
+rangeModTable: -12
+rangeModTable: -14
+rangeModTable: -16
+rangeModTable: -18
+rangeModTable: -20
+rangeModTable: -22
+rangeModTable: -24
+rangeModTable: -26
+rangeModTable: -28
+rangeModTable: -30
+rangeModTable: -32
+rangeModTable: -34
+rangeModTable: -36
+rangeModTable: -38
+noiseLevel: 9
+noiseRounds: 1
+ammoReloadAPCost: 1
+abilityModes: "Selective (Pistol)"
+affectsEnemy: true
+canTargetActor: true
+effectDuration: 1
+activationStatusEffects {
+  uirep {
+    icon: "icon_fireball1"
+    name: "Bleeding: HP -3 per RND"
+  }
+  stackingCategory: "BloodyEndCrit"
+  statMods {
+    attribute: Attribute_HP
+    intModValue: -3
+    damageType: VulnerabilityType_Bleed
+  }
+  fxScript: "Berlin:BleedingStatus"
+  is_ignore_armor: true
+  is_debuff: true
+  activation_status_effect_weight: 0.1
+}
+activationStatusEffects {
+  uirep {
+    icon: "icon_fireball1"
+    name: "Bleeding: HP -1 per RND"
+  }
+  stackingCategory: "Bleeding"
+  statMods {
+    attribute: Attribute_HP
+    intModValue: -1
+    damageType: VulnerabilityType_Bleed
+  }
+  fxScript: "Berlin:BleedingStatus"
+  is_ignore_armor: true
+  is_debuff: true
+  activation_status_effect_weight: 0.9
+}
+sorting_group: "crewWeapon"
+maim_crit: true

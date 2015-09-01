@@ -1,0 +1,56 @@
+id: "SP Thousand Cuts"
+type: ItemType_Spell
+uirep {
+  icon: "icon_spell_mage_blood_bolt_3"
+  name: "A Thousand Cuts"
+  description: "All enemies within a range of 3 squares receive slashing cuts. This does an ongoing 5 HP DMG for 3 RNDs, bypassing armor."
+}
+anim_type: AnimType_Spell
+coreAttribute: Attribute_Charisma
+coreSkill: Skill_Conjuring
+forceRating: 3
+apCost: 2
+baseHPDamage: 5
+baseAPDamage: 0
+effectModTable: 1
+effectModTable: 1
+effectModTable: 1
+noiseLevel: 5
+noiseRounds: 1
+modelessAbilities: "Totem Offensive"
+affectsFriendly: false
+affectsEnemy: true
+canTargetSelf: true
+canTargetActor: false
+canTargetOccupiedGridPoint: false
+canTargetUnoccupiedGridPoint: false
+isDebuff: true
+cooldown: 0
+isMagic: true
+effectDuration: 2
+fxrep {
+  preActionFxName: "Berlin:BloodMageSpellPrepare"
+  actionFxName: "HongKong:spiritExplodeAction"
+  postActionFxName: ""
+  hitReactionFxName: "Berlin:BloodSpellHitReaction"
+  missReactionFxName: "GenericSpellMissReaction"
+}
+activationStatusEffects {
+  uirep {
+    icon: "icon_spell_mage_blood_bolt_3"
+    name: "Bleeding: HP -5 per RND"
+  }
+  stackingCategory: "BleedAOE"
+  statMods {
+    attribute: Attribute_HP
+    intModValue: -5
+    damageType: VulnerabilityType_Bleed
+  }
+  statusConditions: Condition_HalfVisibility
+  fxScript: "HongKong:DiseaseSpiritHitReaction"
+  durationFxScript: "BurningStatusHitReaction"
+  is_ignore_armor: true
+  is_debuff: true
+}
+sorting_group: "Spirit Powers"
+damageType: VulnerabilityType_Bleed

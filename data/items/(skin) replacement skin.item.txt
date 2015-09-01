@@ -1,0 +1,57 @@
+id: "(Skin) Replacement Skin"
+type: ItemType_Cyberware
+uirep {
+  icon: "icon_bio_orthoskin"
+  name: "Second Skin"
+  description: "’Doctor’ Tolar stitched someone else’s skin onto your corpse. It itches. Your body occasionally reacts violently, flooding your system with adrenaline for extra AP but inflicting damage on yourself. Lasts 3 RNDS. Cost: 0 AP, 2 HP per round. Cooldown: 4."
+}
+anim_type: AnimType_Spell
+coreAttribute: Attribute_None
+coreSkill: Skill_None
+apCost: 0
+prereqStrings: "Player.RACE != RACE.CREATURE"
+baseHPDamage: 0
+baseAPDamage: 0
+noiseLevel: 0
+noiseRounds: 0
+modelessAbilities: "Activate Wired Reflexes"
+affectsFriendly: false
+affectsEnemy: false
+canTargetSelf: true
+canTargetActor: false
+canTargetOccupiedGridPoint: false
+canTargetUnoccupiedGridPoint: false
+isBuff: true
+cooldown: 4
+effectDuration: 3
+fxrep {
+  preActionFxName: "GenericSpellPrepare"
+  actionFxName: "Berlin:CyberwareBuffAction"
+  postActionFxName: ""
+  hitReactionFxName: "GenericEmptyReaction"
+  missReactionFxName: "GenericSpellMissReaction"
+}
+activationStatusEffects {
+  uirep {
+    icon: "icon_haste1"
+    name: "Adrenaline Burst: AP +1, 2 HP DMG"
+  }
+  stackingCategory: "WiredReflexes"
+  statMods {
+    attribute: Attribute_AP
+    intModValue: 1
+  }
+  statMods {
+    attribute: Attribute_HP
+    intModValue: -2
+    damageType: VulnerabilityType_Bleed
+  }
+  fxScript: "AdeptOffenseBuffStatus"
+  is_buff: true
+  is_from_cyberware: true
+}
+cyberware_type: CyberwareType_Body
+store_cost: 0
+sorting_group: "CyberwareBody"
+damageType: VulnerabilityType_ActionPoints
+anim_group_override: ItemType_Adept
