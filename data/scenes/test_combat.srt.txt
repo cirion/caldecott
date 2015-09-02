@@ -128,13 +128,13 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 4
+    x: 5
     y: 0
     z: 8
   }
   orientation: ORIENTATION_W
   idRef {
-    id: "55e50bff3464352409003d88"
+    id: "55e5337b3464351c1e003d6e"
   }
   lod: 0
   character_instance {
@@ -166,13 +166,13 @@ characters {
   }
   orientation: ORIENTATION_W
   idRef {
-    id: "55e531653464351c1e003d6d"
+    id: "55e670bb346435c81f003d6d"
   }
   lod: 0
   character_instance {
-    prefab_name: "HumanMaleKnightErrantCaptain"
-    character_sheet_id: "Errant_Lv1_Captain"
-    equipment_sheet_id: "Errant_Lv1_Captain"
+    prefab_name: "Core/HumanMale"
+    character_sheet_id: "Errant_Lv1_Human_Pistol"
+    equipment_sheet_id: "Errant_Lv1_Pistol"
     character_mod {
       archetypeName: "gumbo_Soldier"
       attitude: AttitudeAggressive
@@ -181,39 +181,40 @@ characters {
       }
     }
     team_id: "LoneStar"
-    char_name: "Knight Errant Captain"
+    char_name: "Knight Errant Guard"
     pc_spawn_number: -1
     portrait {
       filename: ""
     }
+    hiring_set_randomizer: "errant_pistol"
     scale_character_sheet: true
   }
 }
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 5
+    x: 4
     y: 0
     z: 8
   }
   orientation: ORIENTATION_W
   idRef {
-    id: "55e5337b3464351c1e003d6e"
+    id: "55e670c7346435c81f003d6e"
   }
   lod: 0
   character_instance {
-    prefab_name: "HumanMaleKnightErrantCaptain"
-    character_sheet_id: "Errant_Lv1_Captain"
-    equipment_sheet_id: "Errant_Lv1_Captain"
+    prefab_name: "HumanMaleKnightErrantMage"
+    character_sheet_id: "Errant_Lv1_Human_Mage"
+    equipment_sheet_id: "Errant_Lv1_Spellcasting"
     character_mod {
-      archetypeName: "gumbo_Soldier"
+      archetypeName: "gumbo_Mage"
       attitude: AttitudeAggressive
       attackRandom: AttackStyle_AllEqual
       vulnerabilities {
       }
     }
     team_id: "LoneStar"
-    char_name: "Knight Errant Captain"
+    char_name: "Knight Errant Mage"
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -675,6 +676,69 @@ roster_overrides {
     content_pack_source: "5505a99b346435a418004d07"
   }
   roster_entries {
+    reference_id: "crew_lv1_dorbi"
+    hiring_conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_DorbiTeamState"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "CharacterScaleAmount"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    hiring_cost: -1
+    content_pack_source: "5505a99b346435a418004d07"
+  }
+  roster_entries {
     reference_id: "crew_lv1_rafik"
     hiring_conditions {
       ops {
@@ -731,6 +795,69 @@ roster_overrides {
         }
         args {
           int_value: 0
+        }
+      }
+    }
+    hiring_cost: -1
+    content_pack_source: "5505a99b346435a418004d07"
+  }
+  roster_entries {
+    reference_id: "crew_lv2_dorbi"
+    hiring_conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_DorbiTeamState"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "CharacterScaleAmount"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 1
         }
       }
     }
@@ -801,6 +928,69 @@ roster_overrides {
     content_pack_source: "5505a99b346435a418004d07"
   }
   roster_entries {
+    reference_id: "crew_lv3_dorbi"
+    hiring_conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_DorbiTeamState"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "CharacterScaleAmount"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+    }
+    hiring_cost: -1
+    content_pack_source: "5505a99b346435a418004d07"
+  }
+  roster_entries {
     reference_id: "crew_lv3_rafik"
     hiring_conditions {
       ops {
@@ -857,6 +1047,69 @@ roster_overrides {
         }
         args {
           int_value: 2
+        }
+      }
+    }
+    hiring_cost: -1
+    content_pack_source: "5505a99b346435a418004d07"
+  }
+  roster_entries {
+    reference_id: "crew_lv4_dorbi"
+    hiring_conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_DorbiTeamState"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "CharacterScaleAmount"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 3
         }
       }
     }
@@ -927,6 +1180,69 @@ roster_overrides {
     content_pack_source: "5505a99b346435a418004d07"
   }
   roster_entries {
+    reference_id: "crew_lv5_dorbi"
+    hiring_conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_DorbiTeamState"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "CharacterScaleAmount"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+    }
+    hiring_cost: -1
+    content_pack_source: "5505a99b346435a418004d07"
+  }
+  roster_entries {
     reference_id: "crew_lv5_rafik"
     hiring_conditions {
       ops {
@@ -983,6 +1299,69 @@ roster_overrides {
         }
         args {
           int_value: 4
+        }
+      }
+    }
+    hiring_cost: -1
+    content_pack_source: "5505a99b346435a418004d07"
+  }
+  roster_entries {
+    reference_id: "crew_lv6_dorbi"
+    hiring_conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_DorbiTeamState"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "CharacterScaleAmount"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 5
         }
       }
     }
