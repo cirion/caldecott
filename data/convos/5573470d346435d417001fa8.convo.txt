@@ -9,40 +9,6 @@ nodes {
   index: 0
   text: "{{CC}}Where would you like to go?{{/CC}}"
   branches {
-    responseText: "{{CC}}Travel to the Gauntlet to look for a decker.{{/CC}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "5505a99b346435a418004d07"
-            }
-            args {
-              string_value: "Global_Recruit_Sable"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 0
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
     responseText: "{{CC}}Look for your rigger contact.{{/CC}}"
     conditions {
       ops {
@@ -54,7 +20,7 @@ nodes {
               string_value: "5505a99b346435a418004d07"
             }
             args {
-              string_value: "Global_Recruit_Persi"
+              string_value: "Global_PersiTeamState"
             }
           }
         }
@@ -75,6 +41,48 @@ nodes {
       }
     }
     nextNodeIndex: -1
+    hideIfUnavailable: true
+    idRef {
+      id: "5573470d346435d417001fa8:55e704c3346435480e0071ab"
+    }
+  }
+  branches {
+    responseText: "{{CC}}Travel to the Gauntlet to look for a decker.{{/CC}}"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_SableTeamState"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+    idRef {
+      id: "5573470d346435d417001fa8:55e704c3346435480e0071a9"
+    }
   }
   branches {
     responseText: "{{CC}}Go to Halferville to meet The Phoenix.{{/CC}}"
@@ -88,7 +96,7 @@ nodes {
               string_value: "5505a99b346435a418004d07"
             }
             args {
-              string_value: "Global_Recruit_Dorbi"
+              string_value: "Global_DorbiTeamState"
             }
           }
         }
@@ -109,13 +117,23 @@ nodes {
       }
     }
     nextNodeIndex: -1
+    hideIfUnavailable: true
+    idRef {
+      id: "5573470d346435d417001fa8:55e704c3346435480e0071ad"
+    }
   }
   branches {
     responseText: "{{CC}}Never mind.{{/CC}}"
     nextNodeIndex: -1
+    idRef {
+      id: "5573470d346435d417001fa8:55e704c3346435480e0071af"
+    }
   }
   nodeType: ConversationNodeType_Simple
 }
 roots {
   nextNodeIndex: 0
+  idRef {
+    id: "5573470d346435d417001fa8:55e704c3346435480e0071a6"
+  }
 }

@@ -772,6 +772,22 @@ triggers {
   is_oneshot: true
 }
 triggers {
+  name: "Map Setup"
+  events {
+  }
+  conditions {
+  }
+  actions {
+  }
+  isActive: true
+  idRef {
+    id: "55e709f3346435480e0074cd"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
   name: "Map started"
   events {
     ops {
@@ -781,6 +797,76 @@ triggers {
   conditions {
   }
   actions {
+    ops {
+      functionName: "Add Actor Karma"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 8
+      }
+    }
+    ops {
+      functionName: "Set Actor In Passive Mode"
+      args {
+        call_value {
+          functionName: "All Actors on Team"
+          args {
+            call_value {
+              functionName: "Get Preset Value (string)"
+              args {
+                string_value: "FactionList"
+              }
+              args {
+                int_value: 3
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (SceneDimension)"
+              args {
+                string_value: "Default"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
     ops {
       functionName: "Play Animation From Manifest"
       args {
@@ -795,7 +881,37 @@ triggers {
         call_value {
           functionName: "Get Map Item (Animation)"
           args {
-            string_value: "Berlin:General/standing_idle_sitting"
+            string_value: "HongKong:General/sitting_idle"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Actor Run Speed"
+      args {
+        call_value {
+          functionName: "All Actors"
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "RunSpeedMethod"
+          }
+          args {
+            int_value: 3
           }
         }
       }
@@ -818,7 +934,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (InteractableObject)"
           args {
-            string_value: "5573125d346435d804006dae"
+            string_value: "55e7046d346435480e0071a1"
           }
         }
       }
@@ -867,7 +983,7 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "Pending Goal Recruit Dorbi"
+  name: "Completed Goal Recruit Persi"
   events {
     ops {
       functionName: "On Map Start"
@@ -911,115 +1027,7 @@ triggers {
             string_value: "5505a99b346435a418004d07"
           }
           args {
-            string_value: "Global_MissionState_Recruit_Dorbi"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "Comparison Ops"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        int_value: 0
-      }
-    }
-  }
-  actions {
-    ops {
-      functionName: "Set Goal Status"
-      args {
-        call_value {
-          functionName: "Get Map Item (Goal)"
-          args {
-            string_value: "Recruit a Pyro"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "GoalStatus"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "557347c0346435d417002077"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
-  name: "Completed Goal Recruit Dorbi"
-  events {
-    ops {
-      functionName: "On Map Start"
-    }
-  }
-  conditions {
-    ops {
-      functionName: "Comparison (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "5505a99b346435a418004d07"
-          }
-          args {
-            string_value: "Global_numMissionsCompleted"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "Comparison Ops"
-          }
-          args {
-            int_value: 2
-          }
-        }
-      }
-      args {
-        int_value: 0
-      }
-    }
-    ops {
-      functionName: "Comparison (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "5505a99b346435a418004d07"
-          }
-          args {
-            string_value: "Global_MissionState_Recruit_Dorbi"
+            string_value: "Global_MissionState_Recruit_Persi"
           }
         }
       }
@@ -1046,7 +1054,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Goal)"
           args {
-            string_value: "Recruit a Pyro"
+            string_value: "Recruit a Rigger"
           }
         }
       }
@@ -1076,115 +1084,7 @@ triggers {
   }
   isActive: true
   idRef {
-    id: "55734809346435d417002078"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
-  name: "Pending Goal Recruit Sable"
-  events {
-    ops {
-      functionName: "On Map Start"
-    }
-  }
-  conditions {
-    ops {
-      functionName: "Comparison (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "5505a99b346435a418004d07"
-          }
-          args {
-            string_value: "Global_numMissionsCompleted"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "Comparison Ops"
-          }
-          args {
-            int_value: 2
-          }
-        }
-      }
-      args {
-        int_value: 0
-      }
-    }
-    ops {
-      functionName: "Comparison (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "5505a99b346435a418004d07"
-          }
-          args {
-            string_value: "Global_MissionState_Recruit_Sable"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "Comparison Ops"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        int_value: 0
-      }
-    }
-  }
-  actions {
-    ops {
-      functionName: "Set Goal Status"
-      args {
-        call_value {
-          functionName: "Get Map Item (Goal)"
-          args {
-            string_value: "Recruit a Decker"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "GoalStatus"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "5573481c346435d417002079"
+    id: "5573481d346435d41700207c"
   }
   elseActions {
   }
@@ -1299,6 +1199,330 @@ triggers {
   is_oneshot: true
 }
 triggers {
+  name: "Completed Goal Recruit Dorbi"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_numMissionsCompleted"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_MissionState_Recruit_Dorbi"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Recruit a Pyro"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55734809346435d417002078"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Pending Goal Recruit Dorbi"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_numMissionsCompleted"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_MissionState_Recruit_Dorbi"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Recruit a Pyro"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "557347c0346435d417002077"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Pending Goal Recruit Sable"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_numMissionsCompleted"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_MissionState_Recruit_Sable"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Recruit a Decker"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5573481c346435d417002079"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
   name: "Pending Goal Recruit Persi"
   events {
     ops {
@@ -1401,114 +1625,6 @@ triggers {
   isActive: true
   idRef {
     id: "5573481d346435d41700207b"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
-  name: "Completed Goal Recruit Persi"
-  events {
-    ops {
-      functionName: "On Map Start"
-    }
-  }
-  conditions {
-    ops {
-      functionName: "Comparison (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "5505a99b346435a418004d07"
-          }
-          args {
-            string_value: "Global_numMissionsCompleted"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "Comparison Ops"
-          }
-          args {
-            int_value: 2
-          }
-        }
-      }
-      args {
-        int_value: 0
-      }
-    }
-    ops {
-      functionName: "Comparison (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "5505a99b346435a418004d07"
-          }
-          args {
-            string_value: "Global_MissionState_Recruit_Persi"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "Comparison Ops"
-          }
-          args {
-            int_value: 2
-          }
-        }
-      }
-      args {
-        int_value: 0
-      }
-    }
-  }
-  actions {
-    ops {
-      functionName: "Set Goal Status"
-      args {
-        call_value {
-          functionName: "Get Map Item (Goal)"
-          args {
-            string_value: "Recruit a Rigger"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "GoalStatus"
-          }
-          args {
-            int_value: 2
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "5573481d346435d41700207c"
   }
   elseActions {
   }
@@ -1641,6 +1757,437 @@ triggers {
   elseActions {
   }
   is_oneshot: false
+}
+triggers {
+  name: "postSetup_CurtainsUp_SendEvents"
+  events {
+    ops {
+      functionName: "On Curtains Up"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Event_CheckScaleAmount"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55e70586346435480e0071ba"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Global_SetCharacterScaleAmount_1"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Event_CheckScaleAmount"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_numMissionsCompleted"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 2
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "CharacterScaleAmount"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55e705f1346435480e0071bb"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Global_SetCharacterScaleAmount_2"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Event_CheckScaleAmount"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_numMissionsCompleted"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 4
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "CharacterScaleAmount"
+          }
+        }
+      }
+      args {
+        int_value: 2
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55e7063b346435480e0071bc"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Global_SetCharacterScaleAmount_3"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Event_CheckScaleAmount"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_numMissionsCompleted"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 6
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "CharacterScaleAmount"
+          }
+        }
+      }
+      args {
+        int_value: 3
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55e7063c346435480e0071bd"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Global_SetCharacterScaleAmount_4"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Event_CheckScaleAmount"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_numMissionsCompleted"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 8
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "CharacterScaleAmount"
+          }
+        }
+      }
+      args {
+        int_value: 4
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55e7063e346435480e0071be"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Global_SetCharacterScaleAmount_5"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Event_CheckScaleAmount"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_numMissionsCompleted"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 10
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "CharacterScaleAmount"
+          }
+        }
+      }
+      args {
+        int_value: 5
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55e7063f346435480e0071bf"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Exit to Persi"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55734c2a346435d4170029f5"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (string)"
+      args {
+        call_value {
+          functionName: "Get Variable (string)"
+          args {
+            string_value: "nextMission"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        string_value: "Persi"
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Open Hiring Screen and Open Scene"
+      args {
+        call_value {
+          functionName: "Get Map Item (Scene)"
+          args {
+            string_value: "a1_clinic_s1"
+          }
+        }
+      }
+      args {
+        string_value: "Are you ready to travel to the Port of Oakland?"
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55e70a39346435480e0074ce"
+  }
+  elseActions {
+  }
+  is_oneshot: true
 }
 regions {
   name: "Camera"
@@ -2016,9 +2563,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -17
+    x: -26
     y: 0
-    z: -2
+    z: -16
   }
   orientation: ORIENTATION_S
   GeneralTags: "isPersi"
@@ -2119,9 +2666,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -17
+    x: -26
     y: 0
-    z: -3
+    z: -15
   }
   orientation: ORIENTATION_S
   displayName: "Persi Prefab"
@@ -2225,6 +2772,7 @@ characters {
   character_instance {
     prefab_name: "Seattle:Core/OrkMale"
     character_sheet_id: "BaseCivilian"
+    equipment_sheet_id: "Crew_Rafik_Lv1_Gear"
     character_mod {
       stats {
         body: 0
@@ -2284,9 +2832,6 @@ characters {
       attitude: AttitudeAggressive
       vulnerabilities {
       }
-    }
-    equipment {
-      prefab_name: "RiggerTrenchcoat"
     }
     team_id: "Civilians"
     char_name: "Rafik"
@@ -2408,6 +2953,12 @@ characters {
   character_instance {
     prefab_name: "Seattle:Objects/InvisibleActor"
     character_sheet_id: "BaseCivilian"
+    equipment_sheet_id: "CC_Merchant_Doctor_1"
+    equipment_sheet_id: "HK_Merchant_DroneDealer_1"
+    equipment_sheet_id: "HK_Merchant_GunDealer_1"
+    equipment_sheet_id: "HK_Merchant_Magic_1"
+    equipment_sheet_id: "HK_Merchant_Matrix_1"
+    equipment_sheet_id: "HK_Merchant_MeleeNPhys_1"
     character_mod {
       stats {
         body: 0
@@ -2465,6 +3016,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
+      archetypeName: "Non-Combatant"
       attitude: AttitudeAggressive
       vulnerabilities {
       }
@@ -2572,12 +3124,21 @@ variables {
     typeName: "int"
   }
 }
+variables {
+  string_value: ""
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "nextMission"
+    typeName: "string"
+  }
+}
 mapEvents: "Persi Approves"
 mapEvents: "Persi Disapproves"
 mapEvents: "Persi Greatly Disapproves"
 mapEvents: "Rafik Approves"
 mapEvents: "Rafik Disapproves"
 mapEvents: "Rafik Greatly Disapproves"
+mapEvents: "Event_CheckScaleAmount"
 senseTags: "isPC0"
 goals {
   name: "Recruit a Decker"
@@ -2603,9 +3164,9 @@ worldMapLocation {
 }
 mapName: "hub_apartment"
 parentStory: ""
-scene_title: "Rafik and Kora\'s Apartment"
+scene_title: "CASA DE KORA"
 scene_subtitle: ""
-scene_synopsis: ""
+scene_synopsis: "$(story.Global_HubLoading)"
 scene_image: ""
 scene_continue_button_skip: false
 scene_restore_runner_health: true
