@@ -1,5 +1,5 @@
 triggers {
-  name: "Transition  Floor 1 to 2"
+  name: "Up South Stairs"
   events {
     ops {
       functionName: "On Item Interaction"
@@ -7,7 +7,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (InteractableObject)"
           args {
-            string_value: "5516f28c34643524160084d6"
+            string_value: "55234fd0346435b0190018cd"
           }
         }
       }
@@ -19,35 +19,10 @@ triggers {
     ops {
       functionName: "Fade Camera Out"
       args {
-        float_value: 1
+        float_value: 1.5
       }
       args {
         float_value: 0
-      }
-    }
-    ops {
-      functionName: "Send Event After Delay"
-      args {
-        call_value {
-          functionName: "Get Map Item (Event)"
-          args {
-            string_value: "Transition"
-          }
-        }
-      }
-      args {
-        float_value: 0.25
-      }
-    }
-    ops {
-      functionName: "Trigger: Wait for Event"
-      args {
-        call_value {
-          functionName: "Get Map Item (Event)"
-          args {
-            string_value: "Transition"
-          }
-        }
       }
     }
     ops {
@@ -56,10 +31,10 @@ triggers {
         call_value {
           functionName: "Get Map Item (Sound)"
           args {
-            string_value: "Berlin:props"
+            string_value: "props"
           }
           args {
-            string_value: "ElevatorDown"
+            string_value: "LadderClimb"
           }
         }
       }
@@ -84,12 +59,12 @@ triggers {
         call_value {
           functionName: "Get Map Item (Event)"
           args {
-            string_value: "Transition"
+            string_value: "Stairs Transition"
           }
         }
       }
       args {
-        float_value: 4
+        float_value: 1.5
       }
     }
     ops {
@@ -98,7 +73,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Event)"
           args {
-            string_value: "Transition"
+            string_value: "Stairs Transition"
           }
         }
       }
@@ -107,36 +82,13 @@ triggers {
       functionName: "Teleport Actor"
       args {
         call_value {
-          functionName: "All Actors on Team"
+          functionName: "Specific Actor"
           args {
             call_value {
-              functionName: "Get Preset Value (string)"
-              args {
-                string_value: "FactionList"
-              }
-              args {
-                int_value: 0
-              }
+              functionName: "Triggering Actor"
             }
           }
           args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "AllOrAny"
-              }
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Map Item (SceneDimension)"
-              args {
-                string_value: "Default"
-              }
-            }
           }
         }
       }
@@ -147,7 +99,7 @@ triggers {
             call_value {
               functionName: "Get Map Item (Prop)"
               args {
-                string_value: "551733b6346435241600873e"
+                string_value: "55234647346435b01900174b"
               }
             }
           }
@@ -160,7 +112,7 @@ triggers {
             string_value: "FacingDirection"
           }
           args {
-            int_value: 5
+            int_value: 1
           }
         }
       }
@@ -177,14 +129,6 @@ triggers {
       }
     }
     ops {
-      functionName: "Teleport Camera To Actor"
-      args {
-        call_value {
-          functionName: "Triggering Actor"
-        }
-      }
-    }
-    ops {
       functionName: "Fade Camera In"
       args {
         float_value: 1
@@ -193,17 +137,25 @@ triggers {
         float_value: 0
       }
     }
+    ops {
+      functionName: "Teleport Camera To Actor"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+    }
   }
   isActive: true
   idRef {
-    id: "55386b00346435700f004e01"
+    id: "55234fb9346435b0190018cb"
   }
   elseActions {
   }
   is_oneshot: false
 }
 triggers {
-  name: "Transition  Floor 2 to 1"
+  name: "Down South Stairs"
   events {
     ops {
       functionName: "On Item Interaction"
@@ -211,7 +163,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (InteractableObject)"
           args {
-            string_value: "551733b6346435241600873e"
+            string_value: "55234647346435b01900174b"
           }
         }
       }
@@ -223,35 +175,10 @@ triggers {
     ops {
       functionName: "Fade Camera Out"
       args {
-        float_value: 1
+        float_value: 1.5
       }
       args {
         float_value: 0
-      }
-    }
-    ops {
-      functionName: "Send Event After Delay"
-      args {
-        call_value {
-          functionName: "Get Map Item (Event)"
-          args {
-            string_value: "Transition"
-          }
-        }
-      }
-      args {
-        float_value: 0.25
-      }
-    }
-    ops {
-      functionName: "Trigger: Wait for Event"
-      args {
-        call_value {
-          functionName: "Get Map Item (Event)"
-          args {
-            string_value: "Transition"
-          }
-        }
       }
     }
     ops {
@@ -260,10 +187,10 @@ triggers {
         call_value {
           functionName: "Get Map Item (Sound)"
           args {
-            string_value: "Berlin:props"
+            string_value: "props"
           }
           args {
-            string_value: "ElevatorDown"
+            string_value: "LadderClimb"
           }
         }
       }
@@ -288,12 +215,12 @@ triggers {
         call_value {
           functionName: "Get Map Item (Event)"
           args {
-            string_value: "Transition"
+            string_value: "Stairs Transition"
           }
         }
       }
       args {
-        float_value: 4
+        float_value: 1.5
       }
     }
     ops {
@@ -302,7 +229,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Event)"
           args {
-            string_value: "Transition"
+            string_value: "Stairs Transition"
           }
         }
       }
@@ -311,36 +238,13 @@ triggers {
       functionName: "Teleport Actor"
       args {
         call_value {
-          functionName: "All Actors on Team"
+          functionName: "Specific Actor"
           args {
             call_value {
-              functionName: "Get Preset Value (string)"
-              args {
-                string_value: "FactionList"
-              }
-              args {
-                int_value: 0
-              }
+              functionName: "Triggering Actor"
             }
           }
           args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "AllOrAny"
-              }
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Map Item (SceneDimension)"
-              args {
-                string_value: "Default"
-              }
-            }
           }
         }
       }
@@ -351,7 +255,7 @@ triggers {
             call_value {
               functionName: "Get Map Item (Prop)"
               args {
-                string_value: "5516f28c34643524160084d6"
+                string_value: "55234fd0346435b0190018cd"
               }
             }
           }
@@ -381,14 +285,6 @@ triggers {
       }
     }
     ops {
-      functionName: "Teleport Camera To Actor"
-      args {
-        call_value {
-          functionName: "Triggering Actor"
-        }
-      }
-    }
-    ops {
       functionName: "Fade Camera In"
       args {
         float_value: 1
@@ -397,17 +293,25 @@ triggers {
         float_value: 0
       }
     }
+    ops {
+      functionName: "Teleport Camera To Actor"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+    }
   }
   isActive: true
   idRef {
-    id: "553bc431346435380f001e76"
+    id: "55235120346435b0190018d4"
   }
   elseActions {
   }
   is_oneshot: false
 }
 triggers {
-  name: "Transition  Floor 2 to 3"
+  name: "Up West Stairs"
   events {
     ops {
       functionName: "On Item Interaction"
@@ -415,7 +319,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (InteractableObject)"
           args {
-            string_value: "551733bb3464352416008740"
+            string_value: "5523462e346435b019001749"
           }
         }
       }
@@ -427,35 +331,10 @@ triggers {
     ops {
       functionName: "Fade Camera Out"
       args {
-        float_value: 1
+        float_value: 1.5
       }
       args {
         float_value: 0
-      }
-    }
-    ops {
-      functionName: "Send Event After Delay"
-      args {
-        call_value {
-          functionName: "Get Map Item (Event)"
-          args {
-            string_value: "Transition"
-          }
-        }
-      }
-      args {
-        float_value: 0.25
-      }
-    }
-    ops {
-      functionName: "Trigger: Wait for Event"
-      args {
-        call_value {
-          functionName: "Get Map Item (Event)"
-          args {
-            string_value: "Transition"
-          }
-        }
       }
     }
     ops {
@@ -464,10 +343,10 @@ triggers {
         call_value {
           functionName: "Get Map Item (Sound)"
           args {
-            string_value: "Berlin:props"
+            string_value: "props"
           }
           args {
-            string_value: "ElevatorDown"
+            string_value: "LadderClimb"
           }
         }
       }
@@ -492,12 +371,12 @@ triggers {
         call_value {
           functionName: "Get Map Item (Event)"
           args {
-            string_value: "Transition"
+            string_value: "Stairs Transition"
           }
         }
       }
       args {
-        float_value: 4
+        float_value: 1.5
       }
     }
     ops {
@@ -506,7 +385,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Event)"
           args {
-            string_value: "Transition"
+            string_value: "Stairs Transition"
           }
         }
       }
@@ -515,36 +394,13 @@ triggers {
       functionName: "Teleport Actor"
       args {
         call_value {
-          functionName: "All Actors on Team"
+          functionName: "Specific Actor"
           args {
             call_value {
-              functionName: "Get Preset Value (string)"
-              args {
-                string_value: "FactionList"
-              }
-              args {
-                int_value: 0
-              }
+              functionName: "Triggering Actor"
             }
           }
           args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "AllOrAny"
-              }
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Map Item (SceneDimension)"
-              args {
-                string_value: "Default"
-              }
-            }
           }
         }
       }
@@ -555,7 +411,7 @@ triggers {
             call_value {
               functionName: "Get Map Item (Prop)"
               args {
-                string_value: "5517420e34643524160089d3"
+                string_value: "55234696346435b01900174e"
               }
             }
           }
@@ -568,7 +424,7 @@ triggers {
             string_value: "FacingDirection"
           }
           args {
-            int_value: 5
+            int_value: 3
           }
         }
       }
@@ -585,14 +441,6 @@ triggers {
       }
     }
     ops {
-      functionName: "Teleport Camera To Actor"
-      args {
-        call_value {
-          functionName: "Triggering Actor"
-        }
-      }
-    }
-    ops {
       functionName: "Fade Camera In"
       args {
         float_value: 1
@@ -601,17 +449,25 @@ triggers {
         float_value: 0
       }
     }
+    ops {
+      functionName: "Teleport Camera To Actor"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+    }
   }
   isActive: true
   idRef {
-    id: "553d480d346435b81d003edd"
+    id: "55235b3c346435b0120001fd"
   }
   elseActions {
   }
   is_oneshot: false
 }
 triggers {
-  name: "Transition  Floor 3 to 2"
+  name: "Down West Stairs"
   events {
     ops {
       functionName: "On Item Interaction"
@@ -619,7 +475,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (InteractableObject)"
           args {
-            string_value: "5517420e34643524160089d3"
+            string_value: "55234696346435b01900174e"
           }
         }
       }
@@ -631,35 +487,10 @@ triggers {
     ops {
       functionName: "Fade Camera Out"
       args {
-        float_value: 1
+        float_value: 1.5
       }
       args {
         float_value: 0
-      }
-    }
-    ops {
-      functionName: "Send Event After Delay"
-      args {
-        call_value {
-          functionName: "Get Map Item (Event)"
-          args {
-            string_value: "Transition"
-          }
-        }
-      }
-      args {
-        float_value: 0.25
-      }
-    }
-    ops {
-      functionName: "Trigger: Wait for Event"
-      args {
-        call_value {
-          functionName: "Get Map Item (Event)"
-          args {
-            string_value: "Transition"
-          }
-        }
       }
     }
     ops {
@@ -668,10 +499,10 @@ triggers {
         call_value {
           functionName: "Get Map Item (Sound)"
           args {
-            string_value: "Berlin:props"
+            string_value: "props"
           }
           args {
-            string_value: "ElevatorDown"
+            string_value: "LadderClimb"
           }
         }
       }
@@ -696,12 +527,12 @@ triggers {
         call_value {
           functionName: "Get Map Item (Event)"
           args {
-            string_value: "Transition"
+            string_value: "Stairs Transition"
           }
         }
       }
       args {
-        float_value: 4
+        float_value: 1.5
       }
     }
     ops {
@@ -710,7 +541,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Event)"
           args {
-            string_value: "Transition"
+            string_value: "Stairs Transition"
           }
         }
       }
@@ -719,36 +550,13 @@ triggers {
       functionName: "Teleport Actor"
       args {
         call_value {
-          functionName: "All Actors on Team"
+          functionName: "Specific Actor"
           args {
             call_value {
-              functionName: "Get Preset Value (string)"
-              args {
-                string_value: "FactionList"
-              }
-              args {
-                int_value: 0
-              }
+              functionName: "Triggering Actor"
             }
           }
           args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "AllOrAny"
-              }
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Map Item (SceneDimension)"
-              args {
-                string_value: "Default"
-              }
-            }
           }
         }
       }
@@ -759,7 +567,7 @@ triggers {
             call_value {
               functionName: "Get Map Item (Prop)"
               args {
-                string_value: "551733bb3464352416008740"
+                string_value: "5523462e346435b019001749"
               }
             }
           }
@@ -789,10 +597,158 @@ triggers {
       }
     }
     ops {
+      functionName: "Fade Camera In"
+      args {
+        float_value: 1
+      }
+      args {
+        float_value: 0
+      }
+    }
+    ops {
       functionName: "Teleport Camera To Actor"
       args {
         call_value {
           functionName: "Triggering Actor"
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55235b3c346435b0120001fe"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Up East Stairs"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55234637346435b01900174a"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Fade Camera Out"
+      args {
+        float_value: 1.5
+      }
+      args {
+        float_value: 0
+      }
+    }
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "props"
+          }
+          args {
+            string_value: "LadderClimb"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Stairs Transition"
+          }
+        }
+      }
+      args {
+        float_value: 1.5
+      }
+    }
+    ops {
+      functionName: "Trigger: Wait for Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Stairs Transition"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Teleport Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Current Location of Prop"
+          args {
+            call_value {
+              functionName: "Get Map Item (Prop)"
+              args {
+                string_value: "55234698346435b01900174f"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 7
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeleportMethod"
+          }
+          args {
+            int_value: 0
+          }
         }
       }
     }
@@ -805,73 +761,191 @@ triggers {
         float_value: 0
       }
     }
+    ops {
+      functionName: "Teleport Camera To Actor"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+    }
   }
   isActive: true
   idRef {
-    id: "553d480d346435b81d003ede"
+    id: "55235b3e346435b0120001ff"
   }
   elseActions {
   }
   is_oneshot: false
 }
-regions {
-  name: "Camera Middle Floor"
-  position {
-    x: -171
-    y: -55
-    width: 66
-    height: 60
+triggers {
+  name: "Down East Stairs"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55234698346435b01900174f"
+          }
+        }
+      }
+    }
   }
-  enabledAtStart: true
-  is_camera_region: true
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Fade Camera Out"
+      args {
+        float_value: 1.5
+      }
+      args {
+        float_value: 0
+      }
+    }
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "props"
+          }
+          args {
+            string_value: "LadderClimb"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Stairs Transition"
+          }
+        }
+      }
+      args {
+        float_value: 1.5
+      }
+    }
+    ops {
+      functionName: "Trigger: Wait for Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Stairs Transition"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Teleport Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Current Location of Prop"
+          args {
+            call_value {
+              functionName: "Get Map Item (Prop)"
+              args {
+                string_value: "55234637346435b01900174a"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 5
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeleportMethod"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Fade Camera In"
+      args {
+        float_value: 1
+      }
+      args {
+        float_value: 0
+      }
+    }
+    ops {
+      functionName: "Teleport Camera To Actor"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+    }
+  }
+  isActive: true
   idRef {
-    id: "554f8343346435142100462f"
+    id: "55235b3e346435b012000200"
   }
-  highlight_color {
-    r: 0
-    g: 0
-    b: 0
-    a: 1
+  elseActions {
   }
-  visible_at_start: false
-  is_closet: false
-  is_teleporter_region: false
-  directional_light_dir {
-    x: -0.5
-    y: -1
-    z: -0.75
-  }
-  directional_light_color {
-    r: 0.54901963
-    g: 0.3882353
-    b: 0.35294119
-    a: 1
-  }
-  ambient_light_color {
-    r: 0.17647059
-    g: 0.32156864
-    b: 0.41960785
-    a: 1
-  }
-  ambience_template: ""
-  combat_music: ""
-  default_music: ""
-  loop_combat_music: true
-  loop_default_music: false
-  no_fow_in_region: false
+  is_oneshot: false
 }
 regions {
   name: "Camera Ground Floor"
   position {
-    x: -77
-    y: -37
-    width: 67
-    height: 58
+    x: -79
+    y: -68
+    width: 41
+    height: 51
   }
   enabledAtStart: true
   is_camera_region: true
   idRef {
-    id: "554f835e3464351421004630"
+    id: "554f9fac346435e81c0036aa"
   }
   highlight_color {
     r: 0
@@ -888,15 +962,15 @@ regions {
     z: -0.75
   }
   directional_light_color {
-    r: 0.48235294
-    g: 0.41960785
-    b: 0.50196081
+    r: 0.58823532
+    g: 0.1254902
+    b: 0.58823532
     a: 1
   }
   ambient_light_color {
-    r: 0.17647059
-    g: 0.19607843
-    b: 0.36470589
+    r: 0.29411766
+    g: 0.14901961
+    b: 0.29411766
     a: 1
   }
   ambience_template: ""
@@ -907,17 +981,17 @@ regions {
   no_fow_in_region: false
 }
 regions {
-  name: "Camera Top Floor"
+  name: "Camera Upstairs"
   position {
-    x: -277
+    x: -156
     y: -69
-    width: 82
-    height: 79
+    width: 36
+    height: 31
   }
   enabledAtStart: true
   is_camera_region: true
   idRef {
-    id: "554f83753464351421004631"
+    id: "554f9fc2346435e81c0036ab"
   }
   highlight_color {
     r: 0
@@ -934,15 +1008,15 @@ regions {
     z: -0.75
   }
   directional_light_color {
-    r: 0.3882353
-    g: 0.30980393
-    b: 0.43921569
+    r: 0.4509804
+    g: 0.17647059
+    b: 0.43529412
     a: 1
   }
   ambient_light_color {
-    r: 0.32941177
-    g: 0.2
-    b: 0.38039216
+    r: 0.074509807
+    g: 0.32941177
+    b: 0.090196081
     a: 1
   }
   ambience_template: ""
@@ -955,13 +1029,13 @@ regions {
 characters {
   name: "system_spawner_playerSpawner"
   gridPoint {
-    x: -64
+    x: -40
     y: 0
-    z: 1
+    z: -58
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_E
   idRef {
-    id: "554f8a0f3464351421004632"
+    id: "55235017346435b0190018d3"
   }
   lod: 0
   character_instance {
@@ -974,7 +1048,7 @@ characters {
     pc_spawn_number: 0
   }
 }
-mapEvents: "Transition"
+mapEvents: "Stairs Transition"
 worldMapLocation {
   filename: ""
   location {
@@ -982,7 +1056,7 @@ worldMapLocation {
     y: 0
   }
 }
-mapName: "a3_sf_s2"
+mapName: "cc_a5_climax_s3"
 parentStory: ""
 scene_title: "New Scene"
 scene_subtitle: ""
@@ -1037,6 +1111,8 @@ team_affiliations {
 scene_dimensions {
   dimension_name: "Default"
 }
+character_roster {
+}
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {
   prereq_description: ""
@@ -1045,7 +1121,7 @@ scene_hiring_prerequisites {
 }
 hiring_slot_count: 0
 hiring_minimum_karma: 0
-hiring_maximum_karma: 0
+hiring_maximum_karma: 25
 roster_overrides {
 }
 use_hiring_cost_warning: false
@@ -1054,6 +1130,6 @@ override_hiring_average_cost: true
 show_equip_screen_on_scene_load: false
 is_persistant: false
 is_persistant_has_value: false
-can_move_outside_camera_regions: false
-can_start_before_triggers: false
+can_move_outside_camera_regions: true
+can_start_before_triggers: true
 can_use_team_advancement: false
