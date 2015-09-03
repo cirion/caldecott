@@ -919,7 +919,18 @@ triggers {
       functionName: "Set Actor Run Speed"
       args {
         call_value {
-          functionName: "All Actors"
+          functionName: "All Actors on Team"
+          args {
+            call_value {
+              functionName: "Get Preset Value (string)"
+              args {
+                string_value: "FactionList"
+              }
+              args {
+                int_value: 3
+              }
+            }
+          }
           args {
             call_value {
               functionName: "Get Preset Value (int)"
@@ -928,6 +939,14 @@ triggers {
               }
               args {
                 int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (SceneDimension)"
+              args {
+                string_value: "Default"
               }
             }
           }
@@ -1853,7 +1872,7 @@ triggers {
         }
       }
       args {
-        int_value: 2
+        int_value: 0
       }
     }
   }
@@ -1920,7 +1939,7 @@ triggers {
         }
       }
       args {
-        int_value: 4
+        int_value: 2
       }
     }
   }
@@ -1987,7 +2006,7 @@ triggers {
         }
       }
       args {
-        int_value: 6
+        int_value: 4
       }
     }
   }
@@ -2054,7 +2073,7 @@ triggers {
         }
       }
       args {
-        int_value: 8
+        int_value: 7
       }
     }
   }
@@ -2116,12 +2135,12 @@ triggers {
             string_value: "Comparison Ops"
           }
           args {
-            int_value: 0
+            int_value: 2
           }
         }
       }
       args {
-        int_value: 10
+        int_value: 7
       }
     }
   }
@@ -2200,13 +2219,13 @@ triggers {
       functionName: "End Current Team Round"
     }
   }
-  isActive: false
+  isActive: true
   idRef {
     id: "55e7aa0d346435a01a0072af"
   }
   elseActions {
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 triggers {
   name: "You Look at Kora"
@@ -2256,13 +2275,13 @@ triggers {
       functionName: "End Current Team Round"
     }
   }
-  isActive: false
+  isActive: true
   idRef {
     id: "55e7aab8346435a01a0072b0"
   }
   elseActions {
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 triggers {
   name: "Rafik Look at You"
@@ -2312,13 +2331,13 @@ triggers {
       functionName: "End Current Team Round"
     }
   }
-  isActive: false
+  isActive: true
   idRef {
     id: "55e7aace346435a01a0072b1"
   }
   elseActions {
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 triggers {
   name: "Kora Look at You"
@@ -2374,7 +2393,7 @@ triggers {
   }
   elseActions {
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 triggers {
   name: "Kora Look at Rafik"
@@ -2430,7 +2449,7 @@ triggers {
   }
   elseActions {
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 triggers {
   name: "You Look at Rafik"
@@ -2480,13 +2499,13 @@ triggers {
       functionName: "End Current Team Round"
     }
   }
-  isActive: false
+  isActive: true
   idRef {
     id: "55e7ab0e346435a01a0072b4"
   }
   elseActions {
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 triggers {
   name: "First Council Ends"
@@ -2730,6 +2749,9 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "End Current Team Round"
+    }
   }
   isActive: true
   idRef {
@@ -2803,7 +2825,7 @@ triggers {
   }
   elseActions {
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 triggers {
   name: "Exit to Dorbi"
@@ -2869,7 +2891,7 @@ triggers {
   }
   elseActions {
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 triggers {
   name: "Exit to Sable"
@@ -2935,7 +2957,7 @@ triggers {
   }
   elseActions {
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 triggers {
   name: "Exit Normal"
@@ -3020,7 +3042,7 @@ triggers {
   }
   elseActions {
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 triggers {
   name: "Open Stash"
@@ -3050,7 +3072,7 @@ triggers {
   }
   elseActions {
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 triggers {
   name: "Visit 1"
@@ -3238,6 +3260,121 @@ triggers {
   isActive: true
   idRef {
     id: "55e7c4ed346435d82b006311"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "UI Help Approval_OFF"
+  events {
+    ops {
+      functionName: "On Conversation Complete"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "UI_Help_ShowedApproval"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Display Text In Popup"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "UI_Help_ApprovalBody"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PopupType"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: " "
+          }
+          args {
+            string_value: "UI_Help_ApprovalTitle"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "UI_Help_ShowedApproval"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: false
+  idRef {
+    id: "55e23fd2346435c419003ee8"
   }
   elseActions {
   }
@@ -3594,8 +3731,8 @@ regions {
 regions {
   name: "Rafik Destination First Visit"
   position {
-    x: -18
-    y: -3
+    x: -17
+    y: -2
     width: 1
     height: 1
   }
@@ -4104,7 +4241,7 @@ characters {
     interactionRadius: 1
     conversationPoint {
       conversationID: "55709fb5643431ae48a4044e"
-      turnToFace: true
+      turnToFace: false
     }
     interactionIcon: InteractionIcon_Conversation
     interaction_info_text: ""
@@ -4580,6 +4717,9 @@ mapEvents: "Kora Look at Rafik"
 mapEvents: "You Look at Rafik"
 mapEvents: "Kora Look at You"
 mapEvents: "Rafik Look at You"
+mapEvents: "Sable Approves"
+mapEvents: "Sable Disapproves"
+mapEvents: "Sable Greatly Disapproves"
 senseTags: "isPC0"
 goals {
   name: "Recruit a Decker"
