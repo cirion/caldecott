@@ -7,7 +7,7 @@ nodes {
     id: "55e712da643431edb205939e"
   }
   index: 0
-  text: "Hey, $(l.name), you look much better than before. How are you feeling?"
+  text: "Hey, $(l.firstname), you look much better than before. How are you feeling?"
   branches {
     responseText: "As well as can be expected."
     nextNodeIndex: 1
@@ -162,35 +162,196 @@ nodes {
   text: "So, what\342\200\231s the story? Why did you start running in the shadows anyways?"
   branches {
     responseText: "After the first Tir Tairngire invasion, elves like me had trouble finding work anywhere in CalFree. Johnsons will take anyone they can get."
+    conditions {
+      ops {
+        functionName: "Compare Actor Race"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Race"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 9
     idRef {
       id: "55e712cb643431edb2059392:55e7151b643431edb2059476"
     }
-    comment: "TODO: Pre-req elf"
   }
   branches {
     responseText: "When Colonel Saito kicked the metahumans out of San Francisco, dwarves like me were cut off from most legal employment."
+    conditions {
+      ops {
+        functionName: "Compare Actor Race"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Race"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 10
     idRef {
       id: "55e712cb643431edb2059392:55e71534643431edb2059483"
     }
-    comment: "TODO: Dwarf"
   }
   branches {
     responseText: "$+(l.race_plural) like me aren\342\200\231t exactly popular among the megacorps. It was either this or joining the Orkland gangs."
+    conditions {
+      ops {
+        functionName: "OR"
+        args {
+          call_value {
+            functionName: "Compare Actor Race"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "IsOrIsNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Race"
+                }
+                args {
+                  int_value: 3
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Compare Actor Race"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "IsOrIsNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Race"
+                }
+                args {
+                  int_value: 4
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 11
     idRef {
       id: "55e712cb643431edb2059392:55e71537643431edb205948c"
     }
-    comment: "TODO: orcs/trolls"
   }
   branches {
     responseText: "There are so many metas in the Bay Area sprawl. Humans like me have a lot of choices, but running the shadows seemed like the most fun."
+    conditions {
+      ops {
+        functionName: "Compare Actor Race"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Race"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 12
     idRef {
       id: "55e712cb643431edb2059392:55e71538643431edb2059492"
     }
-    comment: "TODO: Hu-man"
   }
   branches {
     responseText: "I grew up poor, never had a SIN, figured I\342\200\231d turn that liability into an asset."
@@ -475,18 +636,71 @@ nodes {
     id: "55e7175b643431edb2059655"
   }
   index: 24
-  text: "{{GM}}Rafik breathes a contented sigh.{{/GM}}\n\nHow about you, $(l.name)? Do you ever dream of finding a nice\342\200\246 uh\342\200\246"
+  text: "{{GM}}Rafik breathes a contented sigh.{{/GM}}\n\nHow about you, $(l.firstname)? Do you ever dream of finding a nice\342\200\246 uh\342\200\246"
   branches {
     responseText: "Man? Sure."
+    actions {
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_CanFlirtWithPersi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 25
     idRef {
       id: "55e712cb643431edb2059392:55e7175e643431edb2059657"
     }
     auxiliaryLink: true
-    comment: "TODO: Update flirt settings"
   }
   branches {
     responseText: "Woman? Yeah."
+    actions {
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_CanFlirtWithSable"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 25
     idRef {
       id: "55e712cb643431edb2059392:55e71791643431edb20596c2"
@@ -556,7 +770,58 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Disable flirting"
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Romance_CanFlirtWithPersi"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Romance_CanFlirtWithSable"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -654,7 +919,19 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Disapproval"
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Rafik Disapproves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -671,14 +948,26 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Approval"
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Rafik Approves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
     id: "55e712cb643431edb2059392:55e718a2643431edb2059865"
   }
   index: 33
-  text: "{{GM}}You catch a rare glimpse of anger from Rafik.{{/GM}}\n\nWe live in a broken world, $(l.name). One day that world will be better, and we won\342\200\231t need to beg at the table of megacorps for scraps. Dreaming won\342\200\231t make it better, though. We need action, and we won\342\200\231t be able to take action if we\342\200\231re dead."
+  text: "{{GM}}You catch a rare glimpse of anger from Rafik.{{/GM}}\n\nWe live in a broken world, $(l.firstname). One day that world will be better, and we won\342\200\231t need to beg at the table of megacorps for scraps. Dreaming won\342\200\231t make it better, though. We need action, and we won\342\200\231t be able to take action if we\342\200\231re dead."
   branches {
     responseText: ""
     nextNodeIndex: 34
@@ -687,7 +976,19 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Disapproval"
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Rafik Disapproves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -719,6 +1020,19 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Rafik Approves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -813,6 +1127,52 @@ nodes {
   text: "After all, why should it be you? What do you have that I don\342\200\231t?"
   branches {
     responseText: "{{CC}}Spellcasting: 4{{/CC}} We need a strong spellslinger. Your devotion to Bear is touching, but offensive magic will win the day."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+    }
     nextNodeIndex: 41
     idRef {
       id: "55e712cb643431edb2059392:55e7430a643431edb205b663"
@@ -821,6 +1181,52 @@ nodes {
   }
   branches {
     responseText: "{{CC}}Decking: 4{{/CC}} This is a high-tech operation. We need someone who can deal with the inevitable electronic security."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 5
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+    }
     nextNodeIndex: 41
     idRef {
       id: "55e712cb643431edb2059392:55e74346643431edb205b66a"
@@ -828,7 +1234,53 @@ nodes {
     auxiliaryLink: true
   }
   branches {
-    responseText: "{{CC}}Rigging: 4{{/CC}} Um, in case you forgot, this is a TRAIN robbery. Only one of us knows something useful about vehicles."
+    responseText: "{{CC}}Drone Control: 4{{/CC}} Um, in case you forgot, this is a TRAIN robbery. Only one of us knows something useful about vehicles."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 10
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+    }
     nextNodeIndex: 41
     idRef {
       id: "55e712cb643431edb2059392:55e74346643431edb205b66c"
@@ -837,6 +1289,52 @@ nodes {
   }
   branches {
     responseText: "{{CC}}Charisma: 6{{/CC}} You\342\200\231re a great guy, but you\342\200\231ll never be a Face. We need someone like me to make sure things go smoothly."
+    conditions {
+      ops {
+        functionName: "Compare Actor Attribute"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorAttributes"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 6
+        }
+      }
+    }
     nextNodeIndex: 41
     idRef {
       id: "55e712cb643431edb2059392:55e74346643431edb205b66e"
@@ -845,6 +1343,52 @@ nodes {
   }
   branches {
     responseText: "{{CC}}Ranged Combat: 4{{/CC}} I\342\200\231ve got the two most important things of all: a gun, and the willingness to use it."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+    }
     nextNodeIndex: 41
     idRef {
       id: "55e712cb643431edb2059392:55e74347643431edb205b670"
@@ -853,6 +1397,52 @@ nodes {
   }
   branches {
     responseText: "{{CC}}Close Combat: 4{{/CC}} This needs to be a stealth operation. I understand how to move and strike silently."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+    }
     nextNodeIndex: 41
     idRef {
       id: "55e712cb643431edb2059392:55e74347643431edb205b672"
@@ -875,7 +1465,6 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Prereqs for everything below"
 }
 nodes {
   idRef {
@@ -943,7 +1532,19 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: + approval"
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Rafik Approves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -959,7 +1560,19 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: + approval"
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Rafik Approves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -992,7 +1605,7 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "Note: Maybe no disapproval here?"
+  comment: "Note: No disapproval here?"
 }
 nodes {
   idRef {
@@ -1008,14 +1621,26 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Major disapproval"
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Rafik Greatly Disapproves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
     id: "55e7455c643431edb205b6ae"
   }
   index: 48
-  text: "You\342\200\231ve got to watch out, $(l.name). Most big scores don\342\200\231t end with the other side gunning you down, or Knight-Errant tracking down your base. They end when the team turns on itself. Be careful that your arrogance doesn\342\200\231t lead to your downfall."
+  text: "You\342\200\231ve got to watch out, $(l.firstname). Most big scores don\342\200\231t end with the other side gunning you down, or Knight-Errant tracking down your base. They end when the team turns on itself. Be careful that your arrogance doesn\342\200\231t lead to your downfall."
   branches {
     responseText: ""
     nextNodeIndex: 49
@@ -1079,6 +1704,130 @@ nodes {
   text: ""
   branches {
     responseText: "So, how exactly did you and Kora meet?"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Rafik"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksRafik"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Const_ConvosPerHubVisit"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Rafik"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksRafik"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: 53
     idRef {
       id: "55e712cb643431edb2059392:55e7140e643431edb2059401"
@@ -1087,6 +1836,130 @@ nodes {
   }
   branches {
     responseText: "How do you feel about working for the megacorps?"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Rafik"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksRafik"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Const_ConvosPerHubVisit"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Rafik"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksRafik"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: 91
     idRef {
       id: "55e712cb643431edb2059392:55e722e8643431edb205a33e"
@@ -1095,6 +1968,130 @@ nodes {
   }
   branches {
     responseText: "Do you like living in Halferville now?"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Rafik"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 3
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 3
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksRafik"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Const_ConvosPerHubVisit"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Rafik"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksRafik"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: 111
     idRef {
       id: "55e712cb643431edb2059392:55e72610643431edb205aa84"
@@ -1103,11 +2100,135 @@ nodes {
   }
   branches {
     responseText: "It\342\200\231s almost go-time. Are you excited?"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Rafik"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 5
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 5
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksRafik"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Const_ConvosPerHubVisit"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Rafik"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksRafik"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: 132
     idRef {
       id: "55e712cb643431edb2059392:55e746d4643431edb205bf0b"
     }
-    comment: "TALK 6 todo: prerequisites"
+    comment: "TALK 6 "
   }
   nodeType: ConversationNodeType_Simple
   comment: "Root node."
@@ -1549,7 +2670,19 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Disapproval"
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Rafik Disapproves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -1597,7 +2730,19 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Disapproval"
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Rafik Disapproves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -1645,7 +2790,20 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Destin approves"
+  speaker_override_id: "55e131ac346435e0140016a9"
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Rafik Approves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -1708,7 +2866,19 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Approval"
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Rafik Approves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -2073,7 +3243,19 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Approval"
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Rafik Approves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -2090,7 +3272,19 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Disapproval"
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Rafik Disapproves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -2107,7 +3301,19 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Disapproval"
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Rafik Disapproves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -2123,7 +3329,19 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Approval"
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Rafik Approves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -2308,11 +3526,23 @@ nodes {
   }
   branches {
     responseText: "They\342\200\231re probably looking for a scapegoat or two. Hand over another ork and they\342\200\231ll leave you alone."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Rafik Greatly Disapproves"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 121
     idRef {
       id: "55e712cb643431edb2059392:55e72723643431edb205ad46"
     }
-    comment: "TODO: Great disapproval"
   }
   branches {
     responseText: "Stay focused on Kora. Her happiness matters. Their nonsense doesn\342\200\231t."
@@ -2345,7 +3575,6 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "Note: No change in approval"
 }
 nodes {
   idRef {
@@ -2378,7 +3607,19 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Approval"
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Rafik Approves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -2394,7 +3635,19 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Approval"
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Rafik Approves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -2404,35 +3657,159 @@ nodes {
   text: "Has the HPF been bothering you, too?"
   branches {
     responseText: "No. One of the benefits of being a dwarf, I suppose."
+    conditions {
+      ops {
+        functionName: "Compare Actor Race"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Race"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 125
     idRef {
       id: "55e712cb643431edb2059392:55e727f0643431edb205b001"
     }
-    comment: "TODO: Dwarf"
   }
   branches {
     responseText: "Not personally, but it bothers me to see them tailing so much of my crew."
+    conditions {
+      ops {
+        functionName: "Compare Actor Race"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Race"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 126
     idRef {
       id: "55e712cb643431edb2059392:55e727f6643431edb205b009"
     }
-    comment: "TODO: Dwarf"
   }
   branches {
     responseText: "There\342\200\231s the occasional glance in my direction. They don\342\200\231t seem overly fond of $(s.race_plural)."
+    conditions {
+      ops {
+        functionName: "Compare Actor Race"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Race"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 127
     idRef {
       id: "55e712cb643431edb2059392:55e7280d643431edb205b012"
     }
-    comment: "TODO: Non-dwarf"
   }
   branches {
     responseText: "I get some mild harassment, mostly bureaucratic stuff."
+    conditions {
+      ops {
+        functionName: "Compare Actor Race"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Race"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 128
     idRef {
       id: "55e712cb643431edb2059392:55e7280f643431edb205b018"
     }
-    comment: "TODO: Non-dwarf"
   }
   branches {
     responseText: "I don\342\200\231t pay them any attention. They\342\200\231re beneath my notice."
@@ -2584,17 +3961,19 @@ nodes {
   text: "What\342\200\231s weird, though, is that I\342\200\231ve been feeling\342\200\246 well, guilty. "
   branches {
     responseText: "I see."
-    nextNodeIndex: -1
+    nextNodeIndex: 134
     idRef {
       id: "55e712cb643431edb2059392:55e746f6643431edb205c0b9"
     }
+    auxiliaryLink: true
   }
   branches {
     responseText: "That\342\200\231s unfortunate."
-    nextNodeIndex: -1
+    nextNodeIndex: 134
     idRef {
       id: "55e712cb643431edb2059392:55e74711643431edb205c0bd"
     }
+    auxiliaryLink: true
   }
   branches {
     responseText: "Well, you ARE going to commit a crime, so\342\200\246"
@@ -2717,7 +4096,19 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Lose approval"
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Rafik Disapproves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -2734,7 +4125,19 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Lose approval"
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Rafik Disapproves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -2751,6 +4154,19 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Rafik Approves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -2766,6 +4182,19 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Rafik Approves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -2848,7 +4277,7 @@ nodes {
     id: "55e74986643431edb205c640"
   }
   index: 146
-  text: "Well. There will be plenty of time to think about our futures after this is over. I need to finish getting ready. Catch you later, $(l.name)."
+  text: "Well. There will be plenty of time to think about our futures after this is over. I need to finish getting ready. Catch you later, $(l.firstname)."
   nodeType: ConversationNodeType_Simple
   comment: "Note: I think it\'s fine to end here instead of looping to root; it\'s always the last convo on his path."
 }
@@ -2965,11 +4394,26 @@ roots {
         int_value: 1
       }
     }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "numTalksRafik"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
   }
   nextNodeIndex: 0
   idRef {
     id: "55e712cb643431edb2059392:55e712cb643431edb2059396"
   }
+  comment: "Interjection: Talk 1"
 }
 roots {
   responseText: ""
@@ -3002,6 +4446,67 @@ roots {
         int_value: 4
       }
     }
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_numMissionsCompleted"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 3
+          }
+        }
+      }
+      args {
+        int_value: 4
+      }
+    }
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "numTalksRafik"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 4
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Const_ConvosPerHubVisit"
+          }
+        }
+      }
+    }
   }
   actions {
     ops {
@@ -3021,12 +4526,26 @@ roots {
         int_value: 1
       }
     }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "numTalksRafik"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
   }
   nextNodeIndex: 37
   idRef {
     id: "55e712cb643431edb2059392:55e7428b643431edb205b4c9"
   }
-  comment: "TALK 5 TODO: Interjection, fifth visit"
+  comment: "Interjection: Talk 5"
 }
 roots {
   responseText: ""
@@ -3076,35 +4595,187 @@ roots {
 }
 roots {
   responseText: ""
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Rafik"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 5
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Const_ApprovalHate"
+          }
+        }
+      }
+    }
+  }
   nextNodeIndex: 51
   idRef {
     id: "55e712cb643431edb2059392:55e71313643431edb20593a2"
   }
-  comment: "TODO: Rafik hates you"
+  comment: "Rafik hates you"
 }
 roots {
   responseText: ""
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Rafik"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 5
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Const_ApprovalDislike"
+          }
+        }
+      }
+    }
+  }
   nextNodeIndex: 147
   idRef {
     id: "55e712cb643431edb2059392:55e71396643431edb20593b3"
   }
-  comment: "TODO: Rafik dislikes you"
+  comment: "Rafik dislikes you"
 }
 roots {
   responseText: ""
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Rafik"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 5
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Const_ApprovalLike"
+          }
+        }
+      }
+    }
+  }
   nextNodeIndex: 148
   idRef {
     id: "55e712cb643431edb2059392:55e713c4643431edb20593cb"
   }
-  comment: "TODO: Rafik feels neutrally towards you"
+  comment: "Rafik feels neutrally towards you"
 }
 roots {
   responseText: ""
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Rafik"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 5
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Const_ApprovalMajorLike"
+          }
+        }
+      }
+    }
+  }
   nextNodeIndex: 149
   idRef {
     id: "55e712cb643431edb2059392:55e713cb643431edb20593d7"
   }
-  comment: "TODO: Rafik likes you"
+  comment: "Rafik likes you"
 }
 roots {
   responseText: ""
@@ -3112,5 +4783,5 @@ roots {
   idRef {
     id: "55e712cb643431edb2059392:55e713ce643431edb20593df"
   }
-  comment: "TODO: Rafik really likes you"
+  comment: "Rafik really likes you"
 }
