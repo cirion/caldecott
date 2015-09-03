@@ -1,0 +1,173 @@
+idRef {
+  id: "55e79382643431edb205d029"
+}
+ui_name: "cc_a2_dorbi_s2-blockage"
+nodes {
+  idRef {
+    id: "55e7938e643431edb205d031"
+  }
+  index: 0
+  text: "It looks like this passage has recently collapsed."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    idRef {
+      id: "55e79382643431edb205d029:55e793a6643431edb205d033"
+    }
+  }
+  nodeType: ConversationNodeType_GM_Voice
+}
+nodes {
+  idRef {
+    id: "55e793ab643431edb205d038"
+  }
+  index: 1
+  text: ""
+  branches {
+    responseText: "{{GM}}Examine the rubble.{{/GM}}"
+    nextNodeIndex: 2
+    onlyOnce: true
+    idRef {
+      id: "55e79382643431edb205d029:55e793b0643431edb205d03a"
+    }
+  }
+  branches {
+    responseText: "{{CC}}Strength: 5{{/CC}} Clear the rubble"
+    nextNodeIndex: -1
+    idRef {
+      id: "55e79382643431edb205d029:55e793da643431edb205d04a"
+    }
+    comment: "TODO: Pre-req. Set script and proceed."
+  }
+  branches {
+    responseText: "Sable, do you think you can clear this passage for us?"
+    nextNodeIndex: 3
+    onlyOnce: true
+    idRef {
+      id: "55e79382643431edb205d029:55e79408643431edb205d04c"
+    }
+  }
+  branches {
+    responseText: "{{GM}}Leave.{{/GM}}"
+    nextNodeIndex: -1
+    idRef {
+      id: "55e79382643431edb205d029:55e79555643431edb205d097"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "Root node"
+}
+nodes {
+  idRef {
+    id: "55e793b2643431edb205d03d"
+  }
+  index: 2
+  text: "You notice some scrape marks on the side of larger boulders. This isn\342\200\231t a natural collapse. Someone pushed this passage shut."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    idRef {
+      id: "55e79382643431edb205d029:55e793b3643431edb205d03f"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55e79422643431edb205d04f"
+  }
+  index: 3
+  text: "Indubitably! I\'m glad to see that you don\'t view me as an intelligent mind. Happy to see this body getting some appreciation, too."
+  branches {
+    responseText: "{{CC}}Flirt{{/CC}} And what a handsome body it is, too."
+    nextNodeIndex: 4
+    hideIfUnavailable: true
+    idRef {
+      id: "55e79382643431edb205d029:55e7945f643431edb205d051"
+    }
+    comment: "TODO: Eligible"
+  }
+  branches {
+    responseText: "{{CC}}Flirt{{/CC}} I sure hope you take off your shirt while working."
+    nextNodeIndex: 5
+    hideIfUnavailable: true
+    idRef {
+      id: "55e79382643431edb205d029:55e79460643431edb205d053"
+    }
+    comment: "TODO: Eligible"
+  }
+  branches {
+    responseText: "Get to work, Sable."
+    nextNodeIndex: 6
+    idRef {
+      id: "55e79382643431edb205d029:55e79461643431edb205d055"
+    }
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "We appreciate it."
+    nextNodeIndex: 6
+    idRef {
+      id: "55e79382643431edb205d029:55e79522643431edb205d067"
+    }
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Ugh, never mind. I\'ll find another way through."
+    nextNodeIndex: 1
+    idRef {
+      id: "55e79382643431edb205d029:55e79523643431edb205d069"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55e794cf643431edb205d060"
+  }
+  index: 4
+  text: "{{GM}}He grins broadly.{{/GM}}\n\nHow sweet of you to notice!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 6
+    idRef {
+      id: "55e79382643431edb205d029:55e794d1643431edb205d062"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "TODO: Increase flirt counter."
+}
+nodes {
+  idRef {
+    id: "55e794a4643431edb205d058"
+  }
+  index: 5
+  text: "For you, my dear, anything!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 6
+    idRef {
+      id: "55e79382643431edb205d029:55e794bb643431edb205d05a"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "TODO: Increase flirt counter."
+}
+nodes {
+  idRef {
+    id: "55e794bd643431edb205d05d"
+  }
+  index: 6
+  text: "Here we go..."
+  nodeType: ConversationNodeType_Simple
+  comment: "TODO: Proceed, removing the barrier."
+}
+roots {
+  nextNodeIndex: 0
+  idRef {
+    id: "55e79382643431edb205d029:55e79382643431edb205d02d"
+  }
+}
