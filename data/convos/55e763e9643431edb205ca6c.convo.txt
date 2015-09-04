@@ -73,23 +73,146 @@ nodes {
   index: 3
   text: "I said SHUT UP!"
   branches {
-    responseText: "{{CC}}Etiquette: Security{{/CC}} Stand down immediately! You are far outside the rules of engagement."
-    nextNodeIndex: 4
-    idRef {
-      id: "55e763e9643431edb205ca6c:55e76573643431edb205caae"
-    }
-    comment: "TODO: Etiquette"
-  }
-  branches {
     responseText: "{{CC}}Charisma: 4{{/CC}} I can tell you want to do the right thing. Help me help you. Release the kid."
-    nextNodeIndex: 5
+    conditions {
+      ops {
+        functionName: "Compare Actor Attribute"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorAttributes"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+    }
+    nextNodeIndex: 4
     idRef {
       id: "55e763e9643431edb205ca6c:55e7659d643431edb205cab5"
     }
     comment: "TODO: Skill check"
   }
   branches {
+    responseText: "{{CC}}Etiquette: Security{{/CC}} Stand down immediately! You are far outside the rules of engagement."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 14
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    nextNodeIndex: 5
+    idRef {
+      id: "55e763e9643431edb205ca6c:55e76573643431edb205caae"
+    }
+  }
+  branches {
     responseText: "{{CC}}Metatype: Dwarf{{/CC}} We\342\200\231re better than this. "
+    conditions {
+      ops {
+        functionName: "Compare Actor Race"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Race"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 6
     hideIfUnavailable: true
     idRef {
@@ -106,13 +229,12 @@ nodes {
     auxiliaryLink: true
   }
   branches {
-    responseText: "Let him go!"
+    responseText: "Let $(l.him) go!"
     nextNodeIndex: 8
     idRef {
       id: "55e763e9643431edb205ca6c:55e7662f643431edb205cac9"
     }
     auxiliaryLink: true
-    comment: "TODO: Confirm gender of ork."
   }
   branches {
     responseText: "You don\342\200\231t have the guts to try anything."
@@ -125,30 +247,30 @@ nodes {
 }
 nodes {
   idRef {
-    id: "55e76577643431edb205cab1"
-  }
-  index: 4
-  text: "I\342\200\246. yes $(l.sir)... I mean..."
-  branches {
-    responseText: ""
-    nextNodeIndex: -1
-    idRef {
-      id: "55e763e9643431edb205ca6c:55e76579643431edb205cab3"
-    }
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
     id: "55e763e9643431edb205ca6c:55e7659d643431edb205cab7"
   }
-  index: 5
+  index: 4
   text: "This\342\200\246 it wasn\342\200\231t supposed to go down like this! Was it?"
   branches {
     responseText: ""
     nextNodeIndex: -1
     idRef {
       id: "55e763e9643431edb205ca6c:55e7659d643431edb205cab9"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55e76577643431edb205cab1"
+  }
+  index: 5
+  text: "I\342\200\246. yes $(l.sir)... I mean..."
+  branches {
+    responseText: ""
+    nextNodeIndex: -1
+    idRef {
+      id: "55e763e9643431edb205ca6c:55e76579643431edb205cab3"
     }
   }
   nodeType: ConversationNodeType_Simple

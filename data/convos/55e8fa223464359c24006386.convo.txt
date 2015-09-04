@@ -1,0 +1,85 @@
+idRef {
+  id: "55e8fa223464359c24006386"
+}
+ui_name: "cc_a2_dorbi_s1-DoorChabot"
+nodes {
+  idRef {
+    id: "55e8fa6d3464359c2400639a"
+  }
+  index: 0
+  text: "The nameplate on the door reads CHABOT."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    idRef {
+      id: "55e8fa223464359c24006386:55e8fad53464359c240063d0"
+    }
+  }
+  nodeType: ConversationNodeType_GM_Voice
+}
+nodes {
+  idRef {
+    id: "55e8fad73464359c240063d3"
+  }
+  index: 1
+  text: ""
+  branches {
+    responseText: "{{GM}}Knock on the door.{{/GM}}"
+    nextNodeIndex: 2
+    onlyOnce: true
+    idRef {
+      id: "55e8fa223464359c24006386:55e8fa9c3464359c240063a8"
+    }
+  }
+  branches {
+    responseText: "{{GM}}Break through the door.{{/GM}}"
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Broke into wrong house"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    idRef {
+      id: "55e8fa223464359c24006386:55e8fae73464359c240063e4"
+    }
+  }
+  branches {
+    responseText: "{{GM}}Walk away.{{/GM}}"
+    nextNodeIndex: -1
+    idRef {
+      id: "55e8fa223464359c24006386:55e8fc0d3464359c240063f4"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "Empty root"
+}
+nodes {
+  idRef {
+    id: "55e8faa53464359c240063ab"
+  }
+  index: 2
+  text: "No answer."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    idRef {
+      id: "55e8fa223464359c24006386:55e8fab83464359c240063ad"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_GM_Voice
+}
+roots {
+  nextNodeIndex: 0
+  idRef {
+    id: "55e8fa223464359c24006386:55e8fa223464359c2400638a"
+  }
+}

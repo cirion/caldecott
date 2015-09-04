@@ -11,6 +11,7 @@ nodes {
   branches {
     responseText: "Has the Phoenix talked to you?"
     nextNodeIndex: 1
+    onlyOnce: true
     idRef {
       id: "55e75ef5643431edb205c8f9:55e75f1e643431edb205c907"
     }
@@ -29,7 +30,7 @@ nodes {
     id: "55e75f37643431edb205c90c"
   }
   index: 1
-  text: "$+(s.he) shudders slightly.\n\nShe\342\200\231s one\342\200\246. intense dwarf."
+  text: "{{GM}}$+(s.he) shudders slightly.{{/GM}}\n\nShe\342\200\231s one\342\200\246. intense dwarf."
   branches {
     responseText: ""
     nextNodeIndex: 2
@@ -46,6 +47,49 @@ nodes {
   index: 2
   text: "She was wrapping up her canvassing here, and was headed to\342\200\246 uh\342\200\246 talk with the ork family. The Tildens. Wherever they live."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Add Item to Team"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "cc_a2_dorbi_s1-TildenClue"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Update clue"
 }
 roots {

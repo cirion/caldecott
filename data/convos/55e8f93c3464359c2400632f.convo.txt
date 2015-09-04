@@ -1,0 +1,104 @@
+idRef {
+  id: "55e8f93c3464359c2400632f"
+}
+ui_name: "cc_a2_dorbi_s1-DoorTilden"
+nodes {
+  idRef {
+    id: "55e8f9473464359c24006337"
+  }
+  index: 0
+  text: "The nameplate on the door reads TILDEN."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    idRef {
+      id: "55e8f93c3464359c2400632f:55e8fabe3464359c240063af"
+    }
+  }
+  nodeType: ConversationNodeType_GM_Voice
+}
+nodes {
+  idRef {
+    id: "55e8fac03464359c240063b2"
+  }
+  index: 1
+  text: ""
+  branches {
+    responseText: "{{GM}}Knock on the door.{{/GM}}"
+    nextNodeIndex: 2
+    onlyOnce: true
+    idRef {
+      id: "55e8f93c3464359c2400632f:55e8f94a3464359c24006339"
+    }
+  }
+  branches {
+    responseText: "{{GM}}Break through the door.{{/GM}}"
+    nextNodeIndex: 3
+    idRef {
+      id: "55e8f93c3464359c2400632f:55e8f9713464359c24006340"
+    }
+  }
+  branches {
+    responseText: "{{GM}}Walk away.{{/GM}}"
+    nextNodeIndex: -1
+    idRef {
+      id: "55e8f93c3464359c2400632f:55e8f9783464359c24006349"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "Empty root"
+}
+nodes {
+  idRef {
+    id: "55e8f96d3464359c2400633c"
+  }
+  index: 2
+  text: "No answer."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    idRef {
+      id: "55e8f93c3464359c2400632f:55e8f96f3464359c2400633e"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_GM_Voice
+}
+nodes {
+  idRef {
+    id: "55e8f93c3464359c2400632f:55e8f9713464359c24006342"
+  }
+  index: 3
+  text: "You quickly slip inside before anyone on the street notices you."
+  nodeType: ConversationNodeType_GM_Voice
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55e8f9fb3464359c24006379"
+          }
+        }
+      }
+    }
+  }
+}
+roots {
+  nextNodeIndex: 0
+  idRef {
+    id: "55e8f93c3464359c2400632f:55e8f93c3464359c24006333"
+  }
+}

@@ -24,7 +24,7 @@ nodes {
   index: 1
   text: ""
   branches {
-    responseText: "Sorry for the interruption. I wanted to ask if you had spoken with the Phoenix."
+    responseText: "Please excuse my interruption. I wanted to ask if you had spoken with the Phoenix."
     nextNodeIndex: 2
     onlyOnce: true
     idRef {
@@ -33,13 +33,47 @@ nodes {
   }
   branches {
     responseText: "I\342\200\231ve heard talk about a group called the HPF. Can you tell me anything about them?"
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "heardOfHPF"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 3
     hideIfUnavailable: true
     onlyOnce: true
     idRef {
       id: "55e760d9643431edb205c9c0:55e76288643431edb205c9df"
     }
-    comment: "TODO: Must have heard of HPF."
   }
   branches {
     responseText: "Sorry for disturbing you."

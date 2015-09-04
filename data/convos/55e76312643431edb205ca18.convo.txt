@@ -33,12 +33,47 @@ nodes {
   }
   branches {
     responseText: "What do you know about the Halferville Protection Front?"
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "heardOfHPF"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 3
+    hideIfUnavailable: true
     onlyOnce: true
     idRef {
       id: "55e76312643431edb205ca18:55e7637f643431edb205ca37"
     }
-    comment: "TODO: Heard of HPF"
   }
   branches {
     responseText: "See you later."
