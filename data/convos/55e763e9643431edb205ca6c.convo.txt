@@ -124,7 +124,6 @@ nodes {
     idRef {
       id: "55e763e9643431edb205ca6c:55e7659d643431edb205cab5"
     }
-    comment: "TODO: Skill check"
   }
   branches {
     responseText: "{{CC}}Etiquette: Security{{/CC}} Stand down immediately! You are far outside the rules of engagement."
@@ -218,7 +217,6 @@ nodes {
     idRef {
       id: "55e763e9643431edb205ca6c:55e765cb643431edb205cabe"
     }
-    comment: "TODO: PC0 is a dwarf"
   }
   branches {
     responseText: "Drop it before I drop you!"
@@ -253,10 +251,11 @@ nodes {
   text: "This\342\200\246 it wasn\342\200\231t supposed to go down like this! Was it?"
   branches {
     responseText: ""
-    nextNodeIndex: -1
+    nextNodeIndex: 7
     idRef {
       id: "55e763e9643431edb205ca6c:55e7659d643431edb205cab9"
     }
+    auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -268,10 +267,11 @@ nodes {
   text: "I\342\200\246. yes $(l.sir)... I mean..."
   branches {
     responseText: ""
-    nextNodeIndex: -1
+    nextNodeIndex: 7
     idRef {
       id: "55e763e9643431edb205ca6c:55e76579643431edb205cab3"
     }
+    auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -297,6 +297,30 @@ nodes {
   index: 7
   text: "\342\200\246 oh, fine! It isn\342\200\231t worth it. \n\nFriendly warning, though: the rest of the team won\342\200\231t back down so easy. They\342\200\231re here to make the tough choices nobody else will. The choices I couldn\342\200\231t."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55e9a073346435e819003065"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Run script, he leaves, start success convo w/child."
 }
 nodes {
@@ -306,7 +330,33 @@ nodes {
   index: 8
   text: "You made me do this!"
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Kick off fight."
+  sourceInSceneRef {
+    id: "55e76448643431edb205ca76"
+  }
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55e9a084346435e819003066"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0
