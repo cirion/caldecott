@@ -2,8 +2,107 @@ idRef {
   id: "55e79580643431edb205d0b5"
 }
 ui_name: "cc_a2_dorbi_s2-EarthMover"
+nodes {
+  idRef {
+    id: "55e864f564343129d872671d"
+  }
+  index: 0
+  text: "The bulldozer rests quietly."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    idRef {
+      id: "55e79580643431edb205d0b5:55e8651864343129d872671f"
+    }
+  }
+  nodeType: ConversationNodeType_GM_Voice
+  speaker_override_id: "559567a0306364ac28001619"
+  comment: "TODO: Is this actually a bulldozer??"
+}
+nodes {
+  idRef {
+    id: "55e8651a64343129d8726722"
+  }
+  index: 1
+  text: ""
+  branches {
+    responseText: "{{GM}}Start the engine.{{/GM}}"
+    nextNodeIndex: 2
+    onlyOnce: true
+    idRef {
+      id: "55e79580643431edb205d0b5:55e8651f64343129d8726724"
+    }
+  }
+  branches {
+    responseText: "{{CC}}Drone control: 5{{/CC}} {{GM}}Take control of the vehicle.{{/GM}}"
+    nextNodeIndex: 3
+    idRef {
+      id: "55e79580643431edb205d0b5:55e8655964343129d8726734"
+    }
+    comment: "TODO: Pre-req"
+  }
+  branches {
+    responseText: "Persi, do you think you can get this equipment moving for us?"
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "55e79580643431edb205d0b5:55e8659d64343129d872673e"
+    }
+    comment: "TODO: Verify if she has the stats."
+  }
+  branches {
+    responseText: "Leave."
+    nextNodeIndex: -1
+    idRef {
+      id: "55e79580643431edb205d0b5:55e865c964343129d8726750"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "Empty root node"
+}
+nodes {
+  idRef {
+    id: "55e8652164343129d8726727"
+  }
+  index: 2
+  text: "There are no keys, and no visible means of ignition. It must be activated by a proximity authorization device."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    idRef {
+      id: "55e79580643431edb205d0b5:55e8652364343129d8726729"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_GM_Voice
+}
+nodes {
+  idRef {
+    id: "55e8657664343129d8726737"
+  }
+  index: 3
+  text: "You link your rigger control console to the input port on the bulldozer. Non-weaponized equipment like this never has significant security, and you easily take over its operational capabilities."
+  branches {
+    responseText: ""
+    nextNodeIndex: 4
+    idRef {
+      id: "55e79580643431edb205d0b5:55e8658764343129d8726739"
+    }
+  }
+  nodeType: ConversationNodeType_GM_Voice
+}
+nodes {
+  idRef {
+    id: "55e8658964343129d872673c"
+  }
+  index: 4
+  text: "The bulldozer makes child\342\200\231s play of clearing the rubble. The path ahead is now clear."
+  nodeType: ConversationNodeType_GM_Voice
+  comment: "TODO: Advance."
+}
 roots {
-  nextNodeIndex: -1
+  nextNodeIndex: 0
   idRef {
     id: "55e79580643431edb205d0b5:55e79580643431edb205d0b9"
   }
