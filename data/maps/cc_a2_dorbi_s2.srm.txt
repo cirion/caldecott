@@ -32393,9 +32393,9 @@ props {
 props {
   name: "system_invisible_nonsolidProp"
   gridPoint {
-    x: -34
+    x: -36
     y: 0
-    z: 30
+    z: 76
   }
   orientation: ORIENTATION_S
   displayName: "Debug Start Here"
@@ -32409,16 +32409,6 @@ props {
     }
     interaction_info_text: ""
   }
-  lod: 0
-}
-props {
-  name: "undergroundBase_clutter_rock01"
-  gridPoint {
-    x: -55
-    y: 0
-    z: 29
-  }
-  orientation: ORIENTATION_S
   lod: 0
 }
 props {
@@ -32509,9 +32499,9 @@ props {
 props {
   name: "leylines_dragonline_heavy"
   gridPoint {
-    x: -24
+    x: -12
     y: 0
-    z: 19
+    z: 13
   }
   orientation: ORIENTATION_S
   properties {
@@ -32540,9 +32530,9 @@ props {
 props {
   name: "leylines_dragonline_light"
   gridPoint {
-    x: -24
+    x: -12
     y: 0
-    z: 15
+    z: 9
   }
   orientation: ORIENTATION_S
   properties {
@@ -32570,9 +32560,9 @@ props {
 props {
   name: "leylines_dragonline_light"
   gridPoint {
-    x: -24
+    x: -12
     y: 0
-    z: 23
+    z: 17
   }
   orientation: ORIENTATION_S
   properties {
@@ -32603,9 +32593,9 @@ props {
 props {
   name: "leylines_dragonline_medium"
   gridPoint {
-    x: -24
+    x: -12
     y: 0
-    z: 17
+    z: 11
   }
   orientation: ORIENTATION_S
   properties {
@@ -32635,9 +32625,9 @@ props {
 props {
   name: "leylines_dragonline_medium"
   gridPoint {
-    x: -24
+    x: -12
     y: 0
-    z: 21
+    z: 15
   }
   orientation: ORIENTATION_S
   properties {
@@ -32670,9 +32660,9 @@ props {
 props {
   name: "system_invisible_nonsolidProp"
   gridPoint {
-    x: -24
+    x: -12
     y: 0
-    z: 19
+    z: 13
   }
   orientation: ORIENTATION_S
   displayName: "Summon Elemental"
@@ -32871,9 +32861,9 @@ props {
 props {
   name: "vfx_fx_shamanSummonPoint"
   gridPoint {
-    x: -24
+    x: -12
     y: 0
-    z: 19
+    z: 13
   }
   orientation: ORIENTATION_S
   properties {
@@ -32889,6 +32879,64 @@ props {
     isEnabled: true
     interactionRadius: 1
     dummyInteraciton {
+    }
+    interaction_info_text: ""
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -55
+    y: 0
+    z: 12
+  }
+  orientation: ORIENTATION_S
+  displayName: "Return to Halferville"
+  idRef {
+    id: "55eb3716346435bc1f004a06"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Return to Halferville"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    transitionPoint {
+      scene_name: "cc_a2_dorbi_s3"
+      confirmation_text: "Are you ready to travel back to the upper levels?"
     }
     interaction_info_text: ""
   }
