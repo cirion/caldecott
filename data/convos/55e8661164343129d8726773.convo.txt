@@ -9,7 +9,7 @@ nodes {
   index: 0
   text: "WHAT WOULD YOU HAVE OF ME."
   branches {
-    responseText: "{{CC}}Spirit Control: 3{{/CC}}Please clear those rocks away."
+    responseText: "{{CC}}Spirit Control: 3{{/CC}} Please clear those rocks away."
     nextNodeIndex: 1
     idRef {
       id: "55e8661164343129d8726773:55e8662464343129d872677d"
@@ -46,6 +46,30 @@ nodes {
   index: 2
   text: "The elemental vanishes. Moments later, you hear a loud rumbling in the distance. "
   nodeType: ConversationNodeType_GM_Speaker_Voice
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55ea57d6346435bc1f004454"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Advance"
 }
 roots {

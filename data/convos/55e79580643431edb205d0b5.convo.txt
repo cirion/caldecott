@@ -17,7 +17,6 @@ nodes {
   }
   nodeType: ConversationNodeType_GM_Voice
   speaker_override_id: "559567a0306364ac28001619"
-  comment: "TODO: Is this actually a bulldozer??"
 }
 nodes {
   idRef {
@@ -35,24 +34,229 @@ nodes {
   }
   branches {
     responseText: "{{CC}}Drone control: 5{{/CC}} {{GM}}Take control of the vehicle.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 10
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 5
+        }
+      }
+    }
     nextNodeIndex: 3
     idRef {
       id: "55e79580643431edb205d0b5:55e8655964343129d8726734"
     }
-    comment: "TODO: Pre-req"
   }
   branches {
     responseText: "Persi, do you think you can get this equipment moving for us?"
-    nextNodeIndex: -1
+    conditions {
+      ops {
+        functionName: "Evaluate Tag for Actor"
+        args {
+          call_value {
+            functionName: "All Actors on Team"
+            args {
+              call_value {
+                functionName: "Get Preset Value (string)"
+                args {
+                  string_value: "FactionList"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (SceneDimension)"
+                args {
+                  string_value: "Default"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "isPersi"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Evaluate If Actor Is Downed"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Nearest Tagged Actor to Actor"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (SenseTagList)"
+                    args {
+                      string_value: "isPersi"
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Player)"
+                    args {
+                      int_value: 0
+                    }
+                  }
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Compare Actor Attribute"
+        args {
+          call_value {
+            functionName: "Nearest Tagged Actor to Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "isPersi"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorAttributes"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 5
+        }
+      }
+    }
+    nextNodeIndex: 5
     hideIfUnavailable: true
     onlyOnce: true
     idRef {
       id: "55e79580643431edb205d0b5:55e8659d64343129d872673e"
     }
-    comment: "TODO: Verify if she has the stats."
   }
   branches {
-    responseText: "Leave."
+    responseText: "{{GM}}Leave.{{/GM}}"
     nextNodeIndex: -1
     idRef {
       id: "55e79580643431edb205d0b5:55e865c964343129d8726750"
@@ -97,9 +301,257 @@ nodes {
     id: "55e8658964343129d872673c"
   }
   index: 4
-  text: "The bulldozer makes child\342\200\231s play of clearing the rubble. The path ahead is now clear."
+  text: "The bulldozer makes child\342\200\231s play of clearing the rubble. The path ahead will soon be clear."
   nodeType: ConversationNodeType_GM_Voice
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55ea57d6346435bc1f004454"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55ea58b9346435bc1f004457"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Advance."
+}
+nodes {
+  idRef {
+    id: "55ea61a1346435bc1f004630"
+  }
+  index: 5
+  text: "Ya, piece of cake! These hands can get anything movin\'.\n\n{{GM}}She casts a sly grin in your direction.{{/GM}}"
+  branches {
+    responseText: "{{CC}}Flirt{{/CC}} And here I thought you were just a pretty face!"
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_CanFlirtWithPersi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 6
+    hideIfUnavailable: true
+    idRef {
+      id: "55e79580643431edb205d0b5:55ea642a346435bc1f004632"
+    }
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "{{CC}}Flirt{{/CC}} Maybe we can compare notes on our techniques after we get back to base."
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_CanFlirtWithPersi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 6
+    hideIfUnavailable: true
+    idRef {
+      id: "55e79580643431edb205d0b5:55ea642b346435bc1f004634"
+    }
+  }
+  branches {
+    responseText: "Very funny. Please get on with it."
+    nextNodeIndex: 7
+    idRef {
+      id: "55e79580643431edb205d0b5:55ea642b346435bc1f004636"
+    }
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "That\'s nice."
+    nextNodeIndex: 7
+    idRef {
+      id: "55e79580643431edb205d0b5:55ea642d346435bc1f004638"
+    }
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Oh, never mind. Let\'s find another way through."
+    nextNodeIndex: 1
+    idRef {
+      id: "55e79580643431edb205d0b5:55ea642d346435bc1f00463a"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  speaker_override_id: "55e131da346435e0140016ab"
+  actions {
+    ops {
+      functionName: "No Effect"
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "55ea64ec346435bc1f004654"
+  }
+  index: 6
+  text: "{{GM}}Her grin grows into a toothy smile.{{/GM}}\n\nBe careful what ya wish for! It might be more than ya can handle."
+  branches {
+    responseText: ""
+    nextNodeIndex: 7
+    idRef {
+      id: "55e79580643431edb205d0b5:55ea6517346435bc1f004656"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+  speaker_override_id: "55e131da346435e0140016ab"
+}
+nodes {
+  idRef {
+    id: "55ea6519346435bc1f004659"
+  }
+  index: 7
+  text: "All right, here goes nothin\'..."
+  nodeType: ConversationNodeType_Simple
+  speaker_override_id: "55e131da346435e0140016ab"
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55ea57d6346435bc1f004454"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55ea58b9346435bc1f004457"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0
