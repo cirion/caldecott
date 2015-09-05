@@ -4575,29 +4575,28 @@ triggers {
       }
     }
     ops {
-      functionName: "Set Variable (bool)"
+      functionName: "Move Prop"
       args {
         call_value {
-          functionName: "Get Variable (bool)"
+          functionName: "Get Map Item (Prop)"
           args {
-            string_value: "canExitHalferville"
+            string_value: "55e9ad4b346435e819003247"
           }
         }
       }
       args {
         call_value {
-          functionName: "Get Preset Value (int)"
+          functionName: "Center of Region"
           args {
-            string_value: "bool"
-          }
-          args {
-            int_value: 1
+            call_value {
+              functionName: "Get Map Item (Region)"
+              args {
+                string_value: "55ea522b346435bc1f00440f"
+              }
+            }
           }
         }
       }
-    }
-    ops {
-      functionName: "No Effect"
     }
   }
   isActive: false
@@ -5190,6 +5189,64 @@ regions {
   is_vfx_fill_region: false
   idRef {
     id: "55e9a02c346435e819003063"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
+}
+regions {
+  name: "Exit to Halferville Destination"
+  position {
+    x: -46
+    y: -2
+    width: 1
+    height: 1
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  is_matrix_node: false
+  is_vfx_fill_region: false
+  idRef {
+    id: "55ea522b346435bc1f00440f"
   }
   highlight_color {
     r: 0
@@ -6593,7 +6650,7 @@ characters {
   gridPoint {
     x: -183
     y: 0
-    z: 40
+    z: 39
   }
   orientation: ORIENTATION_S
   GeneralTags: "squad1"
@@ -6663,7 +6720,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "Guard - Seek And Destroy"
+      archetypeName: "gumbo_MeleeSoldier"
       attitude: AttitudeAggressive
       attackRandom: AttackStyle_AllEqual
       vulnerabilities {
@@ -6705,7 +6762,7 @@ characters {
       }
       archetypeName: "Non-Combatant"
     }
-    team_id: "LoneStar"
+    team_id: "Police Oblivious"
     char_name: "Toxic Barrel"
     pc_spawn_number: -1
     ai_ignores: true
