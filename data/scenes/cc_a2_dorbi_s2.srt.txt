@@ -115,7 +115,7 @@ triggers {
       }
     }
   }
-  isActive: true
+  isActive: false
   idRef {
     id: "55ea56a1346435bc1f004413"
   }
@@ -240,6 +240,25 @@ triggers {
           functionName: "Get Map Item (Animation)"
           args {
             string_value: "Seattle:General/standing_idle_bouncer"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55e79076643431edb205cf45"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Seattle:General/standing_idle_cower"
           }
         }
       }
@@ -3033,6 +3052,151 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Squad 1 Bark"
+  events {
+    ops {
+      functionName: "On Actor Damage"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HPOrAP"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Compare Actor Team"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Target Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "squad1"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Display Text over Actor"
+      args {
+        call_value {
+          functionName: "Triggering Target Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        string_value: "Get them!"
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55eb5328346435bc1f004be8"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Camera Cavern"
   position {
@@ -3896,7 +4060,7 @@ characters {
   }
   lod: 0
   character_instance {
-    prefab_name: "Seattle:Core/HumanMale"
+    prefab_name: "HongKong:HKPoor/OrkMalePoorCivilian"
     character_sheet_id: "Errant_Lv1_Human_Pistol"
     equipment_sheet_id: "Errant_Lv1_Pistol"
     character_mod {
@@ -4126,11 +4290,12 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -73
+    x: -20
     y: 0
-    z: 42
+    z: 12
   }
   orientation: ORIENTATION_S
+  GeneralTags: "squad1"
   displayName: "HPF 1 Pistol"
   idRef {
     id: "55e9b4c6643431dbf3961011"
@@ -4162,6 +4327,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "HPF Fighter"
+    GeneralTags: "squad1"
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -4173,11 +4339,12 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -74
+    x: -30
     y: 0
-    z: 42
+    z: 16
   }
   orientation: ORIENTATION_S
+  GeneralTags: "squad1"
   displayName: "HPF 1 Pistol"
   idRef {
     id: "55e9b4d0643431dbf3961012"
@@ -4209,6 +4376,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "HPF Fighter"
+    GeneralTags: "squad1"
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -4220,11 +4388,12 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -75
+    x: -25
     y: 0
-    z: 42
+    z: 11
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_N
+  GeneralTags: "squad1"
   displayName: "HPF 1 Shaman"
   idRef {
     id: "55e9b4dc643431dbf3961013"
@@ -4254,6 +4423,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "HPF Shaman"
+    GeneralTags: "squad1"
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -4265,11 +4435,12 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -76
+    x: -24
     y: 0
-    z: 42
+    z: 23
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_W
+  GeneralTags: "squad1"
   displayName: "HPF 1 Adept"
   idRef {
     id: "55e9b530643431dbf3961033"
@@ -4343,6 +4514,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "HPF Bruiser"
+    GeneralTags: "squad1"
     pc_spawn_number: -1
     hiring_type: HiringType_None
     portrait {
@@ -4793,9 +4965,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -73
+    x: -7
     y: 0
-    z: 29
+    z: -4
   }
   orientation: ORIENTATION_S
   displayName: "Explosive Barrel"
@@ -4828,7 +5000,7 @@ characters {
       vulnerabilities {
       }
     }
-    team_id: "LoneStar"
+    team_id: "Barrels"
     char_name: "Barrel"
     pc_spawn_number: -1
     ai_ignores: true
@@ -4876,7 +5048,7 @@ characters {
       vulnerabilities {
       }
     }
-    team_id: "LoneStar"
+    team_id: "Barrels"
     char_name: "Barrel"
     pc_spawn_number: -1
     ai_ignores: true
@@ -4888,9 +5060,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -72
+    x: -27
     y: 0
-    z: 28
+    z: 19
   }
   orientation: ORIENTATION_S
   displayName: "Explosive Barrel"
@@ -4923,7 +5095,7 @@ characters {
       vulnerabilities {
       }
     }
-    team_id: "LoneStar"
+    team_id: "Barrels"
     char_name: "Chemical Barrel"
     pc_spawn_number: -1
     ai_ignores: true
@@ -4935,9 +5107,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -71
+    x: -5
     y: 0
-    z: 22
+    z: -1
   }
   orientation: ORIENTATION_W
   displayName: "Scorpyine"
@@ -4980,9 +5152,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -72
+    x: -1
     y: 0
-    z: 23
+    z: -4
   }
   orientation: ORIENTATION_E
   displayName: "Basilisk"
@@ -5467,6 +5639,7 @@ team_affiliations {
   affiliation: 1
   affiliation: 1
   affiliation: 0
+  affiliation: 1
 }
 team_affiliations {
   team_name: "Gangers"
@@ -5474,11 +5647,13 @@ team_affiliations {
   affiliation: 0
   affiliation: 1
   affiliation: 0
+  affiliation: 0
 }
 team_affiliations {
   team_name: "LoneStar"
   affiliation: 1
   affiliation: 1
+  affiliation: 0
   affiliation: 0
   affiliation: 0
 }
@@ -5488,11 +5663,18 @@ team_affiliations {
   affiliation: 0
   affiliation: 0
   affiliation: 0
+  affiliation: 0
+}
+team_affiliations {
+  team_name: "Barrels"
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
 }
 scene_dimensions {
   dimension_name: "Default"
-}
-character_roster {
 }
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {
