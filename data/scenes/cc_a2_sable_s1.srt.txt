@@ -8,6 +8,8 @@ regions {
   }
   enabledAtStart: true
   is_camera_region: true
+  is_matrix_node: false
+  is_vfx_fill_region: false
   idRef {
     id: "554c46363464351421004513"
   }
@@ -43,6 +45,16 @@ regions {
   loop_combat_music: true
   loop_default_music: false
   no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
 }
 characters {
   name: "system_spawner_playerSpawner"
@@ -67,6 +79,660 @@ characters {
     pc_spawn_number: 0
   }
 }
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -139
+    y: 0
+    z: 22
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isRaider"
+  displayName: "Wild Dog"
+  idRef {
+    id: "55e9f749643431dbf396107d"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Berlin:Creatures/CreatureDogAngry"
+    character_sheet_id: "Creature_Lv1_Hellhound"
+    equipment_sheet_id: "AttackDog_Lv1_Powers"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: -1
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "gumbo_grunt"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "Raiders"
+    char_name: "Attack Dog"
+    GeneralTags: "isRaider"
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    karma: 52
+    hiring_cost_override: 1000
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -140
+    y: 0
+    z: 22
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isRaider"
+  displayName: "Raider Thug"
+  idRef {
+    id: "55e9f76e643431dbf396107e"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Triads/OrkMaleTriad1"
+    character_sheet_id: "Thug_Lv1_Melee"
+    equipment_sheet_id: "Thug_Lv1_Melee_Gear"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      vulnerabilities {
+      }
+    }
+    team_id: "Raiders"
+    char_name: "Raider Thug"
+    GeneralTags: "isRaider"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 56
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -141
+    y: 0
+    z: 22
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isRaider"
+  displayName: "Raider Pistol"
+  idRef {
+    id: "55e9f788643431dbf396107f"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Gangers/OrkMaleGanger"
+    character_sheet_id: "Errant_Lv1_Human_Pistol"
+    equipment_sheet_id: "Errant_Lv1_Pistol"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_Soldier"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "Raiders"
+    char_name: "Raider Lookout"
+    GeneralTags: "isRaider"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 41
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -142
+    y: 0
+    z: 22
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isRaider"
+  displayName: "Raider SMG"
+  idRef {
+    id: "55e9f796643431dbf3961080"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Berlin:Gangers/OrkMaleBerlinGanger"
+    character_sheet_id: "Errant_Lv1_Heavy_Explosive"
+    equipment_sheet_id: "Errant_Lv1_Explosive"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_Soldier"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "Raiders"
+    char_name: "Raider Heavy"
+    GeneralTags: "isRaider"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 47
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -139
+    y: 0
+    z: 24
+  }
+  orientation: ORIENTATION_S
+  displayName: "NC SMG"
+  idRef {
+    id: "55e9f7a2643431dbf3961081"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Berlin:Humanis/HumanMaleHumanisFlattop"
+    character_sheet_id: "Errant_Lv1_Heavy_Explosive"
+    equipment_sheet_id: "Errant_Lv1_Explosive"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_Soldier"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "NC"
+    char_name: "NC Footsoldier"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 47
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -140
+    y: 0
+    z: 24
+  }
+  orientation: ORIENTATION_S
+  displayName: "NC Shotgun"
+  idRef {
+    id: "55e9f7ae643431dbf3961082"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Berlin:Humanis/HumanMaleHumanisLongSleeve_2"
+    character_sheet_id: "Errant_Lv1_Ork_Shotgun"
+    equipment_sheet_id: "Errant_Lv1_Shotgun"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_Soldier"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "NC"
+    char_name: "NC Enforcer"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 41
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -141
+    y: 0
+    z: 24
+  }
+  orientation: ORIENTATION_S
+  displayName: "NC Captain"
+  idRef {
+    id: "55e9f7ba643431dbf3961083"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Berlin:Humanis/HumanFemaleHumanisPonytail"
+    character_sheet_id: "Errant_Lv1_Captain"
+    equipment_sheet_id: "Errant_Lv1_Captain"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_Soldier"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "NC"
+    char_name: "NC Captain"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 52
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -143
+    y: 0
+    z: 22
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isRaider"
+  displayName: "Raider Mage"
+  idRef {
+    id: "55e9f7d5643431dbf3961084"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Gangers/DwarfMaleGangerMohawk"
+    character_sheet_id: "Errant_Lv1_Human_Mage"
+    equipment_sheet_id: "Errant_Lv1_Spellcasting"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_Mage"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "Raiders"
+    char_name: "Raider Mage"
+    GeneralTags: "isRaider"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 43
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -144
+    y: 0
+    z: 27
+  }
+  orientation: ORIENTATION_S
+  displayName: "Fire Barrel"
+  idRef {
+    id: "55e9f850643431dbf3961085"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Berlin:Objects/FireExplosiveBarrel"
+    character_sheet_id: "Environment_Barrel_Explosive"
+    equipment_sheet_id: "Environment_Barrel_Fire"
+    character_mod {
+      stats {
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      archetypeName: "Non-Combatant"
+    }
+    team_id: "Raiders"
+    char_name: "Chemical Barrel"
+    pc_spawn_number: -1
+    ai_ignores: true
+    portrait {
+      filename: ""
+    }
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -143
+    y: 0
+    z: 27
+  }
+  orientation: ORIENTATION_S
+  displayName: "Turret"
+  idRef {
+    id: "55e9f86f643431dbf3961086"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Objects/AutoTurret"
+    character_sheet_id: "Turret_Lv1"
+    equipment_sheet_id: "Turret_Lv1_Burst_Gear"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 2
+        vision_cone_distance: 18
+        vision_cone_angle: 90
+        is_fearless: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      vulnerabilities {
+      }
+    }
+    team_id: "Raiders"
+    char_name: "Auto Turret"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 41
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -139
+    y: 0
+    z: 26
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isMPA"
+  displayName: "MPA Shaman"
+  idRef {
+    id: "55e9f893643431dbf3961087"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Gangers/TrollMaleGanger_Halloweener"
+    character_sheet_id: "Errant_Lv1_Elf_Shaman"
+    equipment_sheet_id: "Errant_Lv1_Shaman"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_grunt"
+      vulnerabilities {
+      }
+    }
+    team_id: "MPA"
+    char_name: "MPA Shaman"
+    GeneralTags: "isMPA"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 56
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -140
+    y: 0
+    z: 26
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isMPA"
+  displayName: "MPA Mage"
+  idRef {
+    id: "55e9f89c643431dbf3961088"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Berlin:Gangers/OrkFemaleBerlinGanger_Magnifiker"
+    character_sheet_id: "Errant_Lv1_Human_Mage"
+    equipment_sheet_id: "Errant_Lv1_Spellcasting"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_Mage"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "MPA"
+    char_name: "MPA Mage"
+    GeneralTags: "isMPA"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 43
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -141
+    y: 0
+    z: 26
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isMPA"
+  displayName: "MPA Shotgun"
+  idRef {
+    id: "55e9f8af643431dbf3961089"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Triads/TrollMaleTriad1"
+    character_sheet_id: "Errant_Lv1_Ork_Shotgun"
+    equipment_sheet_id: "Errant_Lv1_Shotgun"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_Soldier"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "MPA"
+    char_name: "MPA Heavy"
+    GeneralTags: "isMPA"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 41
+    scale_character_sheet: true
+  }
+}
 worldMapLocation {
   filename: ""
   location {
@@ -76,12 +742,12 @@ worldMapLocation {
 }
 mapName: "cc_a1_gauntlet_s1"
 parentStory: ""
-scene_title: "New Scene"
+scene_title: "BACK ON THE STREETS"
 scene_subtitle: ""
-scene_synopsis: ""
+scene_synopsis: "The Gauntlet can hit you like a mailed fist, but it isn\342\200\231t as solid as one might think. From week to week the scene on the ground changes as gangs gain or lose territory, Saito mounts attacks and pulls back under heavy losses, and a patchwork of various opposition groups waxes and wanes in influence. The only constant is danger, but the source and nature of that danger is always shifting.\n\nFollowing leads for the elusive \342\200\234Sable,\342\200\235 your attention is drawn to the Orkland Raiders, a splinter group from the radical Metahuman People\342\200\231s Army. If your decker can be found anywhere in the sprawl, this is as good a place as any to start looking.\n"
 scene_image: ""
 scene_continue_button_skip: false
-scene_restore_runner_health: false
+scene_restore_runner_health: true
 directional_light_dir {
   x: -0.5
   y: -1
@@ -104,25 +770,37 @@ team_affiliations {
   affiliation: 1
   affiliation: 1
   affiliation: 0
+  affiliation: 1
 }
 team_affiliations {
-  team_name: "Gangers"
+  team_name: "MPA"
   affiliation: 1
   affiliation: 0
   affiliation: 1
   affiliation: 0
+  affiliation: 1
 }
 team_affiliations {
-  team_name: "LoneStar"
+  team_name: "Raiders"
   affiliation: 1
   affiliation: 1
   affiliation: 0
   affiliation: 0
+  affiliation: 1
 }
 team_affiliations {
   team_name: "Civilians"
   affiliation: 0
   affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+}
+team_affiliations {
+  team_name: "NC"
+  affiliation: 1
+  affiliation: 1
+  affiliation: 1
   affiliation: 0
   affiliation: 0
 }
@@ -139,7 +817,7 @@ scene_hiring_prerequisites {
 }
 hiring_slot_count: 0
 hiring_minimum_karma: 0
-hiring_maximum_karma: 25
+hiring_maximum_karma: 0
 roster_overrides {
 }
 use_hiring_cost_warning: false
@@ -148,6 +826,6 @@ override_hiring_average_cost: true
 show_equip_screen_on_scene_load: false
 is_persistant: false
 is_persistant_has_value: false
-can_move_outside_camera_regions: true
-can_start_before_triggers: true
+can_move_outside_camera_regions: false
+can_start_before_triggers: false
 can_use_team_advancement: false
