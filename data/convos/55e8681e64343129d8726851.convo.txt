@@ -55,19 +55,96 @@ nodes {
     id: "55e8681e64343129d8726851:55e8685164343129d8726879"
   }
   index: 3
-  text: "{{GM}}The young recruit looks anguished. $+(l.his) hands tremble as they raise a weapon.{{/GM}}\n\nIf we have to\342\200\246 I just wish I could believe as strongly as you\342\200\246"
+  text: "{{GM}}The young recruit looks anguished. Hands tremble as they raise a weapon.{{/GM}}\n\nIf we have to\342\200\246 I just wish I could believe as strongly as you\342\200\246"
   branches {
     responseText: "{{CC}}Metatype: Dwarf{{/CC}} Please. I\342\200\231m a dwarf, the same as you. Listen to me when I say that you\342\200\231re making a mistake."
+    conditions {
+      ops {
+        functionName: "Compare Actor Race"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Race"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 4
     hideIfUnavailable: true
     idRef {
       id: "55e8681e64343129d8726851:55e8685464343129d872687b"
     }
     auxiliaryLink: true
-    comment: "TODO: Pre-reqs for all of these"
   }
   branches {
     responseText: "{{CC}}Charisma: 4{{/CC}} Listen to your heart. It knows that what you\342\200\231re doing is wrong."
+    conditions {
+      ops {
+        functionName: "Compare Actor Attribute"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorAttributes"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+    }
     nextNodeIndex: 4
     idRef {
       id: "55e8681e64343129d8726851:55e8691e64343129d872689b"
@@ -76,6 +153,52 @@ nodes {
   }
   branches {
     responseText: "{{CC}}Etiquette: Academic{{/CC}} Don\342\200\231t you know your own history? Orks helped build Halferville in the first place. They have just as much right to live here as you."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 18
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 4
     idRef {
       id: "55e8681e64343129d8726851:55e8695a64343129d87268aa"
@@ -97,6 +220,9 @@ nodes {
     comment: "TODO: Fight starts."
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55e8687e64343129d872688c"
+  }
 }
 nodes {
   idRef {
@@ -138,6 +264,30 @@ nodes {
   index: 6
   text: "Very well. Die with your new friends, you race-traitor!"
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55eb46f4346435bc1f004b04"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
