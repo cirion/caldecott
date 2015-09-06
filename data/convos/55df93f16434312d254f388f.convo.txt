@@ -10,11 +10,63 @@ nodes {
   text: "All right! Charges ready?"
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Evaluate Tag for Actor"
+        args {
+          call_value {
+            functionName: "All Actors Within Area"
+            args {
+              call_value {
+                functionName: "Area: Region"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Region)"
+                    args {
+                      string_value: "554c46363464351421004513"
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "isDorbi"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 1
     idRef {
       id: "55df93f16434312d254f388f:55df94066434312d254f3899"
     }
-    comment: "TODO: Dorbi present"
   }
   branches {
     responseText: ""
@@ -25,6 +77,9 @@ nodes {
     comment: "Dorbi not present"
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55e9f7ba643431dbf3961083"
+  }
 }
 nodes {
   idRef {
@@ -50,21 +105,70 @@ nodes {
   text: "Yeah! She\342\200\231s ready to blow!\n\nThose trogs are in for a world of pain."
   branches {
     responseText: "{{GM}}Interrupt them.{{/GM}}"
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Event_InterruptedNC"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Event_Attacking NCs"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 3
     idRef {
       id: "55df93f16434312d254f388f:55df96026434312d254f38b3"
     }
-    comment: "TODO: Dorbi disapproves"
   }
   branches {
     responseText: "{{GM}}Wait and watch.{{/GM}}"
+    actions {
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "55ec7f6e3464352c0e000aa6"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: -1
     idRef {
       id: "55df93f16434312d254f388f:55df96036434312d254f38b5"
     }
-    comment: "TODO: Approval, show explosion. Need separate dialogue?"
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55e9f7a2643431dbf3961081"
+  }
 }
 nodes {
   idRef {
@@ -80,6 +184,9 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55e9f7a2643431dbf3961081"
+  }
 }
 nodes {
   idRef {
@@ -88,6 +195,33 @@ nodes {
   index: 4
   text: "Enemies! Get them!"
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55e9f7ba643431dbf3961083"
+  }
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55ec7f5d3464352c0e000aa4"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Start fight"
 }
 roots {

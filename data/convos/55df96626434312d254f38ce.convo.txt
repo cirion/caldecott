@@ -25,11 +25,63 @@ nodes {
   text: "Let\342\200\231s go in and finish the job!"
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Evaluate Tag for Actor"
+        args {
+          call_value {
+            functionName: "All Actors Within Area"
+            args {
+              call_value {
+                functionName: "Area: Region"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Region)"
+                    args {
+                      string_value: "554c46363464351421004513"
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "isRafik"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 2
     idRef {
       id: "55df96626434312d254f38ce:55df96826434312d254f38dd"
     }
-    comment: "TODO: Rafik present"
   }
   branches {
     responseText: ""
@@ -56,6 +108,7 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  speaker_override_id: "55e13144346435e0140016a8"
 }
 nodes {
   idRef {
@@ -73,11 +126,45 @@ nodes {
   }
   branches {
     responseText: "{{GM}}Let them invade the safehouse.{{/GM}}"
+    actions {
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "55ec7f673464352c0e000aa5"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Event_Not Attacking NCs"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: -1
     idRef {
       id: "55df96626434312d254f38ce:55df96b66434312d254f38e9"
     }
-    comment: "TODO: Rafik disapproves, they leave."
   }
   nodeType: ConversationNodeType_Simple
   comment: "Your choice"
@@ -104,6 +191,41 @@ nodes {
   index: 5
   text: "Ice them!"
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55ec7f5d3464352c0e000aa4"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Event_Attacking NCs"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Start fight"
 }
 roots {

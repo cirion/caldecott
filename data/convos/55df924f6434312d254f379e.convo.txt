@@ -34,7 +34,6 @@ nodes {
   branches {
     responseText: "Do you know who killed Oscar the Ouch?"
     nextNodeIndex: 3
-    onlyOnce: true
     idRef {
       id: "55df924f6434312d254f379e:55df92726434312d254f37af"
     }
@@ -73,23 +72,95 @@ nodes {
   text: "I don\342\200\231t know the name. I may know something about recent killings here. I\342\200\231m not certain why I should share that information with you."
   branches {
     responseText: "{{CC}}Etiquette: Shadowrunner{{/CC}} Unless someone\342\200\231s already paid you to keep your mouth shut, you have more to gain from making me a contact."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 17
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 4
     idRef {
       id: "55df924f6434312d254f379e:55df92bf6434312d254f37d5"
     }
-    comment: "TODO: Skill check"
   }
   branches {
     responseText: "{{CC}}\302\245300{{/CC}} I find that money is an excellent motivator."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 300
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 300
+        }
+      }
+    }
     nextNodeIndex: 8
     idRef {
       id: "55df924f6434312d254f379e:55df92bf6434312d254f37d7"
     }
-    comment: "TODO: Nuyen check, debit."
   }
   branches {
     responseText: "You should perform your civic duty."
     nextNodeIndex: 9
+    onlyOnce: true
     idRef {
       id: "55df924f6434312d254f379e:55df92c06434312d254f37d9"
     }
@@ -155,6 +226,30 @@ nodes {
   index: 7
   text: "Now, if you\342\200\231ll excuse me, I\342\200\231ll be on my way."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55ec77d23464352c0e000921"
+          }
+        }
+      }
+    }
+  }
   comment: "Update goals, merc leaves"
 }
 nodes {
@@ -179,8 +274,15 @@ nodes {
   }
   index: 9
   text: "Ha! And what has society ever done for me, that I should owe it my duty?\n\nNo. I\342\200\231m happy to remain on the sidelines for this particular encounter."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    idRef {
+      id: "55df924f6434312d254f379e:55ec76a53464352c0e0008c7"
+    }
+    auxiliaryLink: true
+  }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Disable."
 }
 nodes {
   idRef {

@@ -33,19 +33,90 @@ nodes {
   }
   branches {
     responseText: "{{CC}}Etiquette: Gang{{/CC}} Look, whoever offed Oscar would think nothing of going after you or me. Help me get them off the streets."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 15
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 3
     idRef {
       id: "55df8d4d6434312d254f3733:55df905c6434312d254f3771"
     }
-    comment: "TODO: Etiquette"
   }
   branches {
     responseText: "{{CC}}\302\245100{{/CC}} Put yourself in the witness protection program and start talking."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 100
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 100
+        }
+      }
+    }
     nextNodeIndex: 5
     idRef {
       id: "55df8d4d6434312d254f3733:55df905c6434312d254f3773"
     }
-    comment: "TODO: Pre-req, verify nuyen. Deduct on selection"
   }
   branches {
     responseText: "Don\342\200\231t go anywhere."
@@ -95,6 +166,30 @@ nodes {
   index: 4
   text: "They ran away before the MPA showed up, but it sounded like they were comin\342\200\231 back. Be careful, or they might get you too!"
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55ec79c03464352c0e0009d1"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Set flags, deactivate, leave."
 }
 nodes {
