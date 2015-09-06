@@ -16,6 +16,60 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55ebbc2c346435102d004f2d"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Triggering Target Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Seattle:General/standing_idle"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "remainingVoters"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -34,6 +88,7 @@ nodes {
   branches {
     responseText: "You sound proud of Halferville."
     nextNodeIndex: 4
+    onlyOnce: true
     idRef {
       id: "55e89bd1643431a6e4c43bf2:55e89bf2643431a6e4c43c0b"
     }
@@ -110,15 +165,106 @@ nodes {
   text: "Indeed? And why do you say that?"
   branches {
     responseText: "{{CC}}Etiquette: Socialite{{/CC}} Haven\342\200\231t you heard the latest rumors? Dorbi\342\200\231s ancestry is impeccable. She\342\200\231s directly descended from King Varulus of Throal."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 16
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 7
     idRef {
       id: "55e89bd1643431a6e4c43bf2:55e89c79643431a6e4c43c7d"
     }
     auxiliaryLink: true
-    comment: "TODO: Pre-reqs for these 2"
   }
   branches {
     responseText: "{{CC}}Charisma: 4{{/CC}} Dorbi has a magnetic personality, the kind that would grab anyone\342\200\231s attention. She\342\200\231ll be a magnificent exemplar of the best that dwarfkind has to offer."
+    conditions {
+      ops {
+        functionName: "Compare Actor Attribute"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorAttributes"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+    }
     nextNodeIndex: 7
     idRef {
       id: "55e89bd1643431a6e4c43bf2:55e89c7a643431a6e4c43c7f"
@@ -164,7 +310,23 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Votes for Billy"
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "billy_votes"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  comment: "Votes for Billy"
 }
 nodes {
   idRef {
@@ -180,7 +342,23 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Votes for Dorbi"
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "dorbi_votes"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  comment: "Votes for Dorbi"
 }
 nodes {
   idRef {
@@ -198,6 +376,22 @@ nodes {
   index: 9
   text: "As you say. Billy is a reasonable man, and seems much more likely to continue focusing our limited resources on making Halferville the greatest place it can be."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "billy_votes"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0

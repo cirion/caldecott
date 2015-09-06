@@ -16,6 +16,44 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55ebbc2c346435102d004f2f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "remainingVoters"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -79,6 +117,26 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Actor Display Name"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Target Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        string_value: "Denlin"
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -120,21 +178,111 @@ nodes {
   text: "I\342\200\231m leaning towards Billy, but I have to admit I haven\342\200\231t heard much about Dorbi, other than this whole \342\200\234Phoenix\342\200\235 thing. Why do you think I should vote for her?"
   branches {
     responseText: "{{CC}}Etiquette: Security{{/CC}} Maintaining the integrity of a perimeter requires finesse and adaptation, not rigid adherence to outmoded protocols. Dorbi\342\200\231s a capable thinker who will protect against true threats."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 14
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 7
     idRef {
       id: "55e89264643431a6e4c436e2:55e89421643431a6e4c43795"
     }
     auxiliaryLink: true
-    comment: "TODO: Pre-req"
   }
   branches {
-    responseText: "{{CC}}Strength: 4{/CC}} If Dorbi sets up shop here, she\342\200\231ll be bringing in some serious muscle like myself. Your enemies will think twice before causing trouble."
+    responseText: "{{CC}}Strength: 4{{/CC}} If Dorbi sets up shop here, she\342\200\231ll be bringing in some serious muscle like myself. Your enemies will think twice before causing trouble."
+    conditions {
+      ops {
+        functionName: "Compare Actor Attribute"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorAttributes"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+    }
     nextNodeIndex: 7
     idRef {
       id: "55e89264643431a6e4c436e2:55e89421643431a6e4c43797"
     }
     auxiliaryLink: true
-    comment: "TODO: Pre-req"
   }
   branches {
     responseText: "Dorbi understands that there\342\200\231s more to life than building walls. She\342\200\231ll help develop stronger links with good folks on the surface."
@@ -175,7 +323,23 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "Voting for Billy. TODO update count"
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "billy_votes"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  comment: "Voting for Billy"
 }
 nodes {
   idRef {
@@ -191,7 +355,23 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "Voting for Dorbi. TODO update count"
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "dorbi_votes"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  comment: "Voting for Dorbi."
 }
 nodes {
   idRef {
@@ -209,36 +389,27 @@ nodes {
   index: 9
   text: "Of course! Billy\342\200\231s a smart man, he understands how important it is for us to watch our backs and keep outsiders at a healthy distance. He has my vote, for sure."
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Update count"
-}
-nodes {
-  idRef {
-    id: "55e893f4643431a6e4c43771"
-  }
-  index: 10
-  text: "Welcome back! Did you want anything else?"
-  branches {
-    responseText: ""
-    nextNodeIndex: 1
-    idRef {
-      id: "55e89264643431a6e4c436e2:55e893fe643431a6e4c43773"
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "billy_votes"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
     }
-    auxiliaryLink: true
   }
-  nodeType: ConversationNodeType_Simple
+  comment: "TODO: Update count"
 }
 roots {
   nextNodeIndex: 0
   idRef {
     id: "55e89264643431a6e4c436e2:55e89264643431a6e4c436e6"
   }
-  comment: "TODO: First time only."
-}
-roots {
-  responseText: ""
-  nextNodeIndex: 10
-  idRef {
-    id: "55e89264643431a6e4c436e2:55e893e9643431a6e4c4376e"
-  }
-  comment: "Fallback - later visits"
 }

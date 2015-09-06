@@ -146,6 +146,30 @@ nodes {
   index: 8
   text: "Grab whatever you need from Oakland. Consider Halferville your home away from home until this whole thing is over."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55ebc824346435102d005240"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Update scene goals, etc."
 }
 roots {

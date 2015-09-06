@@ -16,6 +16,44 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55ebbc2c346435102d004f2e"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "remainingVoters"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -26,6 +64,7 @@ nodes {
   branches {
     responseText: "What\342\200\231s going on with you today?"
     nextNodeIndex: 2
+    onlyOnce: true
     idRef {
       id: "55e894d1643431a6e4c4384c:55e8958c643431a6e4c438b4"
     }
@@ -33,6 +72,7 @@ nodes {
   branches {
     responseText: "What do you think of the current state of Halferville?"
     nextNodeIndex: 3
+    onlyOnce: true
     idRef {
       id: "55e894d1643431a6e4c4384c:55e89591643431a6e4c438bb"
     }
@@ -59,7 +99,7 @@ nodes {
     id: "55e8958d643431a6e4c438b7"
   }
   index: 2
-  text: "Studying. It\342\200\231s, like, hella lame. I got classes at the PU, and usually I just coast, but my new teacher is all retro with scantrons and junk. Can\342\200\231t wait for the semester to be over so I can take that trip to Shasta."
+  text: "Studying. It\342\200\231s, like, hella lame. I got classes at the PU, and usually I just coast, but my new teacher is all retro with scantrons and junk. Can\342\200\231t wait for this semester to end so I can take that trip to Shasta."
   branches {
     responseText: ""
     nextNodeIndex: 1
@@ -93,6 +133,22 @@ nodes {
   index: 4
   text: "Hell yes I\342\200\231m voting for her! We need some new blood around here, badly, and she\342\200\231s just the lady to do it."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "dorbi_votes"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
   comment: "TODO: Update counter, disable speaker"
 }
 nodes {
@@ -103,6 +159,52 @@ nodes {
   text: "I dunno, $(l.man)... Billy is, like, old as balls and way less fun. Why should I go to the bother of voting for someone like that?"
   branches {
     responseText: "{{CC}}Etiquette: Academic{{/CC}} Billy\342\200\231s like a professor emeritus. He\342\200\231s kind of useless, but super-easy to get along with. If you get rid of him, and you\342\200\231ll end up with some hardass tenure-track out to prove themselves."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 18
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 6
     idRef {
       id: "55e894d1643431a6e4c4384c:55e89605643431a6e4c438df"
@@ -111,6 +213,52 @@ nodes {
   }
   branches {
     responseText: "{{CC}}Intelligence: 4{{/CC}} Every actor contains its opposite. Dorbi promises change, but her installation will provoke counter-revolutionary forces. Billy\342\200\231s conservative reign will ignite its own downfall."
+    conditions {
+      ops {
+        functionName: "Compare Actor Attribute"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorAttributes"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+    }
     nextNodeIndex: 6
     idRef {
       id: "55e894d1643431a6e4c4384c:55e89605643431a6e4c438e1"
@@ -156,7 +304,23 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO Votes for Billy"
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "billy_votes"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  comment: "Votes for Billy"
 }
 nodes {
   idRef {
@@ -172,6 +336,22 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "dorbi_votes"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
   comment: "Votes for Dorbi."
 }
 nodes {

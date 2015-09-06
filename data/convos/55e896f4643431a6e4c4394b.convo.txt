@@ -16,6 +16,44 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55ebbe33346435102d004f31"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "remainingVoters"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -26,6 +64,7 @@ nodes {
   branches {
     responseText: "Are you a resident here?"
     nextNodeIndex: 2
+    onlyOnce: true
     idRef {
       id: "55e896f4643431a6e4c4394b:55e8975d643431a6e4c4396c"
     }
@@ -33,6 +72,7 @@ nodes {
   branches {
     responseText: "What do you think of life in Halferville?"
     nextNodeIndex: 4
+    onlyOnce: true
     idRef {
       id: "55e896f4643431a6e4c4394b:55e89763643431a6e4c43977"
     }
@@ -109,15 +149,157 @@ nodes {
   text: "Doubtful. She seems like the type that would welcome in outside elements, when we need to do the opposite and keep them far away."
   branches {
     responseText: "{{CC}}Etiquette: Shadowrunner{{/CC}} You need someone who can operate in the shadows between light and dark, to keep the world at bay by engaging with it."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 17
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 6
     idRef {
       id: "55e896f4643431a6e4c4394b:55e897da643431a6e4c439bd"
     }
     auxiliaryLink: true
-    comment: "TODO: Pre-req for all of these"
   }
   branches {
     responseText: "{{CC}}Ranged/Close Combat: 4{{/CC}} If anyone tries to cause trouble, Dorbi has friends like me who can make it go away."
+    conditions {
+      ops {
+        functionName: "OR"
+        args {
+          call_value {
+            functionName: "Compare Actor Skill"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "BaseOrCurrent"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "ActorSkills"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Comparison Ops"
+                }
+                args {
+                  int_value: 3
+                }
+              }
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Compare Actor Skill"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "BaseOrCurrent"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "ActorSkills"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Comparison Ops"
+                }
+                args {
+                  int_value: 3
+                }
+              }
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 6
     idRef {
       id: "55e896f4643431a6e4c4394b:55e897db643431a6e4c439bf"
@@ -163,6 +345,22 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "dorbi_votes"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
   comment: "TODO: Votes for Dorbi"
 }
 nodes {
@@ -179,6 +377,22 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "billy_votes"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
   comment: "TODO: Votes for Billy"
 }
 nodes {
@@ -197,6 +411,22 @@ nodes {
   index: 9
   text: "Absolutely. That man knows how to act like a proper dwarf: keep your head down, stay with your own kind, and don\342\200\231t let anyone see you flinch. I\342\200\231ll be happy to cast my vote for him."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "billy_votes"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
   comment: "TODO: Update count"
 }
 roots {
