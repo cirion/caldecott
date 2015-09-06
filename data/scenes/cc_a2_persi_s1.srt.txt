@@ -1,3 +1,6302 @@
+triggers {
+  name: "Map Start"
+  events {
+  }
+  conditions {
+  }
+  actions {
+  }
+  isActive: true
+  idRef {
+    id: "55ec58cb3464352c0e000446"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Debug"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Activate Actor Spawner"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor Reference)"
+          args {
+            string_value: "55ec62983464352c0e0005e0"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Activate Actor Spawner"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor Reference)"
+          args {
+            string_value: "55ec62a83464352c0e0005e1"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55ec58d63464352c0e000447"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Warned"
+  events {
+    ops {
+      functionName: "On Actor Awareness of Another Actor"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (Actor)"
+      args {
+        call_value {
+          functionName: "Triggering Target Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Compare Actor Race"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Race"
+          }
+          args {
+            int_value: 10
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Compare Actor Team"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "55df82a16434312d254f3454"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55ec58f53464352c0e000448"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "After Warned_OFF"
+  events {
+    ops {
+      functionName: "On Conversation Complete"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Dispose of Security"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: false
+  idRef {
+    id: "55ec593e3464352c0e000449"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Killed all Security"
+  events {
+    ops {
+      functionName: "On Actor Death"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Team Survival Percentage"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 100
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Dispose of Security"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55ec59fe3464352c0e00044b"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Ambushed Lonestar"
+  events {
+    ops {
+      functionName: "On Actor Damage"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HPOrAP"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "On Actor Damage"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HPOrAP"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Team Alliance"
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeamAlliance"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55ec5e473464352c0e0004c8"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55ec5a483464352c0e00044c"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Gangers Hostile_OFF"
+  events {
+    ops {
+      functionName: "On Conversation Complete"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Team Alliance"
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeamAlliance"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Team Alliance"
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeamAlliance"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55e9b810643431dbf396103b"
+          }
+        }
+      }
+    }
+  }
+  isActive: false
+  idRef {
+    id: "55ec5b163464352c0e00047f"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Dorbi Reacts to Ganger Agreement"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Event_Agreed with Gangers"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "All Actors Within Area"
+          args {
+            call_value {
+              functionName: "Area: Region"
+              args {
+                call_value {
+                  functionName: "Get Map Item (Region)"
+                  args {
+                    string_value: "554b7430346435142100450f"
+                  }
+                }
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isDorbi"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Dorbi Approves"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55ec5b713464352c0e000480"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Check Banter"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "55ec5c213464352c0e0004b3"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (Actor)"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Evaluate Goal"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Dispose of Security"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Evaluate Turn Mode in Dimension"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TurnBasedOrFreeMove"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Trigger: Run Alternate Trigger By Name"
+      args {
+        call_value {
+          functionName: "Append (string)"
+          args {
+            call_value {
+              functionName: "Convert (int) to (string)"
+              args {
+                call_value {
+                  functionName: "Random (int)"
+                  args {
+                    int_value: 1
+                  }
+                  args {
+                    int_value: 14
+                  }
+                }
+              }
+            }
+          }
+          args {
+            string_value: "Banter"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55626d11346435d80700030c"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Banter1"
+  events {
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isRafik"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isSable"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_01"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "55628319346435d80700034b"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Nearest Tagged Actor to Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isRafik"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_01"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55626d50346435d80700030d"
+  }
+  elseActions {
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55626e58346435d80700033b"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Banter2"
+  events {
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isDorbi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isRafik"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_02"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "5562a9e4346435d80700039a"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Nearest Tagged Actor to Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isDorbi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_02"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55626e58346435d80700033b"
+  }
+  elseActions {
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55626e5a346435d80700033c"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Banter3"
+  events {
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isPersi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isSable"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_03"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "5562acd5346435c81600447b"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Nearest Tagged Actor to Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isPersi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_03"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55626e5a346435d80700033c"
+  }
+  elseActions {
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "556387b8346435c816004970"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Banter4"
+  events {
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isRafik"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isSable"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_04"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "556333ec346435c816004551"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Nearest Tagged Actor to Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isPersi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_04"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556387b8346435c816004970"
+  }
+  elseActions {
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "556387be346435c816004971"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Banter5"
+  events {
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isPersi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isRafik"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_05"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "5563362c346435c81600461a"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Nearest Tagged Actor to Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isPersi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_05"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556387be346435c816004971"
+  }
+  elseActions {
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "556387c0346435c816004972"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Banter6"
+  events {
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isDorbi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isSable"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_06"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "55633822346435c81600466c"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Nearest Tagged Actor to Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isDorbi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_06"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556387c0346435c816004972"
+  }
+  elseActions {
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "556387c2346435c816004973"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Banter7"
+  events {
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isPersi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isDorbi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_07"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "55634789346435c81600488f"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Nearest Tagged Actor to Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isPersi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_07"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556387c2346435c816004973"
+  }
+  elseActions {
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "556387c4346435c816004974"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Banter8"
+  events {
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isPersi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isDorbi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_08"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "55638522346435c816004909"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Nearest Tagged Actor to Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isDorbi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_08"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556387c4346435c816004974"
+  }
+  elseActions {
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "556387c6346435c816004975"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Banter9"
+  events {
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isPersi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isSable"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_09"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_numMissionsCompleted"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 3
+          }
+        }
+      }
+      args {
+        int_value: 3
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "5563892e346435c81600499f"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Nearest Tagged Actor to Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isPersi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_09"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556387c6346435c816004975"
+  }
+  elseActions {
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5563a68f346435c816004e0c"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Banter10"
+  events {
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isRafik"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isPersi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_10"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "55638cc8346435c816004a53"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Nearest Tagged Actor to Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isRafik"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_10"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5563a68f346435c816004e0c"
+  }
+  elseActions {
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5563a693346435c816004e0d"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Banter11"
+  events {
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isDorbi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isSable"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_11"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "55639040346435c816004b1b"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Nearest Tagged Actor to Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isDorbi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_11"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5563a693346435c816004e0d"
+  }
+  elseActions {
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5563a695346435c816004e0e"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Banter12"
+  events {
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isPersi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isSable"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_12"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "556396b7346435c816004b8e"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Nearest Tagged Actor to Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isPersi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_12"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5563a695346435c816004e0e"
+  }
+  elseActions {
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5563a697346435c816004e0f"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Banter13"
+  events {
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isRafik"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_13"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "556398b8346435c816004be5"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Nearest Tagged Actor to Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isRafik"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_13"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5563a697346435c816004e0f"
+  }
+  elseActions {
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5563a699346435c816004e10"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Banter14"
+  events {
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isRafik"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554b7430346435142100450f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_14"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "55639bb0346435c816004ced"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Nearest Tagged Actor to Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isRafik"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Bantered_14"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5563a699346435c816004e10"
+  }
+  elseActions {
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55626d50346435d80700030d"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Rafik Disapproves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Rafik Disapproves"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Rafik"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isRafik"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "String_LostFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556b73b53464352813006457"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Rafik Approves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Rafik Approves"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Rafik"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isRafik"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "String_GainedFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556b73f33464352813006493"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Persi Disapproves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Persi Disapproves"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Persi"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isPersi"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "String_LostFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556b7f003464352813007092"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Persi Approves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Persi Approves"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Persi"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isPersi"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "String_GainedFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556b7f003464352813007093"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Persi Greatly Disapproves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Persi Greatly Disapproves"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Persi"
+          }
+        }
+      }
+      args {
+        int_value: -3
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isPersi"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "String_LostMuchFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+    ops {
+      functionName: "Apply Camera Shake"
+      args {
+        float_value: 0.25
+      }
+      args {
+        float_value: 0.5
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556d196a346435801400719d"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Sable Disapproves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Sable Disapproves"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Sable"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isSable"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "String_LostFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556d3375346435801400bdc2"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Sable Approves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Sable Approves"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Sable"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isSable"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "String_GainedFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556d3375346435801400bdc3"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Sable Greatly Disapproves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Sable Greatly Disapproves"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Sable"
+          }
+        }
+      }
+      args {
+        int_value: -3
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isSable"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "String_LostMuchFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+    ops {
+      functionName: "Apply Camera Shake"
+      args {
+        float_value: 0.25
+      }
+      args {
+        float_value: 0.5
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556d3375346435801400bdc4"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Dorbi Disapproves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Dorbi Disapproves"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Dorbi"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isDorbi"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "String_LostFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556e6adf346435e014006513"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Dorbi Approves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Dorbi Approves"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Dorbi"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isDorbi"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "String_GainedFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556e6adf346435e014006514"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Dorbi Greatly Disapproves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Dorbi Greatly Disapproves"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Dorbi"
+          }
+        }
+      }
+      args {
+        int_value: -3
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isDorbi"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "String_LostMuchFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+    ops {
+      functionName: "Apply Camera Shake"
+      args {
+        float_value: 0.25
+      }
+      args {
+        float_value: 0.5
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556e6adf346435e014006515"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Rafik Reacts to Ganger Agreement"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Event_Agreed with Gangers"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "All Actors Within Area"
+          args {
+            call_value {
+              functionName: "Area: Region"
+              args {
+                call_value {
+                  functionName: "Get Map Item (Region)"
+                  args {
+                    string_value: "554b7430346435142100450f"
+                  }
+                }
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isRafik"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "knowAboutSmuggling"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Rafik Disapproves"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55ec5d093464352c0e0004b4"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Lonestar Hostile on Nuyen Pickup"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55ec5dfb3464352c0e0004c6"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Display Text over Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55e9b835643431dbf396103e"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        string_value: "That does it! We\'re taking you down!"
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 0
+      }
+    }
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55ec5a483464352c0e00044c"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55ec5e473464352c0e0004c8"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Pick Up Nuyen"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55ec5dfb3464352c0e0004c6"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Delete Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "55ec5dfb3464352c0e0004c6"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add Nuyen"
+      args {
+        int_value: 813
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55ec5e003464352c0e0004c7"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Killed Smugglers"
+  events {
+    ops {
+      functionName: "On Actor Death"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Team Survival Percentage"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 100
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "cc_a2_persi_s1-KilledSmugglers"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55ec5f1a3464352c0e0004c9"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Dorbi Reacts to Ganger Disagreement"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Event_Disagreed with Gangers"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "All Actors Within Area"
+          args {
+            call_value {
+              functionName: "Area: Region"
+              args {
+                call_value {
+                  functionName: "Get Map Item (Region)"
+                  args {
+                    string_value: "554b7430346435142100450f"
+                  }
+                }
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isDorbi"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Dorbi Disapproves"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55ec60a93464352c0e00059f"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Rafik Reacts to Ganger Disagreement"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Event_Disagreed with Gangers"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "All Actors Within Area"
+          args {
+            call_value {
+              functionName: "Area: Region"
+              args {
+                call_value {
+                  functionName: "Get Map Item (Region)"
+                  args {
+                    string_value: "554b7430346435142100450f"
+                  }
+                }
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isRafik"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "knowAboutSmuggling"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Rafik Approves"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55ec60d73464352c0e0005a1"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Smuggler Drops Nuyen"
+  events {
+    ops {
+      functionName: "On Actor Death"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (Actor)"
+      args {
+        call_value {
+          functionName: "Triggering Target Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55e9b810643431dbf396103b"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "madeDealWithSmugglers"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Move Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "55ec62433464352c0e0005de"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Current Location of Actor"
+          args {
+            call_value {
+              functionName: "Triggering Target Actor"
+            }
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55ec624a3464352c0e0005df"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "You died"
+  events {
+    ops {
+      functionName: "On Actor Death"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (Actor)"
+      args {
+        call_value {
+          functionName: "Triggering Target Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "You Died."
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 3
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55ec62eb3464352c0e0005e2"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Camera"
   position {
@@ -38,6 +6337,64 @@ regions {
     g: 0.14509805
     b: 0.38431373
     a: 0.88235295
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
+}
+regions {
+  name: "Banter Trigger"
+  position {
+    x: -16
+    y: -9
+    width: 6
+    height: 6
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  is_matrix_node: false
+  is_vfx_fill_region: false
+  idRef {
+    id: "55ec5c213464352c0e0004b3"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
   }
   ambience_template: ""
   combat_music: ""
@@ -125,14 +6482,134 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -55
+    x: -29
     y: 0
-    z: -20
+    z: -17
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_E
   displayName: "Smuggler Leader"
   idRef {
     id: "55e9b810643431dbf396103b"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Turn Mode in Dimension"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TurnBasedOrFreeMove"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "OR"
+        args {
+          call_value {
+            functionName: "Evaluate Goal"
+            args {
+              call_value {
+                functionName: "Get Map Item (Goal)"
+                args {
+                  string_value: "Dispose of Security"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "GoalStatus"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "IsOrIsNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "AND"
+            args {
+              call_value {
+                functionName: "Evaluate Goal"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Goal)"
+                    args {
+                      string_value: "Dispose of Security"
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "GoalStatus"
+                    }
+                    args {
+                      int_value: 2
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "IsOrIsNot"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Variable (bool)"
+                args {
+                  string_value: "madeDealWithSmugglers"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    conversationPoint {
+      conversationID: "55df83206434312d254f346b"
+      turnToFace: true
+    }
+    interactionIcon: InteractionIcon_Conversation
+    interaction_info_text: ""
   }
   lod: 0
   character_instance {
@@ -159,7 +6636,7 @@ characters {
       vulnerabilities {
       }
     }
-    team_id: "LoneStar"
+    team_id: "Gangers"
     char_name: "Smuggler"
     pc_spawn_number: -1
     portrait {
@@ -172,9 +6649,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -56
+    x: -28
     y: 0
-    z: -20
+    z: -18
   }
   orientation: ORIENTATION_S
   displayName: "Smuggler Mage"
@@ -206,7 +6683,7 @@ characters {
       vulnerabilities {
       }
     }
-    team_id: "LoneStar"
+    team_id: "Gangers"
     char_name: "Smuggler Mage"
     pc_spawn_number: -1
     portrait {
@@ -219,11 +6696,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -57
+    x: -32
     y: 0
-    z: -20
+    z: -18
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_E
   displayName: "Smuggler Rigger"
   idRef {
     id: "55e9b82c643431dbf396103d"
@@ -294,7 +6771,7 @@ characters {
       vulnerabilities {
       }
     }
-    team_id: "LoneStar"
+    team_id: "Gangers"
     char_name: "Smuggler Rigger"
     pc_spawn_number: -1
     hiring_type: HiringType_None
@@ -310,11 +6787,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -55
+    x: -25
     y: 0
-    z: -17
+    z: -4
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_E
   displayName: "Security Leader"
   idRef {
     id: "55e9b835643431dbf396103e"
@@ -357,11 +6834,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -56
+    x: -13
     y: 0
-    z: -17
+    z: 13
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_N
   displayName: "Security SMG"
   idRef {
     id: "55e9b83f643431dbf396103f"
@@ -404,11 +6881,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -57
+    x: -31
     y: 0
-    z: -17
+    z: -7
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_N
   displayName: "Security Shotgun"
   idRef {
     id: "55e9b84b643431dbf3961040"
@@ -451,11 +6928,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -58
+    x: -13
     y: 0
-    z: -17
+    z: -5
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_W
   displayName: "Security Pistol"
   idRef {
     id: "55e9b863643431dbf3961041"
@@ -498,11 +6975,12 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -59
+    x: -13
     y: 0
-    z: -17
+    z: 14
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_N
+  displayName: "Security Dog"
   idRef {
     id: "55e9d1d8643431dbf3961056"
   }
@@ -588,11 +7066,12 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -55
+    x: -12
     y: 0
-    z: -15
+    z: 14
   }
   orientation: ORIENTATION_S
+  displayName: "Barrel"
   idRef {
     id: "55e9d905643431dbf3961057"
   }
@@ -622,7 +7101,7 @@ characters {
       vulnerabilities {
       }
     }
-    team_id: "LoneStar"
+    team_id: "Barrel"
     char_name: "Industrial Waste Barrel"
     pc_spawn_number: -1
     ai_ignores: true
@@ -631,6 +7110,262 @@ characters {
     }
     karma: 9
   }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -35
+    y: 0
+    z: 9
+  }
+  orientation: ORIENTATION_S
+  displayName: "Dorbi Debug"
+  idRef {
+    id: "55ec62983464352c0e0005e0"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Core/DwarfFemale"
+    character_sheet_id: "Crew_Dorbi_Lv1"
+    equipment_sheet_id: "Crew_Dorbi_Lv1_Gear"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+        cyberware_affinity: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Player"
+      attitude: AttitudeAggressive
+      vulnerabilities {
+      }
+    }
+    team_id: "Shadowrunners"
+    char_name: "Dorbi"
+    GeneralTags: "isDorbi"
+    enabled_at_start: false
+    pc_spawn_number: -1
+    hiring_type: HiringType_Hireable
+    portrait {
+      filename: "pc_dwarffemale_06"
+    }
+    description_bio: "A fiery mage."
+    portrait_code_override: "s4h17c4b0c0t0"
+    karma: 76
+    hiring_cost_override: 0
+    hiring_tag: "Crew: Dorbi"
+    has_fist: true
+    id: "crew_lv1_dorbi"
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -35
+    y: 0
+    z: 6
+  }
+  orientation: ORIENTATION_S
+  displayName: "Rafik Debug"
+  idRef {
+    id: "55ec62a83464352c0e0005e1"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Core/OrkMale"
+    character_sheet_id: "Crew_Rafik_Lv1"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+        cyberware_affinity: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Player"
+      attitude: AttitudeAggressive
+      vulnerabilities {
+      }
+    }
+    equipment {
+      prefab_name: "NPC_HK_Tech_RiggerTrench"
+    }
+    equipment {
+      prefab_name: "HealthPack_med"
+    }
+    equipment {
+      prefab_name: "Pi 1 Ceska Black Scorpion"
+    }
+    equipment {
+      prefab_name: "Spell Armor 1"
+    }
+    equipment {
+      prefab_name: "TotemBear"
+    }
+    equipment {
+      prefab_name: "Rilaxin"
+    }
+    equipment {
+      prefab_name: "Spell Silence 1"
+    }
+    team_id: "Shadowrunners"
+    char_name: "Rafik"
+    GeneralTags: "isRafik"
+    GeneralTags: "isCrew"
+    enabled_at_start: false
+    pc_spawn_number: -1
+    hiring_type: HiringType_Hireable
+    portrait {
+      filename: "pc_orkmale_04_slick"
+    }
+    portrait_code_override: "s1h11c8b0c0t0"
+    karma: 75
+    hiring_cost_override: 0
+    hiring_tag: "Crew: Shaman"
+    id: "crew_lv1_rafik"
+    first_name: "Rafik"
+    last_name: "Toth"
+  }
+}
+variables {
+  bool_value: false
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "knowAboutSmuggling"
+    typeName: "bool"
+  }
+}
+variables {
+  bool_value: false
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "madeDealWithSmugglers"
+    typeName: "bool"
+  }
+}
+mapEvents: "Event_Agreed with Gangers"
+mapEvents: "Dorbi Approves"
+mapEvents: "Dorbi Disapproves"
+mapEvents: "Rafik Approves"
+mapEvents: "Rafik Disapproves"
+mapEvents: "Sable Approves"
+mapEvents: "Sable Disapproves"
+mapEvents: "Persi Approves"
+mapEvents: "Persi Disapproves"
+mapEvents: "Event_Disagreed with Gangers"
+mapEvents: "Event_Betrayed Gangers"
+senseTags: "isRafik"
+senseTags: "isSable"
+senseTags: "isPersi"
+senseTags: "isDorbi"
+goals {
+  name: "Dispose of Security"
+  type: GoalType_Primary
+  status: GoalStatus_Hidden
+}
+goals {
+  name: "You Died."
+  type: GoalType_Primary
+  status: GoalStatus_Hidden
 }
 worldMapLocation {
   filename: ""
@@ -641,9 +7376,9 @@ worldMapLocation {
 }
 mapName: "cc_a2_persi_s1"
 parentStory: ""
-scene_title: "Port of Oakland"
+scene_title: "OUT TO SEA"
 scene_subtitle: ""
-scene_synopsis: ""
+scene_synopsis: "The last two days have been a blur. Persi remembered you from your last encounter and agreed to meet with you, but only if you met her on board a cargo ship departing the Port of Oakland tonight. No details, but something in her voice told you it would be a good idea to bring along your weapons.\n\nThen again, it\342\200\231s always a good idea to bring along your weapons. Especially to the Port of Oakland.\n\nVast quantities of legitimate shipping goes through here, but even more is smuggling, contraband, or worse. Organized crime syndicates from both sides of the Bay keep watch here, protecting their investments and capitalizing on opportunities. You hope that whatever Persi has in mind doesn\342\200\231t end with you on the seabed."
 scene_image: ""
 scene_continue_button_skip: false
 scene_restore_runner_health: true
@@ -666,26 +7401,38 @@ allow_drawn_weapons: false
 team_affiliations {
   team_name: "Shadowrunners"
   affiliation: 0
-  affiliation: 1
+  affiliation: 0
   affiliation: 1
   affiliation: 0
+  affiliation: 1
 }
 team_affiliations {
   team_name: "Gangers"
-  affiliation: 1
+  affiliation: 0
   affiliation: 0
   affiliation: 1
+  affiliation: 0
   affiliation: 0
 }
 team_affiliations {
   team_name: "LoneStar"
+  affiliation: 0
   affiliation: 1
-  affiliation: 1
+  affiliation: 0
   affiliation: 0
   affiliation: 0
 }
 team_affiliations {
   team_name: "Civilians"
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+}
+team_affiliations {
+  team_name: "Barrel"
+  affiliation: 0
   affiliation: 0
   affiliation: 0
   affiliation: 0

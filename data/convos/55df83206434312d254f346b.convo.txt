@@ -99,6 +99,30 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "knowAboutSmuggling"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -169,19 +193,162 @@ nodes {
   text: ""
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "knowAboutSmuggling"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Evaluate Tag for Actor"
+        args {
+          call_value {
+            functionName: "All Actors Within Area"
+            args {
+              call_value {
+                functionName: "Area: Region"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Region)"
+                    args {
+                      string_value: "554b7430346435142100450f"
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "isRafik"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 10
+    hideIfUnavailable: true
+    onlyOnce: true
     idRef {
       id: "55df83206434312d254f346b:55df845c6434312d254f34ae"
     }
-    comment: "TODO: Rafik present, you know about smuggling"
+    comment: "Rafik present, you know about smuggling"
   }
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Evaluate Tag for Actor"
+        args {
+          call_value {
+            functionName: "All Actors Within Area"
+            args {
+              call_value {
+                functionName: "Area: Region"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Region)"
+                    args {
+                      string_value: "554b7430346435142100450f"
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "isDorbi"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 11
+    hideIfUnavailable: true
+    onlyOnce: true
     idRef {
       id: "55df83206434312d254f346b:55df84966434312d254f34cb"
     }
-    comment: "TODO: Dorbi present"
+    comment: "Dorbi present"
   }
   branches {
     responseText: ""
@@ -271,11 +438,34 @@ nodes {
   }
   branches {
     responseText: "I hate smugglers. And private security. And everything. Prepare to die! {{GM}}Attack.{{/GM}}"
+    actions {
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "55ec5b163464352c0e00047f"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: -1
     idRef {
       id: "55df83206434312d254f346b:55df850d6434312d254f3509"
     }
-    comment: "TODO: Fight!!"
   }
   nodeType: ConversationNodeType_Simple
   comment: "Choice root"
@@ -303,6 +493,85 @@ nodes {
   index: 15
   text: "Your loss. But we are going to get that cargo, one way or another."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Event_Disagreed with Gangers"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55e9b810643431dbf396103b"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Team Alliance"
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeamAlliance"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Flags, etc."
 }
 nodes {
@@ -312,11 +581,219 @@ nodes {
   index: 16
   text: "Pleasure doing business with you. Good luck."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Event_Agreed with Gangers"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "madeDealWithSmugglers"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Flags, approval, etc."
+}
+nodes {
+  idRef {
+    id: "55ec5fe23464352c0e00051f"
+  }
+  index: 17
+  text: "I believe you still have a job to do. Come and see me when you\'re done to claim your reward."
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55df85936434312d254f3556:55ec5f993464352c0e000509"
+  }
+  index: 18
+  text: "I appreciate the assist. Despite what you may have heard, there is honor among thieves. Here\342\200\231s your cut."
+  branches {
+    responseText: ""
+    nextNodeIndex: 19
+    idRef {
+      id: "55df85936434312d254f3556:55ec5f993464352c0e00050b"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55e9b810643431dbf396103b"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "55df85936434312d254f3556:55ec5f993464352c0e00050d"
+  }
+  index: 19
+  text: "I doubt we\342\200\231ll ever see each other again, but if we do, I\'ll be happy to know that we can trust one another."
+  branches {
+    responseText: "Farewell."
+    nextNodeIndex: -1
+    idRef {
+      id: "55df85936434312d254f3556:55ec5f993464352c0e00050f"
+    }
+  }
+  branches {
+    responseText: "Take care."
+    nextNodeIndex: -1
+    idRef {
+      id: "55df85936434312d254f3556:55ec5f993464352c0e000511"
+    }
+  }
+  branches {
+    responseText: "I\342\200\231ve developed a taste for carnage. {{GM}}Attack.{{/GM}}"
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Event_Betrayed Gangers"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "55ec5b163464352c0e00047f"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    idRef {
+      id: "55df85936434312d254f3556:55ec5f993464352c0e000513"
+    }
+    comment: "TODO: Fight, different approvals from Rafik"
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Add Nuyen"
+      args {
+        int_value: 200
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0
+  onlyOnce: true
   idRef {
     id: "55df83206434312d254f346b:55df83206434312d254f346f"
+  }
+}
+roots {
+  responseText: ""
+  conditions {
+    ops {
+      functionName: "Evaluate Team Survival Percentage"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 4
+          }
+        }
+      }
+      args {
+        int_value: 100
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+  nextNodeIndex: 17
+  idRef {
+    id: "55df83206434312d254f346b:55ec5fda3464352c0e00051c"
+  }
+  comment: "Made a deal, Lone Star still alive"
+}
+roots {
+  nextNodeIndex: 18
+  idRef {
+    id: "55df85936434312d254f3556:55ec5f993464352c0e000507"
   }
 }

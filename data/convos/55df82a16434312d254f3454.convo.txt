@@ -14,7 +14,6 @@ nodes {
     idRef {
       id: "55df82a16434312d254f3454:55df82d16434312d254f345e"
     }
-    comment: "TODO: Update flags for smugglers?"
   }
   branches {
     responseText: "Oh, excuse me. I must have gotten turned around. I\'ll see myself out."
@@ -22,17 +21,96 @@ nodes {
     idRef {
       id: "55df82a16434312d254f3454:55df82e26434312d254f3462"
     }
-    comment: "TODO: Update flags for smugglers?"
   }
   branches {
     responseText: "We\342\200\231re coming in! {{GM}}Attack.{{/GM}}"
+    actions {
+      ops {
+        functionName: "Trigger: Run Alternate Trigger"
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "55ec5a483464352c0e00044c"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WaitOrNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: -1
     idRef {
       id: "55df82a16434312d254f3454:55df82d16434312d254f3460"
     }
-    comment: "TODO: Combat."
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Dispose of Security"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0
