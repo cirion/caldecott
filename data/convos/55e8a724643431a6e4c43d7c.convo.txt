@@ -77,6 +77,24 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Triggering Target Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Seattle:General/standing_idle"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -170,15 +188,51 @@ nodes {
       }
     }
   }
-  comment: "TODO: Update scene goals, etc."
 }
 roots {
   responseText: ""
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "cc_a2_dorbi_s3-DorbiWonElection"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
   nextNodeIndex: 0
   idRef {
     id: "55e8a724643431a6e4c43d7c:55e8a724643431a6e4c43d80"
   }
-  comment: "TODO: Dorbi won"
 }
 roots {
   responseText: ""
