@@ -31,6 +31,9 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55ecfc4b3464352c0e000dd4"
+  }
 }
 nodes {
   idRef {
@@ -61,6 +64,9 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55ecfc4b3464352c0e000dd4"
+  }
 }
 nodes {
   idRef {
@@ -106,6 +112,9 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55ecfc4b3464352c0e000dd4"
+  }
 }
 nodes {
   idRef {
@@ -130,19 +139,109 @@ nodes {
   text: ""
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Evaluate Tag for Actor"
+        args {
+          call_value {
+            functionName: "All Actors Within Area"
+            args {
+              call_value {
+                functionName: "Area: Entire Map"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "isRafik"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 9
+    onlyOnce: true
     idRef {
       id: "55df9b246434312d254f39a1:55df9bad6434312d254f39e6"
     }
-    comment: "TODO: Rafik present"
   }
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Evaluate Tag for Actor"
+        args {
+          call_value {
+            functionName: "All Actors Within Area"
+            args {
+              call_value {
+                functionName: "Area: Entire Map"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "isPersi"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 10
+    onlyOnce: true
     idRef {
       id: "55df9b246434312d254f39a1:55df9bad6434312d254f39e8"
     }
-    comment: "TODO: Persi present"
   }
   branches {
     responseText: ""
@@ -150,7 +249,7 @@ nodes {
     idRef {
       id: "55df9b246434312d254f39a1:55df9bb26434312d254f39ea"
     }
-    comment: "Sable is always here"
+    comment: "Sable - always present"
   }
   nodeType: ConversationNodeType_Simple
   comment: "Reaction loop"
@@ -170,6 +269,7 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  speaker_override_id: "55e13144346435e0140016a8"
 }
 nodes {
   idRef {
@@ -186,6 +286,7 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  speaker_override_id: "55e131da346435e0140016ab"
 }
 nodes {
   idRef {
@@ -201,6 +302,9 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55ecfc4b3464352c0e000dd4"
+  }
 }
 nodes {
   idRef {
@@ -214,7 +318,6 @@ nodes {
     idRef {
       id: "55df9b246434312d254f39a1:55df9c876434312d254f3a33"
     }
-    comment: "TODO: Sable approves, Rafik disapproves"
   }
   branches {
     responseText: "We\342\200\231re going to wipe this building clean, from top to bottom."
@@ -222,7 +325,6 @@ nodes {
     idRef {
       id: "55df9b246434312d254f39a1:55df9c876434312d254f3a35"
     }
-    comment: "TODO: Update goals and stuff"
   }
   branches {
     responseText: "This isn\342\200\231t our fight. You\342\200\231ll need to sort it out on your own."
@@ -230,7 +332,6 @@ nodes {
     idRef {
       id: "55df9b246434312d254f39a1:55df9c886434312d254f3a37"
     }
-    comment: "TODO: Update goals and stuff"
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -239,8 +340,32 @@ nodes {
     id: "55df9c996434312d254f3a3a"
   }
   index: 13
-  text: "I knew you were a smart $(l.race)! Cool. You\342\200\231ll find a few die-hard Raiders down below. The MPA may pitch in, and will escort you from the lobby once it\342\200\231s clear."
+  text: "I knew you were a smart $(l.race)! Cool. You\342\200\231ll find a few die-hard Raiders down below. The MPA may pitch in, and will escort you from the lobby once the building is clear."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55ed07e1346435e02500186e"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Update goals and stuff"
 }
 nodes {
@@ -250,6 +375,96 @@ nodes {
   index: 14
   text: "You\342\200\231ll have to go through me first!"
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55edd9ed346435e0250019a5"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Change Actor Team"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "55ed0107346435e025001864"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Actor In Passive Mode"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "55ed0107346435e025001864"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Sable disapproves, Rafik approves"
 }
 nodes {
@@ -259,6 +474,30 @@ nodes {
   index: 15
   text: "You\342\200\231ve doomed us all!"
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55edd9ed346435e0250019a5"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Persi and Sable both approve"
 }
 roots {

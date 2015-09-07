@@ -12896,7 +12896,7 @@ props {
 props {
   name: "office_decor_dragonGlobe"
   gridPoint {
-    x: -82
+    x: -80
     y: 0
     z: 4
   }
@@ -14278,7 +14278,7 @@ props {
   gridPoint {
     x: 62
     y: 0
-    z: 41
+    z: 39
   }
   orientation: ORIENTATION_S
   displayName: "Elevator Basement"
@@ -14490,7 +14490,7 @@ props {
       itemName: "cc_a2_sable_s2-BasementKey"
       destroyOnPickup: true
     }
-    interaction_info_text: ""
+    interaction_info_text: "Keycard"
   }
   lod: 0
 }
@@ -17384,9 +17384,9 @@ props {
 props {
   name: "system_invisible_nonsolidProp"
   gridPoint {
-    x: 53
+    x: -71
     y: 0
-    z: 26
+    z: 5
   }
   orientation: ORIENTATION_S
   displayName: "Debug Start Here"
@@ -17499,6 +17499,72 @@ props {
   orientation: ORIENTATION_S
   idRef {
     id: "55eded20346435e0250019db"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -87
+    y: 0
+    z: -2
+  }
+  orientation: ORIENTATION_S
+  displayName: "Reprogram Turrets"
+  idRef {
+    id: "55edf86b346435e025001ad1"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 5
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+    }
+    interactionIcon: InteractionIcon_Matrix
+    interaction_info_text: "Reprogram Turrets"
   }
   lod: 0
 }
