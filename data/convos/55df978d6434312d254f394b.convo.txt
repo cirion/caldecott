@@ -122,6 +122,9 @@ nodes {
     comment: "Fallback: You left them to bleed out."
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55e9f76e643431dbf396107e"
+  }
 }
 nodes {
   idRef {
@@ -147,6 +150,9 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55ece5d03464352c0e000d87"
+  }
 }
 nodes {
   idRef {
@@ -162,6 +168,9 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55ece5d03464352c0e000d87"
+  }
 }
 nodes {
   idRef {
@@ -289,7 +298,6 @@ nodes {
     idRef {
       id: "55df978d6434312d254f394b:55df99076434312d254f3979"
     }
-    comment: "TODO: Fight"
   }
   nodeType: ConversationNodeType_Simple
   comment: "Choice node"
@@ -308,6 +316,62 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55ece5d03464352c0e000d87"
+  }
+  actions {
+    ops {
+      functionName: "Kill Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "55ece5d03464352c0e000d87"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "DeathMethod"
+          }
+          args {
+            int_value: 3
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Update fight conditions."
 }
 nodes {
@@ -325,6 +389,9 @@ nodes {
   index: 8
   text: "No talking. It\342\200\231s time to kill."
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55ece5d03464352c0e000d87"
+  }
   comment: "TODO: Fight"
 }
 roots {
