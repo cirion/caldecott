@@ -340,6 +340,66 @@ triggers {
       }
     }
     ops {
+      functionName: "Kill Actor"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "squad2"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "DeathMethod"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
       functionName: "Trigger: Run Alternate Trigger"
       args {
         call_value {
@@ -379,6 +439,90 @@ triggers {
           }
           args {
             int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Change Actor Control"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "55ecfc4b3464352c0e000dd4"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PlayerOrAI"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Defend Against Matrix Invasion"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55ed0653346435e025001867"
           }
         }
       }
@@ -5591,6 +5735,354 @@ triggers {
   }
   is_oneshot: false
 }
+triggers {
+  name: "Jack Sable Into Matrix"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Sable_JackIn"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Force-Use Interactable Object (with Actor)"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55ee174f3464353031000176"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Nearest Tagged Actor to Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isSable"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55ee176c3464353031000178"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Jack Self Into Matrix"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Self_JackIn"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Force-Use Interactable Object (with Actor)"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55ee174f3464353031000176"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55ee17a63464353031000179"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Matrix Invasion Alert"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "55ee192134643530310001d2"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (Actor)"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "OR"
+      args {
+        call_value {
+          functionName: "Evaluate Goal"
+          args {
+            call_value {
+              functionName: "Get Map Item (Goal)"
+              args {
+                string_value: "Defeat MPA"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "GoalStatus"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "IsOrIsNot"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Evaluate Goal"
+          args {
+            call_value {
+              functionName: "Get Map Item (Goal)"
+              args {
+                string_value: "Defeat Raiders"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "GoalStatus"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "IsOrIsNot"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55ee195834643530310001d3"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "55ee17f4346435303100017a"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55ecfc4b3464352c0e000dd4"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55ee191a34643530310001d1"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Start Matrix Quest_OFF"
+  events {
+    ops {
+      functionName: "On Conversation Complete"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Defend Against Matrix Invasion"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Waypoint on Prop"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PrimaryOrSecondary"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "55ee14d6346435c020001af5"
+          }
+        }
+      }
+    }
+  }
+  isActive: false
+  idRef {
+    id: "55ee195834643530310001d3"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Camera Ground Floor"
   position {
@@ -6475,6 +6967,180 @@ regions {
   is_vfx_fill_region: false
   idRef {
     id: "55ede530346435e0250019d6"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
+}
+regions {
+  name: "Matrix_Zone4"
+  position {
+    x: -125
+    y: 18
+    width: -44
+    height: -44
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  is_matrix_node: true
+  is_vfx_fill_region: false
+  idRef {
+    id: "55ee1242346435e025001c6f"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: "Seattle-Set8-MatrixLoop"
+  default_music: "Seattle-Set8-MatrixLoop"
+  loop_combat_music: true
+  loop_default_music: true
+  no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
+}
+regions {
+  name: "Camera_MatrixZone"
+  position {
+    x: -102
+    y: 24
+    width: -74
+    height: -61
+  }
+  enabledAtStart: true
+  is_camera_region: true
+  is_matrix_node: false
+  is_vfx_fill_region: false
+  idRef {
+    id: "55ee1243346435e025001ee2"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.45882353
+    g: 0.72941178
+    b: 0.654902
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.21176471
+    g: 0.35686275
+    b: 0.31764707
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: "HongKong-Combat-Matrix2"
+  default_music: "HongKong-Stealth-Matrix1"
+  loop_combat_music: true
+  loop_default_music: true
+  no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
+}
+regions {
+  name: "Matrix Invasion Alert"
+  position {
+    x: -62
+    y: 3
+    width: 5
+    height: 1
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  is_matrix_node: false
+  is_vfx_fill_region: false
+  idRef {
+    id: "55ee192134643530310001d2"
   }
   highlight_color {
     r: 0
@@ -8797,6 +9463,582 @@ characters {
     scale_character_sheet: true
   }
 }
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -158
+    y: 0
+    z: -21
+  }
+  orientation: ORIENTATION_E
+  GeneralTags: "Zone4_Blocker1"
+  displayName: "Zone4_Blocker1"
+  idRef {
+    id: "55ee1242346435e025001cc0"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    interactionIcon: InteractionIcon_BlockerIC
+    interaction_info_text: ""
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Matrix/MatrixIC_Blocker"
+    character_sheet_id: "IC_Lv1_White_Blocker"
+    equipment_sheet_id: "IC White Blocker Lv1 Gear"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "gumbo_G_BlockerIC"
+      attitude: AttitudeAggressive
+      vulnerabilities {
+      }
+    }
+    team_id: "Friendly IC"
+    char_name: "Blocker IC: Rating 1"
+    GeneralTags: "Zone4_Blocker1"
+    pc_spawn_number: -1
+    spawn_type: SpawnType_BlockerIC
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    dimension_name: "Matrix"
+    karma: 29
+    hiring_cost_override: 1000
+    scale_character_sheet: true
+    blocker_ic_panel_difficulty: 2
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -131
+    y: 0
+    z: -10
+  }
+  orientation: ORIENTATION_E
+  GeneralTags: "Zone4_Blocker2"
+  displayName: "Zone4_Blocker2"
+  idRef {
+    id: "55ee1242346435e025001d4d"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    interactionIcon: InteractionIcon_BlockerIC
+    interaction_info_text: ""
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Matrix/MatrixIC_Blocker"
+    character_sheet_id: "IC_Lv1_White_Blocker"
+    equipment_sheet_id: "IC White Blocker Lv1 Gear"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "gumbo_G_BlockerIC"
+      attitude: AttitudeAggressive
+      vulnerabilities {
+      }
+    }
+    team_id: "Friendly IC"
+    char_name: "Blocker IC: Rating 1"
+    GeneralTags: "Zone4_Blocker2"
+    pc_spawn_number: -1
+    spawn_type: SpawnType_BlockerIC
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    dimension_name: "Matrix"
+    karma: 29
+    hiring_cost_override: 1000
+    scale_character_sheet: true
+    blocker_ic_panel_difficulty: 2
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -167
+    y: 0
+    z: 7
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "Zone4_Blocker3"
+  displayName: "Zone4_Blocker3"
+  idRef {
+    id: "55ee1242346435e025001db7"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    interactionIcon: InteractionIcon_BlockerIC
+    interaction_info_text: ""
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Matrix/MatrixIC_Blocker"
+    character_sheet_id: "IC_Lv1_White_Blocker"
+    equipment_sheet_id: "IC White Blocker Lv1 Gear"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "gumbo_G_BlockerIC"
+      attitude: AttitudeAggressive
+      vulnerabilities {
+      }
+    }
+    team_id: "Friendly IC"
+    char_name: "Blocker IC: Rating 1"
+    GeneralTags: "Zone4_Blocker3"
+    pc_spawn_number: -1
+    spawn_type: SpawnType_BlockerIC
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    dimension_name: "Matrix"
+    karma: 29
+    hiring_cost_override: 1000
+    scale_character_sheet: true
+    blocker_ic_panel_difficulty: 2
+    blocker_ic_panel_bypass_code: "c0rt3xFRZ"
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -139
+    y: 0
+    z: 4
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "55ee139f346435c020001aef"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Matrix/MatrixIC_Melee"
+    character_sheet_id: "IC_Lv1_White_Melee"
+    equipment_sheet_id: "IC White Melee Lv1 Gear"
+    character_mod {
+      archetypeName: "gumbo_IC_Soldier"
+      attitude: AttitudeAggressive
+    }
+    team_id: "Friendly IC"
+    char_name: "White Melee IC"
+    pc_spawn_number: -1
+    spawn_type: SpawnType_Matrix
+    portrait {
+      filename: ""
+    }
+    dimension_name: "Matrix"
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -138
+    y: 0
+    z: 4
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "55ee13a2346435c020001af0"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Matrix/MatrixIC_Ranged"
+    character_sheet_id: "IC_Lv1_White_Ranged"
+    equipment_sheet_id: "IC White Ranged Lv1 Gear"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_IC_Soldier"
+      attitude: AttitudeAggressive
+      vulnerabilities {
+      }
+    }
+    team_id: "Friendly IC"
+    char_name: "White Ranged IC"
+    pc_spawn_number: -1
+    spawn_type: SpawnType_Matrix
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    dimension_name: "Matrix"
+    karma: 29
+    hiring_cost_override: 1000
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -137
+    y: 0
+    z: 4
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "55ee13a5346435c020001af1"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Matrix/MatrixIC_Support"
+    character_sheet_id: "IC_Lv1_White_Ranged"
+    equipment_sheet_id: "IC White Support Lv1 Gear"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_IC_Shield"
+      attitude: AttitudeAggressive
+      vulnerabilities {
+      }
+    }
+    team_id: "Friendly IC"
+    char_name: "White Sentry IC"
+    pc_spawn_number: -1
+    spawn_type: SpawnType_Matrix
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    dimension_name: "Matrix"
+    karma: 29
+    hiring_cost_override: 1000
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -136
+    y: 0
+    z: 4
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "55ee13a8346435c020001af2"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Matrix/MatrixIC_whiteLaser"
+    character_sheet_id: "IC_Lv1_White_ChargeLaser"
+    equipment_sheet_id: "IC White ChargeLaser Lv1 Gear"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_IC_Laser"
+      attitude: AttitudeAggressive
+      vulnerabilities {
+      }
+    }
+    team_id: "Friendly IC"
+    char_name: "White Charge IC"
+    pc_spawn_number: -1
+    spawn_type: SpawnType_Matrix
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    dimension_name: "Matrix"
+    karma: 29
+    hiring_cost_override: 1000
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -135
+    y: 0
+    z: -2
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isDecker"
+  displayName: "Decker 1"
+  idRef {
+    id: "55ee140b346435c020001af3"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Berlin:KnightErrants/ElfMaleKnightErrantRigger"
+    character_sheet_id: "Errant_Lv1_Decker"
+    equipment_sheet_id: "Errant_Lv1_Decker_Gear"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+        cyberware_affinity: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "gumbo_Soldier"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Decker"
+    GeneralTags: "isDecker"
+    enabled_at_start: true
+    pc_spawn_number: -1
+    spawn_type: SpawnType_Matrix
+    portrait {
+      filename: ""
+    }
+    dimension_name: "Matrix"
+    karma: 60
+    scale_character_sheet: true
+  }
+}
 variables {
   string_value: ""
   variableref_value {
@@ -8822,6 +10064,8 @@ mapEvents: "Sable Approves"
 mapEvents: "Sable Disapproves"
 mapEvents: "Persi Approves"
 mapEvents: "Persi Disapproves"
+mapEvents: "Self_JackIn"
+mapEvents: "Sable_JackIn"
 senseTags: "isRafik"
 senseTags: "isDorbi"
 senseTags: "isPersi"
@@ -8849,6 +10093,11 @@ goals {
 goals {
   name: "Sable Must Survive"
   type: GoalType_Primary
+  status: GoalStatus_Hidden
+}
+goals {
+  name: "Defend Against Matrix Invasion"
+  type: GoalType_Secondary
   status: GoalStatus_Hidden
 }
 worldMapLocation {
@@ -8889,12 +10138,14 @@ team_affiliations {
   affiliation: 1
   affiliation: 0
   affiliation: 1
+  affiliation: 0
 }
 team_affiliations {
   team_name: "Gangers"
   affiliation: 1
   affiliation: 0
   affiliation: 1
+  affiliation: 0
   affiliation: 0
   affiliation: 0
 }
@@ -8905,9 +10156,11 @@ team_affiliations {
   affiliation: 0
   affiliation: 0
   affiliation: 0
+  affiliation: 1
 }
 team_affiliations {
   team_name: "Civilians"
+  affiliation: 0
   affiliation: 0
   affiliation: 0
   affiliation: 0
@@ -8921,9 +10174,27 @@ team_affiliations {
   affiliation: 0
   affiliation: 0
   affiliation: 0
+  affiliation: 0
+}
+team_affiliations {
+  team_name: "Friendly IC"
+  affiliation: 0
+  affiliation: 0
+  affiliation: 1
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
 }
 scene_dimensions {
   dimension_name: "Default"
+}
+scene_dimensions {
+  dimension_name: "Matrix"
+  initial_alarm_state: 50
+  turns_per_round: 3
+  is_matrix: true
+  max_alarm_value: 50
+  heat_response_rating: 0
 }
 character_roster {
 }
