@@ -23,7 +23,7 @@ nodes {
     }
   }
   branches {
-    responseText: "Leave them alone."
+    responseText: "Who cares? Leave them to fend for themselves."
     nextNodeIndex: -1
     idRef {
       id: "55df9dbe6434312d254f3aa6:55df9dd06434312d254f3ab4"
@@ -38,6 +38,30 @@ nodes {
   index: 1
   text: "I know just the dwarf to handle them."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55edf254346435e025001a23"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Karma, actions (all outcomes)"
 }
 nodes {

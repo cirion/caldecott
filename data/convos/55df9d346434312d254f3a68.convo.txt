@@ -7,7 +7,7 @@ nodes {
     id: "55df9d3b6434312d254f3a70"
   }
   index: 0
-  text: "Hmmm. It looks like this controls the hellhound cages."
+  text: "Hmmm. This is where Mad Dog kept his hounds-in-training."
   branches {
     responseText: ""
     nextNodeIndex: 1
@@ -53,6 +53,30 @@ nodes {
   index: 2
   text: "Yes, $(l.sir)!"
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55edefab346435e025001a09"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Actions for all choices."
 }
 nodes {
