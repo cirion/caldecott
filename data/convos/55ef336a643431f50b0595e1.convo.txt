@@ -1,0 +1,97 @@
+idRef {
+  id: "55ef336a643431f50b0595e1"
+}
+ui_name: "cc_a3_sf_s2-SecurityGuard"
+nodes {
+  idRef {
+    id: "55ef339d643431f50b0595ed"
+  }
+  index: 0
+  text: "Halt! State your purpose!"
+  branches {
+    responseText: "{{CC}}Etiquette: Security{{/CC}} Counterespionage division, scanning for unsecured terminals."
+    nextNodeIndex: 1
+    idRef {
+      id: "55ef336a643431f50b0595e1:55ef33ae643431f50b0595ef"
+    }
+    comment: "TODO: 0/1 suspicion increase."
+  }
+  branches {
+    responseText: "{{CC}}Etiquette: Corporate{{/CC}} I have interdepartmental exchange authorization while the conference is in session."
+    nextNodeIndex: 1
+    idRef {
+      id: "55ef336a643431f50b0595e1:55ef33ae643431f50b0595f1"
+    }
+    auxiliaryLink: true
+    comment: "TODO: Maybe 1 suspicion"
+  }
+  branches {
+    responseText: "{{CC}}Cameron Ueda ID{{/CC}} I\342\200\231m working late on some projects."
+    nextNodeIndex: 1
+    hideIfUnavailable: true
+    idRef {
+      id: "55ef336a643431f50b0595e1:55ef33af643431f50b0595f3"
+    }
+    auxiliaryLink: true
+    comment: "TODO: Have item. More suspicion."
+  }
+  branches {
+    responseText: "{{CC}}Cameron Ueda ID{{/CC}} I\342\200\231m working late on some projects."
+    nextNodeIndex: 1
+    hideIfUnavailable: true
+    idRef {
+      id: "55ef336a643431f50b0595e1:55ef3442643431f50b05961f"
+    }
+    auxiliaryLink: true
+    comment: "TODO: Have item. More suspicion."
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55ef33ba643431f50b0595f6"
+  }
+  index: 1
+  text: ""
+  branches {
+    responseText: ""
+    nextNodeIndex: 2
+    idRef {
+      id: "55ef336a643431f50b0595e1:55ef33d0643431f50b0595f8"
+    }
+    comment: "TODO: Under suspicion limit"
+  }
+  branches {
+    responseText: ""
+    nextNodeIndex: 3
+    idRef {
+      id: "55ef336a643431f50b0595e1:55ef33d0643431f50b0595fa"
+    }
+    comment: "Fallback: Over suspicion limit"
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "Reactive branch: how suspicious are you?"
+}
+nodes {
+  idRef {
+    id: "55ef33da643431f50b0595fd"
+  }
+  index: 2
+  text: "Proceed."
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55ef33ed643431f50b059600"
+  }
+  index: 3
+  text: "This doesn\342\200\231t add up. Intruder! Intruder!"
+  nodeType: ConversationNodeType_Simple
+  comment: "TODO: Start fight."
+}
+roots {
+  nextNodeIndex: 0
+  idRef {
+    id: "55ef336a643431f50b0595e1:55ef336a643431f50b0595e5"
+  }
+}

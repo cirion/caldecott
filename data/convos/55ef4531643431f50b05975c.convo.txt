@@ -1,0 +1,106 @@
+idRef {
+  id: "55ef4531643431f50b05975c"
+}
+ui_name: "cc_a5_chase_s2-Guard"
+nodes {
+  idRef {
+    id: "55ef4543643431f50b059768"
+  }
+  index: 0
+  text: "Apologies, $(l.sir), but this area is off-limits. Ms. Montalvo will be joining the rest of you shortly."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    idRef {
+      id: "55ef4531643431f50b05975c:55ef454a643431f50b05976a"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55ef454c643431f50b05976d"
+  }
+  index: 1
+  text: ""
+  branches {
+    responseText: "{{CC}}Disguise: Business{{/CC}} Critical information has emerged about the LBL disaster. Ava will want to see me immediately."
+    nextNodeIndex: 2
+    idRef {
+      id: "55ef4531643431f50b05975c:55ef4555643431f50b05976f"
+    }
+    comment: "TODO: Pre-reqs for all these"
+  }
+  branches {
+    responseText: "{{CC}}Disguise: Security{{/CC}} We\342\200\231ve detected a credible threat at the perimeter. I need to discuss ending the party prematurely."
+    nextNodeIndex: 3
+    idRef {
+      id: "55ef4531643431f50b05975c:55ef4578643431f50b059778"
+    }
+  }
+  branches {
+    responseText: "I need to speak with her!"
+    nextNodeIndex: 4
+    onlyOnce: true
+    idRef {
+      id: "55ef4531643431f50b05975c:55ef459d643431f50b059781"
+    }
+  }
+  branches {
+    responseText: "I\342\200\231ll be on my way."
+    nextNodeIndex: -1
+    idRef {
+      id: "55ef4531643431f50b05975c:55ef45b1643431f50b059799"
+    }
+  }
+  branches {
+    responseText: "I\342\200\231m coming through you, one way or another! {{GM}}Attack.{{/GM}}"
+    nextNodeIndex: -1
+    idRef {
+      id: "55ef4531643431f50b05975c:55ef45bd643431f50b0597ab"
+    }
+    comment: "TODO: Start fight. (Could also start in the environment.)"
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "Empty root node"
+}
+nodes {
+  idRef {
+    id: "55ef4557643431f50b059772"
+  }
+  index: 2
+  text: "I\342\200\231ve overheard more than a few comments about that snafu. All right, head on in."
+  nodeType: ConversationNodeType_Simple
+  comment: "TODO: Proceed"
+}
+nodes {
+  idRef {
+    id: "55ef457a643431f50b05977b"
+  }
+  index: 3
+  text: "I do not envy you that task. Best get to it, then."
+  nodeType: ConversationNodeType_Simple
+  comment: "TODO: Proceed"
+}
+nodes {
+  idRef {
+    id: "55ef45a4643431f50b059784"
+  }
+  index: 4
+  text: "Everyone here wants a moment with her. Please be patient and wait your turn."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    idRef {
+      id: "55ef4531643431f50b05975c:55ef45ab643431f50b059786"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  nextNodeIndex: 0
+  idRef {
+    id: "55ef4531643431f50b05975c:55ef4531643431f50b059760"
+  }
+}

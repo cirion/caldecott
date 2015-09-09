@@ -1,0 +1,65 @@
+idRef {
+  id: "55ef46ab643431f50b059821"
+}
+ui_name: "cc_a5_chase_s2-GuardSideRoom"
+nodes {
+  idRef {
+    id: "55ef46ba643431f50b05982d"
+  }
+  index: 0
+  text: "Yes?"
+  branches {
+    responseText: "{{CC}}Etiquette: Security{{/CC}} Our plainclothes detail is returning from rotation. Ava wants a dress inspection for her party guests, stat."
+    nextNodeIndex: 1
+    idRef {
+      id: "55ef46ab643431f50b059821:55ef46bd643431f50b05982f"
+    }
+    comment: "TODO: Pre-reqs for both"
+  }
+  branches {
+    responseText: "{{CC}}Drone control: 5{{/CC}} The auxiliary turret regulator has gone haywire."
+    nextNodeIndex: 2
+    idRef {
+      id: "55ef46ab643431f50b059821:55ef46c8643431f50b059834"
+    }
+  }
+  branches {
+    responseText: "I\342\200\231m relieving you of duty. {{GM}}Attack.{{/GM}}"
+    nextNodeIndex: -1
+    idRef {
+      id: "55ef46ab643431f50b059821:55ef46c8643431f50b059836"
+    }
+    comment: "TODO: Start fight, just with this one guard."
+  }
+  branches {
+    responseText: "{{GM}}Leave.{{/GM}}"
+    nextNodeIndex: -1
+    idRef {
+      id: "55ef46ab643431f50b059821:55ef46c9643431f50b059838"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55ef46d3643431f50b05983b"
+  }
+  index: 1
+  text: "Typical. All right, I\342\200\231ll unlock the duty closet. Make it snappy, you know how much she dislikes waiting."
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55ef46f2643431f50b05983e"
+  }
+  index: 2
+  text: "Shit! I need shut it down before it begins slaughtering the guests.\n\nAs nice as that sounds\342\200\246"
+  nodeType: ConversationNodeType_Simple
+  comment: "TODO: Unlock closet; guard leaves."
+}
+roots {
+  nextNodeIndex: 0
+  idRef {
+    id: "55ef46ab643431f50b059821:55ef46ab643431f50b059825"
+  }
+}

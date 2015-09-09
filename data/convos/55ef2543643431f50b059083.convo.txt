@@ -1,0 +1,69 @@
+idRef {
+  id: "55ef2543643431f50b059083"
+}
+ui_name: "cc_a3_sf_s1-MPAReinforcers"
+nodes {
+  idRef {
+    id: "55ef254a643431f50b05908b"
+  }
+  index: 0
+  text: "Do you want to alert the MPA of Zielor\'s status?"
+  branches {
+    responseText: "{{GM}}Contact the MPA.{{/GM}}"
+    nextNodeIndex: 1
+    idRef {
+      id: "55ef2543643431f50b059083:55ef2556643431f50b059091"
+    }
+  }
+  branches {
+    responseText: "{{GM}}Leave.{{/GM}}"
+    nextNodeIndex: -1
+    idRef {
+      id: "55ef2543643431f50b059083:55ef2598643431f50b05909f"
+    }
+  }
+  nodeType: ConversationNodeType_GM_Voice
+}
+nodes {
+  idRef {
+    id: "55ef2543643431f50b059083:55ef2556643431f50b059093"
+  }
+  index: 1
+  text: "Message received. We\342\200\231re coming to get you, Zielor. Shiawase will pay!"
+  branches {
+    nextNodeIndex: 2
+    idRef {
+      id: "55ef2543643431f50b059083:55ef2559643431f50b059097"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55ef2543643431f50b059083:55ef2559643431f50b059099"
+  }
+  index: 2
+  text: "... the hell? We\342\200\231ve got word of a squad of trogs who just popped up on 3rd Street."
+  branches {
+    nextNodeIndex: 3
+    idRef {
+      id: "55ef2543643431f50b059083:55ef2567643431f50b05909b"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55ef2543643431f50b059083:55ef2567643431f50b05909d"
+  }
+  index: 3
+  text: "Shit. We need to intercept them before they reach the building. Buzz the main office and have them send reinforcements."
+  nodeType: ConversationNodeType_Simple
+  comment: "TODO: As before, unlock entrance, guards leave, you\'re stuck inside. But set a different global var."
+}
+roots {
+  nextNodeIndex: 0
+  idRef {
+    id: "55ef2543643431f50b059083:55ef2543643431f50b059087"
+  }
+}

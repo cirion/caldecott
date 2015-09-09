@@ -1,0 +1,149 @@
+idRef {
+  id: "55ef308f643431f50b0594db"
+}
+ui_name: "cc_a3_sf_s2-TerminalResearch"
+nodes {
+  idRef {
+    id: "55ef30f1643431f50b0594e7"
+  }
+  index: 0
+  text: ">> Welcome to the Shiawase Employee Records System. Please state your query."
+  branches {
+    nextNodeIndex: 1
+    idRef {
+      id: "55ef308f643431f50b0594db:55ef30f5643431f50b0594e9"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55ef308f643431f50b0594db:55ef30f5643431f50b0594eb"
+  }
+  index: 1
+  text: ""
+  branches {
+    responseText: "Employee stats: Cameron Ueda"
+    nextNodeIndex: 2
+    hideIfUnavailable: true
+    idRef {
+      id: "55ef308f643431f50b0594db:55ef3100643431f50b0594ef"
+    }
+  }
+  branches {
+    responseText: "Employee stats: Taylor Minami"
+    nextNodeIndex: 3
+    idRef {
+      id: "55ef308f643431f50b0594db:55ef314d643431f50b059502"
+    }
+  }
+  branches {
+    responseText: "{{CC}}Blank ID card{{/CC}} Restore card identity"
+    nextNodeIndex: 4
+    idRef {
+      id: "55ef308f643431f50b0594db:55ef3189643431f50b059545"
+    }
+  }
+  branches {
+    responseText: "Log out."
+    nextNodeIndex: -1
+    idRef {
+      id: "55ef308f643431f50b0594db:55ef3218643431f50b059593"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "Empty root"
+}
+nodes {
+  idRef {
+    id: "55ef308f643431f50b0594db:55ef3100643431f50b0594f1"
+  }
+  index: 2
+  text: "> Name: Cameron Ueda\n> Title: Engineer\n> Date of Birth: 2031/04/02\n> Hometown: San Francisco, CFS\n> Authorization access level: 4\n> Status: Unknown\n> * AN ACTIVE SECURITY ALERT IS PRESENT FOR THIS INDIVIDUAL. *"
+  branches {
+    nextNodeIndex: 1
+    idRef {
+      id: "55ef308f643431f50b0594db:55ef3114643431f50b0594f3"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55ef3159643431f50b059511"
+  }
+  index: 3
+  text: "> Name: Taylor Minami\n> Title: Clerk\n> Date of Birth: 2027/05/18\n> Hometown: Osaka, Japan\n> Authorization access level: 2*\n> Status: Active\n> Spouse: Jean Ueda\n> Notes: Financial access level: 4"
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    idRef {
+      id: "55ef308f643431f50b0594db:55ef315b643431f50b059513"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55ef3193643431f50b059548"
+  }
+  index: 4
+  text: "> Please indicate the identity to key."
+  branches {
+    responseText: "{{CC}}Decking: 5{{/CC}} Cameron Ueda. {{GM}}Cover your tracks.{{/GM}}"
+    nextNodeIndex: 5
+    idRef {
+      id: "55ef308f643431f50b0594db:55ef319f643431f50b05954a"
+    }
+    comment: "TODO: Safe outcome."
+  }
+  branches {
+    responseText: "Cameron Ueda."
+    nextNodeIndex: 5
+    idRef {
+      id: "55ef308f643431f50b0594db:55ef31e9643431f50b059562"
+    }
+    auxiliaryLink: true
+    comment: "TODO: Dangerous outcome"
+  }
+  branches {
+    responseText: "> Abort."
+    nextNodeIndex: 6
+    idRef {
+      id: "55ef308f643431f50b0594db:55ef31fd643431f50b059567"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55ef31b2643431f50b05954d"
+  }
+  index: 5
+  text: "> Card rekeyed. Welcome back, $(l.honorific) Ueda."
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55ef3207643431f50b05956a"
+  }
+  index: 6
+  text: "Operation aborted."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    idRef {
+      id: "55ef308f643431f50b0594db:55ef320c643431f50b05956c"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  nextNodeIndex: 0
+  idRef {
+    id: "55ef308f643431f50b0594db:55ef308f643431f50b0594df"
+  }
+}
