@@ -52,21 +52,109 @@ nodes {
   text: ""
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Evaluate Tag for Actor"
+        args {
+          call_value {
+            functionName: "All Actors Within Area"
+            args {
+              call_value {
+                functionName: "Area: Entire Map"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "isDorbi"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 4
     onlyOnce: true
     idRef {
       id: "55e8ba35643431a6e4c441f2:55e8ba7b643431a6e4c4420a"
     }
-    comment: "TODO: Dorbi present"
   }
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Evaluate Tag for Actor"
+        args {
+          call_value {
+            functionName: "All Actors Within Area"
+            args {
+              call_value {
+                functionName: "Area: Entire Map"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "isDorbi"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 5
     onlyOnce: true
     idRef {
       id: "55e8ba35643431a6e4c441f2:55e8ba81643431a6e4c44211"
     }
-    comment: "TODO: Rafik present"
   }
   branches {
     responseText: ""
@@ -118,19 +206,65 @@ nodes {
   text: "Your choice, boss. But move fast, we don\342\200\231t have a whole lot of time before the big guns arrive."
   branches {
     responseText: "Let\'s blow this sucker."
+    actions {
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "55efc9a0346435f836003e8d"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: -1
     idRef {
       id: "55e8ba35643431a6e4c441f2:55e8bae0643431a6e4c4423e"
     }
-    comment: "TODO: FX, approval, scene. (maybe fade out, sfx, then load scene?)"
   }
   branches {
     responseText: "Leave the boat. Let\'s just get out of here."
+    actions {
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "55efcad9346435f836003e8e"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: -1
     idRef {
       id: "55e8ba35643431a6e4c441f2:55e8bae1643431a6e4c44240"
     }
-    comment: "TODO: Approval, scene"
   }
   nodeType: ConversationNodeType_Simple
 }

@@ -87,6 +87,30 @@ nodes {
   text: "$+(l.sir), you appear to be in possession of corporate property.\n\nBe advised that a wetwork team in your vicinity has been dispatched to your present location. You may minimize casualties by surrendering upon their arrival.\n\nEnd communication."
   nodeType: ConversationNodeType_Simple
   speaker_override_id: "55e8b766643431a6e4c440c3"
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55efc2d8346435f836003d83"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0
