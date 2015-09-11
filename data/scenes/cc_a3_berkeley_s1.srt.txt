@@ -2604,6 +2604,1194 @@ triggers {
   }
   is_oneshot: false
 }
+triggers {
+  name: "Rafik Disapproves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Rafik Disapproves"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "All Actors Within Area"
+          args {
+            call_value {
+              functionName: "Area: Entire Map"
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isRafik"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Rafik"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isRafik"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "String_LostFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556b73b53464352813006457"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Rafik Approves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Rafik Approves"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "All Actors Within Area"
+          args {
+            call_value {
+              functionName: "Area: Entire Map"
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isRafik"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Rafik"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isRafik"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "String_GainedFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556b73f33464352813006493"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Persi Disapproves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Persi Disapproves"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "All Actors Within Area"
+          args {
+            call_value {
+              functionName: "Area: Entire Map"
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isPersi"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Persi"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isPersi"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "String_LostFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556b7f003464352813007092"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Persi Approves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Persi Approves"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "All Actors Within Area"
+          args {
+            call_value {
+              functionName: "Area: Entire Map"
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isPersi"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Persi"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isPersi"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "String_GainedFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556b7f003464352813007093"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Sable Disapproves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Sable Disapproves"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "All Actors Within Area"
+          args {
+            call_value {
+              functionName: "Area: Entire Map"
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isSable"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Sable"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isSable"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "String_LostFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556d3375346435801400bdc2"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Sable Approves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Sable Approves"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "All Actors Within Area"
+          args {
+            call_value {
+              functionName: "Area: Entire Map"
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isSable"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Sable"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isSable"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "String_GainedFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556d3375346435801400bdc3"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Dorbi Disapproves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Dorbi Disapproves"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "All Actors Within Area"
+          args {
+            call_value {
+              functionName: "Area: Entire Map"
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isDorbi"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Dorbi"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isDorbi"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "String_LostFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556e6adf346435e014006513"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Dorbi Approves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Dorbi Approves"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "All Actors Within Area"
+          args {
+            call_value {
+              functionName: "Area: Entire Map"
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isDorbi"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Dorbi"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isDorbi"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "String_GainedFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556e6adf346435e014006514"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
 regions {
   name: "Lower Outside Camera"
   position {
@@ -2614,6 +3802,8 @@ regions {
   }
   enabledAtStart: true
   is_camera_region: true
+  is_matrix_node: false
+  is_vfx_fill_region: false
   idRef {
     id: "551b65bc3464352004002708"
   }
@@ -2649,6 +3839,16 @@ regions {
   loop_combat_music: true
   loop_default_music: false
   no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
 }
 regions {
   name: "Security Area Camera"
@@ -2660,6 +3860,8 @@ regions {
   }
   enabledAtStart: true
   is_camera_region: true
+  is_matrix_node: false
+  is_vfx_fill_region: false
   idRef {
     id: "553bc576346435380f001e7d"
   }
@@ -2695,6 +3897,16 @@ regions {
   loop_combat_music: true
   loop_default_music: false
   no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
 }
 regions {
   name: "Office Floor 2 Camera"
@@ -2706,6 +3918,8 @@ regions {
   }
   enabledAtStart: true
   is_camera_region: true
+  is_matrix_node: false
+  is_vfx_fill_region: false
   idRef {
     id: "553bc5a8346435380f001e7e"
   }
@@ -2741,6 +3955,16 @@ regions {
   loop_combat_music: true
   loop_default_music: false
   no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
 }
 regions {
   name: "Office Floor 1 Camera"
@@ -2752,6 +3976,8 @@ regions {
   }
   enabledAtStart: true
   is_camera_region: true
+  is_matrix_node: false
+  is_vfx_fill_region: false
   idRef {
     id: "553bc5ba346435380f001e7f"
   }
@@ -2787,6 +4013,16 @@ regions {
   loop_combat_music: true
   loop_default_music: false
   no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
 }
 regions {
   name: "Museum Camera"
@@ -2798,6 +4034,8 @@ regions {
   }
   enabledAtStart: true
   is_camera_region: true
+  is_matrix_node: false
+  is_vfx_fill_region: false
   idRef {
     id: "553bc5c9346435380f001e80"
   }
@@ -2833,6 +4071,16 @@ regions {
   loop_combat_music: true
   loop_default_music: false
   no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
 }
 regions {
   name: "Prototype Lab Camera"
@@ -2844,6 +4092,8 @@ regions {
   }
   enabledAtStart: true
   is_camera_region: true
+  is_matrix_node: false
+  is_vfx_fill_region: false
   idRef {
     id: "553bc5dc346435380f001e81"
   }
@@ -2879,6 +4129,16 @@ regions {
   loop_combat_music: true
   loop_default_music: false
   no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
 }
 regions {
   name: "Library Camera"
@@ -2890,6 +4150,8 @@ regions {
   }
   enabledAtStart: true
   is_camera_region: true
+  is_matrix_node: false
+  is_vfx_fill_region: false
   idRef {
     id: "553bca2a346435380f001e9e"
   }
@@ -2925,6 +4187,16 @@ regions {
   loop_combat_music: true
   loop_default_music: false
   no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
 }
 regions {
   name: "Upper Outside Camera"
@@ -2936,6 +4208,8 @@ regions {
   }
   enabledAtStart: true
   is_camera_region: true
+  is_matrix_node: false
+  is_vfx_fill_region: false
   idRef {
     id: "55469e1d3464357820004bb5"
   }
@@ -2971,6 +4245,16 @@ regions {
   loop_combat_music: true
   loop_default_music: false
   no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
 }
 regions {
   name: "Exit 2nd Floor Office"
@@ -2982,6 +4266,8 @@ regions {
   }
   enabledAtStart: true
   is_camera_region: false
+  is_matrix_node: false
+  is_vfx_fill_region: false
   idRef {
     id: "554e9d1a34643514210045ec"
   }
@@ -3017,6 +4303,16 @@ regions {
   loop_combat_music: true
   loop_default_music: false
   no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
 }
 characters {
   name: "system_spawner_playerSpawner"
@@ -3128,7 +4424,1902 @@ characters {
     pc_spawn_number: 0
   }
 }
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -103
+    y: 0
+    z: 56
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "securityLibrary"
+  displayName: "Security Group 1"
+  idRef {
+    id: "55f1fdaf643431743dd612a5"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Security Guards/HumanMaleSecurityGuardCaptain"
+    character_sheet_id: "Errant_Lv1_Captain"
+    equipment_sheet_id: "Errant_Lv1_Captain"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_Soldier"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Security Captain"
+    GeneralTags: "securityLibrary"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 52
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -104
+    y: 0
+    z: 56
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "securityLibrary"
+  idRef {
+    id: "55f1fdb1643431743dd612a6"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Security Guards/HumanMaleSecurityGuard"
+    character_sheet_id: "Errant_Lv1_Human_Pistol"
+    equipment_sheet_id: "Errant_Lv1_Pistol"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_Soldier"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Security Guard"
+    GeneralTags: "securityLibrary"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 41
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -105
+    y: 0
+    z: 56
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "securityLibrary"
+  idRef {
+    id: "55f1fdb3643431743dd612a7"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Security Guards/HumanFemaleSecurityGuard"
+    character_sheet_id: "Errant_Lv1_Human_Pistol"
+    equipment_sheet_id: "Errant_Lv1_Pistol"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_Soldier"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Security Guard"
+    GeneralTags: "securityLibrary"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 41
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -103
+    y: 0
+    z: 58
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "securityBuilding"
+  idRef {
+    id: "55f1fe1f643431743dd612a8"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Security Guards/HumanMaleSecurityGuardCaptain"
+    character_sheet_id: "Errant_Lv1_Captain"
+    equipment_sheet_id: "Errant_Lv1_Captain"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_Soldier"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Security Captain"
+    GeneralTags: "securityBuilding"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 52
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -104
+    y: 0
+    z: 58
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "securityBuilding"
+  idRef {
+    id: "55f1fe25643431743dd612a9"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Security Guards/HumanFemaleSecurityGuard"
+    character_sheet_id: "Errant_Lv1_Captain"
+    equipment_sheet_id: "Errant_Lv1_Captain"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_Soldier"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Security Officer"
+    GeneralTags: "securityBuilding"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 52
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -105
+    y: 0
+    z: 58
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "securityBuilding"
+  idRef {
+    id: "55f1fe27643431743dd612aa"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Security Guards/OrkMaleSecurityGuard"
+    character_sheet_id: "Errant_Lv1_Human_Pistol"
+    equipment_sheet_id: "Errant_Lv1_Pistol"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_Soldier"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Security Guard"
+    GeneralTags: "securityBuilding"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 41
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -106
+    y: 0
+    z: 58
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "securityBuilding"
+  idRef {
+    id: "55f1fe29643431743dd612ab"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Security Guards/HumanMaleSecurityGuard"
+    character_sheet_id: "Errant_Lv1_Human_Pistol"
+    equipment_sheet_id: "Errant_Lv1_Pistol"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_Soldier"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Security Guard"
+    GeneralTags: "securityBuilding"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 41
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -103
+    y: 0
+    z: 60
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isOfficeCreature"
+  idRef {
+    id: "55f1fe73643431743dd612ac"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Creature/CreatureHellhound"
+    character_sheet_id: "Creature_Lv1_Hellhound"
+    equipment_sheet_id: "Hellhound_Lv1_Powers"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: -1
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Guard - Seek And Destroy"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Hellhound"
+    GeneralTags: "isOfficeCreature"
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    karma: 52
+    hiring_cost_override: 1000
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -104
+    y: 0
+    z: 60
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isOfficeCreature"
+  idRef {
+    id: "55f1fe7f643431743dd612ad"
+  }
+  lod: 0
+  character_instance {
+    character_sheet_id: "Ghoul_Lv1"
+    equipment_sheet_id: "Ghoul_Lv1_Gear"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      attitude: AttitudeCautious
+      attackRandom: AttackStyle_CycleAll
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Feral Ghoul"
+    GeneralTags: "isOfficeCreature"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    hiring_set_randomizer: "ghoul"
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -105
+    y: 0
+    z: 60
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isOfficeCreature"
+  idRef {
+    id: "55f1fe81643431743dd612ae"
+  }
+  lod: 0
+  character_instance {
+    character_sheet_id: "Ghoul_Lv1"
+    equipment_sheet_id: "Ghoul_Lv1_Gear"
+    character_mod {
+      attitude: AttitudeCautious
+      attackRandom: AttackStyle_CycleAll
+    }
+    team_id: "LoneStar"
+    char_name: "Feral Ghoul"
+    GeneralTags: "isOfficeCreature"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    hiring_set_randomizer: "ghoul"
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -106
+    y: 0
+    z: 60
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isOfficeCreature"
+  idRef {
+    id: "55f1fe84643431743dd612af"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Creature/CreatureHellhound"
+    character_sheet_id: "Creature_Lv1_Hellhound"
+    equipment_sheet_id: "Hellhound_Lv1_Powers"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: -1
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Guard - Seek And Destroy"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Hellhound"
+    GeneralTags: "isOfficeCreature"
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    karma: 52
+    hiring_cost_override: 1000
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -110
+    y: 0
+    z: 52
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isTurret"
+  displayName: "Turret 1"
+  idRef {
+    id: "55f1feb6643431743dd612b1"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Objects/CorpTurret"
+    character_sheet_id: "Turret_Lv1"
+    equipment_sheet_id: "Turret_Lv1_Burst_Gear"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 2
+        vision_cone_distance: 18
+        vision_cone_angle: 90
+        is_fearless: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Auto Turret"
+    GeneralTags: "isTurret"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 41
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -110
+    y: 0
+    z: 53
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isTurret"
+  displayName: "Turret 2"
+  idRef {
+    id: "55f1fee7643431743dd612b4"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Objects/CorpTurret"
+    character_sheet_id: "Turret_Lv1"
+    equipment_sheet_id: "Turret_Lv1_Burst_Gear"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 2
+        vision_cone_distance: 18
+        vision_cone_angle: 90
+        is_fearless: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Auto Turret"
+    GeneralTags: "isTurret"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 41
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -110
+    y: 0
+    z: 54
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isTurret"
+  displayName: "Turret 3"
+  idRef {
+    id: "55f1fee9643431743dd612b5"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Objects/CorpTurret"
+    character_sheet_id: "Turret_Lv1"
+    equipment_sheet_id: "Turret_Lv1_Burst_Gear"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 2
+        vision_cone_distance: 18
+        vision_cone_angle: 90
+        is_fearless: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Auto Turret"
+    GeneralTags: "isTurret"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 41
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -110
+    y: 0
+    z: 55
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isTurret"
+  displayName: "Turret 4"
+  idRef {
+    id: "55f1feea643431743dd612b6"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Objects/CorpTurret"
+    character_sheet_id: "Turret_Lv1"
+    equipment_sheet_id: "Turret_Lv1_Burst_Gear"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 2
+        vision_cone_distance: 18
+        vision_cone_angle: 90
+        is_fearless: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Auto Turret"
+    GeneralTags: "isTurret"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 41
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -103
+    y: 0
+    z: 65
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isBasementCreature"
+  idRef {
+    id: "55f1ff28643431743dd612b7"
+  }
+  lod: 0
+  character_instance {
+    character_sheet_id: "Ghoul_Lv1"
+    equipment_sheet_id: "Ghoul_Lv1_Gear"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      attitude: AttitudeCautious
+      attackRandom: AttackStyle_CycleAll
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Feral Ghoul"
+    GeneralTags: "isBasementCreature"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    hiring_set_randomizer: "ghoul"
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -104
+    y: 0
+    z: 65
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isBasementCreature"
+  idRef {
+    id: "55f1ff67643431743dd612b8"
+  }
+  lod: 0
+  character_instance {
+    character_sheet_id: "Ghoul_Lv1"
+    equipment_sheet_id: "Ghoul_Lv1_Gear"
+    character_mod {
+      attitude: AttitudeCautious
+      attackRandom: AttackStyle_CycleAll
+    }
+    team_id: "LoneStar"
+    char_name: "Feral Ghoul"
+    GeneralTags: "isBasementCreature"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    hiring_set_randomizer: "ghoul"
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -105
+    y: 0
+    z: 65
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isBasementCreature"
+  idRef {
+    id: "55f1ff69643431743dd612b9"
+  }
+  lod: 0
+  character_instance {
+    character_sheet_id: "Ghoul_Lv1"
+    equipment_sheet_id: "Ghoul_Lv1_Gear"
+    character_mod {
+      attitude: AttitudeCautious
+      attackRandom: AttackStyle_CycleAll
+    }
+    team_id: "LoneStar"
+    char_name: "Feral Ghoul"
+    GeneralTags: "isBasementCreature"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    hiring_set_randomizer: "ghoul"
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -106
+    y: 0
+    z: 65
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isBasementCreature"
+  idRef {
+    id: "55f1ff6a643431743dd612ba"
+  }
+  lod: 0
+  character_instance {
+    character_sheet_id: "Ghoul_Lv1"
+    equipment_sheet_id: "Ghoul_Lv1_Gear"
+    character_mod {
+      attitude: AttitudeCautious
+      attackRandom: AttackStyle_CycleAll
+    }
+    team_id: "LoneStar"
+    char_name: "Feral Ghoul"
+    GeneralTags: "isBasementCreature"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    hiring_set_randomizer: "ghoul"
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -107
+    y: 0
+    z: 65
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isBasementCreature"
+  idRef {
+    id: "55f1ff6e643431743dd612bb"
+  }
+  lod: 0
+  character_instance {
+    character_sheet_id: "Ghoul_Lv1"
+    equipment_sheet_id: "Ghoul_Lv1_Gear"
+    character_mod {
+      attitude: AttitudeCautious
+      attackRandom: AttackStyle_CycleAll
+    }
+    team_id: "LoneStar"
+    char_name: "Feral Ghoul"
+    GeneralTags: "isBasementCreature"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    hiring_set_randomizer: "ghoul"
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -103
+    y: 0
+    z: 63
+  }
+  orientation: ORIENTATION_S
+  displayName: "Drone"
+  idRef {
+    id: "55f1ff7c643431743dd612bc"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Berlin:Drone/DroneApex"
+    character_sheet_id: "Errant_Mid_Drone"
+    equipment_sheet_id: "Errant_Mid_Drone_Gear"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+        cyberware_affinity: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Player"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Drone"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 75
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -104
+    y: 0
+    z: 63
+  }
+  orientation: ORIENTATION_S
+  displayName: "Drone"
+  idRef {
+    id: "55f1ffbe643431743dd612bd"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Berlin:Drone/DroneApex"
+    character_sheet_id: "Errant_Mid_Drone"
+    equipment_sheet_id: "Errant_Mid_Drone_Gear"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+        cyberware_affinity: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Player"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Drone"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 75
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -105
+    y: 0
+    z: 63
+  }
+  orientation: ORIENTATION_S
+  displayName: "Drone"
+  idRef {
+    id: "55f1ffbf643431743dd612be"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Berlin:Drone/DroneApex"
+    character_sheet_id: "Errant_Mid_Drone"
+    equipment_sheet_id: "Errant_Mid_Drone_Gear"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+        cyberware_affinity: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Player"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Drone"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 75
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -103
+    y: 0
+    z: 67
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "securityResponseTeam"
+  idRef {
+    id: "55f20016643431743dd612bf"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Security Guards/HumanMaleSecurityGuardMage"
+    character_sheet_id: "Errant_Lv1_Human_Mage"
+    equipment_sheet_id: "Errant_Lv1_Spellcasting"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_Mage"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Security Mage"
+    GeneralTags: "securityResponseTeam"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 43
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -104
+    y: 0
+    z: 67
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "securityResponseTeam"
+  idRef {
+    id: "55f20018643431743dd612c0"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Security Guards/HumanMaleSecurityGuardCaptain"
+    character_sheet_id: "Errant_Lv1_Captain"
+    equipment_sheet_id: "Errant_Lv1_Captain"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_Soldier"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Security Captain"
+    GeneralTags: "securityResponseTeam"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 52
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -105
+    y: 0
+    z: 67
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "securityResponseTeam"
+  idRef {
+    id: "55f2001b643431743dd612c1"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Security Guards/TrollMaleSecurityGuard"
+    character_sheet_id: "Errant_Lv1_Ork_Shotgun"
+    equipment_sheet_id: "Errant_Lv1_Shotgun"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_Soldier"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Security Guard"
+    GeneralTags: "securityResponseTeam"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 41
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -106
+    y: 0
+    z: 67
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "securityResponseTeam"
+  idRef {
+    id: "55f2001f643431743dd612c2"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Security Guards/HumanFemaleSecurityGuard"
+    character_sheet_id: "Errant_Lv1_Human_Pistol"
+    equipment_sheet_id: "Errant_Lv1_Pistol"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_Soldier"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Security Guard"
+    GeneralTags: "securityResponseTeam"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 41
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -110
+    y: 0
+    z: 60
+  }
+  orientation: ORIENTATION_S
+  displayName: "Gargoyle 1"
+  idRef {
+    id: "55f20080643431743dd612c3"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Berlin:Creatures/CreatureGargoyleBat"
+    character_sheet_id: "Creature_Lv1_Gargoyle"
+    equipment_sheet_id: "Gargoyle_Lv1_Powers"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Guard - Seek And Destroy"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_CycleAll
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Gargoyle"
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    karma: 136
+    hiring_cost_override: 1000
+    hiring_set_randomizer: "gargoyle"
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -110
+    y: 0
+    z: 61
+  }
+  orientation: ORIENTATION_S
+  displayName: "Gargoyle 2"
+  idRef {
+    id: "55f20083643431743dd612c4"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Berlin:Creatures/CreatureGargoyleBat"
+    character_sheet_id: "Creature_Lv1_Gargoyle"
+    equipment_sheet_id: "Gargoyle_Lv1_Powers"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Guard - Seek And Destroy"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_CycleAll
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Gargoyle"
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    karma: 136
+    hiring_cost_override: 1000
+    hiring_set_randomizer: "gargoyle"
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -112
+    y: 0
+    z: 59
+  }
+  orientation: ORIENTATION_S
+  displayName: "Rat 1"
+  idRef {
+    id: "55f2008a643431743dd612c5"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Creature/CreatureHellhound"
+    character_sheet_id: "Creature_Lv1_DevilRat"
+    equipment_sheet_id: "DevilRat_Lv1_Powers"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: -1
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "gumbo_Mage"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Devil Rat"
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    karma: 52
+    hiring_cost_override: 1000
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -112
+    y: 0
+    z: 60
+  }
+  orientation: ORIENTATION_S
+  displayName: "Rat 2"
+  idRef {
+    id: "55f2008c643431743dd612c6"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Creature/CreatureHellhound"
+    character_sheet_id: "Creature_Lv1_DevilRat"
+    equipment_sheet_id: "DevilRat_Lv1_Powers"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: -1
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "gumbo_Mage"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Devil Rat"
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    karma: 52
+    hiring_cost_override: 1000
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -112
+    y: 0
+    z: 61
+  }
+  orientation: ORIENTATION_S
+  displayName: "Rat 3"
+  idRef {
+    id: "55f2008e643431743dd612c7"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Creature/CreatureHellhound"
+    character_sheet_id: "Creature_Lv1_DevilRat"
+    equipment_sheet_id: "DevilRat_Lv1_Powers"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: -1
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "gumbo_Mage"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Devil Rat"
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    karma: 52
+    hiring_cost_override: 1000
+    scale_character_sheet: true
+  }
+}
 mapEvents: "Transition"
+mapEvents: "Persi Approves"
+mapEvents: "Persi Disapproves"
+mapEvents: "Sable Approves"
+mapEvents: "Sable Disapproves"
+mapEvents: "Rafik Approves"
+mapEvents: "Rafik Disapproves"
+mapEvents: "Dorbi Approves"
+mapEvents: "Dorbi Disapproves"
+senseTags: "isDorbi"
+senseTags: "isRafik"
+senseTags: "isPersi"
+senseTags: "isSable"
 worldMapLocation {
   filename: ""
   location {
@@ -3166,6 +6357,8 @@ team_affiliations {
   affiliation: 1
   affiliation: 1
   affiliation: 0
+  affiliation: 1
+  affiliation: 1
 }
 team_affiliations {
   team_name: "Gangers"
@@ -3173,11 +6366,15 @@ team_affiliations {
   affiliation: 0
   affiliation: 1
   affiliation: 0
+  affiliation: 0
+  affiliation: 0
 }
 team_affiliations {
   team_name: "LoneStar"
   affiliation: 1
   affiliation: 1
+  affiliation: 0
+  affiliation: 0
   affiliation: 0
   affiliation: 0
 }
@@ -3187,11 +6384,29 @@ team_affiliations {
   affiliation: 0
   affiliation: 0
   affiliation: 0
+  affiliation: 0
+  affiliation: 0
+}
+team_affiliations {
+  team_name: "Barrels"
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+}
+team_affiliations {
+  team_name: "Turrets"
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
 }
 scene_dimensions {
   dimension_name: "Default"
-}
-character_roster {
 }
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {

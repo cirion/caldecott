@@ -961,6 +961,1258 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Map Setup"
+  events {
+  }
+  conditions {
+  }
+  actions {
+  }
+  isActive: true
+  idRef {
+    id: "55f1e7ad643431743dd6124d"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Map Start"
+  events {
+  }
+  conditions {
+  }
+  actions {
+  }
+  isActive: true
+  idRef {
+    id: "55f1e7af643431743dd6124e"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Debug"
+  events {
+  }
+  conditions {
+  }
+  actions {
+  }
+  isActive: true
+  idRef {
+    id: "55f1e7b0643431743dd6124f"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "You Died"
+  events {
+  }
+  conditions {
+  }
+  actions {
+  }
+  isActive: true
+  idRef {
+    id: "55f1e7b2643431743dd61250"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Rafik Disapproves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Rafik Disapproves"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "All Actors Within Area"
+          args {
+            call_value {
+              functionName: "Area: Entire Map"
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isRafik"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Rafik"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isRafik"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "String_LostFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556b73b53464352813006457"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Rafik Approves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Rafik Approves"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "All Actors Within Area"
+          args {
+            call_value {
+              functionName: "Area: Entire Map"
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isRafik"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Rafik"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isRafik"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "String_GainedFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556b73f33464352813006493"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Persi Disapproves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Persi Disapproves"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "All Actors Within Area"
+          args {
+            call_value {
+              functionName: "Area: Entire Map"
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isPersi"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Persi"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isPersi"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "String_LostFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556b7f003464352813007092"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Persi Approves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Persi Approves"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "All Actors Within Area"
+          args {
+            call_value {
+              functionName: "Area: Entire Map"
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isPersi"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Persi"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isPersi"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "String_GainedFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556b7f003464352813007093"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Sable Disapproves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Sable Disapproves"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "All Actors Within Area"
+          args {
+            call_value {
+              functionName: "Area: Entire Map"
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isSable"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Sable"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isSable"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "String_LostFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556d3375346435801400bdc2"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Sable Approves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Sable Approves"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "All Actors Within Area"
+          args {
+            call_value {
+              functionName: "Area: Entire Map"
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isSable"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Sable"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isSable"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "String_GainedFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556d3375346435801400bdc3"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Dorbi Disapproves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Dorbi Disapproves"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "All Actors Within Area"
+          args {
+            call_value {
+              functionName: "Area: Entire Map"
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isDorbi"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Dorbi"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isDorbi"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "String_LostFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556e6adf346435e014006513"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Dorbi Approves"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Dorbi Approves"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "All Actors Within Area"
+          args {
+            call_value {
+              functionName: "Area: Entire Map"
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isDorbi"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Dorbi"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isDorbi"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Active Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "String_GainedFavor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "556e6adf346435e014006514"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
 regions {
   name: "Camera Middle Floor"
   position {
@@ -1408,6 +2660,7 @@ characters {
     z: -32
   }
   orientation: ORIENTATION_S
+  GeneralTags: "squad1"
   displayName: "Squad 1 Hellhound"
   idRef {
     id: "55ea33ef643431cc03265086"
@@ -1481,6 +2734,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Hellhound"
+    GeneralTags: "squad1"
     pc_spawn_number: -1
     hiring_type: HiringType_None
     portrait {
@@ -1499,13 +2753,14 @@ characters {
     z: -32
   }
   orientation: ORIENTATION_S
+  GeneralTags: "squad1"
   displayName: "Squad 1 Mage"
   idRef {
     id: "55ea3418643431cc03265087"
   }
   lod: 0
   character_instance {
-    prefab_name: "Berlin:KnightErrants/HumanMaleKnightErrantMage"
+    prefab_name: "HongKong:Tsang Security/HumanFemaleTsangSecurityMage"
     character_sheet_id: "Errant_Lv1_Human_Mage"
     equipment_sheet_id: "Errant_Lv1_Spellcasting"
     character_mod {
@@ -1530,6 +2785,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Shiawase Mage"
+    GeneralTags: "squad1"
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -1546,13 +2802,14 @@ characters {
     z: -32
   }
   orientation: ORIENTATION_S
+  GeneralTags: "squad1"
   displayName: "Squad 1 Shotgun"
   idRef {
     id: "55ea345b643431cc03265088"
   }
   lod: 0
   character_instance {
-    prefab_name: "Seattle:Core/HumanFemale"
+    prefab_name: "HongKong:Tsang Security/HumanFemaleTsangSecurityRigger"
     character_sheet_id: "Errant_Lv1_Ork_Shotgun"
     equipment_sheet_id: "Errant_Lv1_Shotgun"
     character_mod {
@@ -1577,6 +2834,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Shiawase Guard"
+    GeneralTags: "squad1"
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -1593,13 +2851,14 @@ characters {
     z: -32
   }
   orientation: ORIENTATION_S
+  GeneralTags: "squad1"
   displayName: "Squad 1Captain"
   idRef {
     id: "55ea3461643431cc03265089"
   }
   lod: 0
   character_instance {
-    prefab_name: "Berlin:KnightErrants/HumanMaleKnightErrantCaptain"
+    prefab_name: "HongKong:Tsang Security/HumanMaleTsangSecurityCaptain"
     character_sheet_id: "Errant_Lv1_Captain"
     equipment_sheet_id: "Errant_Lv1_Captain"
     character_mod {
@@ -1624,6 +2883,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Shiawase Lead Guard"
+    GeneralTags: "squad1"
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -1640,13 +2900,14 @@ characters {
     z: -30
   }
   orientation: ORIENTATION_S
+  GeneralTags: "squad2"
   displayName: "Squad 2 Mage"
   idRef {
     id: "55ea34c5643431cc0326508a"
   }
   lod: 0
   character_instance {
-    prefab_name: "Berlin:KnightErrants/HumanMaleKnightErrantMage"
+    prefab_name: "HongKong:Tsang Security/ElfMaleTsangSecurityMage"
     character_sheet_id: "Errant_Lv1_Human_Mage"
     equipment_sheet_id: "Errant_Lv1_Spellcasting"
     character_mod {
@@ -1671,6 +2932,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Shiawase Mage"
+    GeneralTags: "squad2"
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -1687,13 +2949,14 @@ characters {
     z: -30
   }
   orientation: ORIENTATION_S
+  GeneralTags: "squad2"
   displayName: "Squad 2 Rigger"
   idRef {
     id: "55ea34c8643431cc0326508b"
   }
   lod: 0
   character_instance {
-    prefab_name: "Berlin:KnightErrants/ElfMaleKnightErrantRigger"
+    prefab_name: "HongKong:Tsang Security/HumanFemaleTsangSecurityRigger"
     character_sheet_id: "Errant_Lv1_Rigger"
     equipment_sheet_id: "Errant_Lv1_Rigger_Gear"
     character_mod {
@@ -1759,6 +3022,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Shiawase Rigger"
+    GeneralTags: "squad2"
     pc_spawn_number: -1
     hiring_type: HiringType_None
     portrait {
@@ -1778,13 +3042,14 @@ characters {
     z: -30
   }
   orientation: ORIENTATION_S
+  GeneralTags: "squad2"
   displayName: "Squad 2 SMG"
   idRef {
     id: "55ea34f5643431cc0326508c"
   }
   lod: 0
   character_instance {
-    prefab_name: "Berlin:KnightErrants/OrkMaleKnightErrant"
+    prefab_name: "HongKong:Tsang Security/HumanMaleTsangSecuritySamurai"
     character_sheet_id: "Errant_Lv1_Heavy_Explosive"
     equipment_sheet_id: "Errant_Lv1_Explosive"
     character_mod {
@@ -1809,6 +3074,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Shiawase Guard"
+    GeneralTags: "squad2"
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -1825,13 +3091,14 @@ characters {
     z: -30
   }
   orientation: ORIENTATION_S
+  GeneralTags: "squad2"
   displayName: "Squad 2 SMG 2"
   idRef {
     id: "55ea34fd643431cc0326508d"
   }
   lod: 0
   character_instance {
-    prefab_name: "Berlin:KnightErrants/OrkMaleKnightErrant"
+    prefab_name: "HongKong:Tsang Security/ElfFemaleTsangSecuritySniper"
     character_sheet_id: "Errant_Lv1_Heavy_Explosive"
     equipment_sheet_id: "Errant_Lv1_Explosive"
     character_mod {
@@ -1856,6 +3123,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Shiawase Guard"
+    GeneralTags: "squad2"
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -1872,13 +3140,14 @@ characters {
     z: -30
   }
   orientation: ORIENTATION_S
+  GeneralTags: "squad2"
   displayName: "Squad 2 Sniper"
   idRef {
     id: "55ea350d643431cc0326508e"
   }
   lod: 0
   character_instance {
-    prefab_name: "Berlin:KnightErrants/ElfMaleKnightErrant"
+    prefab_name: "HongKong:Tsang Security/HumanMaleTsangSecuritySamurai"
     character_sheet_id: "Errant_Lv1_Human_Sniper"
     equipment_sheet_id: "Errant_Lv1_Sniper"
     character_mod {
@@ -1903,6 +3172,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Shiawase Sniper"
+    GeneralTags: "squad2"
     pc_spawn_number: -1
     hiring_type: HiringType_None
     portrait {
@@ -1913,7 +3183,150 @@ characters {
     scale_character_sheet: true
   }
 }
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -185
+    y: 0
+    z: -28
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "squad3"
+  idRef {
+    id: "55f2031a643431743dd612c8"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Triads/TrollFemaleTriad1"
+    character_sheet_id: "Thug_Lv1_Melee"
+    equipment_sheet_id: "Thug_Lv1_Melee_Gear"
+    team_id: "LoneStar"
+    char_name: "Triad Thug"
+    GeneralTags: "squad3"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    hiring_set_randomizer: "triad_melee"
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -186
+    y: 0
+    z: -28
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "squad3"
+  idRef {
+    id: "55f2031c643431743dd612c9"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HumanMaleTriad3"
+    character_sheet_id: "Errant_Lv1_Captain"
+    equipment_sheet_id: "Errant_Lv1_Captain"
+    character_mod {
+      archetypeName: "gumbo_Soldier"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Triad Captain"
+    GeneralTags: "squad3"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -187
+    y: 0
+    z: -28
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "squad3"
+  idRef {
+    id: "55f2034b643431743dd612ca"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "ElfFemaleKnightErrantShaman"
+    character_sheet_id: "Errant_Lv1_Elf_Shaman"
+    equipment_sheet_id: "Errant_Lv1_Shaman"
+    character_mod {
+      archetypeName: "gumbo_grunt"
+    }
+    team_id: "LoneStar"
+    char_name: "Knight Errant Conjurer"
+    GeneralTags: "squad3"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -188
+    y: 0
+    z: -28
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "squad3"
+  idRef {
+    id: "55f20358643431743dd612cb"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HumanMaleKnightErrantMage"
+    character_sheet_id: "Errant_Lv1_Human_Mage"
+    equipment_sheet_id: "Errant_Lv1_Spellcasting"
+    character_mod {
+      archetypeName: "gumbo_Mage"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Knight Errant Mage"
+    GeneralTags: "squad3"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    scale_character_sheet: true
+  }
+}
 mapEvents: "Transition"
+mapEvents: "Dorbi Approves"
+mapEvents: "Dorbi Disapproves"
+mapEvents: "Sable Approves"
+mapEvents: "Sable Disapproves"
+mapEvents: "Rafik Approves"
+mapEvents: "Rafik Disapproves"
+mapEvents: "Persi Approves"
+mapEvents: "Persi Disapproves"
+senseTags: "isDorbi"
+senseTags: "isPersi"
+senseTags: "isSable"
+senseTags: "isRafik"
+goals {
+  name: "You Died"
+  type: GoalType_Primary
+  status: GoalStatus_Hidden
+}
 worldMapLocation {
   filename: ""
   location {
