@@ -208,7 +208,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Recruit Dwarf"
+  name: "End Game"
   events {
     ops {
       functionName: "On Item Interaction"
@@ -226,120 +226,9 @@ triggers {
   }
   actions {
     ops {
-      functionName: "Change Actor Team"
+      functionName: "End Story With Epilogue"
       args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Actor)"
-              args {
-                string_value: "55626f7d346435d807000341"
-              }
-            }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (string)"
-          args {
-            string_value: "FactionList"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (SceneDimension)"
-          args {
-            string_value: "Default"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Change Actor Control"
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Actor)"
-              args {
-                string_value: "55626f7d346435d807000341"
-              }
-            }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "PlayerOrAI"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Teleport Actor near Actor"
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Actor)"
-              args {
-                string_value: "55626f7d346435d807000341"
-              }
-            }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        int_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Player)"
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "FacingDirection"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "TeleportMethod"
-          }
-          args {
-            int_value: 0
-          }
-        }
+        string_value: "end_both_persi"
       }
     }
   }
@@ -6714,6 +6603,200 @@ characters {
     crew_id: "Persi"
     cyberware_head: "(Head) Datajack"
     cyberware_skin: "(Skin) Orthoskin (Bioware)"
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -21
+    y: 0
+    z: -30
+  }
+  orientation: ORIENTATION_S
+  displayName: "Alexander Falk"
+  idRef {
+    id: "55f305f4643431214f058eda"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Standard/DwarfMaleBiker"
+    character_sheet_id: "supplemental_falk_lv1"
+    equipment_sheet_id: "supplemental_falk_lv1_gear"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+        cyberware_affinity: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Player"
+      attitude: AttitudeAggressive
+      vulnerabilities {
+      }
+    }
+    team_id: "Shadowrunners"
+    char_name: "Alexander Falk"
+    pc_spawn_number: -1
+    hiring_type: HiringType_Hireable
+    portrait {
+      filename: "backer_dwarfmale_alexanderfalk"
+    }
+    karma: 220
+    hiring_cost_override: 450
+    hiring_tag: "Crew: Support Mage"
+    scale_character_sheet: true
+    id: "supplemental_lv1_falk"
+    crew_id: "Mercenary: Support Mage"
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -2
+    y: 0
+    z: -2
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isZielor"
+  displayName: "Zielor"
+  idRef {
+    id: "55f316d7643431214f058edb"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Berlin:Story/Audran"
+    character_sheet_id: "crew_zielor_lv1"
+    equipment_sheet_id: "crew_zielor_lv1_gear"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+        cyberware_affinity: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "gumbo_Soldier"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Zielor"
+    GeneralTags: "isZielor"
+    pc_spawn_number: -1
+    hiring_type: HiringType_Hireable
+    cyberware_right_leg: "(Leg) Hydraulic Jack Mk 1"
+    portrait {
+      filename: "pc_orkmale_08_modhead"
+    }
+    description_bio: "One of Saito\'s most feared opponents has joined your team, but how long will he stay?"
+    karma: 215
+    hiring_cost_override: 0
+    hiring_tag: "Crew: Freedom Fighter"
+    scale_character_sheet: true
+    id: "crew_lv1_zielor"
+    crew_id: "Crew: Freedom Fighter"
+    cyberware_weapon: "Weapon 1 Cyber Spur"
   }
 }
 variables {
