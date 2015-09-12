@@ -124,13 +124,65 @@ triggers {
         }
       }
       args {
-        string_value: "You retreat to Rafik and Kora\342\200\231s apartment. Mutual relief at your miraculous survival quickly decays into dread as you ponder the few options available to escape from this mess."
+        string_value: "You retreat to Rafik and Kora\'s apartment. Mutual relief at your miraculous survival quickly decays into dread as you ponder the few options available to escape from this mess."
       }
+    }
+    ops {
+      functionName: "No Effect"
     }
   }
   isActive: true
   idRef {
     id: "55e46bfd3464355022001365"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Start"
+  events {
+    ops {
+      functionName: "On Curtains Up"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "55725ae2346435d8040060f7"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55725b36346435d804006104"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "557264c1346435d8040066d1"
   }
   elseActions {
   }
@@ -488,55 +540,6 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Start"
-  events {
-    ops {
-      functionName: "On Curtains Up"
-    }
-  }
-  conditions {
-  }
-  actions {
-    ops {
-      functionName: "Start Conversation"
-      args {
-        call_value {
-          functionName: "Get Map Item (Conversation)"
-          args {
-            string_value: "55725ae2346435d8040060f7"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Actor)"
-          args {
-            string_value: "55725b36346435d804006104"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "557264c1346435d8040066d1"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
   name: "Finished Main Convo"
   events {
     ops {
@@ -659,6 +662,39 @@ triggers {
           }
           args {
             string_value: "injured_coyote"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Leave the Clinic"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
           }
         }
       }
@@ -1017,6 +1053,50 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Take Nuyen"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55f448cd346435e429001611"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Add Nuyen"
+      args {
+        int_value: 204
+      }
+    }
+    ops {
+      functionName: "Delete Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "55f448cd346435e429001611"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55f448cf346435e429001612"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Camera Region"
   position {
@@ -1269,8 +1349,9 @@ characters {
   }
   lod: 0
   character_instance {
-    prefab_name: "Seattle:Gangers/OrkMaleGanger"
-    character_sheet_id: "BaseCivilian"
+    prefab_name: "Seattle:Core/OrkMale"
+    character_sheet_id: "Crew_Rafik_Lv3"
+    equipment_sheet_id: "Crew_Rafik_Lv2_Gear"
     character_mod {
       stats {
         body: 0
@@ -1315,6 +1396,7 @@ characters {
         etiquette_shadowrunner: 0
         etiquette_street: 0
         etiquette_academic: 0
+        cyberware_affinity: 0
       }
       specializations {
         pistol: 0
@@ -1327,6 +1409,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
+      archetypeName: "Non-Combatant"
       attitude: AttitudeAggressive
       vulnerabilities {
       }
@@ -1338,7 +1421,8 @@ characters {
     portrait {
       filename: "pc_orkmale_04_slick"
     }
-    karma: 6
+    portrait_code_override: "s1h11c8b0c0t0"
+    karma: 107
   }
 }
 characters {
@@ -1439,6 +1523,11 @@ mapEvents: "Rafik Approves"
 mapEvents: "In Pain"
 mapEvents: "Fade In"
 mapEvents: "Finished Main Convo"
+goals {
+  name: "Leave the Clinic"
+  type: GoalType_Primary
+  status: GoalStatus_Hidden
+}
 worldMapLocation {
   filename: ""
   location {
