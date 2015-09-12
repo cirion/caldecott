@@ -2067,6 +2067,50 @@ triggers {
   }
   is_oneshot: false
 }
+triggers {
+  name: "Take Nuyen"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55f45e583464359829006841"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Delete Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "55f45e583464359829006841"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add Nuyen"
+      args {
+        int_value: 736
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55f45e5c3464359829006842"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Camera Top Floor"
   position {
@@ -2578,9 +2622,9 @@ patrolRoutes {
 characters {
   name: "system_spawner_playerSpawner"
   gridPoint {
-    x: -50
+    x: -52
     y: 0
-    z: -6
+    z: -5
   }
   orientation: ORIENTATION_N
   idRef {
@@ -2600,9 +2644,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -33
+    x: -80
     y: 0
-    z: 5
+    z: -4
   }
   orientation: ORIENTATION_S
   GeneralTags: "isBossSpirit"
@@ -2692,9 +2736,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -34
+    x: -81
     y: 0
-    z: 5
+    z: -4
   }
   orientation: ORIENTATION_S
   GeneralTags: "isBossSpirit"
@@ -2784,9 +2828,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -32
+    x: -79
     y: 0
-    z: 8
+    z: -1
   }
   orientation: ORIENTATION_S
   GeneralTags: "isDevilRat"
@@ -2877,9 +2921,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -33
+    x: -80
     y: 0
-    z: 8
+    z: -1
   }
   orientation: ORIENTATION_S
   GeneralTags: "isDevilRat"
@@ -2970,9 +3014,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -34
+    x: -81
     y: 0
-    z: 8
+    z: -1
   }
   orientation: ORIENTATION_S
   GeneralTags: "isDevilRat"
@@ -3063,9 +3107,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -32
+    x: -79
     y: 0
-    z: 10
+    z: 1
   }
   orientation: ORIENTATION_S
   displayName: "Demon Rat"
@@ -3158,9 +3202,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -33
+    x: -80
     y: 0
-    z: 10
+    z: 1
   }
   orientation: ORIENTATION_S
   displayName: "Demon Rat"
@@ -3253,9 +3297,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -34
+    x: -81
     y: 0
-    z: 10
+    z: 1
   }
   orientation: ORIENTATION_S
   displayName: "Demon Rat"
@@ -3348,9 +3392,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -32
+    x: -79
     y: 0
-    z: 5
+    z: -4
   }
   orientation: ORIENTATION_S
   GeneralTags: "isBossSpirit"
@@ -3440,9 +3484,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -32
+    x: -79
     y: 0
-    z: 12
+    z: 3
   }
   orientation: ORIENTATION_S
   displayName: "Minion"
@@ -3529,9 +3573,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -33
+    x: -80
     y: 0
-    z: 12
+    z: 3
   }
   orientation: ORIENTATION_S
   displayName: "Minion"
@@ -3618,9 +3662,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -35
+    x: -82
     y: 0
-    z: 12
+    z: 3
   }
   orientation: ORIENTATION_S
   displayName: "Minion"
@@ -3707,9 +3751,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -34
+    x: -81
     y: 0
-    z: 12
+    z: 3
   }
   orientation: ORIENTATION_S
   displayName: "Minion"
@@ -3796,9 +3840,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -32
+    x: -79
     y: 0
-    z: 14
+    z: 5
   }
   orientation: ORIENTATION_S
   GeneralTags: "isMidSpirit"
@@ -3888,9 +3932,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -33
+    x: -80
     y: 0
-    z: 14
+    z: 5
   }
   orientation: ORIENTATION_S
   GeneralTags: "isMidSpirit"
@@ -3980,9 +4024,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -34
+    x: -81
     y: 0
-    z: 14
+    z: 5
   }
   orientation: ORIENTATION_S
   GeneralTags: "isMidSpirit"
@@ -5027,6 +5071,75 @@ characters {
     }
     dimension_name: "matrix"
     karma: 29
+  }
+}
+characters {
+  name: "system_spawner_playerSpawner"
+  gridPoint {
+    x: -52
+    y: 0
+    z: -4
+  }
+  orientation: ORIENTATION_N
+  displayName: "PC1"
+  idRef {
+    id: "55f46a6034643598290069ce"
+  }
+  lod: 0
+  character_instance {
+    character_mod {
+      archetypeName: "Player"
+    }
+    team_id: "Shadowrunners"
+    char_name: "PC1"
+    enabled_at_start: true
+    pc_spawn_number: 1
+  }
+}
+characters {
+  name: "system_spawner_playerSpawner"
+  gridPoint {
+    x: -51
+    y: 0
+    z: -4
+  }
+  orientation: ORIENTATION_N
+  displayName: "PC2"
+  idRef {
+    id: "55f46a6134643598290069cf"
+  }
+  lod: 0
+  character_instance {
+    character_mod {
+      archetypeName: "Player"
+    }
+    team_id: "Shadowrunners"
+    char_name: "PC2"
+    enabled_at_start: true
+    pc_spawn_number: 2
+  }
+}
+characters {
+  name: "system_spawner_playerSpawner"
+  gridPoint {
+    x: -50
+    y: 0
+    z: -4
+  }
+  orientation: ORIENTATION_N
+  displayName: "PC3"
+  idRef {
+    id: "55f46a6234643598290069d0"
+  }
+  lod: 0
+  character_instance {
+    character_mod {
+      archetypeName: "Player"
+    }
+    team_id: "Shadowrunners"
+    char_name: "PC3"
+    enabled_at_start: true
+    pc_spawn_number: 3
   }
 }
 mapEvents: "Done Moving"

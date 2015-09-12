@@ -10,7 +10,46 @@ nodes {
   text: "Halt and state your purpose!"
   branches {
     responseText: "{{CC}}Disguise{{/CC}} We\342\200\231re the maintenance crew."
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 1
+    hideIfUnavailable: true
     idRef {
       id: "55e8af4e643431a6e4c44004:55e8af6b643431a6e4c4400e"
     }
@@ -18,6 +57,52 @@ nodes {
   }
   branches {
     responseText: "{{CC}}Etiquette: Security{{/CC}} We\342\200\231re plainclothes from the East Bay regional division, heading to assignment at the Port of Redwood City."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 14
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 4
     idRef {
       id: "55e8af4e643431a6e4c44004:55e8af6f643431a6e4c44013"
@@ -25,6 +110,52 @@ nodes {
   }
   branches {
     responseText: "{{CC}}Drone Control: 4{{/CC}} Your turbine servos have shown aberrant refresh cycles. The brass wants us to monitor them for signs of deterioration."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 10
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+    }
     nextNodeIndex: 7
     idRef {
       id: "55e8af4e643431a6e4c44004:55e8af71643431a6e4c44019"
@@ -32,14 +163,83 @@ nodes {
   }
   branches {
     responseText: "Please don\342\200\231t shoot me!"
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "suspicion"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "suspicionLimit"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "suspicion"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: -1
     idRef {
       id: "55e8af4e643431a6e4c44004:55e8af78643431a6e4c4401d"
     }
-    comment: "TODO: These both lead to fights."
   }
   branches {
     responseText: "Come and get me! {{GM}}Attack{{/GM}}"
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "suspicion"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "suspicionLimit"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "suspicion"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: -1
     idRef {
       id: "55e8af4e643431a6e4c44004:55e8af78643431a6e4c4401f"
@@ -97,11 +297,42 @@ nodes {
   text: ""
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "suspicion"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "suspicionLimit"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 5
     idRef {
       id: "55e8af4e643431a6e4c44004:55e8b6ea643431a6e4c4405a"
     }
-    comment: "TODO: Over suspicion limit"
   }
   branches {
     responseText: ""
@@ -112,7 +343,23 @@ nodes {
     comment: "Fallback: Not yet too suspicious"
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Reactive split"
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "suspicion"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  comment: "Reactive split"
 }
 nodes {
   idRef {
@@ -139,11 +386,43 @@ nodes {
   text: ""
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "suspicion"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "suspicionLimit"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 8
     idRef {
       id: "55e8af4e643431a6e4c44004:55e8b710643431a6e4c44069"
     }
-    comment: "TODO: Over suspicion limit"
+    comment: "Over suspicion limit"
   }
   branches {
     responseText: ""
@@ -154,7 +433,23 @@ nodes {
     comment: "Fallback: Not yet too suspicious"
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Reactive split"
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "suspicion"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  comment: "Reactive split"
 }
 nodes {
   idRef {
