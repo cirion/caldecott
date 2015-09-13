@@ -53,11 +53,34 @@ nodes {
   text: ""
   branches {
     responseText: "Let\'s go."
+    actions {
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "55f5973034643554130049fd"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: -1
     idRef {
       id: "55ef237e643431f50b058fef:55ef23d6643431f50b05900a"
     }
-    comment: "TODO: Load hub"
   }
   branches {
     responseText: "I want to check out the rest of the sub first."
@@ -99,7 +122,6 @@ roots {
   idRef {
     id: "55ef237e643431f50b058fef:55ef237e643431f50b058ff3"
   }
-  comment: "TODO: First visit."
 }
 roots {
   responseText: ""

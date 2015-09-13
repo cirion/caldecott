@@ -18,6 +18,61 @@ triggers {
   is_oneshot: true
 }
 triggers {
+  name: "Setup Map"
+  events {
+    ops {
+      functionName: "On Map Setup"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_numMissionsCompleted"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55f1e3a96434313b3d7c3c56"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Debug"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+  }
+  actions {
+  }
+  isActive: true
+  idRef {
+    id: "55f1e3ab6434313b3d7c3c57"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
   name: "Disturb Food Crows"
   events {
     ops {
@@ -182,44 +237,6 @@ triggers {
   isActive: true
   idRef {
     id: "5557ab93346435fc19000207"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
-  name: "Setup Map"
-  events {
-    ops {
-      functionName: "On Map Setup"
-    }
-  }
-  conditions {
-  }
-  actions {
-  }
-  isActive: true
-  idRef {
-    id: "55f1e3a96434313b3d7c3c56"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
-  name: "Debug"
-  events {
-    ops {
-      functionName: "On Map Start"
-    }
-  }
-  conditions {
-  }
-  actions {
-  }
-  isActive: true
-  idRef {
-    id: "55f1e3ab6434313b3d7c3c57"
   }
   elseActions {
   }
