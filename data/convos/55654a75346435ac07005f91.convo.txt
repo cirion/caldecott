@@ -1307,11 +1307,90 @@ nodes {
   }
   branches {
     responseText: "{{GM}}Kiss her.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 6
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_PersiLoveTalks"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 3
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_PersiLoveTalks"
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+    }
     nextNodeIndex: 128
+    hideIfUnavailable: true
+    onlyOnce: true
     idRef {
       id: "55654a75346435ac07005f91:55ef6f5b643431351205fa69"
     }
-    comment: "Lovetalk 4 TODO conditions"
+    comment: "Lovetalk 4"
   }
   branches {
     responseText: "You aren\342\200\231t originally from here, are you?"
@@ -1971,13 +2050,6 @@ nodes {
       id: "55654a75346435ac07005f91:55e7d32b3464352c27006b05"
     }
   }
-  branches {
-    responseText: ""
-    nextNodeIndex: -1
-    idRef {
-      id: "55654a75346435ac07005f91:55f1ccc9643431a11997c2f1"
-    }
-  }
   nodeType: ConversationNodeType_Simple
   actions {
     ops {
@@ -1998,6 +2070,22 @@ nodes {
           }
           args {
             int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Triggering Target Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Seattle:General/standing_idle"
           }
         }
       }
