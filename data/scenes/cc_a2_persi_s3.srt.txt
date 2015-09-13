@@ -5463,6 +5463,71 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Teleport Actor"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isDevilRat"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Random Point Within Region"
+          args {
+            call_value {
+              functionName: "Get Map Item (Region)"
+              args {
+                string_value: "55f5da0234643554130058bc"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 3
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeleportMethod"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Autosave Game"
+    }
   }
   isActive: false
   idRef {
@@ -5581,6 +5646,9 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Autosave Game"
+    }
   }
   isActive: false
   idRef {
@@ -5609,7 +5677,7 @@ triggers {
             call_value {
               functionName: "Get Map Item (Actor)"
               args {
-                string_value: "55e9bfd8643431dbf396104c"
+                string_value: "55f5dadd34643554130058bd"
               }
             }
           }
@@ -5762,7 +5830,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Actor)"
           args {
-            string_value: "55e9bfd8643431dbf396104c"
+            string_value: "55f5dadd34643554130058bd"
           }
         }
       }
@@ -5865,7 +5933,7 @@ triggers {
             call_value {
               functionName: "Get Map Item (Actor)"
               args {
-                string_value: "55e9bfd8643431dbf396104c"
+                string_value: "55f5dadd34643554130058bd"
               }
             }
           }
@@ -5931,28 +5999,62 @@ triggers {
       }
     }
     ops {
-      functionName: "Isolated Team Turn"
+      functionName: "Order Actor to Move To (Region)"
       args {
         call_value {
-          functionName: "Get Preset Value (string)"
+          functionName: "Specific Actor"
           args {
-            string_value: "FactionList"
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "55e9bfda643431dbf396104d"
+              }
+            }
           }
           args {
-            int_value: 0
           }
         }
       }
       args {
         call_value {
-          functionName: "Get Map Item (SceneDimension)"
+          functionName: "Get Map Item (Region)"
           args {
-            string_value: "Default"
+            string_value: "55f5de6534643554130059bd"
           }
         }
       }
       args {
-        int_value: 1
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 5
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55e9bfda643431dbf396104d"
+          }
+        }
       }
     }
   }
@@ -8920,6 +9022,784 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Peter Attacks"
+  events {
+    ops {
+      functionName: "On Actor Damage"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HPOrAP"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (Actor)"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55f5dadd34643554130058bd"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Heal Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 10
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HPOrAP"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55f5db1334643554130058be"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Peter Attacks First Time"
+  events {
+    ops {
+      functionName: "On Actor Damage"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HPOrAP"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (Actor)"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55f5dadd34643554130058bd"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Display Text over Actor"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        string_value: "iwillfeedonyourflesh"
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 6
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55f5dbc034643554130058bf"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Peter Attacked"
+  events {
+    ops {
+      functionName: "On Actor Damage"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HPOrAP"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (Actor)"
+      args {
+        call_value {
+          functionName: "Triggering Target Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55f5dadd34643554130058bd"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Heal Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "55e9da79643431dbf3961060"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 5
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HPOrAP"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Heal Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "55e9bfda643431dbf396104d"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 5
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HPOrAP"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55f5dbe234643554130058c0"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Peter Attacked First Time"
+  events {
+    ops {
+      functionName: "On Actor Damage"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HPOrAP"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (Actor)"
+      args {
+        call_value {
+          functionName: "Triggering Target Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55f5dadd34643554130058bd"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Display Text over Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55e9da79643431dbf3961060"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        string_value: "Thank you, Peter"
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 0
+      }
+    }
+    ops {
+      functionName: "Display Text over Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55e9bfda643431dbf396104d"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        string_value: "Your sacrifice gives us life"
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 6
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55f5dc0d34643554130058c1"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Spawn Demon Rats"
+  events {
+    ops {
+      functionName: "On Conversation Complete"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate If Actor Has Item"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "cc_a2_persi_s3-IronMirrors"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Teleport Actor"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isDemonRat"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Random Point Within Region"
+          args {
+            call_value {
+              functionName: "Get Map Item (Region)"
+              args {
+                string_value: "55f5dd1534643554130058c2"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeleportMethod"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55f5dd6034643554130059bb"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Peter Enters Cover"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "55f5de6634643554130059be"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (Actor)"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55f5dadd34643554130058bd"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "End Current Actor Turn"
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55f5e25f3464355413005a50"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Sophie Enters Cover"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "55f5de6234643554130059bc"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (Actor)"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55e9da79643431dbf3961060"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "End Current Actor Turn"
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55f5e27f3464355413005a51"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Elena Enters Cover"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "55f5de6534643554130059bd"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (Actor)"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55e9bfda643431dbf396104d"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "End Current Actor Turn"
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55f5e2813464355413005a52"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Camera Top Floor"
   position {
@@ -10418,6 +11298,296 @@ regions {
   combat_outro_stinger: ""
   vfx_fill_prefab_name: ""
 }
+regions {
+  name: "Rat Spawn Area"
+  position {
+    x: -48
+    y: -6
+    width: 4
+    height: 4
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  is_matrix_node: false
+  is_vfx_fill_region: false
+  idRef {
+    id: "55f5da0234643554130058bc"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
+}
+regions {
+  name: "Demon Rat Spawn"
+  position {
+    x: -32
+    y: 18
+    width: 5
+    height: 4
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  is_matrix_node: false
+  is_vfx_fill_region: false
+  idRef {
+    id: "55f5dd1534643554130058c2"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
+}
+regions {
+  name: "Cover Sophie"
+  position {
+    x: -40
+    y: 19
+    width: 1
+    height: 1
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  is_matrix_node: false
+  is_vfx_fill_region: false
+  idRef {
+    id: "55f5de6234643554130059bc"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
+}
+regions {
+  name: "Cover Elena"
+  position {
+    x: -53
+    y: 19
+    width: 1
+    height: 1
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  is_matrix_node: false
+  is_vfx_fill_region: false
+  idRef {
+    id: "55f5de6534643554130059bd"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
+}
+regions {
+  name: "Cover Peter"
+  position {
+    x: -42
+    y: 21
+    width: 1
+    height: 1
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  is_matrix_node: false
+  is_vfx_fill_region: false
+  idRef {
+    id: "55f5de6634643554130059be"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
+}
 characters {
   name: "system_spawner_playerSpawner"
   gridPoint {
@@ -10448,8 +11618,7 @@ characters {
     z: -5
   }
   orientation: ORIENTATION_E
-  GeneralTags: "isBossSpirit"
-  displayName: "Iron Mirrors Spirit"
+  displayName: "Peter Yossith Spirit 1"
   idRef {
     id: "55e9bfd8643431dbf396104c"
   }
@@ -10533,7 +11702,6 @@ characters {
     }
     team_id: "Civilians"
     char_name: "Baleful Spirit"
-    GeneralTags: "isBossSpirit"
     enabled_at_start: false
     pc_spawn_number: -1
     unkillable: true
@@ -10574,7 +11742,7 @@ characters {
     equipment_sheet_id: "Errant_Lv1_Spellcasting"
     character_mod {
       stats {
-        body: 0
+        body: 2
         quickness: 0
         strength: 0
         charisma: 0
@@ -10629,9 +11797,10 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "Guard - Seek And Destroy"
+      archetypeName: "gumbo_Mage"
       attitude: AttitudeBoss
       vulnerabilities {
+        heal: VulnerabilityLevel_Normal
       }
     }
     team_id: "Civilians"
@@ -10641,7 +11810,7 @@ characters {
     portrait {
       filename: "generic_spirit_walledcityvictim"
     }
-    karma: 43
+    karma: 50
     scale_character_sheet: true
     cyberware_skin: "(Skin) Replacement Skin"
   }
@@ -10661,7 +11830,7 @@ characters {
   }
   lod: 0
   character_instance {
-    prefab_name: "Seattle:Creature/CreatureHellhound"
+    prefab_name: "HongKong:Creatures/RatDevil"
     character_sheet_id: "Creature_Lv1_DevilRat"
     equipment_sheet_id: "DevilRat_Lv1_Powers"
     character_mod {
@@ -10720,7 +11889,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_Mage"
+      archetypeName: "Guard - Seek And Destroy"
       attitude: AttitudeAggressive
       attackRandom: AttackStyle_AllEqual
       vulnerabilities {
@@ -10734,7 +11903,7 @@ characters {
     portrait {
       filename: ""
     }
-    karma: 52
+    karma: 49
     hiring_cost_override: 1000
     scale_character_sheet: true
   }
@@ -10754,7 +11923,7 @@ characters {
   }
   lod: 0
   character_instance {
-    prefab_name: "Seattle:Creature/CreatureHellhound"
+    prefab_name: "HongKong:Creatures/RatDevil"
     character_sheet_id: "Creature_Lv1_DevilRat"
     equipment_sheet_id: "DevilRat_Lv1_Powers"
     character_mod {
@@ -10813,7 +11982,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_Mage"
+      archetypeName: "Guard - Seek And Destroy"
       attitude: AttitudeAggressive
       attackRandom: AttackStyle_AllEqual
       vulnerabilities {
@@ -10827,7 +11996,7 @@ characters {
     portrait {
       filename: ""
     }
-    karma: 52
+    karma: 49
     hiring_cost_override: 1000
     scale_character_sheet: true
   }
@@ -10847,7 +12016,7 @@ characters {
   }
   lod: 0
   character_instance {
-    prefab_name: "Seattle:Creature/CreatureHellhound"
+    prefab_name: "HongKong:Creatures/RatDevil"
     character_sheet_id: "Creature_Lv1_DevilRat"
     equipment_sheet_id: "DevilRat_Lv1_Powers"
     character_mod {
@@ -10906,7 +12075,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_Mage"
+      archetypeName: "Guard - Seek And Destroy"
       attitude: AttitudeAggressive
       attackRandom: AttackStyle_AllEqual
       vulnerabilities {
@@ -10920,7 +12089,7 @@ characters {
     portrait {
       filename: ""
     }
-    karma: 52
+    karma: 49
     hiring_cost_override: 1000
     scale_character_sheet: true
   }
@@ -10933,6 +12102,7 @@ characters {
     z: 1
   }
   orientation: ORIENTATION_S
+  GeneralTags: "isDemonRat"
   displayName: "Demon Rat"
   idRef {
     id: "55e9d98f643431dbf396105d"
@@ -10999,7 +12169,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "Guard - Seek And Destroy"
+      archetypeName: "gumbo_Mage"
       attitude: AttitudeAggressive
       vulnerabilities {
         poison: VulnerabilityLevel_Default
@@ -11007,9 +12177,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Demon Rat"
-    GeneralTags: "DemonRat"
-    GeneralTags: "DemonRats_1st"
-    GeneralTags: "DemonRat_Active"
+    GeneralTags: "isDemonRat"
     pc_spawn_number: -1
     hiring_type: HiringType_None
     portrait {
@@ -11028,6 +12196,7 @@ characters {
     z: 1
   }
   orientation: ORIENTATION_S
+  GeneralTags: "isDemonRat"
   displayName: "Demon Rat"
   idRef {
     id: "55e9d9a5643431dbf396105e"
@@ -11094,7 +12263,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "Guard - Seek And Destroy"
+      archetypeName: "gumbo_Mage"
       attitude: AttitudeAggressive
       vulnerabilities {
         poison: VulnerabilityLevel_Default
@@ -11102,9 +12271,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Demon Rat"
-    GeneralTags: "DemonRat"
-    GeneralTags: "DemonRats_1st"
-    GeneralTags: "DemonRat_Active"
+    GeneralTags: "isDemonRat"
     pc_spawn_number: -1
     hiring_type: HiringType_None
     portrait {
@@ -11123,6 +12290,7 @@ characters {
     z: 1
   }
   orientation: ORIENTATION_S
+  GeneralTags: "isDemonRat"
   displayName: "Demon Rat"
   idRef {
     id: "55e9d9a6643431dbf396105f"
@@ -11189,7 +12357,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "Guard - Seek And Destroy"
+      archetypeName: "gumbo_Mage"
       attitude: AttitudeAggressive
       vulnerabilities {
         poison: VulnerabilityLevel_Default
@@ -11197,9 +12365,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Demon Rat"
-    GeneralTags: "DemonRat"
-    GeneralTags: "DemonRats_1st"
-    GeneralTags: "DemonRat_Active"
+    GeneralTags: "isDemonRat"
     pc_spawn_number: -1
     hiring_type: HiringType_None
     portrait {
@@ -11230,7 +12396,7 @@ characters {
     equipment_sheet_id: "UncontrolledSpirit_Lv1_Air"
     character_mod {
       stats {
-        body: 0
+        body: 2
         quickness: 0
         strength: 0
         charisma: 0
@@ -11289,6 +12455,7 @@ characters {
       attitude: AttitudeBoss
       attackRandom: AttackStyle_AllEqual
       vulnerabilities {
+        heal: VulnerabilityLevel_Normal
       }
     }
     team_id: "LoneStar"
@@ -11298,7 +12465,7 @@ characters {
     portrait {
       filename: "Generic_Spirit_Air"
     }
-    karma: 70
+    karma: 79
     scale_character_sheet: true
   }
 }
@@ -12994,6 +14161,101 @@ characters {
     first_name: "Persi"
     crew_id: "Persi"
     cyberware_head: "(Head) Datajack"
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -80
+    y: 0
+    z: -3
+  }
+  orientation: ORIENTATION_E
+  GeneralTags: "isBossSpirit"
+  displayName: "Peter Yossith Spirit 2"
+  idRef {
+    id: "55f5dadd34643554130058bd"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Spirit/SpiritNature"
+    character_sheet_id: "Mummy_Lv1"
+    equipment_sheet_id: "MummySorceror_Lv1_Gear"
+    character_mod {
+      stats {
+        body: 2
+        quickness: 0
+        strength: 1
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: -1
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 1
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+        cyberware_affinity: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "gumbo_Adept"
+      attitude: AttitudeBoss
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+        heal: VulnerabilityLevel_Normal
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Spirit of Peter"
+    GeneralTags: "isBossSpirit"
+    enabled_at_start: true
+    pc_spawn_number: -1
+    unkillable: false
+    portrait {
+      filename: "generic_shrinespirit_nature"
+    }
+    karma: 62
+    scale_character_sheet: true
   }
 }
 variables {
