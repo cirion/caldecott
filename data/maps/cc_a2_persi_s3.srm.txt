@@ -22041,40 +22041,81 @@ props {
     interactionRadius: 1
     prerequisites {
       ops {
-        functionName: "Evaluate Goal"
+        functionName: "OR"
         args {
           call_value {
-            functionName: "Get Map Item (Goal)"
+            functionName: "Evaluate Goal"
             args {
-              string_value: "Inspect the Engines"
+              call_value {
+                functionName: "Get Map Item (Goal)"
+                args {
+                  string_value: "Inspect the Engines"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "GoalStatus"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "IsOrIsNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
             }
           }
         }
         args {
           call_value {
-            functionName: "Get Preset Value (int)"
+            functionName: "Evaluate If Actor Has Item"
             args {
-              string_value: "GoalStatus"
+              call_value {
+                functionName: "Specific Actor"
+                args {
+                  call_value {
+                    functionName: "Triggering Actor"
+                  }
+                }
+                args {
+                }
+              }
             }
             args {
-              int_value: 1
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "HasOrHasNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
             }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
             args {
-              string_value: "IsOrIsNot"
-            }
-            args {
-              int_value: 1
+              call_value {
+                functionName: "Get Map Item (Item)"
+                args {
+                  string_value: "cc_a2_persi_s3-Wiring"
+                }
+              }
             }
           }
         }
       }
     }
-    interactionIcon: InteractionIcon_Inspect
+    interactionIcon: InteractionIcon_Generic
     interaction_info_text: "Inspect Engines"
   }
   lod: 0
