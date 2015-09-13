@@ -25,12 +25,108 @@ nodes {
   text: ""
   branches {
     responseText: "{{CC}}Spellcasting/Conjuration{{/CC}} {{GM}}Read the spirit\342\200\231s aura.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "OR"
+        args {
+          call_value {
+            functionName: "Compare Actor Skill"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "BaseOrCurrent"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "ActorSkills"
+                }
+                args {
+                  int_value: 3
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Comparison Ops"
+                }
+                args {
+                  int_value: 2
+                }
+              }
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Compare Actor Skill"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "BaseOrCurrent"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "ActorSkills"
+                }
+                args {
+                  int_value: 7
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Comparison Ops"
+                }
+                args {
+                  int_value: 2
+                }
+              }
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 2
     onlyOnce: true
     idRef {
       id: "55eefb3d643431cc03265172:55eefb5e643431cc03265185"
     }
-    comment: "TODO: Spellcasting/Conjuration"
   }
   branches {
     responseText: "Who are you?"
@@ -49,11 +145,35 @@ nodes {
   }
   branches {
     responseText: "I ain\342\200\231t afraid of no ghost! {{GM}}Attack.{{/GM}}"
+    actions {
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "55f4ea433464353027003b48"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: -1
     idRef {
       id: "55eefb3d643431cc03265172:55eefbaf643431cc032651ba"
     }
-    comment: "TODO: All of these result in fight. (Probably set trigger before convo starts.)"
+    comment: "All of these result in fight."
   }
   nodeType: ConversationNodeType_Simple
   comment: "Empty root"
@@ -71,7 +191,7 @@ nodes {
       id: "55eefb3d643431cc03265172:55eefb66643431cc0326518a"
     }
   }
-  nodeType: ConversationNodeType_Simple
+  nodeType: ConversationNodeType_GM_Speaker_Voice
 }
 nodes {
   idRef {
@@ -86,7 +206,7 @@ nodes {
       id: "55eefb3d643431cc03265172:55eefb6a643431cc03265190"
     }
   }
-  nodeType: ConversationNodeType_Simple
+  nodeType: ConversationNodeType_GM_Speaker_Voice
 }
 nodes {
   idRef {
@@ -102,7 +222,7 @@ nodes {
     }
     auxiliaryLink: true
   }
-  nodeType: ConversationNodeType_Simple
+  nodeType: ConversationNodeType_GM_Voice
 }
 nodes {
   idRef {
@@ -111,6 +231,30 @@ nodes {
   index: 5
   text: "thisisforyouelena\n\nelenamyloveiamsorry"
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55f4ea433464353027003b48"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0

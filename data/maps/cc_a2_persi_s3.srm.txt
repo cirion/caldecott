@@ -17,6 +17,41 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Find Answers in the Ship Terminal"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     conversationPoint {
       conversationID: "55eefe32643431cc03265385"
       turnToFace: false
@@ -2488,6 +2523,7 @@ props {
     z: -5
   }
   orientation: ORIENTATION_S
+  displayName: "Door Top Mid"
   idRef {
     id: "550ded98346435840a006692"
   }
@@ -2495,7 +2531,7 @@ props {
     isEnabled: true
     interactionRadius: 1
     doorPoint {
-      doorState: false
+      doorState: true
       aiOnlyDoor: false
       doorSound: "DoorSlide"
       doorSoundBundle: "props"
@@ -3547,17 +3583,57 @@ props {
     z: -5
   }
   orientation: ORIENTATION_S
+  displayName: "Door Bulk Wiring"
   idRef {
     id: "550df421346435840a0066e1"
   }
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Count of Alive Actors"
+            args {
+              call_value {
+                functionName: "Specific Actor"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Actor)"
+                    args {
+                      string_value: "55e9bfda643431dbf396104d"
+                    }
+                  }
+                }
+                args {
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     doorPoint {
-      doorState: false
+      doorState: true
       aiOnlyDoor: false
       doorSound: "DoorSlide"
-      doorSoundBundle: "props"
+      doorSoundBundle: "HongKong:props"
     }
     interaction_info_text: ""
   }
@@ -4289,6 +4365,44 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     interactionIcon: InteractionIcon_Warp
     interaction_info_text: ""
   }
@@ -21901,6 +22015,116 @@ props {
   properties {
     property_id: "fxScript"
     string_value: "EnvironmentLoopFlashingAlarm"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -11
+    y: 0
+    z: 20
+  }
+  orientation: ORIENTATION_S
+  displayName: "Engines"
+  idRef {
+    id: "55f4de7a3464353027003ad6"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Inspect the Engines"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    interactionIcon: InteractionIcon_Inspect
+    interaction_info_text: "Inspect Engines"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -61
+    y: 0
+    z: -5
+  }
+  orientation: ORIENTATION_S
+  displayName: "Bulk Wiring"
+  idRef {
+    id: "55f4e0dc3464353027003b18"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Acquire Repair Wiring"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    interactionIcon: InteractionIcon_Generic
+    interaction_info_text: "Take Wires"
   }
   lod: 0
 }

@@ -95,16 +95,90 @@ nodes {
   }
   branches {
     responseText: "Who is Elena Proz?"
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_a2_persi_s3-ElenaProz"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 15
     hideIfUnavailable: true
     onlyOnce: true
     idRef {
       id: "55eefc20643431cc032651ea:55ef0c12643431cc032655f5"
     }
-    comment: "TODO: Have note about Elena Proz"
   }
   branches {
     responseText: "Who is Iron Mirrors?"
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_a2_persi_s3-IronMirrors"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 18
     hideIfUnavailable: true
     onlyOnce: true
@@ -114,17 +188,42 @@ nodes {
     comment: "TODO: Have note about Iron"
   }
   branches {
-    responseText: ""
-    nextNodeIndex: -1
-    hideIfUnavailable: true
-    onlyOnce: true
-    idRef {
-      id: "55eefc20643431cc032651ea:55ef10af643431cc03265cf4"
-    }
-    comment: "TODO: Solved mystery"
-  }
-  branches {
     responseText: "I read the log files. I know that you killed Iron after what he did to Sophie."
+    conditions {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Confront Elena"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 21
     hideIfUnavailable: true
     onlyOnce: true
@@ -132,6 +231,13 @@ nodes {
       id: "55eefc20643431cc032651ea:55ef1213643431cc03265e22"
     }
     comment: "TODO: Learned the truth"
+  }
+  branches {
+    responseText: "I need to leave."
+    nextNodeIndex: -1
+    idRef {
+      id: "55eefc20643431cc032651ea:55f4ed643464353027003bb4"
+    }
   }
   nodeType: ConversationNodeType_Simple
   comment: "Empty root"
@@ -221,11 +327,49 @@ nodes {
   text: ""
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "cc_a2_persi_s2-DestroyedShip"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 10
     idRef {
       id: "55eefc20643431cc032651ea:55eefd25643431cc03265266"
     }
-    comment: "TODO: Reactive split: You sank my battleship!"
+    comment: "Reactive split: You sank my battleship!"
   }
   branches {
     responseText: ""
@@ -306,7 +450,30 @@ nodes {
   text: "Uh\342\200\246 maybe she\342\200\231s talkin\342\200\231 about the terminal? Like, electronic records or somethin\342\200\231? That\342\200\231s my only guess. We should check it out."
   nodeType: ConversationNodeType_Simple
   speaker_override_id: "55e131da346435e0140016ab"
-  comment: "TODO: Update goal"
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55f4eda63464353027003c63"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -537,6 +704,30 @@ nodes {
   index: 28
   text: "I remember."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55f4f0ec3464353027003f7f"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Proceed to convo 10?"
 }
 nodes {
@@ -561,7 +752,6 @@ roots {
   idRef {
     id: "55eefc20643431cc032651ea:55eefc20643431cc032651ee"
   }
-  comment: "TODO: First visit"
 }
 roots {
   responseText: ""
@@ -569,5 +759,5 @@ roots {
   idRef {
     id: "55eefc20643431cc032651ea:55eefc43643431cc032651f5"
   }
-  comment: "TODO: Revisiting, can\'t advance."
+  comment: "Revisiting, can\'t advance."
 }
