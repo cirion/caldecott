@@ -87,26 +87,181 @@ nodes {
     idRef {
       id: "556e7499346435e01400729b"
     }
+    comment: "Friendship 1"
   }
   branches {
     responseText: "Are you in communication with Alliance members in other areas?"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          int_value: 1
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Orion"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Orion"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: 18
     hideIfUnavailable: true
     onlyOnce: true
     idRef {
       id: "556f229d6434310428a405af"
     }
-    comment: "TODO: Pre-reqs"
+    comment: "Friendship 2"
   }
   branches {
     responseText: "What\342\200\231s your vision for a post-Saito region?"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          int_value: 2
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Orion"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Orion"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: 27
     hideIfUnavailable: true
     onlyOnce: true
     idRef {
       id: "556f22986434310428a405ae"
     }
-    comment: "TODO: Pre-reqs"
+    comment: "Friendship 3"
   }
   branches {
     responseText: "Do you have any jobs I could do?"
@@ -116,16 +271,78 @@ nodes {
     idRef {
       id: "556e3e2d6434311d1ca42094:55f1ce06643431a11997cf5f"
     }
-    comment: "TODO: At right stage of quest."
   }
   branches {
     responseText: "{{CC}}Evidence of Atrocities{{/CC}} We found proof of the activities Saito has been involved in."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Actrocity_Payment"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_global-AtrocitiesRecorder"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 42
     hideIfUnavailable: true
     idRef {
       id: "556e3e2d6434311d1ca42094:55f1cf24643431a11997ddfc"
     }
-    comment: "TODO: Probably driven by a possitive value in your atrocity payout"
   }
   branches {
     responseText: "Goodbye."
@@ -152,6 +369,16 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Open Store Screen From Actor"
+      args {
+        call_value {
+          functionName: "Triggering Target Actor"
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -826,7 +1053,6 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Mission state set to -1"
 }
 nodes {
   idRef {
@@ -858,7 +1084,86 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Acquire recorder item"
+  actions {
+    ops {
+      functionName: "Add Item to Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "cc_global-AtrocitiesRecorder"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Collect Evidence of Saito\'s Atrocities"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -868,6 +1173,36 @@ nodes {
   text: ""
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          int_value: 6
+        }
+      }
+    }
     nextNodeIndex: 43
     idRef {
       id: "556e3e2d6434311d1ca42094:55f1cf69643431a11997de88"
@@ -883,7 +1218,7 @@ nodes {
     comment: "Fallback: On last mission"
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Are you on the last mission?"
+  comment: "Are you on the last mission?"
 }
 nodes {
   idRef {
@@ -938,7 +1273,106 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Get money and karma, remove item, clear global var"
+  actions {
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Collect Evidence of Saito\'s Atrocities"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add Nuyen"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Actrocity_Payment"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Remove Item from Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "cc_global-AtrocitiesRecorder"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Actrocity_Payment"
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -955,6 +1389,26 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Add Actor Karma"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 2
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -1091,3 +1545,4 @@ roots {
   }
   comment: "First visit."
 }
+persistent_conversation: true

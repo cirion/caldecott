@@ -1072,12 +1072,81 @@ nodes {
   }
   branches {
     responseText: "I\342\200\231m working on a Shadowrun game. Can you help me write a game engine?"
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_global-GameRequirements"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_global-GameEngine"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 173
     hideIfUnavailable: true
     idRef {
       id: "556921a9346435ac070076ee:55f1cd23643431a11997c843"
     }
-    comment: "TODO: At right stage of this quest"
   }
   branches {
     responseText: "See you later."
@@ -1304,11 +1373,41 @@ nodes {
   text: ""
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_PersiFlirtCount"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 12
     idRef {
       id: "556921a9346435ac070076ee:55ef673f643431351205c3d6"
     }
-    comment: "TODO: Flirting with Persi"
+    comment: "Flirting with Persi?"
   }
   nodeType: ConversationNodeType_Simple
   comment: "Reactive split"
@@ -1394,7 +1493,85 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_GM_Speaker_Voice
-  comment: "TODO: Set Persi romance to -1. Can\'t flirt with her. "
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Romance_CanFlirtWithPersi"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Romance_PersiLoveTalks"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Romance_PersiFlirtCount"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Romance_SableLoveTalks"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  comment: "Set Persi romance to -1. Can\'t flirt with her. "
 }
 nodes {
   idRef {
@@ -1404,51 +1581,261 @@ nodes {
   text: "I must admit, I\342\200\231ve had my eye on you from nearly the moment we first met. I\342\200\231ve met all sorts of people in my journeys around this continent, but there\342\200\231s something truly unique about you."
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "isMostlySmart"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 17
     idRef {
       id: "556921a9346435ac070076ee:55ef681a643431351205c97d"
     }
-    comment: "TODO: Best at decking"
+    comment: "Best at decking"
   }
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "isMostlyARigger"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 18
     idRef {
       id: "556921a9346435ac070076ee:55ef6820643431351205c984"
     }
-    comment: "TODO: Best at drones"
+    comment: "Best at drones"
   }
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "isMostlyMagic"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 19
     idRef {
       id: "556921a9346435ac070076ee:55ef6823643431351205c98d"
     }
-    comment: "TODO: Best at spellcasting/conjuration"
+    comment: "Best at spellcasting/conjuration"
   }
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "isMostlyChi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 20
     idRef {
       id: "556921a9346435ac070076ee:55ef6824643431351205c993"
     }
-    comment: "TODO: Best at chi casting"
+    comment: "Best at chi casting"
   }
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "isMostlyStrong"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 21
     idRef {
       id: "556921a9346435ac070076ee:55ef6824643431351205c999"
     }
-    comment: "TODO: Best at STR"
+    comment: "Best at STR"
   }
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "isMostlyRanged"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 22
     idRef {
       id: "556921a9346435ac070076ee:55ef6824643431351205c99f"
     }
-    comment: "TODO: Best at ranged"
+    comment: "Best at ranged"
   }
   branches {
     responseText: ""
@@ -2976,6 +3363,30 @@ nodes {
   index: 92
   text: "Let\342\200\231s go look for one! I\342\200\231ll check with the import/export guys, you ask the merchants. The first one to find it should buzz the other\342\200\231s commlink and we can start the party!"
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55f63efe346435f8070057c2"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Kick off quest."
 }
 nodes {
@@ -5402,11 +5813,41 @@ nodes {
   text: ""
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Approval_Sable"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+    }
     nextNodeIndex: 174
     idRef {
       id: "556921a9346435ac070076ee:55f1cd45643431a11997c848"
     }
-    comment: "High approval (2+?)"
+    comment: "High approval 2+"
   }
   branches {
     responseText: ""
@@ -5417,7 +5858,7 @@ nodes {
     comment: "Fallback: medium/low approval"
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Split based on approval"
+  comment: "Split based on approval"
 }
 nodes {
   idRef {
@@ -5434,7 +5875,53 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Get item or whatever"
+  actions {
+    ops {
+      functionName: "Add Item to Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "cc_global-GameEngine"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {

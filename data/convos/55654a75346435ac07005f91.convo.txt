@@ -2036,12 +2036,82 @@ nodes {
   }
   branches {
     responseText: "Can you help write a game engine for me?"
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_global-GameRequirements"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_global-GameEngine"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 261
     hideIfUnavailable: true
     idRef {
       id: "55654a75346435ac07005f91:55f1cc14643431a11997bd95"
     }
-    comment: "TODO: At right stage of game side-quest"
+    comment: "Game side-quest"
   }
   branches {
     responseText: "Goodbye."
@@ -3237,7 +3307,36 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Sound effect - comm chirp, or maybe a rigger sound"
+  actions {
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "HongKong:props"
+          }
+          args {
+            string_value: "PDA-Ring1"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -4676,6 +4775,30 @@ nodes {
   index: 131
   text: "Someone in this hole must be able to hook us up with a copy: let\342\200\231s go look for it! I want to think of us whenever I listen to it."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55f63648346435f807003bef"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Update quest, Persi runs off."
 }
 nodes {
@@ -6963,7 +7086,7 @@ nodes {
     id: "556c7b87643431437ca40ba7"
   }
   index: 196
-  text: "{{GM}}She lowers her head slightly, then gazes at you through partly-closed eyelids.{{/GM}}\n\nI can\342\200\231t say that many $(story.men) have that reaction when they run into an angry ork with a submachine gun.\n\nIt\342\200\231s\342\200\246 actually kind of nice to hear."
+  text: "{{GM}}She lowers her head slightly, then gazes at you through half-lidded eyes.{{/GM}}\n\nI can\342\200\231t say that many $(story.men) have that reaction when they run into an angry ork with a shotgun.\n\nIt\342\200\231s\342\200\246 actually kind of nice to hear."
   branches {
     responseText: ""
     nextNodeIndex: 197
@@ -6972,7 +7095,6 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO - make sure this is Persi\'s actual weapon"
 }
 nodes {
   idRef {
@@ -7117,7 +7239,7 @@ nodes {
     id: "556c7cb8643431437ca4136d"
   }
   index: 205
-  text: "That crazy leader of theirs - what was her name, Steinosaurus? Something like that\342\200\246\n\nAnyways, she got PISSED, jumped outta her rig, bullets flyin\342\200\231, I sent in my drones from the rear, popped open the gate, rode in on my chopper, pulled out my SMG\342\200\246"
+  text: "That crazy leader of theirs - what was her name, Steinosaurus? Something like that\342\200\246\n\nAnyways, she got PISSED, jumped outta her rig, bullets flyin\342\200\231, I sent in my drones from the rear, popped open the gate, rode in on my chopper, pulled out my shotgun..."
   branches {
     responseText: "And that\342\200\231s when I shot her down."
     nextNodeIndex: 206
@@ -7140,7 +7262,6 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO - Verify this is an SMG"
 }
 nodes {
   idRef {
@@ -8415,6 +8536,7 @@ nodes {
     idRef {
       id: "55654a75346435ac07005f91:55e7d32b3464352c27006afb"
     }
+    comment: "NOTE: Deliberately ends here instead of joining non-romance branch"
   }
   nodeType: ConversationNodeType_Simple
   actions {
@@ -8477,6 +8599,7 @@ nodes {
     idRef {
       id: "55654a75346435ac07005f91:55e7d32b3464352c27006b03"
     }
+    comment: "NOTE: Deliberately ends here instead of joining non-romance branch"
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -8488,11 +8611,41 @@ nodes {
   text: ""
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Approval_Persi"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+    }
     nextNodeIndex: 262
     idRef {
       id: "55654a75346435ac07005f91:55f1cc2a643431a11997bd9a"
     }
-    comment: "TODO: High approval (2+?)"
+    comment: "High approval 2+"
   }
   branches {
     responseText: ""
@@ -8503,7 +8656,7 @@ nodes {
     comment: "Fallback: Not high approval"
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Split based on approval"
+  comment: "Split based on approval"
 }
 nodes {
   idRef {
@@ -8520,7 +8673,53 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Get item?"
+  actions {
+    ops {
+      functionName: "Add Item to Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "cc_global-GameEngine"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
