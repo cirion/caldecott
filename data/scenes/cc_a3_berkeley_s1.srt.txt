@@ -5248,6 +5248,64 @@ regions {
   combat_outro_stinger: ""
   vfx_fill_prefab_name: ""
 }
+regions {
+  name: "Reinforcing Area"
+  position {
+    x: -198
+    y: 33
+    width: 5
+    height: 5
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  is_matrix_node: false
+  is_vfx_fill_region: false
+  idRef {
+    id: "55f751a26434312269c09d6d"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
+}
 patrolRoutes {
   name: "Matrix_EntrancePath1"
   pathType: 0
@@ -6009,6 +6067,7 @@ characters {
     z: 21
   }
   orientation: ORIENTATION_W
+  displayName: "PC0"
   idRef {
     id: "551b64eb3464352004002702"
   }
@@ -6018,7 +6077,7 @@ characters {
       archetypeName: "Player"
     }
     team_id: "Shadowrunners"
-    char_name: "New Actor"
+    char_name: "PC0"
     enabled_at_start: true
     pc_spawn_number: 0
   }
@@ -6031,6 +6090,7 @@ characters {
     z: 21
   }
   orientation: ORIENTATION_W
+  displayName: "PC1"
   idRef {
     id: "555ea44d346435300f00679e"
   }
@@ -6040,9 +6100,9 @@ characters {
       archetypeName: "Player"
     }
     team_id: "Shadowrunners"
-    char_name: "New Actor"
+    char_name: "PC1"
     enabled_at_start: true
-    pc_spawn_number: 0
+    pc_spawn_number: 1
   }
 }
 characters {
@@ -6053,6 +6113,7 @@ characters {
     z: 21
   }
   orientation: ORIENTATION_W
+  displayName: "PC2"
   idRef {
     id: "555ea44f346435300f0067a3"
   }
@@ -6062,9 +6123,9 @@ characters {
       archetypeName: "Player"
     }
     team_id: "Shadowrunners"
-    char_name: "New Actor"
+    char_name: "PC2"
     enabled_at_start: true
-    pc_spawn_number: 0
+    pc_spawn_number: 2
   }
 }
 characters {
@@ -6075,6 +6136,7 @@ characters {
     z: 21
   }
   orientation: ORIENTATION_W
+  displayName: "PC3"
   idRef {
     id: "555ea451346435300f0067a8"
   }
@@ -6084,39 +6146,17 @@ characters {
       archetypeName: "Player"
     }
     team_id: "Shadowrunners"
-    char_name: "New Actor"
+    char_name: "PC3"
     enabled_at_start: true
-    pc_spawn_number: 0
-  }
-}
-characters {
-  name: "system_spawner_playerSpawner"
-  gridPoint {
-    x: -195
-    y: 0
-    z: 21
-  }
-  orientation: ORIENTATION_W
-  idRef {
-    id: "555ea452346435300f0067ad"
-  }
-  lod: 0
-  character_instance {
-    character_mod {
-      archetypeName: "Player"
-    }
-    team_id: "Shadowrunners"
-    char_name: "New Actor"
-    enabled_at_start: true
-    pc_spawn_number: 0
+    pc_spawn_number: 3
   }
 }
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -103
+    x: -53
     y: 0
-    z: 56
+    z: 1
   }
   orientation: ORIENTATION_S
   GeneralTags: "securityLibrary"
@@ -6163,11 +6203,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -104
+    x: -42
     y: 0
-    z: 56
+    z: -5
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_E
   GeneralTags: "securityLibrary"
   idRef {
     id: "55f1fdb1643431743dd612a6"
@@ -6211,11 +6251,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -105
+    x: -47
     y: 0
-    z: 56
+    z: 8
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_E
   GeneralTags: "securityLibrary"
   idRef {
     id: "55f1fdb3643431743dd612a7"
@@ -6259,203 +6299,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -103
+    x: -138
     y: 0
-    z: 58
+    z: -21
   }
-  orientation: ORIENTATION_S
-  GeneralTags: "securityBuilding"
-  idRef {
-    id: "55f1fe1f643431743dd612a8"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "HongKong:Security Guards/HumanMaleSecurityGuardCaptain"
-    character_sheet_id: "Errant_Lv1_Captain"
-    equipment_sheet_id: "Errant_Lv1_Captain"
-    character_mod {
-      stats {
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-      }
-      skills {
-      }
-      specializations {
-      }
-      archetypeName: "gumbo_Soldier"
-      attitude: AttitudeAggressive
-      attackRandom: AttackStyle_AllEqual
-      vulnerabilities {
-      }
-    }
-    team_id: "LoneStar"
-    char_name: "Security Captain"
-    GeneralTags: "securityBuilding"
-    pc_spawn_number: -1
-    portrait {
-      filename: ""
-    }
-    karma: 52
-    scale_character_sheet: true
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -104
-    y: 0
-    z: 58
-  }
-  orientation: ORIENTATION_S
-  GeneralTags: "securityBuilding"
-  idRef {
-    id: "55f1fe25643431743dd612a9"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "HongKong:Security Guards/HumanFemaleSecurityGuard"
-    character_sheet_id: "Errant_Lv1_Captain"
-    equipment_sheet_id: "Errant_Lv1_Captain"
-    character_mod {
-      stats {
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-      }
-      skills {
-      }
-      specializations {
-      }
-      archetypeName: "gumbo_Soldier"
-      attitude: AttitudeAggressive
-      attackRandom: AttackStyle_AllEqual
-      vulnerabilities {
-      }
-    }
-    team_id: "LoneStar"
-    char_name: "Security Officer"
-    GeneralTags: "securityBuilding"
-    pc_spawn_number: -1
-    portrait {
-      filename: ""
-    }
-    karma: 52
-    scale_character_sheet: true
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -105
-    y: 0
-    z: 58
-  }
-  orientation: ORIENTATION_S
-  GeneralTags: "securityBuilding"
-  idRef {
-    id: "55f1fe27643431743dd612aa"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "HongKong:Security Guards/OrkMaleSecurityGuard"
-    character_sheet_id: "Errant_Lv1_Human_Pistol"
-    equipment_sheet_id: "Errant_Lv1_Pistol"
-    character_mod {
-      stats {
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-      }
-      skills {
-      }
-      specializations {
-      }
-      archetypeName: "gumbo_Soldier"
-      attitude: AttitudeAggressive
-      attackRandom: AttackStyle_AllEqual
-      vulnerabilities {
-      }
-    }
-    team_id: "LoneStar"
-    char_name: "Security Guard"
-    GeneralTags: "securityBuilding"
-    pc_spawn_number: -1
-    portrait {
-      filename: ""
-    }
-    karma: 41
-    scale_character_sheet: true
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -106
-    y: 0
-    z: 58
-  }
-  orientation: ORIENTATION_S
-  GeneralTags: "securityBuilding"
-  idRef {
-    id: "55f1fe29643431743dd612ab"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "HongKong:Security Guards/HumanMaleSecurityGuard"
-    character_sheet_id: "Errant_Lv1_Human_Pistol"
-    equipment_sheet_id: "Errant_Lv1_Pistol"
-    character_mod {
-      stats {
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-      }
-      skills {
-      }
-      specializations {
-      }
-      archetypeName: "gumbo_Soldier"
-      attitude: AttitudeAggressive
-      attackRandom: AttackStyle_AllEqual
-      vulnerabilities {
-      }
-    }
-    team_id: "LoneStar"
-    char_name: "Security Guard"
-    GeneralTags: "securityBuilding"
-    pc_spawn_number: -1
-    portrait {
-      filename: ""
-    }
-    karma: 41
-    scale_character_sheet: true
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -103
-    y: 0
-    z: 60
-  }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_E
   GeneralTags: "isOfficeCreature"
   idRef {
     id: "55f1fe73643431743dd612ac"
@@ -6543,11 +6391,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -104
+    x: -133
     y: 0
-    z: 60
+    z: -15
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_N
   GeneralTags: "isOfficeCreature"
   idRef {
     id: "55f1fe7f643431743dd612ad"
@@ -6589,9 +6437,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -105
+    x: -143
     y: 0
-    z: 60
+    z: -23
   }
   orientation: ORIENTATION_S
   GeneralTags: "isOfficeCreature"
@@ -6620,9 +6468,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -106
+    x: -149
     y: 0
-    z: 60
+    z: -14
   }
   orientation: ORIENTATION_S
   GeneralTags: "isOfficeCreature"
@@ -6712,9 +6560,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -110
+    x: -30
     y: 0
-    z: 52
+    z: 87
   }
   orientation: ORIENTATION_S
   GeneralTags: "isTurret"
@@ -6761,11 +6609,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -110
+    x: -45
     y: 0
-    z: 53
+    z: 2
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_E
   GeneralTags: "isTurret"
   displayName: "Turret 2"
   idRef {
@@ -6810,9 +6658,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -110
+    x: -34
     y: 0
-    z: 54
+    z: 65
   }
   orientation: ORIENTATION_S
   GeneralTags: "isTurret"
@@ -6859,11 +6707,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -110
+    x: -123
     y: 0
-    z: 55
+    z: 56
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_E
   GeneralTags: "isTurret"
   displayName: "Turret 4"
   idRef {
@@ -6908,9 +6756,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -103
+    x: -107
     y: 0
-    z: 65
+    z: 74
   }
   orientation: ORIENTATION_S
   GeneralTags: "isBasementCreature"
@@ -6954,9 +6802,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -104
+    x: -106
     y: 0
-    z: 65
+    z: 75
   }
   orientation: ORIENTATION_S
   GeneralTags: "isBasementCreature"
@@ -6985,9 +6833,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -105
+    x: -107
     y: 0
-    z: 65
+    z: 75
   }
   orientation: ORIENTATION_S
   GeneralTags: "isBasementCreature"
@@ -7016,9 +6864,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -106
+    x: -108
     y: 0
-    z: 65
+    z: 75
   }
   orientation: ORIENTATION_S
   GeneralTags: "isBasementCreature"
@@ -7047,9 +6895,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -107
+    x: -108
     y: 0
-    z: 65
+    z: 74
   }
   orientation: ORIENTATION_S
   GeneralTags: "isBasementCreature"
@@ -7078,11 +6926,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -103
+    x: -119
     y: 0
-    z: 63
+    z: 62
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_N
   displayName: "Drone"
   idRef {
     id: "55f1ff7c643431743dd612bc"
@@ -7168,11 +7016,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -104
+    x: -141
     y: 0
-    z: 63
+    z: 45
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_E
   displayName: "Drone"
   idRef {
     id: "55f1ffbe643431743dd612bd"
@@ -7258,9 +7106,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -105
+    x: -138
     y: 0
-    z: 63
+    z: 52
   }
   orientation: ORIENTATION_S
   displayName: "Drone"
@@ -7348,9 +7196,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -103
+    x: -106
     y: 0
-    z: 67
+    z: 70
   }
   orientation: ORIENTATION_S
   GeneralTags: "securityResponseTeam"
@@ -7396,9 +7244,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -104
+    x: -107
     y: 0
-    z: 67
+    z: 70
   }
   orientation: ORIENTATION_S
   GeneralTags: "securityResponseTeam"
@@ -7444,9 +7292,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -105
+    x: -108
     y: 0
-    z: 67
+    z: 70
   }
   orientation: ORIENTATION_S
   GeneralTags: "securityResponseTeam"
@@ -7492,9 +7340,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -106
+    x: -109
     y: 0
-    z: 67
+    z: 70
   }
   orientation: ORIENTATION_S
   GeneralTags: "securityResponseTeam"
@@ -7540,11 +7388,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -110
+    x: -119
     y: 0
-    z: 60
+    z: 67
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_N
   displayName: "Gargoyle 1"
   idRef {
     id: "55f20080643431743dd612c3"
@@ -7632,11 +7480,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -110
+    x: -129
     y: 0
-    z: 61
+    z: 63
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_E
   displayName: "Gargoyle 2"
   idRef {
     id: "55f20083643431743dd612c4"
@@ -7724,11 +7572,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -112
+    x: -193
     y: 0
-    z: 59
+    z: 43
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_N
   displayName: "Rat 1"
   idRef {
     id: "55f2008a643431743dd612c5"
@@ -7815,9 +7663,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -112
+    x: -204
     y: 0
-    z: 60
+    z: 39
   }
   orientation: ORIENTATION_S
   displayName: "Rat 2"
@@ -7906,9 +7754,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -112
+    x: -198
     y: 0
-    z: 61
+    z: 43
   }
   orientation: ORIENTATION_S
   displayName: "Rat 3"
@@ -9409,6 +9257,198 @@ characters {
     scale_character_sheet: true
   }
 }
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -53
+    y: 0
+    z: 142
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "securityBuilding"
+  idRef {
+    id: "55f74d3b6434312269c09d45"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Security Guards/HumanFemaleSecurityGuard"
+    character_sheet_id: "Errant_Lv1_Captain"
+    equipment_sheet_id: "Errant_Lv1_Captain"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_Soldier"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Security Officer"
+    GeneralTags: "securityBuilding"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 52
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -46
+    y: 0
+    z: 139
+  }
+  orientation: ORIENTATION_W
+  GeneralTags: "securityBuilding"
+  idRef {
+    id: "55f74d3b6434312269c09d46"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Security Guards/HumanMaleSecurityGuard"
+    character_sheet_id: "Errant_Lv1_Human_Pistol"
+    equipment_sheet_id: "Errant_Lv1_Pistol"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_Soldier"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Security Guard"
+    GeneralTags: "securityBuilding"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 41
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -44
+    y: 0
+    z: 132
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "securityBuilding"
+  idRef {
+    id: "55f74d3b6434312269c09d47"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Security Guards/OrkMaleSecurityGuard"
+    character_sheet_id: "Errant_Lv1_Human_Pistol"
+    equipment_sheet_id: "Errant_Lv1_Pistol"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_Soldier"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Security Guard"
+    GeneralTags: "securityBuilding"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 41
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -54
+    y: 0
+    z: 145
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "securityBuilding"
+  idRef {
+    id: "55f74d3b6434312269c09d48"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Security Guards/HumanMaleSecurityGuardCaptain"
+    character_sheet_id: "Errant_Lv1_Captain"
+    equipment_sheet_id: "Errant_Lv1_Captain"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_Soldier"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Security Captain"
+    GeneralTags: "securityBuilding"
+    pc_spawn_number: -1
+    portrait {
+      filename: ""
+    }
+    karma: 52
+    scale_character_sheet: true
+  }
+}
 mapEvents: "Transition"
 mapEvents: "Persi Approves"
 mapEvents: "Persi Disapproves"
@@ -9431,9 +9471,9 @@ worldMapLocation {
 }
 mapName: "cc_a3_berkeley_s1"
 parentStory: ""
-scene_title: "Lawrence Berkeley Lab"
+scene_title: "THE ACADEMIC-INDUSTRIAL COMPLEX"
 scene_subtitle: ""
-scene_synopsis: ""
+scene_synopsis: "Originally known as the Radiation Lab, or the Rad Lab for short, the Lawrence-Berkeley Laboratory has a long and storied history of producing amazing scientific breakthroughs with horrifying consequences. Its innovations led to the development of atomic warfare and the potential for extinguishing all intelligent life from planet Earth.\n\nMore recently, the LBL has shed its explicit military affiliations, focusing on genetic and molecular science. Today it stands proud as one of Shiawase Biotech\342\200\231s premiere research facilities. Nestled in the Berkeley Hills above the old University of California campus, the Lab provides a comfortable and open environment for its scientists to conduct research on any topic that provides the potential for profit.\n\nToday, you have a narrow interest in the place: accessing the industrial waste this facility produces, and directing that waste into the faultline running underneath the campus. A great many security measures lie between the entrance and your destination, but you\342\200\231ve long since learned that these jobs are never easy."
 scene_image: ""
 scene_continue_button_skip: false
 scene_restore_runner_health: true
@@ -9461,12 +9501,14 @@ team_affiliations {
   affiliation: 0
   affiliation: 1
   affiliation: 1
+  affiliation: 1
 }
 team_affiliations {
   team_name: "Gangers"
   affiliation: 1
   affiliation: 0
   affiliation: 1
+  affiliation: 0
   affiliation: 0
   affiliation: 0
   affiliation: 0
@@ -9479,9 +9521,11 @@ team_affiliations {
   affiliation: 0
   affiliation: 0
   affiliation: 0
+  affiliation: 0
 }
 team_affiliations {
   team_name: "Civilians"
+  affiliation: 0
   affiliation: 0
   affiliation: 0
   affiliation: 0
@@ -9497,9 +9541,21 @@ team_affiliations {
   affiliation: 0
   affiliation: 0
   affiliation: 0
+  affiliation: 0
 }
 team_affiliations {
   team_name: "Turrets"
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+}
+team_affiliations {
+  team_name: "Security"
+  affiliation: 0
   affiliation: 0
   affiliation: 0
   affiliation: 0
@@ -9510,15 +9566,13 @@ team_affiliations {
 scene_dimensions {
   dimension_name: "Default"
 }
-character_roster {
-}
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {
   prereq_description: ""
   prereq_conditions {
   }
 }
-hiring_slot_count: 0
+hiring_slot_count: 3
 hiring_minimum_karma: 0
 hiring_maximum_karma: 0
 roster_overrides {
