@@ -85,7 +85,51 @@ nodes {
   index: 4
   text: "I\342\200\231ll be doing what I can to make things right with the tr\342\200\246 with the orks and trolls we were harassing. Hurting.\n\nAnyways. Take care. You\342\200\231re a good $(l.man)."
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Give karma, update state var"
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Hub_TalkedToExHPF"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add Actor Karma"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0

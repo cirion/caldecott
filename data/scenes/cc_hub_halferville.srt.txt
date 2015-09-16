@@ -16276,6 +16276,596 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "onStart_Wanderers"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Actor Wander Range"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isWanderer"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        int_value: 6
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55f8ec7b346435a013004e6d"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "onSetup_DogsRescued"
+  events {
+    ops {
+      functionName: "On Map Setup"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "cc_a2_sable_s2-RescuedDogs"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Activate Actor Spawner By Tag"
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isRescueDog"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55f8eca3346435a013004e6e"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "onSetup_SavedHPFGuy"
+  events {
+    ops {
+      functionName: "On Map Setup"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "cc_a2_dorbi_s2-SavedHPFMinion"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Activate Actor Spawner"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor Reference)"
+          args {
+            string_value: "55f8ede3346435a013004e6f"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55f8ee8d346435a013004e94"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "onSetup_StoppedSmugglers"
+  events {
+    ops {
+      functionName: "On Map Setup"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "cc_a2_persi_s1-KilledSmugglers"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_MissionState_Recruit_Persi"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Activate Actor Spawner"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor Reference)"
+          args {
+            string_value: "55f8eeea346435a013004e95"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55f8f105346435a013004ed7"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "onSetup_HelpedSmugglers_Male"
+  events {
+    ops {
+      functionName: "On Map Setup"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "cc_a2_persi_s1-KilledSmugglers"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_MissionState_Recruit_Persi"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Romance_CanFlirtWithSable"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Activate Actor Spawner"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor Reference)"
+          args {
+            string_value: "55f8f026346435a013004eb0"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55f8f14f346435a013004ed8"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "onSetup_HelpedSmugglers_Female"
+  events {
+    ops {
+      functionName: "On Map Setup"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "cc_a2_persi_s1-KilledSmugglers"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_MissionState_Recruit_Persi"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Romance_CanFlirtWithSable"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Activate Actor Spawner"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor Reference)"
+          args {
+            string_value: "55f8ef2a346435a013004eaf"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55f8f180346435a013004ed9"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Camera Clinic"
   position {
@@ -19990,6 +20580,880 @@ characters {
     hiring_cost_override: 3000
   }
 }
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -138
+    y: 0
+    z: 33
+  }
+  orientation: ORIENTATION_W
+  GeneralTags: "isRescueDog"
+  GeneralTags: "isWanderer"
+  displayName: "Freed Dog 1"
+  idRef {
+    id: "55f8eab6346435a013004e48"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Creatures/HKPoliceDog"
+    character_sheet_id: "Creature_Lv1_Hellhound"
+    equipment_sheet_id: "AttackDog_Lv1_Powers"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: -1
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "Civilians"
+    char_name: "Attack Dog"
+    GeneralTags: "isRescueDog"
+    GeneralTags: "isWanderer"
+    enabled_at_start: false
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    karma: 52
+    hiring_cost_override: 1000
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -142
+    y: 0
+    z: 28
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isRescueDog"
+  GeneralTags: "isWanderer"
+  displayName: "Freed Dog 2"
+  idRef {
+    id: "55f8eab6346435a013004e49"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Creatures/HKPoliceDog"
+    character_sheet_id: "Creature_Lv1_Hellhound"
+    equipment_sheet_id: "AttackDog_Lv1_Powers"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: -1
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "Civilians"
+    char_name: "Attack Dog"
+    GeneralTags: "isRescueDog"
+    GeneralTags: "isWanderer"
+    enabled_at_start: false
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    karma: 52
+    hiring_cost_override: 1000
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -142
+    y: 0
+    z: 25
+  }
+  orientation: ORIENTATION_S
+  displayName: "Dog Dwarf"
+  idRef {
+    id: "55f8eae6346435a013004e4a"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Hub_LearnedAboutDogs"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    conversationPoint {
+      conversationID: "55f1bd3f643431a11997ab58"
+      turnToFace: true
+    }
+    interactionIcon: InteractionIcon_Conversation
+    interaction_info_text: ""
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:HKPoor/DwarfFemalePoorCivilian2"
+    character_sheet_id: "BaseCivilian"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeCautious
+      vulnerabilities {
+      }
+    }
+    team_id: "Civilians"
+    char_name: "Dwarf"
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    karma: 6
+    hiring_cost_override: 3000
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -41
+    y: 0
+    z: 15
+  }
+  orientation: ORIENTATION_N
+  GeneralTags: "squad2"
+  GeneralTags: "canExit"
+  displayName: "Former HPF"
+  idRef {
+    id: "55f8ede3346435a013004e6f"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Hub_TalkedToExHPF"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    conversationPoint {
+      conversationID: "55e88cc264343129d8726a5a"
+      turnToFace: true
+    }
+    interactionIcon: InteractionIcon_Conversation
+    interaction_info_text: ""
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:HKCivilians/DwarfMaleCivilian"
+    character_sheet_id: "Errant_Lv1_Human_Mage"
+    equipment_sheet_id: "Errant_Lv1_Spellcasting"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+        cyberware_affinity: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeAggressive
+      attackRandom: AttackStyle_AllEqual
+      vulnerabilities {
+      }
+    }
+    team_id: "Civilians"
+    char_name: "Ex-HPF Mage"
+    GeneralTags: "squad2"
+    GeneralTags: "canExit"
+    enabled_at_start: false
+    pc_spawn_number: -1
+    portrait {
+      filename: "backer_dwarfmale_aaronwilson_kendon"
+    }
+    karma: 43
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -128
+    y: 0
+    z: 24
+  }
+  orientation: ORIENTATION_N
+  displayName: "Smuggler Victim Lamar"
+  idRef {
+    id: "55f8eeea346435a013004e95"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Hub_TalkedToSmugglerVictim"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    conversationPoint {
+      conversationID: "55f1bf0b643431a11997ac63"
+      turnToFace: true
+    }
+    interactionIcon: InteractionIcon_Conversation
+    interaction_info_text: ""
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Homeless/DwarfMaleHomelessJacket"
+    character_sheet_id: "BaseCivilian"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeCautious
+      vulnerabilities {
+      }
+    }
+    team_id: "Civilians"
+    char_name: "Lamar"
+    enabled_at_start: false
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    karma: 6
+    hiring_cost_override: 3000
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -127
+    y: 0
+    z: 21
+  }
+  orientation: ORIENTATION_E
+  GeneralTags: "isSexy"
+  displayName: "Smuggler Victim Zoe Female"
+  idRef {
+    id: "55f8ef2a346435a013004eaf"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Hub_TalkedToSmugglerVictim"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    conversationPoint {
+      conversationID: "55f1bdc6643431a11997abfe"
+      turnToFace: true
+    }
+    interactionIcon: InteractionIcon_Conversation
+    interaction_info_text: ""
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Extras/OrkFemaleProstitute"
+    character_sheet_id: "BaseCivilian"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeCautious
+      vulnerabilities {
+      }
+    }
+    team_id: "Civilians"
+    char_name: "Zoe"
+    GeneralTags: "isSexy"
+    enabled_at_start: false
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    karma: 6
+    hiring_cost_override: 3000
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -127
+    y: 0
+    z: 21
+  }
+  orientation: ORIENTATION_E
+  GeneralTags: "isSexy"
+  displayName: "Smuggler Victim Zoe Male"
+  idRef {
+    id: "55f8f026346435a013004eb0"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Hub_TalkedToSmugglerVictim"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    conversationPoint {
+      conversationID: "55f1bdc6643431a11997abfe"
+      turnToFace: true
+    }
+    interactionIcon: InteractionIcon_Conversation
+    interaction_info_text: ""
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Berlin:Business/ElfMaleBusinessMan"
+    character_sheet_id: "BaseCivilian"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeCautious
+      vulnerabilities {
+      }
+    }
+    team_id: "Civilians"
+    char_name: "Zoe"
+    GeneralTags: "isSexy"
+    enabled_at_start: false
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    karma: 6
+    hiring_cost_override: 3000
+  }
+}
 variables {
   int_value: 0
   variableref_value {
@@ -20294,6 +21758,7 @@ senseTags: "isPersi"
 senseTags: "isDorbi"
 senseTags: "isRafik"
 senseTags: "isSmoker"
+senseTags: "isWanderer"
 goals {
   name: "Retrieve train security protocols from Shiawase"
   type: GoalType_Primary

@@ -40,7 +40,51 @@ nodes {
   index: 1
   text: "A vet came by and asked if we wanted to adopt any doggies. Said some nice $(l.man) rescued the hounds from a scary building in Oakland. Now they can play fetch and run around, just like they always wanted!"
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Advance global var, give karma, disable convo"
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Hub_LearnedAboutDogs"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add Actor Karma"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0
