@@ -155,6 +155,17 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Teleport Camera To Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -330,6 +341,20 @@ triggers {
             }
           }
         }
+      }
+    }
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Event_StartWandering"
+          }
+        }
+      }
+      args {
+        float_value: 5
       }
     }
   }
@@ -16059,7 +16084,7 @@ triggers {
   name: "onConvoEnd_DorbiOverride"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "On Conversation Complete"
     }
   }
   conditions {
@@ -16122,161 +16147,6 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "onStart_PositionDorbiOverride"
-  events {
-    ops {
-      functionName: "On Map Start"
-    }
-  }
-  conditions {
-    ops {
-      functionName: "Comparison (bool)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (bool)"
-          args {
-            string_value: "5505a99b346435a418004d07"
-          }
-          args {
-            string_value: "cc_a2_dorbi_s3-DorbiWonElection"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "IsOrIsNot"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "bool"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Comparison (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "5505a99b346435a418004d07"
-          }
-          args {
-            string_value: "Global_numMissionsCompleted"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "Comparison Ops"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        int_value: 3
-      }
-    }
-  }
-  actions {
-    ops {
-      functionName: "Teleport Actor"
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Actor)"
-              args {
-                string_value: "55f5facf3464355413007bf8"
-              }
-            }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Center of Region"
-          args {
-            call_value {
-              functionName: "Get Map Item (Region)"
-              args {
-                string_value: "55f604293464355413007c19"
-              }
-            }
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "FacingDirection"
-          }
-          args {
-            int_value: 7
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "TeleportMethod"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Play Animation From Manifest"
-      args {
-        call_value {
-          functionName: "Get Map Item (Actor)"
-          args {
-            string_value: "55f5facf3464355413007bf8"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Animation)"
-          args {
-            string_value: "Seattle:General/standing_idle"
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "55f7a120346435cc11004379"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
   name: "onStart_Wanderers"
   events {
     ops {
@@ -16329,7 +16199,7 @@ triggers {
   name: "onSetup_DogsRescued"
   events {
     ops {
-      functionName: "On Map Setup"
+      functionName: "On Map Start"
     }
   }
   conditions {
@@ -16364,7 +16234,7 @@ triggers {
             string_value: "bool"
           }
           args {
-            int_value: 1
+            int_value: 0
           }
         }
       }
@@ -16372,12 +16242,50 @@ triggers {
   }
   actions {
     ops {
-      functionName: "Activate Actor Spawner By Tag"
+      functionName: "Kill Actor"
       args {
         call_value {
-          functionName: "Get Map Item (SenseTagList)"
+          functionName: "All Actors With Tag"
           args {
-            string_value: "isRescueDog"
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isRescueDog"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "DeathMethod"
+          }
+          args {
+            int_value: 3
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
           }
         }
       }
@@ -16518,7 +16426,7 @@ triggers {
             string_value: "bool"
           }
           args {
-            int_value: 1
+            int_value: 0
           }
         }
       }
@@ -20665,7 +20573,7 @@ characters {
     char_name: "Attack Dog"
     GeneralTags: "isRescueDog"
     GeneralTags: "isWanderer"
-    enabled_at_start: false
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     portrait {
@@ -20761,7 +20669,7 @@ characters {
     char_name: "Attack Dog"
     GeneralTags: "isRescueDog"
     GeneralTags: "isWanderer"
-    enabled_at_start: false
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     portrait {
@@ -21752,6 +21660,7 @@ mapEvents: "Dorbi Approves"
 mapEvents: "Dorbi Disapproves"
 mapEvents: "Dorbi Greatly Disapproves"
 mapEvents: "Event_PC0BestSkillCheck"
+mapEvents: "Event_StartWandering"
 senseTags: "isPC0"
 senseTags: "isSable"
 senseTags: "isPersi"
@@ -21890,6 +21799,8 @@ team_affiliations {
 }
 scene_dimensions {
   dimension_name: "Default"
+}
+character_roster {
 }
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {
