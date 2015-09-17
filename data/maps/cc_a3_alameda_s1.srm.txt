@@ -163,7 +163,7 @@ props {
   gridPoint {
     x: -26
     y: 0
-    z: -3
+    z: -4
   }
   orientation: ORIENTATION_S
   idRef {
@@ -6998,4 +6998,116 @@ props {
       description: "Dragon Line (Light)"
     }
   }
+}
+props {
+  name: "docks_clutter_shippingCrate02"
+  gridPoint {
+    x: -27
+    y: 0
+    z: 39
+  }
+  orientation: ORIENTATION_E
+  idRef {
+    id: "55fa2e29346435241e00449a"
+  }
+  lod: 0
+}
+props {
+  name: "office_tech_keycardLanyard"
+  gridPoint {
+    x: -83
+    y: 0
+    z: -6
+  }
+  orientation: ORIENTATION_S
+  displayName: "Nuyen"
+  idRef {
+    id: "55fa2f7b346435241e00449f"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    interactionIcon: InteractionIcon_ItemPickup
+    interaction_info_text: "Credstick"
+  }
+  lod: 0
+}
+props {
+  name: "undergroundBase_tech_PDA01"
+  gridPoint {
+    x: -83
+    y: 0
+    z: -7
+  }
+  orientation: ORIENTATION_S
+  displayName: "Keycard"
+  idRef {
+    id: "55fa2fcc346435241e0044a3"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    interactionIcon: InteractionIcon_ItemPickup
+    interaction_info_text: "Keycard"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -38.6
+    y: 0
+    z: 4
+  }
+  orientation: ORIENTATION_S
+  displayName: "Bunker Entrance"
+  idRef {
+    id: "55fa3b94346435241e0044f2"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_a3_alameda_s1-Keycard"
+            }
+          }
+        }
+      }
+    }
+    transitionPoint {
+      scene_name: "cc_a3_alameda_s2"
+      confirmation_text: "Are you ready to enter the bunker and release the train engine from lockdown?"
+    }
+    interaction_info_text: "Enter the Bunker Bar"
+  }
+  lod: 0
 }
