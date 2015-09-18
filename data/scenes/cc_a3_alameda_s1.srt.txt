@@ -129,7 +129,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Sound)"
           args {
-            string_value: "ambient_graveyard"
+            string_value: "HongKong:ambient_graveyard"
           }
           args {
             string_value: "Raven"
@@ -214,7 +214,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Sound)"
           args {
-            string_value: "ambient_graveyard"
+            string_value: "HongKong:ambient_graveyard"
           }
           args {
             string_value: "Raven"
@@ -2375,6 +2375,72 @@ triggers {
           }
           args {
             int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Retrieve the Keycard"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Animation State Of Actor To Animation Modifier"
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "AnimationState"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55f1f713643431743dd61298"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (AnimationModifiers)"
+          args {
+            string_value: "relaxed"
+          }
+          args {
+            string_value: "calm"
           }
         }
       }
@@ -5234,7 +5300,7 @@ characters {
   }
   lod: 0
   character_instance {
-    prefab_name: "Seattle:Wealthy/HumanMaleAutumn"
+    prefab_name: "Seattle:Core/HumanMale"
     character_sheet_id: "BaseCivilian"
     character_mod {
       stats {
@@ -5300,14 +5366,23 @@ characters {
         mental: VulnerabilityLevel_Immune
       }
     }
+    equipment {
+      prefab_name: "SamuraiBunnyMaskless"
+    }
     team_id: "Civilians"
     char_name: "Claude Bullion"
     pc_spawn_number: -1
     uninjurable: true
     unkillable: true
     hiring_type: HiringType_None
+    portrait {
+      filename: "backer_humanmale_randynickel_snick"
+    }
+    portrait_code_override: "s5h0c6b4c4t0"
     karma: 6
     hiring_cost_override: 3000
+    first_name: "Claude"
+    last_name: "Bullion"
   }
 }
 characters {
@@ -5344,6 +5419,39 @@ characters {
             functionName: "Get Map Item (SceneDimension)"
             args {
               string_value: "Default"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Retrieve the Keycard"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
             }
           }
         }
@@ -5612,7 +5720,7 @@ goals {
   status: GoalStatus_Hidden
 }
 goals {
-  name: "Retrieve the Key"
+  name: "Retrieve the Keycard"
   type: GoalType_Primary
   status: GoalStatus_Hidden
 }
