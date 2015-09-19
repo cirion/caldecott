@@ -7957,6 +7957,249 @@ triggers {
   }
   is_oneshot: false
 }
+triggers {
+  name: "Matrix Take Paydata"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55f38f9e346435940c00023c"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55f38f9e346435940c00023c"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add Item to Team"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "cc_a3_berkeley-Paydata"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55fdc4b33464352014000f6e"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Matrix Destroy Drones"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55f38f9e346435940c0002cf"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55f38f9e346435940c0002cf"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Kill Actor"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isDrone"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "DeathMethod"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Display Text at Screen Position"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        string_value: ">> WARNING: DRONE POWER OVERLOADED. UNITS SHUTTING DOWN FOR MAINTENANCE."
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 5
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55fdc4f43464352014000f6f"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Lower Outside Camera"
   position {
@@ -10151,6 +10394,64 @@ regions {
   combat_outro_stinger: ""
   vfx_fill_prefab_name: ""
 }
+regions {
+  name: "Matrix Spawn Drone Defenders"
+  position {
+    x: -331
+    y: 14
+    width: 6
+    height: 1
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  is_matrix_node: false
+  is_vfx_fill_region: false
+  idRef {
+    id: "55fdc3273464352014000f6d"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
+}
 characters {
   name: "system_spawner_playerSpawner"
   gridPoint {
@@ -11023,6 +11324,7 @@ characters {
     z: 62
   }
   orientation: ORIENTATION_N
+  GeneralTags: "isDrone"
   displayName: "Drone"
   idRef {
     id: "55f1ff7c643431743dd612bc"
@@ -11097,6 +11399,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Drone"
+    GeneralTags: "isDrone"
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -11113,6 +11416,7 @@ characters {
     z: 45
   }
   orientation: ORIENTATION_E
+  GeneralTags: "isDrone"
   displayName: "Drone"
   idRef {
     id: "55f1ffbe643431743dd612bd"
@@ -11187,6 +11491,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Drone"
+    GeneralTags: "isDrone"
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -11203,6 +11508,7 @@ characters {
     z: 52
   }
   orientation: ORIENTATION_S
+  GeneralTags: "isDrone"
   displayName: "Drone"
   idRef {
     id: "55f1ffbf643431743dd612be"
@@ -11277,6 +11583,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Drone"
+    GeneralTags: "isDrone"
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -11972,13 +12279,14 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "White Ranged IC"
+    enabled_at_start: false
     pc_spawn_number: -1
     spawn_type: SpawnType_Matrix
     hiring_type: HiringType_None
     portrait {
       filename: ""
     }
-    dimension_name: "matrix"
+    dimension_name: "Matrix"
     karma: 29
     hiring_cost_override: 1000
     scale_character_sheet: true
@@ -12022,13 +12330,14 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "White Ranged IC"
+    enabled_at_start: false
     pc_spawn_number: -1
     spawn_type: SpawnType_Matrix
     hiring_type: HiringType_None
     portrait {
       filename: ""
     }
-    dimension_name: "matrix"
+    dimension_name: "Matrix"
     karma: 29
     hiring_cost_override: 1000
     scale_character_sheet: true
@@ -12079,7 +12388,7 @@ characters {
     portrait {
       filename: ""
     }
-    dimension_name: "matrix"
+    dimension_name: "Matrix"
     karma: 29
     hiring_cost_override: 1000
     scale_character_sheet: true
@@ -12123,13 +12432,14 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "White Ranged IC"
+    enabled_at_start: false
     pc_spawn_number: -1
     spawn_type: SpawnType_Matrix
     hiring_type: HiringType_None
     portrait {
       filename: ""
     }
-    dimension_name: "matrix"
+    dimension_name: "Matrix"
     karma: 29
     hiring_cost_override: 1000
     scale_character_sheet: true
@@ -12173,13 +12483,14 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "White Ranged IC"
+    enabled_at_start: false
     pc_spawn_number: -1
     spawn_type: SpawnType_Matrix
     hiring_type: HiringType_None
     portrait {
       filename: ""
     }
-    dimension_name: "matrix"
+    dimension_name: "Matrix"
     karma: 29
     hiring_cost_override: 1000
     scale_character_sheet: true
@@ -12277,7 +12588,7 @@ characters {
     portrait {
       filename: ""
     }
-    dimension_name: "matrix"
+    dimension_name: "Matrix"
     karma: 29
     hiring_cost_override: 1000
     scale_character_sheet: true
@@ -12291,7 +12602,7 @@ characters {
     z: 3
   }
   orientation: ORIENTATION_E
-  displayName: "Matrix_DoorBlocker"
+  displayName: "Matrix_DronesBlocker"
   idRef {
     id: "55f38f9f346435940c000414"
   }
@@ -12375,7 +12686,7 @@ characters {
     portrait {
       filename: ""
     }
-    dimension_name: "matrix"
+    dimension_name: "Matrix"
     karma: 29
     hiring_cost_override: 1000
     scale_character_sheet: true
@@ -12427,7 +12738,7 @@ characters {
     portrait {
       filename: ""
     }
-    dimension_name: "matrix"
+    dimension_name: "Matrix"
     karma: 29
     hiring_cost_override: 1000
     scale_character_sheet: true
@@ -12462,7 +12773,7 @@ characters {
     portrait {
       filename: ""
     }
-    dimension_name: "matrix"
+    dimension_name: "Matrix"
     scale_character_sheet: true
   }
 }
@@ -12495,7 +12806,7 @@ characters {
     portrait {
       filename: ""
     }
-    dimension_name: "matrix"
+    dimension_name: "Matrix"
     scale_character_sheet: true
   }
 }
@@ -12537,13 +12848,14 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "White Ranged IC"
+    enabled_at_start: false
     pc_spawn_number: -1
     spawn_type: SpawnType_Matrix
     hiring_type: HiringType_None
     portrait {
       filename: ""
     }
-    dimension_name: "matrix"
+    dimension_name: "Matrix"
     karma: 29
     hiring_cost_override: 1000
     scale_character_sheet: true
@@ -12975,8 +13287,6 @@ scene_dimensions {
   is_matrix: true
   max_alarm_value: 150
   heat_response_rating: 8
-}
-character_roster {
 }
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {
