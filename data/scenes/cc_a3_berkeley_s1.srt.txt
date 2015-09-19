@@ -459,6 +459,30 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Move Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "55f38f9e346435940c000314"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Current Location of Prop"
+          args {
+            call_value {
+              functionName: "Get Map Item (Prop)"
+              args {
+                string_value: "55fdc8233464352014000f79"
+              }
+            }
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -8200,6 +8224,267 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Matrix Spawn Drone Second Wave"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "55fdc3273464352014000f6d"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Compare Actor Team"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Matrix"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Activate Actor Spawner By Tag"
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isMatrixDroneSquad2"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55fdc6a33464352014000f70"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Matrix Spawn Drone First Wave"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "55f38f9f346435940c0004b1"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Compare Actor Team"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Matrix"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Activate Actor Spawner By Tag"
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isMatrixDroneSquad2"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55fdc7683464352014000f77"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Matrix Spawn Paydata Squad"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "55f38f9f346435940c00056f"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Compare Actor Team"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Matrix"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Activate Actor Spawner By Tag"
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isMatrixPaydataSquad"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55fdc7d33464352014000f78"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Lower Outside Camera"
   position {
@@ -8789,7 +9074,7 @@ regions {
   vfx_fill_prefab_name: ""
 }
 regions {
-  name: "MatrixNode_Door"
+  name: "MatrixNode_Drones"
   position {
     x: -312
     y: -4
@@ -12249,6 +12534,7 @@ characters {
     z: 23
   }
   orientation: ORIENTATION_N
+  GeneralTags: "isMatrixPaydataSquad"
   displayName: "Matrix_Data_Ranged3"
   idRef {
     id: "55f38f9d346435940c0001e2"
@@ -12279,6 +12565,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "White Ranged IC"
+    GeneralTags: "isMatrixPaydataSquad"
     enabled_at_start: false
     pc_spawn_number: -1
     spawn_type: SpawnType_Matrix
@@ -12300,6 +12587,7 @@ characters {
     z: 19
   }
   orientation: ORIENTATION_N
+  GeneralTags: "isMatrixPaydataSquad"
   displayName: "Matrix_Data_Ranged1"
   idRef {
     id: "55f38f9d346435940c000226"
@@ -12330,6 +12618,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "White Ranged IC"
+    GeneralTags: "isMatrixPaydataSquad"
     enabled_at_start: false
     pc_spawn_number: -1
     spawn_type: SpawnType_Matrix
@@ -12402,6 +12691,7 @@ characters {
     z: 6
   }
   orientation: ORIENTATION_E
+  GeneralTags: "isMatrixDroneSquad2"
   displayName: "Matrix_Data_Ranged3"
   idRef {
     id: "55f38f9e346435940c0002dd"
@@ -12432,6 +12722,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "White Ranged IC"
+    GeneralTags: "isMatrixDroneSquad2"
     enabled_at_start: false
     pc_spawn_number: -1
     spawn_type: SpawnType_Matrix
@@ -12453,6 +12744,7 @@ characters {
     z: 26
   }
   orientation: ORIENTATION_N
+  GeneralTags: "isMatrixPaydataSquad"
   displayName: "Matrix_Data_Ranged2"
   idRef {
     id: "55f38f9e346435940c000349"
@@ -12483,6 +12775,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "White Ranged IC"
+    GeneralTags: "isMatrixPaydataSquad"
     enabled_at_start: false
     pc_spawn_number: -1
     spawn_type: SpawnType_Matrix
@@ -12818,6 +13111,7 @@ characters {
     z: 6
   }
   orientation: ORIENTATION_E
+  GeneralTags: "isMatrixDroneSquad2"
   displayName: "Matrix_Data_Ranged3"
   idRef {
     id: "55f38f9f346435940c000538"
@@ -12848,6 +13142,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "White Ranged IC"
+    GeneralTags: "isMatrixDroneSquad2"
     enabled_at_start: false
     pc_spawn_number: -1
     spawn_type: SpawnType_Matrix
@@ -13149,6 +13444,143 @@ characters {
     hiring_tag: "Crew: Decker"
     id: "crew_lv1_sable"
     cyberware_head: "(Head) Datajack"
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -325
+    y: 0
+    z: 24
+  }
+  orientation: ORIENTATION_E
+  GeneralTags: "isMatrixDroneSquad1"
+  idRef {
+    id: "55fdc7073464352014000f71"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Matrix/MatrixIC_Melee"
+    character_sheet_id: "IC_Lv1_White_Melee"
+    equipment_sheet_id: "IC White Melee Lv1 Gear"
+    character_mod {
+      archetypeName: "gumbo_IC_Soldier"
+      attitude: AttitudeAggressive
+    }
+    team_id: "LoneStar"
+    char_name: "White Melee IC"
+    GeneralTags: "isMatrixDroneSquad1"
+    enabled_at_start: false
+    pc_spawn_number: -1
+    spawn_type: SpawnType_Matrix
+    portrait {
+      filename: ""
+    }
+    dimension_name: "Matrix"
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -326
+    y: 0
+    z: 19
+  }
+  orientation: ORIENTATION_E
+  GeneralTags: "isMatrixDroneSquad1"
+  idRef {
+    id: "55fdc7423464352014000f75"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Matrix/MatrixIC_Support"
+    character_sheet_id: "IC_Lv1_White_Ranged"
+    equipment_sheet_id: "IC White Support Lv1 Gear"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_IC_Shield"
+      attitude: AttitudeAggressive
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "White Sentry IC"
+    GeneralTags: "isMatrixDroneSquad1"
+    enabled_at_start: false
+    pc_spawn_number: -1
+    spawn_type: SpawnType_Matrix
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    dimension_name: "Matrix"
+    karma: 29
+    hiring_cost_override: 1000
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -332
+    y: 0
+    z: 22
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isMatrixDroneSquad1"
+  idRef {
+    id: "55fdc7483464352014000f76"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Matrix/MatrixIC_Ranged"
+    character_sheet_id: "IC_Lv1_White_Ranged"
+    equipment_sheet_id: "IC White Ranged Lv1 Gear"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_IC_Soldier"
+      attitude: AttitudeAggressive
+      vulnerabilities {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "White Ranged IC"
+    GeneralTags: "isMatrixDroneSquad1"
+    enabled_at_start: false
+    pc_spawn_number: -1
+    spawn_type: SpawnType_Matrix
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    dimension_name: "Matrix"
+    karma: 29
+    hiring_cost_override: 1000
+    scale_character_sheet: true
   }
 }
 variables {
