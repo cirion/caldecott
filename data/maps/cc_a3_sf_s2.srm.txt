@@ -5001,9 +5001,9 @@ props {
 props {
   name: "sleekOffice_furniture_largeCornerDesk03"
   gridPoint {
-    x: -28
+    x: -28.03
     y: 0
-    z: -1
+    z: -0.7
   }
   orientation: ORIENTATION_W
   lod: 0
@@ -8122,7 +8122,7 @@ props {
       doorSound: "DoorSlide"
       doorSoundBundle: "props"
     }
-    interaction_info_text: ""
+    interaction_info_text: "Call Elevator"
   }
   lod: 0
 }
@@ -16494,7 +16494,7 @@ props {
     isEnabled: true
     interactionRadius: 1
     interactionIcon: InteractionIcon_Warp
-    interaction_info_text: ""
+    interaction_info_text: "Call Elevator"
   }
   lod: 0
 }
@@ -39726,13 +39726,21 @@ props {
 props {
   name: "matrixHK_clutter_cube21"
   gridPoint {
-    x: -314
+    x: -315
     y: 0
-    z: -37
+    z: -39
   }
   orientation: ORIENTATION_E
+  displayName: "Matrix Wall North 2"
   idRef {
     id: "55f303f16434318b4eb565ee"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    dummyInteraciton {
+    }
+    interaction_info_text: ""
   }
   lod: 0
 }
@@ -42294,9 +42302,9 @@ props {
 props {
   name: "matrixHK_groundDecoration_floorFloater04"
   gridPoint {
-    x: -297
+    x: -296
     y: 0
-    z: -37
+    z: -34
   }
   orientation: ORIENTATION_S
   idRef {
@@ -42699,7 +42707,7 @@ props {
     z: -72
   }
   orientation: ORIENTATION_W
-  displayName: "Matrix_Turrets"
+  displayName: "Turret Targeting System"
   idRef {
     id: "55f303f26434318b4eb566d6"
   }
@@ -42719,7 +42727,7 @@ props {
                   call_value {
                     functionName: "Get Map Item (Actor)"
                     args {
-                      string_value: "55847c7d306364541b001ba3"
+                      string_value: "55f303f26434318b4eb568f4"
                     }
                   }
                 }
@@ -42746,7 +42754,6 @@ props {
       }
     }
     matrixNode {
-      hacking_objects: "55845458306364541b001a80"
       prerequisites_control_state: true
       constant_matrix_fx: ""
       state_change_offline_fx: ""
@@ -42762,7 +42769,7 @@ props {
       state_change_hacked_sound: ""
       state_change_hacked_sound_volume: 1
     }
-    interaction_info_text: ""
+    interaction_info_text: "Reprogram Turrets"
   }
   lod: 0
 }
@@ -43349,7 +43356,7 @@ props {
 props {
   name: "matrixHK_groundDecoration_floorFloater05"
   gridPoint {
-    x: -298
+    x: -297
     y: 0
     z: -36
   }
@@ -44130,7 +44137,7 @@ props {
     z: -76
   }
   orientation: ORIENTATION_S
-  displayName: "Matrix_Paydata"
+  displayName: "Paydata"
   idRef {
     id: "55f303f26434318b4eb5673e"
   }
@@ -44150,7 +44157,7 @@ props {
                   call_value {
                     functionName: "Get Map Item (Actor)"
                     args {
-                      string_value: "55845642306364541b001a90"
+                      string_value: "55f303f26434318b4eb5689a"
                     }
                   }
                 }
@@ -44175,42 +44182,8 @@ props {
           int_value: 0
         }
       }
-      ops {
-        functionName: "Comparison (bool)"
-        args {
-          call_value {
-            functionName: "Get Variable (bool)"
-            args {
-              string_value: "2nd_EscapeAlert"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "IsOrIsNot"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-      }
     }
     matrixNode {
-      hacking_objects: "558454af306364541b001a82"
       prerequisites_control_state: true
       constant_matrix_fx: ""
       state_change_offline_fx: ""
@@ -44226,7 +44199,7 @@ props {
       state_change_hacked_sound: ""
       state_change_hacked_sound_volume: 1
     }
-    interaction_info_text: ""
+    interaction_info_text: "Download Paydata"
   }
   lod: 0
 }
@@ -45661,8 +45634,40 @@ props {
     z: -43
   }
   orientation: ORIENTATION_S
+  GeneralTags: "isMatrixToggleActive"
+  displayName: "Matrix Toggle Doors"
   idRef {
     id: "55f303f26434318b4eb567ae"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Turn Mode in Dimension"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TurnBasedOrFreeMove"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Matrix"
+            }
+          }
+        }
+      }
+    }
+    interactionIcon: InteractionIcon_Generic
+    interaction_info_text: "Toggle"
   }
   lod: 0
 }
@@ -48381,7 +48386,7 @@ props {
     z: -59
   }
   orientation: ORIENTATION_E
-  displayName: "Matrix_TrainProtocols"
+  displayName: "Train Protocols"
   idRef {
     id: "55f303f26434318b4eb56880"
   }
@@ -48401,7 +48406,7 @@ props {
                   call_value {
                     functionName: "Get Map Item (Actor)"
                     args {
-                      string_value: "55845674306364541b001a95"
+                      string_value: "55f303f26434318b4eb5674e"
                     }
                   }
                 }
@@ -48428,7 +48433,6 @@ props {
       }
     }
     matrixNode {
-      hacking_objects: "5584546b306364541b001a81"
       prerequisites_control_state: true
       constant_matrix_fx: ""
       state_change_offline_fx: ""
@@ -48444,7 +48448,7 @@ props {
       state_change_hacked_sound: ""
       state_change_hacked_sound_volume: 1
     }
-    interaction_info_text: ""
+    interaction_info_text: "Download Train Protocols"
   }
   lod: 0
 }
@@ -53368,9 +53372,9 @@ props {
 props {
   name: "matrixHK_clutter_cube08"
   gridPoint {
-    x: -298
+    x: -301
     y: 0
-    z: -41
+    z: -40
   }
   orientation: ORIENTATION_S
   idRef {
@@ -54850,7 +54854,7 @@ props {
 props {
   name: "matrixHK_clutter_cube08"
   gridPoint {
-    x: -315
+    x: -313
     y: 0
     z: -41
   }
@@ -56423,13 +56427,21 @@ props {
 props {
   name: "matrixHK_clutter_cube21"
   gridPoint {
-    x: -299
+    x: -298
     y: 0
-    z: -36
+    z: -41
   }
   orientation: ORIENTATION_E
+  displayName: "Matrix Wall South 1"
   idRef {
     id: "55f303f36434318b4eb56af4"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    dummyInteraciton {
+    }
+    interaction_info_text: ""
   }
   lod: 0
 }
@@ -59116,7 +59128,7 @@ props {
     z: -56
   }
   orientation: ORIENTATION_S
-  displayName: "Matrix_Cameras"
+  displayName: "Camera Feed"
   idRef {
     id: "55fe19523464352014000f7f"
   }
@@ -59136,7 +59148,7 @@ props {
                   call_value {
                     functionName: "Get Map Item (Actor)"
                     args {
-                      string_value: "55847c7d306364541b001ba3"
+                      string_value: "55fe1aa13464352014000f8a"
                     }
                   }
                 }
@@ -59163,7 +59175,6 @@ props {
       }
     }
     matrixNode {
-      hacking_objects: "55845458306364541b001a80"
       prerequisites_control_state: true
       constant_matrix_fx: ""
       state_change_offline_fx: ""
@@ -59179,7 +59190,7 @@ props {
       state_change_hacked_sound: ""
       state_change_hacked_sound_volume: 1
     }
-    interaction_info_text: ""
+    interaction_info_text: "Tap Camera Feed"
   }
   lod: 0
 }
@@ -59499,5 +59510,82 @@ props {
     }
     interaction_info_text: ""
   }
+  lod: 0
+}
+props {
+  name: "matrixHK_clutter_cube21"
+  gridPoint {
+    x: -315
+    y: 0
+    z: -41
+  }
+  orientation: ORIENTATION_E
+  displayName: "Matrix Wall North 1"
+  idRef {
+    id: "55fe2ce63464354c1f007638"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    dummyInteraciton {
+    }
+    interaction_info_text: ""
+  }
+  lod: 0
+}
+props {
+  name: "matrixHK_clutter_cube21"
+  gridPoint {
+    x: -298
+    y: 0
+    z: -39
+  }
+  orientation: ORIENTATION_E
+  displayName: "Matrix Wall South 2"
+  idRef {
+    id: "55fe2d043464354c1f007639"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    dummyInteraciton {
+    }
+    interaction_info_text: ""
+  }
+  lod: 0
+}
+props {
+  name: "vfx_fx_matrixStrayDataBlue"
+  gridPoint {
+    x: -305
+    y: 1
+    z: -43
+  }
+  orientation: ORIENTATION_S
+  properties {
+    property_id: "fxScript"
+    string_value: "HongKong:matrixStrayDataBlue"
+  }
+  displayName: "Matrix FX Data Toggle"
+  idRef {
+    id: "55fe31183464354c1f00763c"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    dummyInteraciton {
+    }
+    interaction_info_text: ""
+  }
+  lod: 0
+}
+props {
+  name: "sleekOffice_tech_terminal01"
+  gridPoint {
+    x: -25.2
+    y: 0.5
+    z: -1
+  }
+  orientation: ORIENTATION_N
   lod: 0
 }
