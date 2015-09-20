@@ -1,0 +1,277 @@
+idRef {
+  id: "55fecc7d346435d0160026e8"
+}
+ui_name: "cc_a3_berkeley_s1-Gamer"
+nodes {
+  idRef {
+    id: "55fecc81346435d0160026f0"
+  }
+  index: 0
+  text: "All right, I think I found the private workshop that holds the\342\200\246\n\nWait, hold on a second! You\342\200\231re not Gabe!"
+  branches {
+    responseText: "I am not."
+    nextNodeIndex: 1
+    idRef {
+      id: "55fecc7d346435d0160026e8:55fecc84346435d0160026f2"
+    }
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Sorry to disappoint you."
+    nextNodeIndex: 1
+    idRef {
+      id: "55fecc7d346435d0160026e8:55fecc9f346435d0160026f8"
+    }
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Filthy peasant!"
+    nextNodeIndex: 1
+    idRef {
+      id: "55fecc7d346435d0160026e8:55fecc9f346435d0160026fa"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55fecd07346435d01600272d"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "55fecca6346435d016002701"
+  }
+  index: 1
+  text: "Crap! I just wanted to find where the Half-Life 3 build was hidden. Please don\342\200\231t sic your black IC on me!"
+  branches {
+    responseText: "I\342\200\231ll let you go if you turn over all your credits to me."
+    nextNodeIndex: 2
+    idRef {
+      id: "55fecc7d346435d0160026e8:55feccc9346435d016002708"
+    }
+  }
+  branches {
+    responseText: "Get out of here before you get hurt."
+    actions {
+      ops {
+        functionName: "Add Actor Karma"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    nextNodeIndex: 3
+    idRef {
+      id: "55fecc7d346435d0160026e8:55fecccf346435d01600270d"
+    }
+  }
+  branches {
+    responseText: "Don\342\200\231t be silly, kid. HL3 won\342\200\231t be coming out for at LEAST 10 more years."
+    nextNodeIndex: 4
+    idRef {
+      id: "55fecc7d346435d0160026e8:55feccd1346435d016002713"
+    }
+  }
+  branches {
+    responseText: "{{CC}}Developing a $(story.game_genre) game{{/CC}} I\342\200\231m working on a game of my own. You have free time, want to help test it?"
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_global-GameRequirements"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 5
+    hideIfUnavailable: true
+    idRef {
+      id: "55fecc7d346435d0160026e8:55feccdb346435d016002717"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55fecccd346435d01600270b"
+  }
+  index: 2
+  text: "This is all I have, honest! The sales haven\342\200\231t been so good to me lately. Goodbye!"
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Add Nuyen"
+      args {
+        int_value: 313
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "55fecc7d346435d0160026e8:55fecccf346435d01600270f"
+  }
+  index: 3
+  text: "I will! Thank you, $(l.sir)!"
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55fecc7d346435d0160026e8:55feccd1346435d016002715"
+  }
+  index: 4
+  text: "Wait! This means it\342\200\231s confirmed, right?! I can\342\200\231t wait to tell everyone the good news!"
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55fecc7d346435d0160026e8:55feccdb346435d016002719"
+  }
+  index: 5
+  text: "R\342\200\246 really?! That would be awesome!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 6
+    idRef {
+      id: "55fecc7d346435d0160026e8:55fecda8346435d01600272f"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55fecc7d346435d0160026e8:55fecdaa346435d016002731"
+  }
+  index: 6
+  text: "You show her where builds of your upcoming game can be located and where to send feedback."
+  branches {
+    responseText: ""
+    nextNodeIndex: 7
+    idRef {
+      id: "55fecc7d346435d0160026e8:55fecdaa346435d016002733"
+    }
+  }
+  nodeType: ConversationNodeType_GM_Voice
+}
+nodes {
+  idRef {
+    id: "55fecdaf346435d016002738"
+  }
+  index: 7
+  text: "Wiz! All right, I\342\200\231m logging out now. Can\342\200\231t wait to start playing your game, even if it is buggy as hell!"
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Add Item to Team"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "cc_global-GameTesters"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+}
+roots {
+  nextNodeIndex: 0
+  idRef {
+    id: "55fecc7d346435d0160026e8:55fecc7d346435d0160026ec"
+  }
+}
