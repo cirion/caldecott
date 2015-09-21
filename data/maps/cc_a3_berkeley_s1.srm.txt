@@ -67947,27 +67947,6 @@ props {
   lod: 0
 }
 props {
-  name: "system_invisible_nonsolidProp"
-  gridPoint {
-    x: -291
-    y: 0
-    z: 67
-  }
-  orientation: ORIENTATION_S
-  displayName: "Debug Matrix Shortcut"
-  idRef {
-    id: "55ff5023346435bc000039d9"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    dummyInteraciton {
-    }
-    interaction_info_text: "Jack In"
-  }
-  lod: 0
-}
-props {
   name: "matrixHK_wall_door01Near"
   gridPoint {
     x: -290
@@ -69066,6 +69045,80 @@ props {
     }
     interactionIcon: InteractionIcon_Matrix
     interaction_info_text: "Jack In"
+  }
+  lod: 0
+}
+props {
+  name: "matrixHK_tech_nodeOpen01"
+  gridPoint {
+    x: -241
+    y: 0
+    z: 24
+  }
+  orientation: ORIENTATION_W
+  displayName: "Keycards"
+  idRef {
+    id: "55ff6c54346435bc00003abf"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Count of Alive Actors"
+            args {
+              call_value {
+                functionName: "Specific Actor"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Actor)"
+                    args {
+                      string_value: "55ff6c86346435bc00003ac1"
+                    }
+                  }
+                }
+                args {
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    matrixNode {
+      prerequisites_control_state: true
+      constant_matrix_fx: ""
+      state_change_offline_fx: ""
+      state_change_offline_sound: ""
+      state_change_offline_sound_volume: 1
+      state_change_hackable_fx: "HongKong:MatrixObject_Hackable"
+      state_change_hackable_sound: "MatrixNodeHackReady"
+      state_change_hackable_sound_volume: 1
+      state_change_locked_fx: "HongKong:MatrixObject_Locked"
+      state_change_locked_sound: ""
+      state_change_locked_sound_volume: 1
+      state_change_hacked_fx: "HongKong:MatrixObject_Hacked"
+      state_change_hacked_sound: ""
+      state_change_hacked_sound_volume: 1
+    }
+    interaction_info_text: "Upload Credentials"
   }
   lod: 0
 }
