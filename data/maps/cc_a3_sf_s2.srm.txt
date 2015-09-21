@@ -1,7 +1,7 @@
 minX: -366
-minZ: -84
+minZ: -86
 numX: 359
-numZ: 111
+numZ: 113
 props {
   name: "secretLab_wall_fill"
   gridPoint {
@@ -59709,6 +59709,93 @@ props {
     }
     interactionIcon: InteractionIcon_Matrix
     interaction_info_text: "Jack In"
+  }
+  lod: 0
+}
+props {
+  name: "matrixHK_ground_2x2ground03"
+  gridPoint {
+    x: -349
+    y: 0
+    z: -66
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "55ff3394346435bc0000398f"
+  }
+  lod: 0
+}
+props {
+  name: "matrixHK_tech_nodeOpen01"
+  gridPoint {
+    x: -349
+    y: 0
+    z: -86
+  }
+  orientation: ORIENTATION_S
+  displayName: "Firewall"
+  idRef {
+    id: "55ff33c2346435bc00003990"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Count of Alive Actors"
+            args {
+              call_value {
+                functionName: "Specific Actor"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Actor)"
+                    args {
+                      string_value: "55f303f26434318b4eb5689a"
+                    }
+                  }
+                }
+                args {
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    matrixNode {
+      prerequisites_control_state: true
+      constant_matrix_fx: ""
+      state_change_offline_fx: ""
+      state_change_offline_sound: ""
+      state_change_offline_sound_volume: 1
+      state_change_hackable_fx: "HongKong:MatrixObject_Hackable"
+      state_change_hackable_sound: "MatrixNodeHackReady"
+      state_change_hackable_sound_volume: 1
+      state_change_locked_fx: "HongKong:MatrixObject_Locked"
+      state_change_locked_sound: ""
+      state_change_locked_sound_volume: 1
+      state_change_hacked_fx: "HongKong:MatrixObject_Hacked"
+      state_change_hacked_sound: ""
+      state_change_hacked_sound_volume: 1
+    }
+    interaction_info_text: "Lower Firewall"
   }
   lod: 0
 }
