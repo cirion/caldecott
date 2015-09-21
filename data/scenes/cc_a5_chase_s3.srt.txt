@@ -6930,7 +6930,18 @@ triggers {
       }
     }
     ops {
-      functionName: "Detach Region"
+      functionName: "Set Region Enabled"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
       args {
         call_value {
           functionName: "Get Map Item (Region)"
@@ -7392,10 +7403,7 @@ triggers {
       }
       args {
         call_value {
-          functionName: "Get Map Item (Player)"
-          args {
-            int_value: 0
-          }
+          functionName: "Last Created Persona"
         }
       }
       args {
@@ -7441,7 +7449,7 @@ triggers {
       }
     }
   }
-  isActive: false
+  isActive: true
   idRef {
     id: "55ff6fc4346435bc00003acb"
   }
@@ -7522,7 +7530,15 @@ triggers {
       }
     }
     ops {
-      functionName: "No Effect"
+      functionName: "Delete Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "55ff574f346435bc00003a6c"
+          }
+        }
+      }
     }
   }
   isActive: false
@@ -8045,7 +8061,7 @@ regions {
   visible_at_start: false
   is_closet: false
   is_teleporter_region: true
-  linked_teleporter_region: "55ff50bd346435bc00003a14"
+  linked_teleporter_region: "55ff50b0346435bc00003a0f"
   teleport_facing: 4
   teleport_sound_fx: "Matrix_TeleportDoor"
   teleport_sound_volume: 1
@@ -8222,8 +8238,8 @@ regions {
 regions {
   name: "Teleport_HestabyToCross"
   position {
-    x: -290
-    y: 70
+    x: -363
+    y: 21
     width: -2
     height: 1
   }
@@ -8288,10 +8304,10 @@ regions {
 regions {
   name: "Hestaby Camera"
   position {
-    x: -305
-    y: 51
-    width: 27
-    height: 26
+    x: -377
+    y: -10
+    width: 28
+    height: 38
   }
   enabledAtStart: true
   is_camera_region: true
@@ -10251,9 +10267,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -292
+    x: -364
     y: 0
-    z: 57
+    z: 12
   }
   orientation: ORIENTATION_E
   displayName: "Hestaby"
