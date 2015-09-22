@@ -1,0 +1,124 @@
+idRef {
+  id: "56005109643431bd6464f93f"
+}
+ui_name: "cc_a3_alameda_s2-NCOperator"
+nodes {
+  idRef {
+    id: "560051fd643431bd6464f973"
+  }
+  index: 0
+  text: "Wait! Don\342\200\231t shoot!"
+  branches {
+    nextNodeIndex: 1
+    idRef {
+      id: "56005109643431bd6464f93f:560051ff643431bd6464f975"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "56005109643431bd6464f93f:560051ff643431bd6464f977"
+  }
+  index: 1
+  text: "There\342\200\246 I just released the train from the lockdown. You got what you came for. I can leave now, right?"
+  branches {
+    nextNodeIndex: 2
+    idRef {
+      id: "56005109643431bd6464f93f:56005203643431bd6464f97b"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "TODO: SFX"
+}
+nodes {
+  idRef {
+    id: "56005109643431bd6464f93f:56005203643431bd6464f97d"
+  }
+  index: 2
+  text: ""
+  branches {
+    responseText: ""
+    nextNodeIndex: 3
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "56005109643431bd6464f93f:56005223643431bd6464f97f"
+    }
+    comment: "TODO: Rafik exists"
+  }
+  branches {
+    responseText: ""
+    nextNodeIndex: 4
+    onlyOnce: true
+    idRef {
+      id: "56005109643431bd6464f93f:56005225643431bd6464f981"
+    }
+    comment: "TODO: Sable exists"
+  }
+  branches {
+    responseText: "{{GM}}Let the NC go.{{/GM}}"
+    nextNodeIndex: 5
+    idRef {
+      id: "56005109643431bd6464f93f:56005226643431bd6464f983"
+    }
+  }
+  branches {
+    responseText: ""
+    nextNodeIndex: -1
+    idRef {
+      id: "56005109643431bd6464f93f:56005226643431bd6464f985"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "Reactive loop."
+}
+nodes {
+  idRef {
+    id: "56005232643431bd6464f988"
+  }
+  index: 3
+  text: "Be careful, $(l.name). This is a pretty huge loose end. Do you really want more NCs running around behind your back?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 2
+    idRef {
+      id: "56005109643431bd6464f93f:56005234643431bd6464f98a"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isRafik"
+}
+nodes {
+  idRef {
+    id: "56005109643431bd6464f93f:5600523c643431bd6464f9a1"
+  }
+  index: 4
+  text: "What\342\200\231s the harm? He\342\200\231s just one man. If he turns against us, we can just as easily kill him later on."
+  branches {
+    responseText: ""
+    nextNodeIndex: 2
+    idRef {
+      id: "56005109643431bd6464f93f:5600523c643431bd6464f9a3"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isSable"
+}
+nodes {
+  idRef {
+    id: "56005275643431bd6464f9ab"
+  }
+  index: 5
+  text: "Oh, thank you!"
+  nodeType: ConversationNodeType_Simple
+  comment: "TODO: Trigger"
+}
+roots {
+  nextNodeIndex: 0
+  idRef {
+    id: "56005109643431bd6464f93f:56005109643431bd6464f943"
+  }
+}
