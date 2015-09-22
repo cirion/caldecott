@@ -21,7 +21,7 @@ nodes {
     id: "56005109643431bd6464f93f:560051ff643431bd6464f977"
   }
   index: 1
-  text: "There\342\200\246 I just released the train from the lockdown. You got what you came for. I can leave now, right?"
+  text: "There\342\200\246 I just released the train from the lockdown.\n\nYou got what you came for. I can leave now, right?"
   branches {
     nextNodeIndex: 2
     idRef {
@@ -29,7 +29,69 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: SFX"
+  actions {
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Release the Train Engine"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "HongKong:rigger"
+          }
+          args {
+            string_value: "DroneRotors"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -39,32 +101,150 @@ nodes {
   text: ""
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor is Inside Region"
+        args {
+          call_value {
+            functionName: "All Actors With Tag"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "isRafik"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "AreOrAreNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Region)"
+            args {
+              string_value: "55fcd5393464352014000e81"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 3
     hideIfUnavailable: true
     onlyOnce: true
     idRef {
       id: "56005109643431bd6464f93f:56005223643431bd6464f97f"
     }
-    comment: "TODO: Rafik exists"
   }
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor is Inside Region"
+        args {
+          call_value {
+            functionName: "All Actors With Tag"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "isSable"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "AreOrAreNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Region)"
+            args {
+              string_value: "55fcd5393464352014000e81"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 4
     onlyOnce: true
     idRef {
       id: "56005109643431bd6464f93f:56005225643431bd6464f981"
     }
-    comment: "TODO: Sable exists"
   }
   branches {
-    responseText: "{{GM}}Let the NC go.{{/GM}}"
+    responseText: "Let him go."
     nextNodeIndex: 5
     idRef {
       id: "56005109643431bd6464f93f:56005226643431bd6464f983"
     }
   }
   branches {
-    responseText: ""
+    responseText: "{{GM}}Execute him.{{/GM}}"
+    actions {
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "5600cb85346435d41c003e97"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: -1
     idRef {
       id: "56005109643431bd6464f93f:56005226643431bd6464f985"
@@ -114,6 +294,30 @@ nodes {
   index: 5
   text: "Oh, thank you!"
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5600cd0d346435d41c003eec"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Trigger"
 }
 roots {

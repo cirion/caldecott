@@ -49,15 +49,119 @@ nodes {
   }
   branches {
     responseText: "I\342\200\231m looking for a concert venue. Could we use Alameda?"
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_global-ConcertRequirements"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_global-ConcertLocation"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 4
     hideIfUnavailable: true
     idRef {
       id: "56004ea7643431bd6464f6a9:56004eeb643431bd6464f6d3"
     }
-    comment: "TODO: Have quest"
   }
   branches {
     responseText: "How do I get down to the train control area?"
+    conditions {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Find the Bunker Entrance"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 8
     idRef {
       id: "56004ea7643431bd6464f6a9:56004eeb643431bd6464f6d5"
@@ -65,12 +169,46 @@ nodes {
   }
   branches {
     responseText: "Can you open the hatch for me?"
+    conditions {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Open the Bunker Entrance"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 11
     hideIfUnavailable: true
     idRef {
       id: "56004ea7643431bd6464f6a9:56004eeb643431bd6464f6d7"
     }
-    comment: "TODO: At right state."
   }
   branches {
     responseText: "Goodbye."
@@ -103,7 +241,7 @@ nodes {
     id: "56004f1a643431bd6464f6f2"
   }
   index: 4
-  text: "Well, sure! I have plenty of bands coming through here all the time. If you\342\200\231re looking for something a bit bigger, we can always overflow into the island itself."
+  text: "Well, sure! I have plenty of bands coming through here all the time. If you\342\200\231re looking for something a bit bigger, we can always overflow into the island itself.\n\nHell, if you want it, you can take over the old battleship. That might be a bit different from the house parties most Oaklanders are used to."
   branches {
     responseText: ""
     nextNodeIndex: 5
@@ -120,27 +258,146 @@ nodes {
   index: 5
   text: "Of course, there\342\200\231s the little matter of the facilities fee. Just \302\245200 should cover the deposit. We\342\200\231ll take the rest as ticket surcharge."
   branches {
-    responseText: "{{CC}}Academic: Socialite{{/CC}} I don\342\200\231t think you understand: we\342\200\231ll be bringing in the *premiere* Bay Area bands. This will put your joint on the map."
-    nextNodeIndex: -1
+    responseText: "{{CC}}Etiquette: Socialite{{/CC}} I don\342\200\231t think you understand: we\342\200\231ll be bringing in the *premiere* Bay Area bands. This will put your joint on the map."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 16
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    nextNodeIndex: 6
     idRef {
       id: "56004ea7643431bd6464f6a9:56004f1c643431bd6464f6f8"
     }
-    comment: "TODO: Pre-reqs for all"
+    auxiliaryLink: true
   }
   branches {
     responseText: "{{CC}}Charisma: 5{{/CC}} Surely the fact that I\342\200\231ve cleared these ruffians away from you earns a waiver of the standard fees?"
-    nextNodeIndex: -1
+    conditions {
+      ops {
+        functionName: "Compare Actor Attribute"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorAttributes"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 5
+        }
+      }
+    }
+    nextNodeIndex: 6
     idRef {
       id: "56004ea7643431bd6464f6a9:56004f92643431bd6464f6fc"
     }
+    auxiliaryLink: true
   }
   branches {
     responseText: "{{CC}}\302\245200{{/CC}} Fair enough."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 200
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 200
+        }
+      }
+    }
     nextNodeIndex: 6
     idRef {
       id: "56004ea7643431bd6464f6a9:56004f92643431bd6464f6fe"
     }
-    comment: "TODO: Deduct on selection"
   }
   branches {
     responseText: "No deal."
@@ -166,14 +423,56 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Update item, mission status."
+  actions {
+    ops {
+      functionName: "Add Item to Team"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "cc_global-ConcertLocation"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
     id: "56004f98643431bd6464f703"
   }
   index: 7
-  text: "Suit yourself. You don\'t find other venues around here, though."
+  text: "Suit yourself. You won\'t find other venues around here, though."
   branches {
     responseText: ""
     nextNodeIndex: 2
@@ -189,18 +488,90 @@ nodes {
     id: "5600500b643431bd6464f77d"
   }
   index: 8
-  text: "Hm\342\200\246 why don\342\200\231t you look at this as a game? Have a little look around, see if you can spot it.\nIf you still can\342\200\231t locate it, I\342\200\231ll point it out for the low low price of \302\24550."
+  text: "Hm\342\200\246 why don\342\200\231t you look at this as a game? Have a little look around, see if you can spot it.\n\nIf you still can\342\200\231t locate it, I\342\200\231ll point it out for the low low price of \302\24550."
   branches {
     responseText: "{{CC}}\302\24550{{/CC}} Fine, where is it?"
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 50
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 50
+        }
+      }
+    }
     nextNodeIndex: 9
     idRef {
       id: "56004ea7643431bd6464f6a9:56005013643431bd6464f77f"
     }
     auxiliaryLink: true
-    comment: "TODO: Pre-reqs here. Deduct nuyen"
   }
   branches {
-    responseText: "TODO: Other skill check?"
+    responseText: "{{CC}}Etiquette: Gang{{/CC}} I\'ve cased countless joints in my day. It isn\'t fun any more. Just tell me where it is."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 15
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 9
     idRef {
       id: "56004ea7643431bd6464f6a9:56005013643431bd6464f781"
@@ -214,6 +585,41 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Find the Bunker Entrance"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -230,7 +636,52 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Update goal status"
+  actions {
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5600c702346435d41c003d79"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -256,15 +707,87 @@ nodes {
   text: "Ugh\342\200\246 it\342\200\231s, like, all the way over *there*. I hate leaving my bar.\n\nTell you what. If you go down there, you\342\200\231ll be killing a bunch of NCs and stealing their loot. If I help you out, it\342\200\231s only fair that I get a share. I\342\200\231d like it up front: \302\245150."
   branches {
     responseText: "{{CC}}\302\245150{{/CC}} You must be the greediest bartender ever. Fine, here you go."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 150
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 150
+        }
+      }
+    }
     nextNodeIndex: 12
     idRef {
       id: "56004ea7643431bd6464f6a9:56005089643431bd6464f83c"
     }
     auxiliaryLink: true
-    comment: "TODO: Pre-req, deduct nuyen."
   }
   branches {
-    responseText: "TODO: Other skill check(s)?"
+    responseText: "{{CC}}Etiquette: Shadowrunner{{/CC}} I\'m very familiar with farming out small jobs, and trust me when I say that you aren\'t worth it."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 17
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 12
     idRef {
       id: "56004ea7643431bd6464f6a9:56005089643431bd6464f83e"
@@ -285,8 +808,61 @@ nodes {
   }
   index: 12
   text: "Piece of cake!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 2
+    idRef {
+      id: "56004ea7643431bd6464f6a9:5600c7ba346435d41c003db2"
+    }
+    auxiliaryLink: true
+  }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Enable here?"
+  actions {
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "554e63113464351421004552"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {

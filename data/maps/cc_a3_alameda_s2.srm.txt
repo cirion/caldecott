@@ -5378,6 +5378,55 @@ props {
     z: -2.8
   }
   orientation: ORIENTATION_E
+  idRef {
+    id: "5600c6ee346435d41c003d78"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Find the Bunker Entrance"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    inspectInteraction {
+      dispalyTime: 3
+      fadeTime: 0
+      inspectText: "This booth is solidly stuck in place. Nothing seems to be hidden underneath."
+      disableAfterInteracting: true
+    }
+    interaction_info_text: ""
+  }
   lod: 0
 }
 props {
@@ -5780,8 +5829,43 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
-    interactionIcon: InteractionIcon_Generic
-    interaction_info_text: "Move Rug"
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Find the Bunker Entrance"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    interactionIcon: InteractionIcon_Inspect
+    interaction_info_text: "Inspect"
   }
   lod: 0
 }
@@ -5962,6 +6046,15 @@ props {
   idRef {
     id: "553b010f346435700f004e74"
   }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    pickupItem {
+      itemName: "Grenade 2 (Frag)"
+      destroyOnPickup: false
+    }
+    interaction_info_text: ""
+  }
   lod: 0
 }
 props {
@@ -5985,6 +6078,16 @@ props {
     z: 37.3
   }
   orientation: ORIENTATION_E
+  displayName: "Nuyen Safe"
+  idRef {
+    id: "5600ca93346435d41c003e6b"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    interactionIcon: InteractionIcon_ItemPickup
+    interaction_info_text: "Loot Safe"
+  }
   lod: 0
 }
 props {
@@ -6023,6 +6126,15 @@ props {
   orientation: ORIENTATION_S
   idRef {
     id: "553b016e346435700f004e78"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    pickupItem {
+      itemName: "AR 1 AK98"
+      destroyOnPickup: false
+    }
+    interaction_info_text: ""
   }
   lod: 0
 }
@@ -6457,6 +6569,18 @@ props {
     z: 37
   }
   orientation: ORIENTATION_S
+  idRef {
+    id: "5600cb09346435d41c003e70"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    pickupItem {
+      itemName: "Grenade 2 (Shock)"
+      destroyOnPickup: false
+    }
+    interaction_info_text: ""
+  }
   lod: 0
 }
 props {
@@ -16678,6 +16802,163 @@ props {
     interactionRadius: 1
     dummyInteraciton {
     }
+    interaction_info_text: ""
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: 1
+    y: 0
+    z: -3
+  }
+  orientation: ORIENTATION_S
+  displayName: "Return to Halferville"
+  idRef {
+    id: "5600be4034643588070066cb"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Release the Train Engine"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    transitionPoint {
+      scene_name: "cc_hub_halferville"
+      confirmation_text: "Are you ready to head back to your headquarters?"
+    }
+    interaction_info_text: "Return to Halferville"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -22
+    y: 0
+    z: -2
+  }
+  orientation: ORIENTATION_S
+  displayName: "Hatch Closed"
+  idRef {
+    id: "5600c695346435d41c003d75"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Open the Bunker Entrance"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    conversationPoint {
+      conversationID: "560051a0643431bd6464f949"
+      turnToFace: true
+    }
+    interactionIcon: InteractionIcon_Generic
+    interaction_info_text: "Hatch"
+  }
+  lod: 0
+}
+props {
+  name: "office_tech_keycardLanyard"
+  gridPoint {
+    x: -19.5
+    y: 1.4
+    z: 2.7
+  }
+  orientation: ORIENTATION_S
+  displayName: "Nuyen"
+  idRef {
+    id: "5600c9cc346435d41c003e65"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    interactionIcon: InteractionIcon_ItemPickup
+    interaction_info_text: "Credstick"
+  }
+  lod: 0
+}
+props {
+  name: "office_tech_keycardLanyard"
+  gridPoint {
+    x: -50
+    y: 0
+    z: 3
+  }
+  orientation: ORIENTATION_S
+  displayName: "Nuyen Loot NC Operator"
+  idRef {
+    id: "5600cca0346435d41c003ee9"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    interactionIcon: InteractionIcon_ItemPickup
     interaction_info_text: ""
   }
   lod: 0
