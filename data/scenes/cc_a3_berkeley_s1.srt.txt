@@ -334,6 +334,20 @@ triggers {
   conditions {
   }
   actions {
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Event_KoraCallOpening"
+          }
+        }
+      }
+      args {
+        float_value: 3
+      }
+    }
   }
   isActive: true
   idRef {
@@ -8713,6 +8727,198 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Kora Call"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Event_KoraCallOpening"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "55ef3495643431f50b059636"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "56020ee0346435081c003999"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Library Locked"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "5602120a346435081c00399b"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Display Text over Prop"
+      args {
+        call_value {
+          functionName: "Triggering Prop"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        string_value: "The door is secured with a maglock. You\'ll need to find an appropriate keycard to enter."
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5602121e346435081c00399d"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Security Locked"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "56021634346435081c0039a7"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Display Text over Prop"
+      args {
+        call_value {
+          functionName: "Triggering Prop"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        string_value: "The door is secured with a maglock. You\'ll need to find an appropriate badge to enter."
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "56021650346435081c0039aa"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
 regions {
   name: "Lower Outside Camera"
   position {
@@ -11977,6 +12183,7 @@ characters {
     }
     karma: 75
     scale_character_sheet: true
+    persistent_body: true
   }
 }
 characters {
@@ -12069,6 +12276,7 @@ characters {
     }
     karma: 75
     scale_character_sheet: true
+    persistent_body: true
   }
 }
 characters {
@@ -12161,6 +12369,7 @@ characters {
     }
     karma: 75
     scale_character_sheet: true
+    persistent_body: true
   }
 }
 characters {
@@ -12553,7 +12762,7 @@ characters {
   }
   lod: 0
   character_instance {
-    prefab_name: "Seattle:Creature/CreatureHellhound"
+    prefab_name: "HongKong:Creatures/RatDevil"
     character_sheet_id: "Creature_Lv1_DevilRat"
     equipment_sheet_id: "DevilRat_Lv1_Powers"
     character_mod {
@@ -12612,7 +12821,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_Mage"
+      archetypeName: "Guard - Seek And Destroy"
       attitude: AttitudeAggressive
       attackRandom: AttackStyle_AllEqual
       vulnerabilities {
@@ -12625,7 +12834,7 @@ characters {
     portrait {
       filename: ""
     }
-    karma: 52
+    karma: 49
     hiring_cost_override: 1000
     scale_character_sheet: true
   }
@@ -12644,7 +12853,7 @@ characters {
   }
   lod: 0
   character_instance {
-    prefab_name: "Seattle:Creature/CreatureHellhound"
+    prefab_name: "HongKong:Creatures/RatDevil"
     character_sheet_id: "Creature_Lv1_DevilRat"
     equipment_sheet_id: "DevilRat_Lv1_Powers"
     character_mod {
@@ -12703,7 +12912,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_Mage"
+      archetypeName: "Guard - Seek And Destroy"
       attitude: AttitudeAggressive
       attackRandom: AttackStyle_AllEqual
       vulnerabilities {
@@ -12716,7 +12925,7 @@ characters {
     portrait {
       filename: ""
     }
-    karma: 52
+    karma: 49
     hiring_cost_override: 1000
     scale_character_sheet: true
   }
@@ -12735,7 +12944,7 @@ characters {
   }
   lod: 0
   character_instance {
-    prefab_name: "Seattle:Creature/CreatureHellhound"
+    prefab_name: "HongKong:Creatures/RatDevil"
     character_sheet_id: "Creature_Lv1_DevilRat"
     equipment_sheet_id: "DevilRat_Lv1_Powers"
     character_mod {
@@ -12794,7 +13003,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_Mage"
+      archetypeName: "Guard - Seek And Destroy"
       attitude: AttitudeAggressive
       attackRandom: AttackStyle_AllEqual
       vulnerabilities {
@@ -12807,7 +13016,7 @@ characters {
     portrait {
       filename: ""
     }
-    karma: 52
+    karma: 49
     hiring_cost_override: 1000
     scale_character_sheet: true
   }
@@ -14071,10 +14280,16 @@ mapEvents: "Matrix_SelfJackIn"
 mapEvents: "Matrix_SableJackIn"
 mapEvents: "Event_MatrixPlayTeleportSound"
 mapEvents: "Event_MatrixUpdatePuzzleState"
+mapEvents: "Event_KoraCallOpening"
 senseTags: "isDorbi"
 senseTags: "isRafik"
 senseTags: "isPersi"
 senseTags: "isSable"
+goals {
+  name: "Find the Wastewater Facility"
+  type: GoalType_Primary
+  status: GoalStatus_Started
+}
 worldMapLocation {
   filename: ""
   location {

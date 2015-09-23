@@ -15,8 +15,40 @@ nodes {
       id: "55ef3495643431f50b059636:55ef34e7643431f50b059649"
     }
   }
-  nodeType: ConversationNodeType_GM_Voice
-  comment: "TODO: Maybe PC0 / GM + Speaker?"
+  nodeType: ConversationNodeType_GM_Speaker_Voice
+  sourceInSceneRef {
+    id: "551b64eb3464352004002702"
+  }
+  actions {
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "HongKong:props"
+          }
+          args {
+            string_value: "PDA-Ring1"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -32,6 +64,7 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  speaker_override_id: "55e131ac346435e0140016a9"
 }
 nodes {
   idRef {
@@ -41,6 +74,54 @@ nodes {
   text: ""
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor is Inside Region"
+        args {
+          call_value {
+            functionName: "All Actors With Tag"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "isDorbi"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "AreOrAreNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Region)"
+            args {
+              string_value: "551b65bc3464352004002708"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 3
     onlyOnce: true
     idRef {
@@ -49,6 +130,54 @@ nodes {
   }
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor is Inside Region"
+        args {
+          call_value {
+            functionName: "All Actors With Tag"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "isSable"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "AreOrAreNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Region)"
+            args {
+              string_value: "551b65bc3464352004002708"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 4
     onlyOnce: true
     idRef {
@@ -57,6 +186,54 @@ nodes {
   }
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor is Inside Region"
+        args {
+          call_value {
+            functionName: "All Actors With Tag"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "isPersi"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "AreOrAreNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Region)"
+            args {
+              string_value: "551b65bc3464352004002708"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 5
     onlyOnce: true
     idRef {
@@ -65,6 +242,54 @@ nodes {
   }
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor is Inside Region"
+        args {
+          call_value {
+            functionName: "All Actors With Tag"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "isRafik"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "AreOrAreNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Region)"
+            args {
+              string_value: "551b65bc3464352004002708"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 6
     onlyOnce: true
     idRef {
@@ -79,7 +304,7 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "Reactive node. TODO: Requisites."
+  comment: "Reactive node."
 }
 nodes {
   idRef {
@@ -89,12 +314,14 @@ nodes {
   text: "The wastewater we\342\200\231re looking for will be generated by one of their processing facilities."
   branches {
     responseText: ""
-    nextNodeIndex: -1
+    nextNodeIndex: 2
     idRef {
       id: "55ef3495643431f50b059636:55ef351e643431f50b059658"
     }
+    auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isDorbi"
   speaker_override_id: "55e131ce346435e0140016aa"
 }
 nodes {
@@ -112,6 +339,7 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isSable"
   speaker_override_id: "55e131f5346435e0140016ac"
 }
 nodes {
@@ -129,6 +357,7 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
 }
 nodes {
   idRef {
@@ -145,6 +374,7 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isRafik"
 }
 nodes {
   idRef {
@@ -152,14 +382,8 @@ nodes {
   }
   index: 7
   text: "Good luck, everyone. I\342\200\231ll leave the light on for you back home."
-  branches {
-    responseText: ""
-    nextNodeIndex: -1
-    idRef {
-      id: "55ef3495643431f50b059636:55ef352e643431f50b059688"
-    }
-  }
   nodeType: ConversationNodeType_Simple
+  speaker_override_id: "55e131ac346435e0140016a9"
 }
 roots {
   nextNodeIndex: 0
