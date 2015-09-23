@@ -11,8 +11,24 @@ nodes {
   branches {
     responseText: "Do you know where I can find a track called \342\200\234Pyramid Panic\342\200\235?"
     nextNodeIndex: 1
+    hideIfUnavailable: true
     idRef {
       id: "55ef70aa64343135120600c3:55ef70d564343135120600cd"
+    }
+  }
+  branches {
+    responseText: "I\'m looking for some musicians to play at an upcoming show."
+    nextNodeIndex: 2
+    hideIfUnavailable: true
+    idRef {
+      id: "55ef70aa64343135120600c3:5601d12a643431618a5059a6"
+    }
+  }
+  branches {
+    responseText: "Goodbye."
+    nextNodeIndex: -1
+    idRef {
+      id: "55ef70aa64343135120600c3:5601d15a643431618a5059b0"
     }
   }
   nodeType: ConversationNodeType_GM_Speaker_Voice
@@ -26,10 +42,103 @@ nodes {
   nodeType: ConversationNodeType_Simple
   comment: "TODO: Update goal"
 }
+nodes {
+  idRef {
+    id: "5601d173643431618a5059b3"
+  }
+  index: 2
+  text: "Awesome! My residency here at Dis has been fun, but it\'ll be nice to get out of this hole and see the sky again."
+  branches {
+    responseText: ""
+    nextNodeIndex: 3
+    idRef {
+      id: "55ef70aa64343135120600c3:5601d199643431618a5059b5"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5601d19a643431618a5059b8"
+  }
+  index: 3
+  text: "Moving all of my gear is going to be a pain, though. I\'ll tell you what: front me \302\245300 to hire some roadies, and I\'ll headline your gig. Once I\'m on board, I\'m sure plenty of other performers will follow."
+  branches {
+    responseText: "{{CC}}\302\245300{{/CC}} Fair enough."
+    nextNodeIndex: 4
+    idRef {
+      id: "55ef70aa64343135120600c3:5601d25c643431618a5059ba"
+    }
+    auxiliaryLink: true
+    comment: "TODO: Pre-reqs for all. Deduct nuyen on selection"
+  }
+  branches {
+    responseText: "{{CC}}Etiquette: Gang{{/CC}} C\'mon, asking for an advance to a block party? That\'s hella lame. Play your soul out and you\'ll more than make it up on the back end."
+    nextNodeIndex: 4
+    idRef {
+      id: "55ef70aa64343135120600c3:5601d25d643431618a5059bc"
+    }
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "{{CC}}Charisma: 6{{/CC}} We both know that you\'re worth much more than \302\245300. It\'s better for your image if we treat you as priceless."
+    nextNodeIndex: 4
+    idRef {
+      id: "55ef70aa64343135120600c3:5601d260643431618a5059be"
+    }
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "{{CC}}Intelligence: 6{{/CC}} Actually, if you secure your boards with a mobile grounding unit, you won\'t need any special packing. Just wrap it up and toss it in a cargo carrier."
+    nextNodeIndex: 4
+    idRef {
+      id: "55ef70aa64343135120600c3:5601d262643431618a5059c0"
+    }
+  }
+  branches {
+    responseText: "I don\'t have that kind of cash on me."
+    nextNodeIndex: 6
+    idRef {
+      id: "55ef70aa64343135120600c3:5601d262643431618a5059c2"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5601d353643431618a5059c8"
+  }
+  index: 4
+  text: "Cool, sounds like a plan!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 5
+    idRef {
+      id: "55ef70aa64343135120600c3:5601d366643431618a5059d1"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5601d368643431618a5059d4"
+  }
+  index: 5
+  text: "I\'ll work out the details with your organizer. Hope to see you at the gig!"
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5601d26c643431618a5059c5"
+  }
+  index: 6
+  text: "Understood. Come back when you do."
+  nodeType: ConversationNodeType_Simple
+}
 roots {
   nextNodeIndex: 0
   idRef {
     id: "55ef70aa64343135120600c3:55ef70aa64343135120600c7"
   }
-  comment: "I think this actor is only used during Persi\'s active romance quest..."
+  comment: "Actor is only selectable during Persi\'s romance quest or while looking for musicians for Horatio\'s quest"
 }
