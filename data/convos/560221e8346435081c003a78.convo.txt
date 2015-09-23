@@ -1,0 +1,289 @@
+idRef {
+  id: "560221e8346435081c003a78"
+}
+ui_name: "cc_a3_berkeley_s1-CameraControl"
+nodes {
+  idRef {
+    id: "560221f4346435081c003a80"
+  }
+  index: 0
+  text: "This terminal provides a live feed of cameras from around this facility."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    idRef {
+      id: "560221e8346435081c003a78:5602223e346435081c003a87"
+    }
+  }
+  nodeType: ConversationNodeType_GM_Voice
+}
+nodes {
+  idRef {
+    id: "5602223f346435081c003a8a"
+  }
+  index: 1
+  text: ""
+  branches {
+    responseText: "{{GM}}Examine the videos.{{/GM}}"
+    nextNodeIndex: 2
+    onlyOnce: true
+    idRef {
+      id: "560221e8346435081c003a78:56022244346435081c003a8c"
+    }
+  }
+  branches {
+    responseText: "{{CC}}Drone Control: 6{{/CC}} {{GM}}Overload the surveillance servo drives.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 10
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 6
+        }
+      }
+    }
+    nextNodeIndex: 3
+    idRef {
+      id: "560221e8346435081c003a78:56022282346435081c003a9c"
+    }
+  }
+  branches {
+    responseText: "Persi, do you think you could jack into the surveillance system and shut it down?"
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor is Inside Region"
+        args {
+          call_value {
+            functionName: "All Actors With Tag"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "isPersi"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "AreOrAreNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Region)"
+            args {
+              string_value: "553bc5dc346435380f001e81"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 4
+    hideIfUnavailable: true
+    idRef {
+      id: "560221e8346435081c003a78:56022283346435081c003a9e"
+    }
+  }
+  branches {
+    responseText: "{{GM}}Leave.{{/GM}}"
+    nextNodeIndex: -1
+    idRef {
+      id: "560221e8346435081c003a78:56022283346435081c003aa0"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "Empty root"
+}
+nodes {
+  idRef {
+    id: "56022256346435081c003a8f"
+  }
+  index: 2
+  text: "You recognize the various rooms you traveled through to reach this point. This network of cameras does not appear to extend to the surface structure."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    idRef {
+      id: "560221e8346435081c003a78:56022258346435081c003a91"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_GM_Voice
+}
+nodes {
+  idRef {
+    id: "560223ec346435081c003ab1"
+  }
+  index: 3
+  text: "You hear explosions reverberating through the chambers. There are no more eyes on you."
+  nodeType: ConversationNodeType_GM_Voice
+  actions {
+    ops {
+      functionName: "Kill Actor"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isBasementCamera"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "DeathMethod"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "HongKong:rigger"
+          }
+          args {
+            string_value: "DroneDeath"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5602246b346435081c003ab4"
+  }
+  index: 4
+  text: "Hey, that\'s what I\'m here for, boss!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 3
+    idRef {
+      id: "560221e8346435081c003a78:56022484346435081c003ab6"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+}
+roots {
+  nextNodeIndex: 0
+  idRef {
+    id: "560221e8346435081c003a78:560221e8346435081c003a7c"
+  }
+}

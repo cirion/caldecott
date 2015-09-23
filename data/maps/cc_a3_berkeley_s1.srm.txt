@@ -30949,6 +30949,7 @@ props {
     z: 39
   }
   orientation: ORIENTATION_E
+  displayName: "Governor Safety Protocols Downstairs"
   idRef {
     id: "553bb9b1346435380f001e36"
   }
@@ -46555,20 +46556,6 @@ props {
   properties {
     property_id: "fxScript"
     string_value: "Berlin:EnvironmentCameraEast"
-  }
-  lod: 0
-}
-props {
-  name: "vfx_fx_cameraSouth"
-  gridPoint {
-    x: -191
-    y: 0.6
-    z: 16
-  }
-  orientation: ORIENTATION_S
-  properties {
-    property_id: "fxScript"
-    string_value: "Berlin:EnvironmentCameraSouth"
   }
   lod: 0
 }
@@ -66980,9 +66967,9 @@ props {
 props {
   name: "system_invisible_nonsolidProp"
   gridPoint {
-    x: -24
+    x: -187
     y: 0
-    z: 93
+    z: 21
   }
   orientation: ORIENTATION_S
   displayName: "Debug Start Here"
@@ -70362,5 +70349,119 @@ props {
     z: 152
   }
   orientation: ORIENTATION_S
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -187
+    y: 0
+    z: 59
+  }
+  orientation: ORIENTATION_S
+  displayName: "Camera Control"
+  idRef {
+    id: "560224df346435081c003adf"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Destroy the Cameras"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    conversationPoint {
+      conversationID: "560221e8346435081c003a78"
+      turnToFace: false
+    }
+    interactionIcon: InteractionIcon_Conversation
+    interaction_info_text: "Surveillance Console"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -120
+    y: 0
+    z: 64
+  }
+  orientation: ORIENTATION_S
+  displayName: "Governor"
+  idRef {
+    id: "56022798346435081c003b4e"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Disable the Safety Protocols"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    interactionIcon: InteractionIcon_Generic
+    interaction_info_text: "Destroy Governor"
+  }
   lod: 0
 }

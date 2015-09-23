@@ -8919,6 +8919,403 @@ triggers {
   }
   is_oneshot: false
 }
+triggers {
+  name: "Destroy Cameras Goal_OFF"
+  events {
+    ops {
+      functionName: "On Conversation Complete"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Find the Wastewater Facility"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Destroy the Cameras"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: false
+  idRef {
+    id: "56022034346435081c003a5a"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Cameras All Destroyed"
+  events {
+    ops {
+      functionName: "On Actor Death"
+    }
+    ops {
+      functionName: "On Conversation Complete"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Count of Alive Actors"
+          args {
+            call_value {
+              functionName: "All Actors With Tag"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "isBasementCamera"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Preset Value (int)"
+                  args {
+                    string_value: "AllOrAny"
+                  }
+                  args {
+                    int_value: 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Destroy the Cameras"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "56016b21643431bc73fc4155"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "56022081346435081c003a5b"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Destroy Governor"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "56022798346435081c003b4e"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "HongKong:props"
+          }
+          args {
+            string_value: "glasscasebreak"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "560226cd346435081c003b26"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5602279b346435081c003b4f"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Governor Destroyed_OFF"
+  events {
+    ops {
+      functionName: "On Conversation Complete"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Disable the Safety Protocols"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "56016b64643431bc73fc4194"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: false
+  idRef {
+    id: "560226cd346435081c003b26"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Lower Outside Camera"
   position {
@@ -14259,6 +14656,393 @@ characters {
     hiring_cost_override: 3000
   }
 }
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -206
+    y: 0
+    z: 21
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isBasementCamera"
+  idRef {
+    id: "56021e5a346435081c003a51"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Objects/SecurityCam"
+    character_sheet_id: "Camera"
+    character_mod {
+      stats {
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeCautious
+      vulnerabilities {
+      }
+    }
+    team_id: "Lab Cameras"
+    char_name: "Camera"
+    GeneralTags: "isBasementCamera"
+    pc_spawn_number: -1
+    ai_ignores: true
+    uninjurable: false
+    unkillable: false
+    hiring_type: HiringType_None
+    karma: 6
+    hiring_cost_override: 3000
+    is_prop_character: true
+    hide_floaties: false
+    has_fist: false
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -190
+    y: 0
+    z: 16
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isBasementCamera"
+  idRef {
+    id: "56021e8a346435081c003a52"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Objects/SecurityCam"
+    character_sheet_id: "Camera"
+    character_mod {
+      stats {
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeCautious
+      vulnerabilities {
+      }
+    }
+    team_id: "Lab Cameras"
+    char_name: "Camera"
+    GeneralTags: "isBasementCamera"
+    pc_spawn_number: -1
+    ai_ignores: true
+    uninjurable: false
+    unkillable: false
+    hiring_type: HiringType_None
+    karma: 6
+    hiring_cost_override: 3000
+    is_prop_character: true
+    hide_floaties: false
+    has_fist: false
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -206
+    y: 0
+    z: 30
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isBasementCamera"
+  idRef {
+    id: "56021fed346435081c003a53"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Objects/SecurityCam"
+    character_sheet_id: "Camera"
+    character_mod {
+      stats {
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeCautious
+      vulnerabilities {
+      }
+    }
+    team_id: "Lab Cameras"
+    char_name: "Camera"
+    GeneralTags: "isBasementCamera"
+    pc_spawn_number: -1
+    ai_ignores: true
+    uninjurable: false
+    unkillable: false
+    hiring_type: HiringType_None
+    karma: 6
+    hiring_cost_override: 3000
+    is_prop_character: true
+    hide_floaties: false
+    has_fist: false
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -200
+    y: 0
+    z: 34
+  }
+  orientation: ORIENTATION_E
+  GeneralTags: "isBasementCamera"
+  idRef {
+    id: "56021ff5346435081c003a54"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Objects/SecurityCam"
+    character_sheet_id: "Camera"
+    character_mod {
+      stats {
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeCautious
+      vulnerabilities {
+      }
+    }
+    team_id: "Lab Cameras"
+    char_name: "Camera"
+    GeneralTags: "isBasementCamera"
+    pc_spawn_number: -1
+    ai_ignores: true
+    uninjurable: false
+    unkillable: false
+    hiring_type: HiringType_None
+    karma: 6
+    hiring_cost_override: 3000
+    is_prop_character: true
+    hide_floaties: false
+    has_fist: false
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -206
+    y: 0
+    z: 42
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isBasementCamera"
+  idRef {
+    id: "56022003346435081c003a55"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Objects/SecurityCam"
+    character_sheet_id: "Camera"
+    character_mod {
+      stats {
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeCautious
+      vulnerabilities {
+      }
+    }
+    team_id: "Lab Cameras"
+    char_name: "Camera"
+    GeneralTags: "isBasementCamera"
+    pc_spawn_number: -1
+    ai_ignores: true
+    uninjurable: false
+    unkillable: false
+    hiring_type: HiringType_None
+    karma: 6
+    hiring_cost_override: 3000
+    is_prop_character: true
+    hide_floaties: false
+    has_fist: false
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -190
+    y: 0
+    z: 37
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isBasementCamera"
+  idRef {
+    id: "5602200e346435081c003a56"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Objects/SecurityCam"
+    character_sheet_id: "Camera"
+    character_mod {
+      stats {
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeCautious
+      vulnerabilities {
+      }
+    }
+    team_id: "Lab Cameras"
+    char_name: "Camera"
+    GeneralTags: "isBasementCamera"
+    pc_spawn_number: -1
+    ai_ignores: true
+    uninjurable: false
+    unkillable: false
+    hiring_type: HiringType_None
+    karma: 6
+    hiring_cost_override: 3000
+    is_prop_character: true
+    hide_floaties: false
+    has_fist: false
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -184
+    y: 0
+    z: 50
+  }
+  orientation: ORIENTATION_E
+  GeneralTags: "isBasementCamera"
+  idRef {
+    id: "56022017346435081c003a57"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Objects/SecurityCam"
+    character_sheet_id: "Camera"
+    character_mod {
+      stats {
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeCautious
+      vulnerabilities {
+      }
+    }
+    team_id: "Lab Cameras"
+    char_name: "Camera"
+    GeneralTags: "isBasementCamera"
+    pc_spawn_number: -1
+    ai_ignores: true
+    uninjurable: false
+    unkillable: false
+    hiring_type: HiringType_None
+    karma: 6
+    hiring_cost_override: 3000
+    is_prop_character: true
+    hide_floaties: false
+    has_fist: false
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -198
+    y: 0
+    z: 50
+  }
+  orientation: ORIENTATION_E
+  GeneralTags: "isBasementCamera"
+  idRef {
+    id: "5602201d346435081c003a58"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Objects/SecurityCam"
+    character_sheet_id: "Camera"
+    character_mod {
+      stats {
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeCautious
+      vulnerabilities {
+      }
+    }
+    team_id: "Lab Cameras"
+    char_name: "Camera"
+    GeneralTags: "isBasementCamera"
+    pc_spawn_number: -1
+    ai_ignores: true
+    uninjurable: false
+    unkillable: false
+    hiring_type: HiringType_None
+    karma: 6
+    hiring_cost_override: 3000
+    is_prop_character: true
+    hide_floaties: false
+    has_fist: false
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -206
+    y: 0
+    z: 56
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isBasementCamera"
+  idRef {
+    id: "56022024346435081c003a59"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Objects/SecurityCam"
+    character_sheet_id: "Camera"
+    character_mod {
+      stats {
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeCautious
+      vulnerabilities {
+      }
+    }
+    team_id: "Lab Cameras"
+    char_name: "Camera"
+    GeneralTags: "isBasementCamera"
+    pc_spawn_number: -1
+    ai_ignores: true
+    uninjurable: false
+    unkillable: false
+    hiring_type: HiringType_None
+    karma: 6
+    hiring_cost_override: 3000
+    is_prop_character: true
+    hide_floaties: false
+    has_fist: false
+  }
+}
 variables {
   float_value: 0.25
   variableref_value {
@@ -14289,6 +15073,21 @@ goals {
   name: "Find the Wastewater Facility"
   type: GoalType_Primary
   status: GoalStatus_Started
+}
+goals {
+  name: "Destroy the Cameras"
+  type: GoalType_Primary
+  status: GoalStatus_Hidden
+}
+goals {
+  name: "Disable the Safety Protocols"
+  type: GoalType_Primary
+  status: GoalStatus_Hidden
+}
+goals {
+  name: "Redirect the Wastewater"
+  type: GoalType_Primary
+  status: GoalStatus_Hidden
 }
 worldMapLocation {
   filename: ""
@@ -14330,12 +15129,14 @@ team_affiliations {
   affiliation: 1
   affiliation: 1
   affiliation: 1
+  affiliation: 1
 }
 team_affiliations {
   team_name: "Gangers"
   affiliation: 1
   affiliation: 0
   affiliation: 1
+  affiliation: 0
   affiliation: 0
   affiliation: 0
   affiliation: 0
@@ -14350,9 +15151,11 @@ team_affiliations {
   affiliation: 0
   affiliation: 0
   affiliation: 0
+  affiliation: 0
 }
 team_affiliations {
   team_name: "Civilians"
+  affiliation: 0
   affiliation: 0
   affiliation: 0
   affiliation: 0
@@ -14370,6 +15173,7 @@ team_affiliations {
   affiliation: 0
   affiliation: 0
   affiliation: 0
+  affiliation: 0
 }
 team_affiliations {
   team_name: "Turrets"
@@ -14380,9 +15184,22 @@ team_affiliations {
   affiliation: 0
   affiliation: 0
   affiliation: 0
+  affiliation: 0
 }
 team_affiliations {
   team_name: "Security"
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+}
+team_affiliations {
+  team_name: "Lab Cameras"
+  affiliation: 0
   affiliation: 0
   affiliation: 0
   affiliation: 0
@@ -14401,8 +15218,6 @@ scene_dimensions {
   is_matrix: true
   max_alarm_value: 150
   heat_response_rating: 8
-}
-character_roster {
 }
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {

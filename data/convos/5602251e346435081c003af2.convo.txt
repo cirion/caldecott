@@ -1,0 +1,144 @@
+idRef {
+  id: "5602251e346435081c003af2"
+}
+ui_name: "cc_a3_berkeley_s1-GovernorDownstairs"
+nodes {
+  idRef {
+    id: "56022525346435081c003afa"
+  }
+  index: 0
+  text: "This view-only display reports the current safety status of the various flows passing through this facility."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    idRef {
+      id: "5602251e346435081c003af2:5602261e346435081c003b01"
+    }
+  }
+  nodeType: ConversationNodeType_GM_Voice
+}
+nodes {
+  idRef {
+    id: "5602261f346435081c003b04"
+  }
+  index: 1
+  text: ""
+  branches {
+    responseText: "{{GM}}Examine the governor status.{{/GM}}"
+    nextNodeIndex: 2
+    onlyOnce: true
+    idRef {
+      id: "5602251e346435081c003af2:56022624346435081c003b06"
+    }
+  }
+  branches {
+    responseText: "{{CC}}Decking: 6{{/CC}} {{GM}}Remotely disable the governor.{{/GM}}"
+    nextNodeIndex: 3
+    idRef {
+      id: "5602251e346435081c003af2:5602266d346435081c003b16"
+    }
+  }
+  branches {
+    responseText: "Sable, can you shut the governor down from here?"
+    nextNodeIndex: 4
+    hideIfUnavailable: true
+    idRef {
+      id: "5602251e346435081c003af2:5602271a346435081c003b28"
+    }
+  }
+  branches {
+    responseText: "{{GM}}Leave.{{/GM}}"
+    nextNodeIndex: -1
+    idRef {
+      id: "5602251e346435081c003af2:5602271a346435081c003b2a"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "Empty root"
+}
+nodes {
+  idRef {
+    id: "56022632346435081c003b09"
+  }
+  index: 2
+  text: "The governor is intact. It seems to be controlled from another endpoint in this local network."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    idRef {
+      id: "5602251e346435081c003af2:56022669346435081c003b0b"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_GM_Voice
+}
+nodes {
+  idRef {
+    id: "56022682346435081c003b25"
+  }
+  index: 3
+  text: "This terminal is read-only, but you are able to locate a backdoor that provides access to another unit on the network. From there it\'s a short step to tunnel into the governor box, where you execute a remote shutdown."
+  nodeType: ConversationNodeType_GM_Voice
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "560226cd346435081c003b26"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "56022734346435081c003b3c"
+  }
+  index: 4
+  text: "Absolutely, my friend! Academic types like these people are awful at segregating their systems."
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "560226cd346435081c003b26"
+          }
+        }
+      }
+    }
+  }
+}
+roots {
+  nextNodeIndex: 0
+  idRef {
+    id: "5602251e346435081c003af2:5602251e346435081c003af6"
+  }
+}

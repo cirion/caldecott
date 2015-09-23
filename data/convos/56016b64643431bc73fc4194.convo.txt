@@ -25,6 +25,41 @@ nodes {
   text: "There are four manual flow valves down there. Swap them all over, then get out of there!"
   nodeType: ConversationNodeType_Simple
   speaker_override_id: "55e131ac346435e0140016a9"
+  actions {
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Redirect the Wastewater"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0
