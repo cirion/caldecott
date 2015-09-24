@@ -15,7 +15,36 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_GM_Voice
-  comment: "TODO: Sound. Enable goal update."
+  actions {
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "HongKong:props"
+          }
+          args {
+            string_value: "PDA-Ring1"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -52,7 +81,7 @@ nodes {
     id: "56016aa6643431bc73fc412d:56016ac5643431bc73fc4143"
   }
   index: 3
-  text: "First things first: we need to make sure Shiawase doesn\342\200\231t know what we\342\200\231re up to. So long as they believe that you\342\200\231re here for plunder or destruction, they won\342\200\231t think to check out your wastewater diversion."
+  text: "First things first: we need to ensure that Shiawase doesn\342\200\231t know what we\342\200\231re up to. So long as they believe that you\342\200\231re here for plunder or destruction, they won\342\200\231t think to check out your wastewater diversion."
   branches {
     nextNodeIndex: 4
     idRef {
@@ -70,6 +99,30 @@ nodes {
   text: "There are cameras all over this facility. You can take them out one by one, or might be able to find a way to remotely destroy them. They need to be fully fried, though. They keep local backups, so just reprogramming them won\342\200\231t work."
   nodeType: ConversationNodeType_Simple
   speaker_override_id: "55e131ac346435e0140016a9"
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "56022034346435081c003a5a"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0

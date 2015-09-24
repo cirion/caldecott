@@ -33,6 +33,52 @@ nodes {
   }
   branches {
     responseText: "{{CC}}Decking: 6{{/CC}} {{GM}}Remotely disable the governor.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 5
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 6
+        }
+      }
+    }
     nextNodeIndex: 3
     idRef {
       id: "5602251e346435081c003af2:5602266d346435081c003b16"
@@ -40,6 +86,54 @@ nodes {
   }
   branches {
     responseText: "Sable, can you shut the governor down from here?"
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor is Inside Region"
+        args {
+          call_value {
+            functionName: "All Actors With Tag"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "isSable"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "AreOrAreNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Region)"
+            args {
+              string_value: "553bc5dc346435380f001e81"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 4
     hideIfUnavailable: true
     idRef {
@@ -111,6 +205,7 @@ nodes {
   index: 4
   text: "Absolutely, my friend! Academic types like these people are awful at segregating their systems."
   nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isSable"
   actions {
     ops {
       functionName: "Enable/Disable Trigger"
