@@ -1,6 +1,9 @@
 triggers {
   name: "Map Setup"
   events {
+    ops {
+      functionName: "On Map Setup"
+    }
   }
   conditions {
   }
@@ -17,10 +20,30 @@ triggers {
 triggers {
   name: "Map Start"
   events {
+    ops {
+      functionName: "On Map Start"
+    }
   }
   conditions {
   }
   actions {
+    ops {
+      functionName: "Set Environmental Effect Amount"
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "EnvironmentalEffects"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 100
+      }
+    }
   }
   isActive: true
   idRef {
@@ -33,6 +56,9 @@ triggers {
 triggers {
   name: "Debug"
   events {
+    ops {
+      functionName: "On Map Start"
+    }
   }
   conditions {
   }
@@ -1511,6 +1537,8 @@ team_affiliations {
 }
 scene_dimensions {
   dimension_name: "Default"
+}
+character_roster {
 }
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {
