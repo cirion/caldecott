@@ -43,7 +43,53 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Applause in the audience"
+  actions {
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5606f8933464352425000e03"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  comment: "Applause in the audience"
 }
 nodes {
   idRef {
@@ -58,7 +104,53 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Ambient \"Boo! Agrotech sucks!\" somewhere in the audience"
+  actions {
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5606f9ee3464352425000e04"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  comment: "Boos"
 }
 nodes {
   idRef {
@@ -67,11 +159,49 @@ nodes {
   index: 4
   text: "It\342\200\231s more important than ever for us to maintain operational security. Just last week, one of our cargo vessels was seized by pirates right here in the Bay."
   branches {
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "cc_a2_persi_s2-DestroyedShip"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 5
     idRef {
       id: "55ef288e643431f50b059124:55ef28ba643431f50b059140"
     }
-    comment: "TODO: You sank vessel"
+    comment: "You sank vessel"
   }
   branches {
     nextNodeIndex: 6
@@ -81,7 +211,53 @@ nodes {
     comment: "Fallback: You did not sink the ship"
   }
   nodeType: ConversationNodeType_Simple
-  comment: "Ambient: Gasp!"
+  actions {
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5606fa5e3464352425000e05"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  comment: "Gasp!"
 }
 nodes {
   idRef {
