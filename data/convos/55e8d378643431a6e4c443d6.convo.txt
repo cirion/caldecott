@@ -41,12 +41,47 @@ nodes {
   }
   branches {
     responseText: "A leader of the Metahuman People\342\200\231s Army is lying in the streets, all trussed up and ready for capture."
+    conditions {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Report Zielor\'s Location to Shiawase"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 4
     hideIfUnavailable: true
     idRef {
       id: "55e8d378643431a6e4c443d6:55ef24b5643431f50b05905d"
     }
-    comment: "TODO: Defeated Zielor"
+    comment: "Defeated Zielor"
   }
   branches {
     responseText: "{{GM}}Leave.{{/GM}}"
@@ -73,6 +108,30 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5605fd443464356021007548"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -119,6 +178,9 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55ea2fc36434318d013b7123"
+  }
 }
 nodes {
   idRef {
@@ -127,7 +189,30 @@ nodes {
   index: 6
   text: "Hey, watch the door. We\342\200\231ll just be gone for a minute."
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: They leave. Entrance open. Block your exit back to SF."
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "56060e27346435602100760f"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0

@@ -7,7 +7,7 @@ nodes {
     id: "55e8d4d0643431a6e4c4448a"
   }
   index: 0
-  text: "Zielor looks badly injured, but not yet dead. Trolls are sturdy creatures."
+  text: "Zielor looks badly injured, but not yet dead. Orks are sturdy creatures."
   branches {
     nextNodeIndex: 1
     idRef {
@@ -21,7 +21,7 @@ nodes {
     id: "55e8d4c7643431a6e4c44482:55e8d4dc643431a6e4c4448e"
   }
   index: 1
-  text: "Searching through his pockets, you find a secured commlink. It looks like Zielor had it configured to summon backup."
+  text: "Searching through his pockets, you find a phone number. Zielor had scrawled \"Backup\" next to the digits."
   branches {
     nextNodeIndex: 2
     idRef {
@@ -54,26 +54,145 @@ nodes {
   index: 3
   text: ""
   branches {
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor is Inside Region"
+        args {
+          call_value {
+            functionName: "All Actors With Tag"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "isRafik"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "AreOrAreNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Region)"
+            args {
+              string_value: "554ea709346435142100462a"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 4
+    onlyOnce: true
     idRef {
       id: "55e8d4c7643431a6e4c44482:55e8d4e6643431a6e4c4449a"
     }
-    comment: "TODO: Rafik"
   }
   branches {
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor is Inside Region"
+        args {
+          call_value {
+            functionName: "All Actors With Tag"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "isPersi"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "AreOrAreNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Region)"
+            args {
+              string_value: "554ea709346435142100462a"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 5
+    onlyOnce: true
     idRef {
       id: "55e8d4c7643431a6e4c44482:55e8d543643431a6e4c444bc"
     }
-    comment: "TODO: Persi"
   }
   branches {
     responseText: "We can make use of this."
+    actions {
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "56060bc934643560210075e3"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: -1
     idRef {
       id: "55e8d4c7643431a6e4c44482:55e8d567643431a6e4c444c8"
     }
-    comment: "Add optional objectives, maybe add item, etc."
   }
   nodeType: ConversationNodeType_Simple
   comment: "Reactive loop node"
@@ -92,7 +211,8 @@ nodes {
     }
     auxiliaryLink: true
   }
-  nodeType: ConversationNodeType_GM_Speaker_Voice
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isRafik"
 }
 nodes {
   idRef {
@@ -108,7 +228,8 @@ nodes {
     }
     auxiliaryLink: true
   }
-  nodeType: ConversationNodeType_GM_Speaker_Voice
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
 }
 roots {
   nextNodeIndex: 0

@@ -16,6 +16,9 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55ea2f9e6434318d013b711f"
+  }
 }
 nodes {
   idRef {
@@ -369,7 +372,33 @@ nodes {
   index: 7
   text: "If we kill them real good, maybe Saito will let Claude and the rest of us join his marines!"
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: This should be a second speaker. Start fight on completion."
+  sourceInSceneRef {
+    id: "55ea2f9e6434318d013b711e"
+  }
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "56061af434643560210076c4"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0

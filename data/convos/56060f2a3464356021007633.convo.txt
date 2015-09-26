@@ -1,0 +1,60 @@
+idRef {
+  id: "56060f2a3464356021007633"
+}
+ui_name: "cc_a3_sf_s1-DoorGuardsHearOfMPA"
+nodes {
+  idRef {
+    id: "56060f5a3464356021007662"
+  }
+  index: 0
+  text: "... the hell?! We\342\200\231ve got word of a squad of trogs who just popped up on 3rd Street."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    idRef {
+      id: "56060f2a3464356021007633:56060f693464356021007670"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "56060f6b3464356021007673"
+  }
+  index: 1
+  text: "Shit. We need to intercept them before they reach the building. Buzz headquarters and have them send reinforcements."
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55ea2fc36434318d013b7123"
+  }
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "56060f92346435602100767b"
+          }
+        }
+      }
+    }
+  }
+}
+roots {
+  nextNodeIndex: 0
+  idRef {
+    id: "56060f2a3464356021007633:56060f2a3464356021007637"
+  }
+}

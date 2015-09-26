@@ -85,6 +85,30 @@ nodes {
   index: 4
   text: "I\342\200\231ll report these as dead bodies washed ashore. Don\342\200\231t want the numbers in my precinct looking bad. Now get out of here."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55fb894b346435241e00162a"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0
