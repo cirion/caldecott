@@ -39,6 +39,42 @@ nodes {
   }
   branches {
     responseText: "{{CC}}Blank ID card{{/CC}} Restore card identity"
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_a3_sf_s2-Blank ID"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 4
     idRef {
       id: "55ef308f643431f50b0594db:55ef3189643431f50b059545"
@@ -84,6 +120,30 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "knowAboutJeanMinami"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -93,20 +153,92 @@ nodes {
   text: "> Please indicate the identity to key."
   branches {
     responseText: "{{CC}}Decking: 5{{/CC}} Cameron Ueda. {{GM}}Cover your tracks.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 5
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 5
+        }
+      }
+    }
     nextNodeIndex: 5
     idRef {
       id: "55ef308f643431f50b0594db:55ef319f643431f50b05954a"
     }
-    comment: "TODO: Safe outcome."
+    comment: "Safe outcome."
   }
   branches {
     responseText: "Cameron Ueda."
+    actions {
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "cc_a3_sf_s2-RevealedCameronFakeID"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 5
     idRef {
       id: "55ef308f643431f50b0594db:55ef31e9643431f50b059562"
     }
     auxiliaryLink: true
-    comment: "TODO: Dangerous outcome"
   }
   branches {
     responseText: "> Abort."
@@ -124,6 +256,30 @@ nodes {
   index: 5
   text: "> Card rekeyed. Welcome back, $(l.honorific) Ueda."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "56070d773464352425001009"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {

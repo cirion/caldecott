@@ -16,6 +16,30 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5606fd5e3464352425000e94"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -26,12 +50,49 @@ nodes {
   branches {
     responseText: "{{CC}}Maintenance IDs{{/CC}} Maintenance crew here!"
     nextNodeIndex: 2
+    onlyOnce: true
     idRef {
       id: "55ef294e643431f50b059165:55ef297d643431f50b059178"
     }
   }
   branches {
     responseText: "{{CC}}Engineer ID{{/CC}} Gotta get to work!"
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_a3_sf_s2-CameronUedaID"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 3
     idRef {
       id: "55ef294e643431f50b059165:55ef298b643431f50b05917e"
@@ -39,6 +100,42 @@ nodes {
   }
   branches {
     responseText: "{{CC}}Clerk ID{{/CC}} The crew upstairs needs me!"
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_a3_sf_s2-TaylorMinamiID"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 8
     idRef {
       id: "55ef294e643431f50b059165:55ef298d643431f50b059182"
@@ -84,6 +181,30 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5606fdf83464352425000eaf"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -114,6 +235,36 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_GM_Speaker_Voice
+  actions {
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "HongKong:props"
+          }
+          args {
+            string_value: "computerloop"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -137,7 +288,6 @@ nodes {
   index: 7
   text: "You may proceed to your designated work zone."
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Unlock elevator."
 }
 nodes {
   idRef {
@@ -154,6 +304,30 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5606fe033464352425000eb0"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0

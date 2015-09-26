@@ -25,7 +25,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Prop)"
           args {
-            string_value: "5516f28c34643524160084d6"
+            string_value: "560701413464352425000eb2"
           }
         }
       }
@@ -93,6 +93,93 @@ triggers {
   conditions {
   }
   actions {
+    ops {
+      functionName: "Set Actor In Passive Mode"
+      args {
+        call_value {
+          functionName: "All Actors on Team"
+          args {
+            call_value {
+              functionName: "Get Preset Value (string)"
+              args {
+                string_value: "FactionList"
+              }
+              args {
+                int_value: 3
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (SceneDimension)"
+              args {
+                string_value: "Default"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Actor Run Speed"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isConferenceCharacter"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "RunSpeedMethod"
+          }
+          args {
+            int_value: 3
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -112,6 +199,28 @@ triggers {
   conditions {
   }
   actions {
+    ops {
+      functionName: "Activate Actor Spawner"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor Reference)"
+          args {
+            string_value: "560709c83464352425000f4b"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
     ops {
       functionName: "Activate Actor Spawner"
       args {
@@ -236,7 +345,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (InteractableObject)"
           args {
-            string_value: "5516f28c34643524160084d6"
+            string_value: "560701653464352425000eb4"
           }
         }
       }
@@ -5444,6 +5553,32 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Order Actor to Patrol"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "55f988d4643431e9bc14860d"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (PatrolRoute)"
+          args {
+            string_value: "56070a703464352425000f90"
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -5956,6 +6091,1248 @@ triggers {
   isActive: true
   idRef {
     id: "5606fa5e3464352425000e05"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Start Employee ID Quest_OFF"
+  events {
+    ops {
+      functionName: "On Conversation Complete"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Goal"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Find an Employee ID"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Find an Employee ID"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: false
+  idRef {
+    id: "5606fd5e3464352425000e94"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Used Cameron ID_OFF"
+  events {
+    ops {
+      functionName: "On Conversation Complete"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "cc_a3_sf_s2-UsedCameronID"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "560701ca3464352425000eb7"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: false
+  idRef {
+    id: "5606fdf83464352425000eaf"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Used Taylor ID_OFF"
+  events {
+    ops {
+      functionName: "On Conversation Complete"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "cc_a3_sf_s2-UsedTaylorID"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "560701ca3464352425000eb7"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: false
+  idRef {
+    id: "5606fe033464352425000eb0"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Activate Elevator 1st Floor"
+  events {
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Move Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "560701653464352425000eb4"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Current Location of Prop"
+          args {
+            call_value {
+              functionName: "Get Map Item (Prop)"
+              args {
+                string_value: "560701413464352425000eb2"
+              }
+            }
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Delete Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "560701413464352425000eb2"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Waypoint on Prop"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PrimaryOrSecondary"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "560701653464352425000eb4"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "560701ca3464352425000eb7"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Learned of Employee IDs_OFF"
+  events {
+    ops {
+      functionName: "On Conversation Complete"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Get an ID Card for Cameron Ueda"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Take Taylor Minami\'s ID Card"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: false
+  idRef {
+    id: "5607033f3464352425000f1b"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Receptionist Greeting"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "560709a63464352425000f49"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (Actor)"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "55ef2a34643431f50b0591eb"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55f988d4643431e9bc14860d"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "560709bb3464352425000f4a"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Try to Take Blank ID"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "56070c2d3464352425000f93"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "55f988d4643431e9bc14860d"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "56070bbd3464352425000f91"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Display Text over Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55f988d4643431e9bc14860d"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        string_value: "HEY! What do you think you\'re doing?!"
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "56070c4a3464352425000f94"
+  }
+  elseActions {
+    ops {
+      functionName: "Add Item to Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "cc_a3_sf_s2-Blank ID"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Make Cameron ID_OFF"
+  events {
+    ops {
+      functionName: "On Conversation Complete"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Remove Item from Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "cc_a3_sf_s2-Blank ID"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add Item to Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "cc_a3_sf_s2-CameronUedaID"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Get an ID Card for Cameron Ueda"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Find an Employee ID"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: false
+  idRef {
+    id: "56070d773464352425001009"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Taylor Responds to Phone Call_OFF"
+  events {
+    ops {
+      functionName: "On Conversation Complete"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Order Actor to Move To (Region)"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "55f98902643431e9bc14860e"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "5607124b3464352425001083"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 7
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55f98902643431e9bc14860e"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "End Current Team Round"
+    }
+  }
+  isActive: false
+  idRef {
+    id: "560711c43464352425001082"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Taylor at Phone"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "5607124b3464352425001083"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (Actor)"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55f98902643431e9bc14860e"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "End Current Team Round"
+    }
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Seattle:General/standing_idle_repairing"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Move Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "560712ff3464352425001086"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Current Location of Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "560712cb3464352425001085"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Got ID from Taylor_OFF"
+  events {
+    ops {
+      functionName: "On Conversation Complete"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55f98902643431e9bc14860e"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add Item to Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "cc_a3_sf_s2-TaylorMinamiID"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Take Taylor Minami\'s ID Card"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Find an Employee ID"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: false
+  idRef {
+    id: "5607136834643524250010b3"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Overhear Taylor"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "560717b63464352425001144"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (Actor)"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "55ef2c5d643431f50b059214"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55f98902643431e9bc14860e"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "560717c93464352425001145"
   }
   elseActions {
   }
@@ -7284,6 +8661,323 @@ regions {
   combat_intro_stinger: ""
   combat_outro_stinger: ""
   vfx_fill_prefab_name: ""
+}
+regions {
+  name: "Trigger Receptionist Greeting"
+  position {
+    x: 22
+    y: -36
+    width: 1
+    height: 26
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  is_matrix_node: false
+  is_vfx_fill_region: false
+  idRef {
+    id: "560709a63464352425000f49"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
+}
+regions {
+  name: "Receptionist Near Desk"
+  position {
+    x: 14
+    y: -33
+    width: 11
+    height: 13
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  is_matrix_node: false
+  is_vfx_fill_region: false
+  idRef {
+    id: "56070bbd3464352425000f91"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
+}
+regions {
+  name: "Taylor Minami Mark"
+  position {
+    x: 5
+    y: -40
+    width: 1
+    height: 1
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  is_matrix_node: false
+  is_vfx_fill_region: false
+  idRef {
+    id: "5607124b3464352425001083"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
+}
+regions {
+  name: "Overhear Taylor"
+  position {
+    x: 3
+    y: -44
+    width: 1
+    height: 9
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  is_matrix_node: false
+  is_vfx_fill_region: false
+  idRef {
+    id: "560717b63464352425001144"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
+}
+patrolRoutes {
+  name: "Receptionist Route"
+  pathType: 1
+  nodes {
+    position {
+      x: 19
+      z: -26
+    }
+    index: 0
+    rail_node_pause_time: 10
+    rail_node_flip_180_rotation: false
+    rail_node_facing: -1
+    rail_draw_segment: true
+    rail_draw_node: true
+  }
+  nodes {
+    position {
+      x: 15
+      z: -26
+    }
+    index: 1
+    rail_node_pause_time: 0
+    rail_node_flip_180_rotation: false
+    rail_node_facing: -1
+    rail_draw_segment: true
+    rail_draw_node: true
+  }
+  nodes {
+    position {
+      x: 15
+      z: -33
+    }
+    index: 2
+    rail_node_pause_time: 0
+    rail_node_flip_180_rotation: false
+    rail_node_facing: -1
+    rail_draw_segment: true
+    rail_draw_node: true
+  }
+  nodes {
+    position {
+      x: 9
+      z: -34
+    }
+    index: 3
+    rail_node_pause_time: 0
+    rail_node_flip_180_rotation: false
+    rail_node_facing: -1
+    rail_draw_segment: true
+    rail_draw_node: true
+  }
+  nodes {
+    position {
+      x: 9
+      z: -18
+    }
+    index: 4
+    rail_node_pause_time: 0
+    rail_node_flip_180_rotation: false
+    rail_node_facing: -1
+    rail_draw_segment: true
+    rail_draw_node: true
+  }
+  nodes {
+    position {
+      x: 4
+      z: -18
+    }
+    index: 5
+    rail_node_pause_time: 0
+    rail_node_flip_180_rotation: false
+    rail_node_facing: -1
+    rail_draw_segment: true
+    rail_draw_node: true
+  }
+  can_move_beyond_node: false
+  is_rail: false
+  rail_speed: 1
+  rail_rotation_time: 4
+  idRef {
+    id: "56070a703464352425000f90"
+  }
+  rail_draw_segments: true
+  rail_draw_nodes: true
 }
 characters {
   name: "system_spawner_playerSpawner"
@@ -8869,13 +10563,14 @@ characters {
     z: -26
   }
   orientation: ORIENTATION_S
+  GeneralTags: "isConferenceCharacter"
   displayName: "Secretary"
   idRef {
     id: "55f988d4643431e9bc14860d"
   }
   lod: 0
   character_instance {
-    prefab_name: "Wealthy/HumanMaleAutumn"
+    prefab_name: "Seattle:Wealthy/HumanMaleAutumn"
     character_sheet_id: "BaseCivilian"
     character_mod {
       stats {
@@ -8935,9 +10630,12 @@ characters {
       }
       archetypeName: "Non-Combatant"
       attitude: AttitudeCautious
+      vulnerabilities {
+      }
     }
     team_id: "Civilians"
     char_name: "Receptionist"
+    GeneralTags: "isConferenceCharacter"
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -8952,13 +10650,59 @@ characters {
     z: -45
   }
   orientation: ORIENTATION_E
+  GeneralTags: "isConferenceCharacter"
   displayName: "Taylor"
   idRef {
     id: "55f98902643431e9bc14860e"
   }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Find an Employee ID"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    conversationPoint {
+      conversationID: "55ef2d2c643431f50b059285"
+      turnToFace: true
+    }
+    interactionIcon: InteractionIcon_Conversation
+    interaction_info_text: ""
+  }
   lod: 0
   character_instance {
-    prefab_name: "Wealthy/HumanMaleAutumn"
+    prefab_name: "Seattle:Story/HumanFemaleBrotherhoodAcolyte"
     character_sheet_id: "BaseCivilian"
     character_mod {
       stats {
@@ -9018,9 +10762,12 @@ characters {
       }
       archetypeName: "Non-Combatant"
       attitude: AttitudeCautious
+      vulnerabilities {
+      }
     }
     team_id: "Civilians"
     char_name: "Taylor Minami"
+    GeneralTags: "isConferenceCharacter"
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -9035,13 +10782,14 @@ characters {
     z: -43
   }
   orientation: ORIENTATION_W
+  GeneralTags: "isConferenceCharacter"
   displayName: "Brett"
   idRef {
     id: "55f9893f643431e9bc148624"
   }
   lod: 0
   character_instance {
-    prefab_name: "Wealthy/HumanMaleAutumn"
+    prefab_name: "Seattle:Story/MrJohnson"
     character_sheet_id: "BaseCivilian"
     character_mod {
       stats {
@@ -9101,9 +10849,12 @@ characters {
       }
       archetypeName: "Non-Combatant"
       attitude: AttitudeCautious
+      vulnerabilities {
+      }
     }
     team_id: "Civilians"
     char_name: "Brett Higawa"
+    GeneralTags: "isConferenceCharacter"
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -10054,7 +11805,7 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -11
+    x: -10
     y: 0
     z: -27
   }
@@ -11536,6 +13287,112 @@ characters {
     is_prop_character: true
   }
 }
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: 31
+    y: 0
+    z: -24
+  }
+  orientation: ORIENTATION_N
+  displayName: "Debug Rafik"
+  idRef {
+    id: "560709c83464352425000f4b"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Core/OrkMale"
+    character_sheet_id: "Crew_Rafik_Lv1"
+    equipment_sheet_id: "Crew_Rafik_Lv1_Gear"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+        cyberware_affinity: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Player"
+      attitude: AttitudeAggressive
+      vulnerabilities {
+      }
+    }
+    team_id: "Shadowrunners"
+    char_name: "Rafik"
+    GeneralTags: "isRafik"
+    GeneralTags: "isCrew"
+    enabled_at_start: false
+    pc_spawn_number: -1
+    hiring_type: HiringType_Hireable
+    portrait {
+      filename: "pc_orkmale_04_slick"
+    }
+    portrait_code_override: "s1h11c8b0c0t0"
+    karma: 75
+    hiring_cost_override: 0
+    hiring_tag: "Crew: Shaman"
+    id: "crew_lv1_rafik"
+    first_name: "Rafik"
+    last_name: "Toth"
+  }
+}
+variables {
+  bool_value: false
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "knowAboutJeanMinami"
+    typeName: "bool"
+  }
+}
 mapEvents: "Transition"
 mapEvents: "Dorbi Approves"
 mapEvents: "Dorbi Disapproves"
@@ -11567,6 +13424,21 @@ goals {
   name: "Acquire the Train Protocols"
   type: GoalType_Primary
   status: GoalStatus_Started
+}
+goals {
+  name: "Find an Employee ID"
+  type: GoalType_Primary
+  status: GoalStatus_Hidden
+}
+goals {
+  name: "Get an ID Card for Cameron Ueda"
+  type: GoalType_Secondary
+  status: GoalStatus_Hidden
+}
+goals {
+  name: "Take Taylor Minami\'s ID Card"
+  type: GoalType_Secondary
+  status: GoalStatus_Hidden
 }
 worldMapLocation {
   filename: ""

@@ -1329,12 +1329,6 @@ props {
   idRef {
     id: "5516f28c34643524160084d6"
   }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    interactionIcon: InteractionIcon_Warp
-    interaction_info_text: "Call Elevator"
-  }
   lod: 0
 }
 props {
@@ -8116,13 +8110,52 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_a3_sf_s2-TrainProtocols"
+            }
+          }
+        }
+      }
+    }
     doorPoint {
       doorState: false
       aiOnlyDoor: false
       doorSound: "DoorSlide"
       doorSoundBundle: "HongKong:props"
     }
-    interaction_info_text: "Call Elevator"
+    interaction_info_text: ""
   }
   lod: 0
 }
@@ -31849,6 +31882,55 @@ props {
     z: -28
   }
   orientation: ORIENTATION_E
+  displayName: "Employee Records"
+  idRef {
+    id: "560716db3464352425001143"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Find an Employee ID"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    conversationPoint {
+      conversationID: "55ef308f643431f50b0594db"
+      turnToFace: true
+    }
+    interactionIcon: InteractionIcon_Matrix
+    interaction_info_text: "Employee Records Terminal"
+  }
   lod: 0
 }
 props {
@@ -59497,9 +59579,9 @@ props {
 props {
   name: "system_invisible_nonsolidProp"
   gridPoint {
-    x: 0
+    x: 28
     y: 0
-    z: -41
+    z: -25
   }
   orientation: ORIENTATION_S
   displayName: "Debug Start Here"
@@ -59868,5 +59950,232 @@ props {
     z: -34.8
   }
   orientation: ORIENTATION_S
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: 5
+    y: 0
+    z: -32
+  }
+  orientation: ORIENTATION_S
+  displayName: "Elevator 1A Inactive"
+  idRef {
+    id: "560701413464352425000eb2"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    conversationPoint {
+      conversationID: "55ef294e643431f50b059165"
+      turnToFace: false
+    }
+    interactionIcon: InteractionIcon_Warp
+    interaction_info_text: "Call Elevator"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: 19
+    y: 0
+    z: -8
+  }
+  orientation: ORIENTATION_S
+  displayName: "Elevator 1A Active"
+  idRef {
+    id: "560701653464352425000eb4"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    interactionIcon: InteractionIcon_Warp
+    interaction_info_text: "Call Elevator"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: 19
+    y: 0
+    z: -26
+  }
+  orientation: ORIENTATION_S
+  displayName: "Blank IDs"
+  idRef {
+    id: "56070c2d3464352425000f93"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Find an Employee ID"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_a3_sf_s2-Blank ID"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_a3_sf_s2-CameronUedaID"
+            }
+          }
+        }
+      }
+    }
+    interactionIcon: InteractionIcon_ItemPickup
+    interaction_info_text: "Desk Drawer"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: 22
+    y: 0
+    z: -8
+  }
+  orientation: ORIENTATION_S
+  displayName: "Taylor Pickpocket"
+  idRef {
+    id: "560712ff3464352425001086"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_a3_sf_s2-TaylorMinamiID"
+            }
+          }
+        }
+      }
+    }
+    conversationPoint {
+      conversationID: "55ef2fd9643431f50b05949c"
+      turnToFace: false
+    }
+    interactionIcon: InteractionIcon_Generic
+    interaction_info_text: "Pick Pocket"
+  }
   lod: 0
 }

@@ -9,19 +9,173 @@ nodes {
   index: 0
   text: "Taylor is focused on the vidscreen."
   branches {
-    responseText: "{{CC}}Quickness: 6{{/CC}} {{GM}}Lift the ID card from his pocket.{{/GM}}\n"
+    responseText: "{{CC}}Quickness: 6{{/CC}} {{GM}}Lift the ID card from his pocket.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Compare Actor Attribute"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorAttributes"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 6
+        }
+      }
+    }
     nextNodeIndex: 1
     idRef {
       id: "55ef2fd9643431f50b05949c:55ef2feb643431f50b0594a6"
     }
   }
   branches {
-    responseText: "{{GM}}Have a teammate lift the ID card from his pocket.{{/GM}}"
+    responseText: "{{GM}}Have Rafik lift the ID card from his pocket.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor is Inside Region"
+        args {
+          call_value {
+            functionName: "All Actors With Tag"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "isRafik"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "AreOrAreNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Region)"
+            args {
+              string_value: "554ea878346435142100462c"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Compare Actor Attribute"
+        args {
+          call_value {
+            functionName: "Nearest Tagged Actor to Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "isRafik"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorAttributes"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 6
+        }
+      }
+    }
     nextNodeIndex: 2
+    hideIfUnavailable: true
     idRef {
       id: "55ef2fd9643431f50b05949c:55ef2ff4643431f50b0594ad"
     }
-    comment: "TODO: Does anyone have the right stats at level 3/4?"
   }
   branches {
     responseText: "{{GM}}Leave.{{/GM}}"
@@ -47,14 +201,13 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_GM_Speaker_Voice
-  comment: "TODO: Acquire item, update goal"
 }
 nodes {
   idRef {
     id: "55ef2fd9643431f50b05949c:55ef2ff4643431f50b0594af"
   }
   index: 2
-  text: "(whoever) lightly snatches away the ID card from its holder, then casually flips it over to you."
+  text: "Rafik lightly snatches away the ID card from its holder, then casually flips it over to you."
   branches {
     responseText: ""
     nextNodeIndex: 3
@@ -63,7 +216,7 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_GM_Speaker_Voice
-  comment: "TODO: Update name(s)"
+  sourceWithTagInScene: "isRafik"
 }
 nodes {
   idRef {
@@ -72,7 +225,30 @@ nodes {
   index: 3
   text: "Taylor doesn\342\200\231t turn around. With the holder still in place, the theft should remain undetected for some time."
   nodeType: ConversationNodeType_GM_Speaker_Voice
-  comment: "TODO: Acquire item, update goals and stuff"
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5607136834643524250010b3"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0

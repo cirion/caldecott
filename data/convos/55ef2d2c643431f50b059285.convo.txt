@@ -41,13 +41,47 @@ nodes {
   }
   branches {
     responseText: "There\342\200\231s a call from Jean for you."
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "knowAboutJeanMinami"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 12
     hideIfUnavailable: true
     onlyOnce: true
     idRef {
       id: "55ef2d2c643431f50b059285:55ef2d64643431f50b0592a9"
     }
-    comment: "TODO: Must know something."
   }
   branches {
     responseText: "Goodbye."
@@ -67,27 +101,162 @@ nodes {
   text: "Thanks for the offer, but you\342\200\231d need to get up to my office to reach the files. And in any case, I doubt that you could make even a passable run at it."
   branches {
     responseText: "{{CC}}Etiquette: Corporate{{/CC}} Hey, it\342\200\231s only Q2, it isn\342\200\231t like anyone\342\200\231s paying attention anyways. I\342\200\231ll refresh last quarter\342\200\231s projections and add some hockey stick charts to make upper management happy."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 13
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 3
     idRef {
       id: "55ef2d2c643431f50b059285:55ef2d61643431f50b05929e"
     }
-    comment: "TODO: Corporate etiquette"
   }
   branches {
     responseText: "{{CC}}Etiquette: Academic{{/CC}} Obfuscation is your best friend. Lucky for you, I\342\200\231m a world-class bullshitter."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 18
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 5
     idRef {
       id: "55ef2d2c643431f50b059285:55ef2da0643431f50b0592c6"
     }
-    comment: "TODO: Academic"
   }
   branches {
     responseText: "{{CC}}Charisma: 6{{/CC}} Come, friend. I\342\200\231ll gladly help you out in your hour of need. We wageslaves need to stick together."
+    conditions {
+      ops {
+        functionName: "Compare Actor Attribute"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorAttributes"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 6
+        }
+      }
+    }
     nextNodeIndex: 6
     idRef {
       id: "55ef2d2c643431f50b059285:55ef2da9643431f50b0592cc"
     }
-    comment: "TODO: Charisma"
   }
   branches {
     responseText: "I\342\200\231ll do a real good job, honest!"
@@ -134,7 +303,30 @@ nodes {
   index: 4
   text: "Okay, here you go. Just don\342\200\231t tick anyone off while you\342\200\231re up there, all right? That\342\200\231s my ID you\342\200\231re using, so it\342\200\231s my ass on the line."
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Give item, update goal"
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5607136834643524250010b3"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -254,6 +446,30 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "560711c43464352425001082"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0

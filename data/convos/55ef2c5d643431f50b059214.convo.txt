@@ -15,7 +15,9 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "Taylor"
+  sourceInSceneRef {
+    id: "55f98902643431e9bc14860e"
+  }
 }
 nodes {
   idRef {
@@ -30,7 +32,9 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "Brett"
+  sourceInSceneRef {
+    id: "55f9893f643431e9bc148624"
+  }
 }
 nodes {
   idRef {
@@ -45,7 +49,9 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "T"
+  sourceInSceneRef {
+    id: "55f98902643431e9bc14860e"
+  }
 }
 nodes {
   idRef {
@@ -60,7 +66,9 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "B"
+  sourceInSceneRef {
+    id: "55f9893f643431e9bc148624"
+  }
 }
 nodes {
   idRef {
@@ -75,7 +83,9 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "T"
+  sourceInSceneRef {
+    id: "55f98902643431e9bc14860e"
+  }
 }
 nodes {
   idRef {
@@ -84,11 +94,59 @@ nodes {
   index: 5
   text: "I don\342\200\231t know, but if $(l.he) ever shows up again, the bosses will be asking $(l.him) a LOT of questions."
   branches {
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor is Inside Region"
+        args {
+          call_value {
+            functionName: "All Actors With Tag"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "isRafik"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "AreOrAreNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Region)"
+            args {
+              string_value: "554ea878346435142100462c"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 6
     idRef {
       id: "55ef2c5d643431f50b059214:55ef2c7f643431f50b059234"
     }
-    comment: "Reactive: Rafik present"
+    comment: "Rafik present"
   }
   branches {
     responseText: ""
@@ -98,6 +156,9 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55f9893f643431e9bc148624"
+  }
   comment: "B"
 }
 nodes {
@@ -123,7 +184,30 @@ nodes {
   index: 7
   text: "Cameron Ueda\342\200\246 if you could acquire an ID card for $(l.him), it would be a perfect match for your new fingerprints."
   nodeType: ConversationNodeType_GM_Voice
-  comment: "TODO: Update goals"
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5607033f3464352425000f1b"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0
