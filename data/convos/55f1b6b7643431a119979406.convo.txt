@@ -299,6 +299,95 @@ nodes {
     }
   }
   branches {
+    responseText: "I heard that you bought a karaoke machine. I\'d like to borrow it."
+    conditions {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Get a Karaoke Machine from \"Doctor\" Tolar"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 62
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "55f1b6b7643431a119979406:56080e5d3464353c14005762"
+    }
+  }
+  branches {
+    responseText: "{{CC}}Delivery receipt{{/CC}} I delivered those suits like you asked."
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_hub-DeliveryReceipt"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 68
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "55f1b6b7643431a119979406:5608102e3464353c1400593c"
+    }
+  }
+  branches {
     responseText: "We\'re done here."
     nextNodeIndex: -1
     idRef {
@@ -2014,6 +2103,325 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "56080e7e3464353c14005765"
+  }
+  index: 62
+  text: "What?! That blabbermouth dwarf! How can he expect to stay in business when he keeps running his mouth about the embarrassing purchases his customers make?\n\nThen again, he\342\200\231s obviously trying to get out of business, so who knows! Maybe this is all part of his plan."
+  branches {
+    responseText: ""
+    nextNodeIndex: 63
+    idRef {
+      id: "55f1b6b7643431a119979406:56080e803464353c14005767"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "56080e843464353c1400576a"
+  }
+  index: 63
+  text: "In any case: I don\342\200\231t have the machine on hand here. I can let you use it, though, if you\342\200\231re willing to run a little errand for me.\n\nKroin purchased some biohazard suits from me. I\342\200\231ve been too busy to deliver them, but if you can run these over to him, I\342\200\231ll allow you to use my karaoke machine for\342\200\246 45 minutes."
+  branches {
+    responseText: "{{CC}}\302\245200{{/CC}} This is stupid. Here, I\342\200\231ll just pay you for the machine now."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 200
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 200
+        }
+      }
+    }
+    nextNodeIndex: 64
+    idRef {
+      id: "55f1b6b7643431a119979406:56080ec63464353c1400576c"
+    }
+  }
+  branches {
+    responseText: "{{CC}}Etiquette: Shadowrunner{{/CC}} That\342\200\231s beneath my pay rate. I\342\200\231ll subcontract to one of the street kids."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 17
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    nextNodeIndex: 66
+    idRef {
+      id: "55f1b6b7643431a119979406:56080ec63464353c1400576e"
+    }
+  }
+  branches {
+    responseText: "All right, hand them over."
+    nextNodeIndex: 67
+    idRef {
+      id: "55f1b6b7643431a119979406:56080ec63464353c14005770"
+    }
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Well\342\200\246 if it\342\200\231ll help\342\200\246"
+    nextNodeIndex: 67
+    idRef {
+      id: "55f1b6b7643431a119979406:56080ec73464353c14005772"
+    }
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "I can\342\200\231t believe I\342\200\231ve been reduced to a garment delivery service."
+    nextNodeIndex: 67
+    idRef {
+      id: "55f1b6b7643431a119979406:56080ec73464353c14005774"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "56080eed3464353c14005777"
+  }
+  index: 64
+  text: "{{GM}}Tolar\342\200\231s eyes gleam. You recognize the look of true love: the love of money.{{/GM}}\n\nIndeed! This will be quite sufficient."
+  branches {
+    responseText: ""
+    nextNodeIndex: 65
+    idRef {
+      id: "55f1b6b7643431a119979406:56080eff3464353c14005779"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "56080f013464353c1400577c"
+  }
+  index: 65
+  text: "Ah, yes, the machine: I lent it to your friend Kora. Tell her that I gave you my permission to use it.\n\nFor forty-five minutes! After that I\342\200\231ll start charging you!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 6
+    idRef {
+      id: "55f1b6b7643431a119979406:560811213464353c14005a27"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5608108c3464353c14005947"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "56080fb13464353c14005853"
+  }
+  index: 66
+  text: "Well\342\200\246 ordinarily I\342\200\231d say no, but this is your profession after all. I\342\200\231ll give you the benefit of the doubt, just this once."
+  branches {
+    responseText: ""
+    nextNodeIndex: 65
+    idRef {
+      id: "55f1b6b7643431a119979406:56080fb43464353c14005855"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "56080fd83464353c1400585b"
+  }
+  index: 67
+  text: "Now, be quick about it! Chop-chop!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 6
+    idRef {
+      id: "55f1b6b7643431a119979406:560811293464353c14005bbc"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Add Item to Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "cc_hub-BiohazardSuits"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "560810483464353c1400593f"
+  }
+  index: 68
+  text: "Hm? Oh, right. I did ask you to do that."
+  branches {
+    responseText: ""
+    nextNodeIndex: 65
+    idRef {
+      id: "55f1b6b7643431a119979406:560810493464353c14005941"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Remove Item from Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "cc_hub-DeliveryReceipt"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0

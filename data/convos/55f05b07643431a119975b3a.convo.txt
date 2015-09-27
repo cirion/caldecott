@@ -15,7 +15,6 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "Sable"
 }
 nodes {
   idRef {
@@ -30,7 +29,9 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "Rafik"
+  sourceInSceneRef {
+    id: "55f5fb303464355413007bfd"
+  }
 }
 nodes {
   idRef {
@@ -60,14 +61,16 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "Kora"
+  sourceInSceneRef {
+    id: "55f5fb673464355413007bff"
+  }
 }
 nodes {
   idRef {
     id: "55f05b66643431a119975b59"
   }
   index: 3
-  text: "Dorbi: Sable\342\200\231s quite the schemer. I\342\200\231d keep my eye on him.\n\nWell, I suppose you\342\200\231re doing that already."
+  text: "Sable\342\200\231s quite the schemer. I\342\200\231d keep my eye on him.\n\nWell, I suppose you\342\200\231re doing that already."
   branches {
     responseText: ""
     nextNodeIndex: 6
@@ -77,6 +80,9 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55f5facf3464355413007bf8"
+  }
 }
 nodes {
   idRef {
@@ -131,13 +137,39 @@ nodes {
   }
   branches {
     responseText: "I refuse to have anything to do with that demonic device."
+    actions {
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "karaokeYouRefusedToSing"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 19
     idRef {
       id: "55f05b07643431a119975b3a:55f05c16643431a119975ba2"
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "Persi"
+  sourceInSceneRef {
+    id: "55f5fab03464355413007bf7"
+  }
 }
 nodes {
   idRef {
@@ -168,6 +200,30 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_GM_Speaker_Voice
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "karaokeSableSang"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -193,21 +249,99 @@ nodes {
   text: "The unlicensed musical accompaniment might leave a little to be desired, but Sable\342\200\231s enthusiasm more than carries the song, inspiring Kora and Dorbi to join in on the chorus."
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "karaokeYouRefusedToSing"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 23
     idRef {
       id: "55f05b07643431a119975b3a:55f05c3b643431a119975bb5"
     }
     auxiliaryLink: true
-    comment: "TODO: You refused to sing (local var)"
+    comment: "You refused to sing"
   }
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "karaokeYouSang"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 11
     idRef {
       id: "55f05b07643431a119975b3a:55f05c68643431a119975bd7"
     }
     auxiliaryLink: true
-    comment: "Fallback: You get to sing now!"
+    comment: "Your turn to sing!"
+  }
+  branches {
+    responseText: ""
+    nextNodeIndex: 23
+    idRef {
+      id: "55f05b07643431a119975b3a:56081a9d3464353c140062c6"
+    }
+    auxiliaryLink: true
   }
   nodeType: ConversationNodeType_GM_Speaker_Voice
 }
@@ -246,7 +380,33 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "Kora"
+  sourceInSceneRef {
+    id: "55f5fb673464355413007bff"
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "karaokeYouSang"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -263,7 +423,9 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "Dorbi"
+  sourceInSceneRef {
+    id: "55f5facf3464355413007bf8"
+  }
 }
 nodes {
   idRef {
@@ -280,7 +442,9 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "Dorbi"
+  sourceInSceneRef {
+    id: "55f5facf3464355413007bf8"
+  }
 }
 nodes {
   idRef {
@@ -297,7 +461,9 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "Dorbi"
+  sourceInSceneRef {
+    id: "55f5facf3464355413007bf8"
+  }
 }
 nodes {
   idRef {
@@ -313,7 +479,9 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "Dorbi"
+  sourceInSceneRef {
+    id: "55f5facf3464355413007bf8"
+  }
 }
 nodes {
   idRef {
@@ -323,11 +491,46 @@ nodes {
   text: "You take the microphone, wait for the music to start, and then do your thing. The rest of the group gets into it, contributing backing vocals and clapping their hands to the beat.\n\nYou\342\200\231ve always liked this song, but it\342\200\231s somehow even better now that you\342\200\231re involved in creating it, part of a musical team with your companions."
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "karaokeSableSang"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 17
     idRef {
       id: "55f05b07643431a119975b3a:55f05e41643431a119975c84"
     }
-    comment: "TODO: Sable hasn\'t sung yet, local var."
+    comment: "Sable hasn\'t sung yet"
   }
   branches {
     responseText: ""
@@ -337,7 +540,10 @@ nodes {
     }
     comment: "Fallback: Sable sang, continuing."
   }
-  nodeType: ConversationNodeType_GM_Voice
+  nodeType: ConversationNodeType_GM_Speaker_Voice
+  sourceInSceneRef {
+    id: "5521752d346435e810004e07"
+  }
   comment: "TODO: New music? Not important, but could do."
 }
 nodes {
@@ -361,7 +567,7 @@ nodes {
     id: "55f05e80643431a119975c9d"
   }
   index: 18
-  text: "Terrific singing, $(l.firstname)! Okay, the rest of us need to show off our own stuff now."
+  text: "Terrific singing, $(l.firstname)!\n\nOkay, the rest of us need to show off our own stuff now."
   branches {
     responseText: ""
     nextNodeIndex: 23
@@ -371,6 +577,9 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55f5fb673464355413007bff"
+  }
 }
 nodes {
   idRef {
@@ -386,7 +595,9 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "D"
+  sourceInSceneRef {
+    id: "55f5facf3464355413007bf8"
+  }
 }
 nodes {
   idRef {
@@ -402,7 +613,9 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "P TODO - looks at Dorbi?"
+  sourceInSceneRef {
+    id: "55f5fab03464355413007bf7"
+  }
 }
 nodes {
   idRef {
@@ -418,7 +631,9 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "D"
+  sourceInSceneRef {
+    id: "55f5facf3464355413007bf8"
+  }
 }
 nodes {
   idRef {
@@ -435,23 +650,50 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "K"
+  sourceInSceneRef {
+    id: "55f5fb673464355413007bff"
+  }
 }
 nodes {
   idRef {
     id: "55f05ef3643431a119975d07"
   }
   index: 23
-  text: "Okay, gimme a shot! I\342\200\231ll show you all how it\342\200\231s done!"
+  text: "All right, gimme a shot! I\342\200\231ll show you all how it\342\200\231s done!"
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Fade out camera, pick up the next part"
+  sourceInSceneRef {
+    id: "55f5fab03464355413007bf7"
+  }
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "560815123464353c14005f40"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0
   idRef {
     id: "55f05b07643431a119975b3a:55f05b07643431a119975b3e"
   }
-  comment: "TODO: There\'s a decent amount of action here. I should probably split it into multiple convos, but the different orders make that difficult. Experiment with actor animations/move orders and see if that works here."
 }
 roots {
   responseText: ""

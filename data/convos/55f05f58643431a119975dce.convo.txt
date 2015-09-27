@@ -61,6 +61,46 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_GM_Speaker_Voice
+  actions {
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55f5faf63464355413007bfa"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Berlin:General/standing_idle_leaning"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "HongKong:General/sitting_idle_sleeping"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -107,7 +147,25 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Fade back in."
+  actions {
+    ops {
+      functionName: "Teleport Camera To Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55f5faf63464355413007bfa"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Apply Camera Zoom"
+      args {
+        float_value: 1.6
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -162,12 +220,34 @@ nodes {
   index: 8
   text: "{{GM}}He kisses the top of your head, then lets you go with one more squeeze.{{/GM}}\n\nWe\342\200\231ll have to do this again when we get back from the job. I mean it.\n\nYou\342\200\231re the best, $(l.firstname), and I\342\200\231ll be waiting for you."
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Probably fade out here and delete Sable."
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "560817283464353c14005fc2"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0
   idRef {
     id: "55f05f58643431a119975dce:55f05f58643431a119975dd2"
   }
-  comment: "TODO: This could all happen in darkness. Or maybe do the first part in the crowd, and then fade out."
 }
