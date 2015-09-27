@@ -49,7 +49,14 @@ nodes {
   }
   nodeType: ConversationNodeType_Simple
   speaker_override_id: "55e13144346435e0140016a8"
-  comment: "TODO: Give ~230k nuyen"
+  actions {
+    ops {
+      functionName: "Add Nuyen"
+      args {
+        int_value: 230000
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -107,6 +114,28 @@ nodes {
   text: "And check out these fetishes! Looks like Aztlan gear. That stuff\342\200\231s been impossible to find in CalFree since the embargo. We\342\200\231ll need to sell it on the black market, but that alone will be worth a fortune."
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          int_value: 0
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 6
     idRef {
       id: "55f06230643431a119975e51:55f062d5643431a119975e8e"

@@ -41,6 +41,28 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Set Waypoint on Prop"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PrimaryOrSecondary"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "55345b33346435700f004dcb"
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -19244,6 +19266,371 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "postSetup_CurtainsUp_SendEvents"
+  events {
+    ops {
+      functionName: "On Curtains Up"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Event_CheckScaleAmount"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55e70586346435480e0071ba"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Global_SetCharacterScaleAmount_1"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Event_CheckScaleAmount"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_numMissionsCompleted"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "CharacterScaleAmount"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55e705f1346435480e0071bb"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Global_SetCharacterScaleAmount_2"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Event_CheckScaleAmount"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_numMissionsCompleted"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 2
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "CharacterScaleAmount"
+          }
+        }
+      }
+      args {
+        int_value: 2
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55e7063b346435480e0071bc"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Global_SetCharacterScaleAmount_3"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Event_CheckScaleAmount"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_numMissionsCompleted"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 4
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "CharacterScaleAmount"
+          }
+        }
+      }
+      args {
+        int_value: 3
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55e7063c346435480e0071bd"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Global_SetCharacterScaleAmount_4"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Event_CheckScaleAmount"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_numMissionsCompleted"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 7
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "CharacterScaleAmount"
+          }
+        }
+      }
+      args {
+        int_value: 4
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55e7063e346435480e0071be"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Global_SetCharacterScaleAmount_5"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Event_CheckScaleAmount"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_numMissionsCompleted"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 7
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "CharacterScaleAmount"
+          }
+        }
+      }
+      args {
+        int_value: 5
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55e7063f346435480e0071bf"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Camera Clinic"
   position {
@@ -24749,6 +25136,14 @@ variables {
     typeName: "bool"
   }
 }
+variables {
+  bool_value: true
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "canExitHalferville"
+    typeName: "bool"
+  }
+}
 mapEvents: "Transition"
 mapEvents: "Cycle Dis Lights"
 mapEvents: "Flip Light 1 On"
@@ -24776,6 +25171,7 @@ mapEvents: "Dorbi Disapproves"
 mapEvents: "Dorbi Greatly Disapproves"
 mapEvents: "Event_PC0BestSkillCheck"
 mapEvents: "Event_StartWandering"
+mapEvents: "Event_CheckScaleAmount"
 senseTags: "isPC0"
 senseTags: "isSable"
 senseTags: "isPersi"
@@ -24924,8 +25320,6 @@ team_affiliations {
 }
 scene_dimensions {
   dimension_name: "Default"
-}
-character_roster {
 }
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {

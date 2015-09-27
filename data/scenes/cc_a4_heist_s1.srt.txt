@@ -2465,6 +2465,487 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Opening Convo"
+  events {
+    ops {
+      functionName: "On Curtains Up"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "HongKong:props"
+          }
+          args {
+            string_value: "PDA-Ring1"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "5601cba3643431618a5057ce"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "560830843464353c140065a3"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Sable Jacked Out"
+  events {
+    ops {
+      functionName: "On Host Jacked Out"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Sable Must Stay Jacked In"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 3
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "560830aa3464353c140065a4"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Opening Convo Over_OFF"
+  events {
+    ops {
+      functionName: "On Conversation Complete"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Event_UpdateTime"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Enable/Disable Manual Turn Mode in Dimension"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+  isActive: false
+  idRef {
+    id: "560831183464353c140065df"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Update Train Time"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Event_UpdateTime"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Goal"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Find the Cargo Before Reaching Caldecott"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Screen Label Progress Bar (int)"
+      args {
+        string_value: "Time Remaining"
+      }
+      args {
+        string_value: "Time Remaining"
+      }
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "timeRemaining"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "timeTotal"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "560831353464353c140065fd"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Update Suspicion"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Event_UpdateSuspicion"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "isLoneStarHostile"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Screen Label Progress Bar (int)"
+      args {
+        string_value: "Suspicion"
+      }
+      args {
+        string_value: "Suspicion"
+      }
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "suspicion"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "suspicionMax"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "560831c03464353c140065fe"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Lone Star Hostile"
+  events {
+    ops {
+      functionName: "On Actor Damage"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HPOrAP"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Compare Actor Team"
+      args {
+        call_value {
+          functionName: "Triggering Target Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "isLoneStarHostile"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Team Alliance"
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeamAlliance"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Remove Screen Label"
+      args {
+        string_value: "Suspicion"
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "560832b03464353c140065ff"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Camera Train"
   position {
@@ -3203,15 +3684,30 @@ characters {
     z: 150
   }
   orientation: ORIENTATION_S
+  GeneralTags: "isInitialSecurity"
+  displayName: "Security Guard Initial Pistol"
   idRef {
     id: "55ff02d6346435bc000038bd"
   }
   lod: 0
   character_instance {
-    prefab_name: "Core/HumanMale"
+    prefab_name: "HongKong:Security Guards/HumanMaleSecurityGuard"
     character_sheet_id: "Errant_Lv1_Human_Pistol"
     equipment_sheet_id: "Errant_Lv1_Pistol"
     character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
       archetypeName: "gumbo_Soldier"
       attitude: AttitudeAggressive
       attackRandom: AttackStyle_AllEqual
@@ -3219,45 +3715,13 @@ characters {
       }
     }
     team_id: "LoneStar"
-    char_name: "Knight Errant Guard"
+    char_name: "Security Guard"
+    GeneralTags: "isInitialSecurity"
     pc_spawn_number: -1
     portrait {
       filename: ""
     }
-    hiring_set_randomizer: "errant_pistol"
-    scale_character_sheet: true
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -13
-    y: 0
-    z: 10
-  }
-  orientation: ORIENTATION_S
-  idRef {
-    id: "55ff02e3346435bc000038be"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "Core/HumanMale"
-    character_sheet_id: "Errant_Lv1_Human_Pistol"
-    equipment_sheet_id: "Errant_Lv1_Pistol"
-    character_mod {
-      archetypeName: "gumbo_Soldier"
-      attitude: AttitudeAggressive
-      attackRandom: AttackStyle_AllEqual
-      vulnerabilities {
-      }
-    }
-    team_id: "Monsters"
-    char_name: "Knight Errant Guard"
-    pc_spawn_number: -1
-    portrait {
-      filename: ""
-    }
-    hiring_set_randomizer: "errant_pistol"
+    karma: 41
     scale_character_sheet: true
   }
 }
@@ -3310,6 +3774,46 @@ characters {
     scale_character_sheet: true
   }
 }
+variables {
+  int_value: 0
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "suspicion"
+    typeName: "int"
+  }
+}
+variables {
+  int_value: 5
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "suspicionMax"
+    typeName: "int"
+  }
+}
+variables {
+  int_value: 10
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "timeRemaining"
+    typeName: "int"
+  }
+}
+variables {
+  int_value: 10
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "timeTotal"
+    typeName: "int"
+  }
+}
+variables {
+  bool_value: false
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "isLoneStarHostile"
+    typeName: "bool"
+  }
+}
 mapEvents: "Dorbi Approves"
 mapEvents: "Dorbi Disapproves"
 mapEvents: "Persi Approves"
@@ -3318,6 +3822,8 @@ mapEvents: "Rafik Approves"
 mapEvents: "Rafik Disapproves"
 mapEvents: "Sable Approves"
 mapEvents: "Sable Disapproves"
+mapEvents: "Event_UpdateSuspicion"
+mapEvents: "Event_UpdateTime"
 senseTags: "isDorbi"
 senseTags: "isPersi"
 senseTags: "isRafik"
@@ -3336,6 +3842,16 @@ goals {
   name: "Dorbi Must Survive"
   type: GoalType_Primary
   status: GoalStatus_Started
+}
+goals {
+  name: "Sable Must Stay Jacked In"
+  type: GoalType_Primary
+  status: GoalStatus_Hidden
+}
+goals {
+  name: "Find the Cargo Before Reaching Caldecott"
+  type: GoalType_Primary
+  status: GoalStatus_Hidden
 }
 worldMapLocation {
   filename: ""

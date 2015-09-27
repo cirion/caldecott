@@ -79,7 +79,30 @@ nodes {
   index: 3
   text: "I\342\200\231ll just take that\342\200\246 now let\342\200\231s get started!"
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Fade out, surgery sounds, start next convo."
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "56084f15346435a416006f6b"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0

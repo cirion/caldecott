@@ -1,0 +1,305 @@
+idRef {
+  id: "56082b2a3464353c14006585"
+}
+ui_name: "cc_hub-HalfervilleExit"
+nodes {
+  idRef {
+    id: "56082b3c3464353c1400658d"
+  }
+  index: 0
+  text: "Where would you like to go?"
+  branches {
+    responseText: "{{GM}}Steal Shiawase Express security protocols from San Francisco.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_a3_sf_s2-TrainProtocols"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Open Hiring Screen and Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "cc_a3_sf_s1"
+            }
+          }
+        }
+        args {
+          string_value: "Are you ready to travel to San Francisco?"
+        }
+      }
+    }
+    nextNodeIndex: -1
+    idRef {
+      id: "56082b2a3464353c14006585:56082b463464353c1400658f"
+    }
+  }
+  branches {
+    responseText: "{{GM}}Prepare an earthquake in Berkeley.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_MissionState_PrepareEarthquake"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Open Hiring Screen and Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "cc_a3_berkeley_s1"
+            }
+          }
+        }
+        args {
+          string_value: "Are you ready to travel to Berkeley?"
+        }
+      }
+    }
+    nextNodeIndex: -1
+    idRef {
+      id: "56082b2a3464353c14006585:56082bde3464353c14006594"
+    }
+  }
+  branches {
+    responseText: "{{GM}}Look for a train engine in Alameda.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_MissionState_AcquireEngine"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Open Hiring Screen and Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "cc_a3_alameda_s1"
+            }
+          }
+        }
+        args {
+          string_value: "Are you ready to travel to Alameda?"
+        }
+      }
+    }
+    nextNodeIndex: -1
+    idRef {
+      id: "56082b2a3464353c14006585:56082bdb3464353c14006591"
+    }
+  }
+  branches {
+    responseText: "{{GM}}Deploy your team and prepare to rob the train.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_a3_sf_s2-TrainProtocols"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_MissionState_AcquireEngine"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_MissionState_PrepareEarthquake"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Open Hiring Screen and Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "cc_a4_heist_s1"
+            }
+          }
+        }
+        args {
+          string_value: "This is the point of no return. Make sure you have finished any outstanding business in Halferville before proceeding."
+        }
+      }
+    }
+    nextNodeIndex: -1
+    idRef {
+      id: "56082b2a3464353c14006585:56082bde3464353c14006596"
+    }
+  }
+  branches {
+    responseText: "{{GM}}Leave.{{/GM}}"
+    nextNodeIndex: -1
+    idRef {
+      id: "56082b2a3464353c14006585:56082cd63464353c14006598"
+    }
+  }
+  nodeType: ConversationNodeType_GM_Voice
+}
+roots {
+  nextNodeIndex: 0
+  idRef {
+    id: "56082b2a3464353c14006585:56082b2a3464353c14006589"
+  }
+}
