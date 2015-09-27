@@ -1329,6 +1329,13 @@ props {
   idRef {
     id: "5516f28c34643524160084d6"
   }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    dummyInteraciton {
+    }
+    interaction_info_text: ""
+  }
   lod: 0
 }
 props {
@@ -8513,7 +8520,8 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
-    interactionIcon: InteractionIcon_Warp
+    dummyInteraciton {
+    }
     interaction_info_text: "Call Elevator"
   }
   lod: 0
@@ -19306,6 +19314,81 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "OR"
+        args {
+          call_value {
+            functionName: "Compare Actor Team"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "IsOrIsNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (string)"
+                args {
+                  string_value: "FactionList"
+                }
+                args {
+                  int_value: 2
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (SceneDimension)"
+                args {
+                  string_value: "Default"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Comparison (int)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "5505a99b346435a418004d07"
+                }
+                args {
+                  string_value: "Global_numMissionsCompleted"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Comparison Ops"
+                }
+                args {
+                  int_value: 2
+                }
+              }
+            }
+            args {
+              int_value: 6
+            }
+          }
+        }
+      }
+    }
     doorPoint {
       doorState: false
       aiOnlyDoor: false
@@ -20050,6 +20133,81 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "OR"
+        args {
+          call_value {
+            functionName: "Compare Actor Team"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "IsOrIsNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (string)"
+                args {
+                  string_value: "FactionList"
+                }
+                args {
+                  int_value: 2
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (SceneDimension)"
+                args {
+                  string_value: "Default"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Comparison (int)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "5505a99b346435a418004d07"
+                }
+                args {
+                  string_value: "Global_numMissionsCompleted"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Comparison Ops"
+                }
+                args {
+                  int_value: 2
+                }
+              }
+            }
+            args {
+              int_value: 6
+            }
+          }
+        }
+      }
+    }
     doorPoint {
       doorState: false
       aiOnlyDoor: false
@@ -59579,9 +59737,9 @@ props {
 props {
   name: "system_invisible_nonsolidProp"
   gridPoint {
-    x: 28
+    x: -100
     y: 0
-    z: -25
+    z: -50
   }
   orientation: ORIENTATION_S
   displayName: "Debug Start Here"
@@ -60176,6 +60334,481 @@ props {
     }
     interactionIcon: InteractionIcon_Generic
     interaction_info_text: "Pick Pocket"
+  }
+  lod: 0
+}
+props {
+  name: "undergroundBase_tech_PDA01"
+  gridPoint {
+    x: -124.6
+    y: 0.4
+    z: -35.7
+  }
+  orientation: ORIENTATION_S
+  displayName: "Elevator Key"
+  idRef {
+    id: "5607221f346435242500123c"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 5
+            }
+          }
+        }
+        args {
+          int_value: 6
+        }
+      }
+    }
+    pickupItem {
+      itemName: "cc_a3_sf_s2-ElevatorOverride"
+      destroyOnPickup: true
+    }
+    interaction_info_text: ""
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -102
+    y: 0
+    z: -48
+  }
+  orientation: ORIENTATION_S
+  displayName: "Elevator 2B Inactive"
+  idRef {
+    id: "5607264a346435242500124e"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    conversationPoint {
+      conversationID: "55ef3247643431f50b0595c8"
+      turnToFace: false
+    }
+    interactionIcon: InteractionIcon_Warp
+    interaction_info_text: "Call Elevator"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -89
+    y: 0
+    z: -42
+  }
+  orientation: ORIENTATION_S
+  displayName: "Elevator 2B Active"
+  idRef {
+    id: "560726603464352425001250"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    interactionIcon: InteractionIcon_Warp
+    interaction_info_text: "Call Elevator"
+  }
+  lod: 0
+}
+props {
+  name: "office_floor_cement01"
+  gridPoint {
+    x: -174
+    y: 0
+    z: -62
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "560727523464352425001254"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -174
+    y: 0
+    z: -61
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "560727553464352425001255"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -174
+    y: 0
+    z: -62
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "560727563464352425001256"
+  }
+  lod: 0
+}
+props {
+  name: "office_floor_cement01"
+  gridPoint {
+    x: -173
+    y: 0
+    z: -62
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "560727573464352425001257"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -174
+    y: 0
+    z: -63
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "560727583464352425001258"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -173
+    y: 0
+    z: -63
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "560727593464352425001259"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -172
+    y: 0
+    z: -63
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "5607275a346435242500125a"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -171
+    y: 0
+    z: -63
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "5607275b346435242500125b"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -171
+    y: 0
+    z: -62
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "5607275b346435242500125c"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -171
+    y: 0
+    z: -61
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "5607275c346435242500125d"
+  }
+  lod: 0
+}
+props {
+  name: "office_floor_cement01"
+  gridPoint {
+    x: -170
+    y: 0
+    z: -62
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "5607276a346435242500125e"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -170
+    y: 0
+    z: -63
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "5607276c346435242500125f"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -169
+    y: 0
+    z: -63
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "5607276d3464352425001260"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -168
+    y: 0
+    z: -63
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "5607276e3464352425001261"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -168
+    y: 0
+    z: -62
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "5607276f3464352425001262"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -168
+    y: 0
+    z: -61
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "5607276f3464352425001263"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -168
+    y: 0
+    z: -60
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "560727703464352425001264"
+  }
+  lod: 0
+}
+props {
+  name: "office_tech_keycardLanyard"
+  gridPoint {
+    x: -83
+    y: 0
+    z: -55
+  }
+  orientation: ORIENTATION_E
+  displayName: "Nuyen 600"
+  idRef {
+    id: "56072a5334643524250012a3"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    interactionIcon: InteractionIcon_ItemPickup
+    interaction_info_text: "Credstick"
+  }
+  lod: 0
+}
+props {
+  name: "office_tech_keycardLanyard"
+  gridPoint {
+    x: -209.7
+    y: 1
+    z: -48
+  }
+  orientation: ORIENTATION_S
+  displayName: "Nuyen 1000"
+  idRef {
+    id: "56072b5a34643524250012af"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    interactionIcon: InteractionIcon_ItemPickup
+    interaction_info_text: "Credstick"
+  }
+  lod: 0
+}
+props {
+  name: "factory_wall_door01"
+  gridPoint {
+    x: -197
+    y: 0
+    z: -49
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "56072b1634643524250012a8"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    doorPoint {
+      doorState: false
+      aiOnlyDoor: false
+      doorSound: "DoorSlide"
+      doorSoundBundle: "HongKong:props"
+    }
+    interaction_info_text: ""
+  }
+  lod: 0
+}
+props {
+  name: "factory_wall_door01"
+  gridPoint {
+    x: -197
+    y: 0
+    z: -33
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "56072b2234643524250012aa"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    doorPoint {
+      doorState: false
+      aiOnlyDoor: false
+      doorSound: "DoorSlide"
+      doorSoundBundle: "HongKong:props"
+    }
+    interaction_info_text: ""
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -202
+    y: 0
+    z: -59
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "56072b2e34643524250012ab"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -220
+    y: 0
+    z: -25
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "56072b3634643524250012ac"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -80
+    y: 0
+    z: -52
+  }
+  orientation: ORIENTATION_S
+  displayName: "Shut Down Trials"
+  idRef {
+    id: "56072d2534643524250012b6"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    interactionIcon: InteractionIcon_Generic
+    interaction_info_text: "Shut Down Trials"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -21
+    y: 0
+    z: -25
+  }
+  orientation: ORIENTATION_S
+  displayName: "Muni Exit"
+  idRef {
+    id: "560731853464352425001319"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    transitionPoint {
+      scene_name: "cc_hub_halferville"
+      confirmation_text: "This stairwell should lead you to the basement, then the old MUNI tunnels, and eventual freedom. Are you ready to go?"
+    }
+    interaction_info_text: "Basement"
   }
   lod: 0
 }

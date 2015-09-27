@@ -10,6 +10,66 @@ nodes {
   text: "Executive access override enabled. This mode will remain in effect until clinical trials are complete or security is overridden."
   branches {
     responseText: "{{CC}}Override key{{/CC}} {{GM}}Unlock the elevator.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_a3_sf_s2-ElevatorOverride"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "560725fd3464352425001244"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: -1
     idRef {
       id: "55ef3247643431f50b0595c8:55ef333d643431f50b0595d7"

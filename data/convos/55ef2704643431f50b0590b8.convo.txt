@@ -9,19 +9,93 @@ nodes {
   index: 0
   text: "Your comm buzzes with an incoming call. Someone back at base is contacting you."
   branches {
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "cc_a3_sf_s1-SableCame"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 1
     idRef {
       id: "55ef2704643431f50b0590b8:55ef2704643431f50b0590bc"
     }
-    comment: "TODO: Sable was never present on your team. (Probably should set this as a global var upon load of sf_s1)."
   }
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "cc_a3_sf_s1-PersiCame"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 3
     idRef {
       id: "55ef2704643431f50b0590b8:55ef275e643431f50b0590c7"
     }
-    comment: "TODO: Persi was never present. "
   }
   branches {
     responseText: ""
@@ -32,6 +106,36 @@ nodes {
     comment: "Fallback: Kora"
   }
   nodeType: ConversationNodeType_GM_Voice
+  actions {
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "HongKong:props"
+          }
+          args {
+            string_value: "PDA-Ring1"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -63,7 +167,7 @@ nodes {
     id: "55ef2765643431f50b0590ca"
   }
   index: 3
-  text: "Heya, boss. The radio\342\200\231s blowing up with alarms. Sounds like Shiawase security is heading in your direction with a lotta firepower. I\342\200\231m gonna try to divert them with my drones and distract \342\200\230em for as long as I can."
+  text: "Heya, boss. The radio\342\200\231s blowing up with alarms. Sounds like Shiawase security is heading in your direction with a lotta firepower. I\342\200\231m gonna try to divert them with my drones and distract \'em for as long as I can."
   branches {
     responseText: ""
     nextNodeIndex: 4

@@ -10,40 +10,279 @@ nodes {
   text: "Halt! State your purpose!"
   branches {
     responseText: "{{CC}}Etiquette: Security{{/CC}} Counterespionage division, scanning for unsecured terminals."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 14
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 1
     idRef {
       id: "55ef336a643431f50b0595e1:55ef33ae643431f50b0595ef"
     }
-    comment: "TODO: 0/1 suspicion increase."
   }
   branches {
     responseText: "{{CC}}Etiquette: Corporate{{/CC}} I have interdepartmental exchange authorization while the conference is in session."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 13
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "suspicion"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: 1
     idRef {
       id: "55ef336a643431f50b0595e1:55ef33ae643431f50b0595f1"
     }
     auxiliaryLink: true
-    comment: "TODO: Maybe 1 suspicion"
   }
   branches {
     responseText: "{{CC}}Cameron Ueda ID{{/CC}} I\342\200\231m working late on some projects."
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_a3_sf_s2-CameronUedaID"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "suspicion"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+    }
     nextNodeIndex: 1
     hideIfUnavailable: true
     idRef {
       id: "55ef336a643431f50b0595e1:55ef33af643431f50b0595f3"
     }
     auxiliaryLink: true
-    comment: "TODO: Have item. More suspicion."
   }
   branches {
-    responseText: "{{CC}}Cameron Ueda ID{{/CC}} I\342\200\231m working late on some projects."
+    responseText: "{{CC}}Taylor Minami ID{{/CC}} I\342\200\231m working late on some projects."
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_a3_sf_s2-TaylorMinamiID"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "suspicion"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+    }
     nextNodeIndex: 1
     hideIfUnavailable: true
     idRef {
       id: "55ef336a643431f50b0595e1:55ef3442643431f50b05961f"
     }
     auxiliaryLink: true
-    comment: "TODO: Have item. More suspicion."
+  }
+  branches {
+    responseText: "{{GM}}Attack.{{/GM}}"
+    actions {
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "560729cb3464352425001290"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    idRef {
+      id: "55ef336a643431f50b0595e1:560733903464352425001342"
+    }
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -55,11 +294,43 @@ nodes {
   text: ""
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "suspicion"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "suspicionLimit"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 2
     idRef {
       id: "55ef336a643431f50b0595e1:55ef33d0643431f50b0595f8"
     }
-    comment: "TODO: Under suspicion limit"
+    comment: "Under suspicion limit"
   }
   branches {
     responseText: ""
@@ -87,6 +358,30 @@ nodes {
   index: 3
   text: "This doesn\342\200\231t add up. Intruder! Intruder!"
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "560729cb3464352425001290"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Start fight."
 }
 roots {
