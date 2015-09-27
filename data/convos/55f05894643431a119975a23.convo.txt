@@ -57,70 +57,6 @@ nodes {
   nodeType: ConversationNodeType_GM_Voice
   actions {
     ops {
-      functionName: "Force-Use Interactable Object (Basic)"
-      args {
-        call_value {
-          functionName: "Get Map Item (InteractableObject)"
-          args {
-            string_value: "55343f4b3464359c130001fc"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Teleport Actor"
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Actor)"
-              args {
-                string_value: "55f5fab03464355413007bf7"
-              }
-            }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Center of Region"
-          args {
-            call_value {
-              functionName: "Get Map Item (Region)"
-              args {
-                string_value: "56075ba4346435d0020057bc"
-              }
-            }
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "FacingDirection"
-          }
-          args {
-            int_value: 5
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "TeleportMethod"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-    ops {
       functionName: "Set Ambient Light Color"
       args {
         float_value: 0
@@ -309,6 +245,7 @@ nodes {
     idRef {
       id: "55f05894643431a119975a23:56076ae2346435d002006ccc"
     }
+    comment: "Early exit - resumes upon trigger"
   }
   branches {
     responseText: ""
@@ -318,72 +255,6 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_GM_Voice
-  actions {
-    ops {
-      functionName: "Teleport Actor"
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Player)"
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Center of Region"
-          args {
-            call_value {
-              functionName: "Get Map Item (Region)"
-              args {
-                string_value: "56075bb4346435d0020057bd"
-              }
-            }
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "FacingDirection"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "TeleportMethod"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Teleport Camera To Actor"
-      args {
-        call_value {
-          functionName: "Get Map Item (Actor)"
-          args {
-            string_value: "55f5fab03464355413007bf7"
-          }
-        }
-      }
-    }
-  }
 }
 nodes {
   idRef {
@@ -459,7 +330,7 @@ nodes {
         }
       }
       args {
-        float_value: 0.5
+        float_value: 1
       }
       args {
         call_value {
@@ -469,6 +340,25 @@ nodes {
           }
           args {
             int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55f5fab03464355413007bf7"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Seattle:General/standing_interact"
           }
         }
       }
@@ -638,7 +528,7 @@ nodes {
         call_value {
           functionName: "Get Map Item (Animation)"
           args {
-            string_value: "Berlin:General/standing_idle_dancing"
+            string_value: "Berlin:General/standing_idle_shuffledance"
           }
         }
       }
@@ -706,7 +596,7 @@ nodes {
       id: "55f05894643431a119975a23:55f05968643431a119975a5c"
     }
   }
-  nodeType: ConversationNodeType_Simple
+  nodeType: ConversationNodeType_GM_Speaker_Voice
 }
 nodes {
   idRef {
@@ -802,6 +692,22 @@ nodes {
   }
   nodeType: ConversationNodeType_GM_Speaker_Voice
   actions {
+    ops {
+      functionName: "Teleport Camera To Point"
+      args {
+        call_value {
+          functionName: "Current Location of Prop"
+          args {
+            call_value {
+              functionName: "Get Map Item (Prop)"
+              args {
+                string_value: "56077289346435d00200702b"
+              }
+            }
+          }
+        }
+      }
+    }
     ops {
       functionName: "Remove Item from Actor by Item Type"
       args {
@@ -933,7 +839,7 @@ nodes {
     id: "55f05894643431a119975a23:55f05a0f643431a119975aa5"
   }
   index: 16
-  text: "Eventually, you realize that your eyes have gradually adjusted to the low light. You can see Persi\342\200\231s face, inches from your own. She\342\200\231s smiling. You think she\342\200\231s been smiling for a while. It\342\200\231s a good look on her."
+  text: "Eventually, you realize that your eyes have gradually adjusted to the low light. You can see Persi\342\200\231s face, hovering above your own. She\342\200\231s smiling. You think she\342\200\231s been smiling for a while. It\342\200\231s a good look on her."
   branches {
     responseText: ""
     nextNodeIndex: 17
@@ -943,6 +849,23 @@ nodes {
   }
   nodeType: ConversationNodeType_Simple
   actions {
+    ops {
+      functionName: "Teleport Camera To Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55f5fab03464355413007bf7"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Apply Camera Zoom"
+      args {
+        float_value: 1.6
+      }
+    }
     ops {
       functionName: "Set Ambient Light Color"
       args {
@@ -1137,12 +1060,44 @@ nodes {
   index: 21
   text: "{{GM}}Persi lays a finger on your lips.{{/GM}}\n\nHold that thought. We need somethin\342\200\231 to talk about after you get back. Until next time, lover."
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Update goals, move folks around. Might be easiest to fade-out, remove her, and fade back in. She can be gone for the rest of this scene. Remove any goals related to this."
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5607679a346435d002006ba9"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0
+  onlyOnce: true
   idRef {
     id: "55f05894643431a119975a23:55f05894643431a119975a27"
   }
-  comment: "TODO: Test this, see if I can get the FX I want to play while in convo. If not, split into multiple parts."
+  comment: "First part of convo, on picking up track"
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 3
+  idRef {
+    id: "55f05894643431a119975a23:560770a8346435d002006ed9"
+  }
+  auxiliaryLink: true
 }
