@@ -314,7 +314,7 @@ nodes {
           call_value {
             functionName: "Get Map Item (Goal)"
             args {
-              string_value: "Find the Music Track for Persi"
+              string_value: "Ask Horatio about Pyramid Panic"
             }
           }
         }
@@ -325,7 +325,7 @@ nodes {
               string_value: "GoalStatus"
             }
             args {
-              int_value: 1
+              int_value: 0
             }
           }
         }
@@ -336,6 +336,52 @@ nodes {
               string_value: "IsOrIsNot"
             }
             args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Clear Waypoint from Actor"
+        args {
+          call_value {
+            functionName: "Get Map Item (Actor)"
+            args {
+              string_value: "55f5fec23464355413007c0e"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Goal Status"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Ask Horatio about Pyramid Panic"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
               int_value: 1
             }
           }
@@ -344,6 +390,7 @@ nodes {
     }
     nextNodeIndex: 32
     hideIfUnavailable: true
+    onlyOnce: true
     idRef {
       id: "556fbf42346435a00e005f91:55ef71216434313512060145"
     }
@@ -1575,7 +1622,7 @@ nodes {
     id: "55ef72e76434313512060549"
   }
   index: 42
-  text: "{{GM}}He snatches away the parchment, then reminds his promise.{{/GM}}\n\nAh, right. The track\342\200\246"
+  text: "{{GM}}He snatches away the parchment, then remembers his promise.{{/GM}}\n\nAh, right. The track\342\200\246"
   branches {
     responseText: ""
     nextNodeIndex: 37

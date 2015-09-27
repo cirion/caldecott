@@ -345,8 +345,52 @@ nodes {
     }
   }
   branches {
-    responseText: "Goodbye."
+    responseText: "Have you heard of orxploitation music?"
+    conditions {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Learn More About Orxploitation Music"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 47
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "556e3e2d6434311d1ca42094:560760ef346435d002006323"
+    }
+  }
+  branches {
+    responseText: "Goodbye."
+    nextNodeIndex: 52
     idRef {
       id: "556e3e2d6434311d1ca42094:55f1cdf9643431a11997cf4f"
     }
@@ -1412,9 +1456,183 @@ nodes {
 }
 nodes {
   idRef {
-    id: "556e74a9346435e0140072db"
+    id: "56076120346435d002006326"
   }
   index: 47
+  text: "To the best of my knowledge, it does not yet exist, although I can imagine what it might become."
+  branches {
+    responseText: ""
+    nextNodeIndex: 48
+    idRef {
+      id: "556e3e2d6434311d1ca42094:56076123346435d002006328"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "56076124346435d00200632b"
+  }
+  index: 48
+  text: "Ork scholars such as myself have found traces of an ancient Fourth World language known as Or\342\200\231zet. There are not enough extant examples for us to fully recover the language, but we remain hopeful of one day finding our Rosetta Stone. When that time comes, I can imagine a great flourishing of Orkish music, writing, and culture."
+  branches {
+    responseText: "Could you fake some of that music for me?"
+    nextNodeIndex: 49
+    idRef {
+      id: "556e3e2d6434311d1ca42094:5607613c346435d00200632d"
+    }
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "It would make Horatio very happy to get a sneak preview of that music."
+    nextNodeIndex: 49
+    idRef {
+      id: "556e3e2d6434311d1ca42094:5607613c346435d00200632f"
+    }
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Listen: that non-existent style is the key to me getting laid!"
+    nextNodeIndex: 49
+    idRef {
+      id: "556e3e2d6434311d1ca42094:5607613d346435d002006331"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Learn More About Orxploitation Music"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "56076151346435d002006334"
+  }
+  index: 49
+  text: "Oh? Hm.\n\nI am loathe to spread any disinformation, but in light of your need, I can produce something which might satisfy a would-be enthusiast."
+  branches {
+    responseText: ""
+    nextNodeIndex: 50
+    idRef {
+      id: "556e3e2d6434311d1ca42094:56076160346435d0020063da"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "556e3e2d6434311d1ca42094:56076161346435d0020063dc"
+  }
+  index: 50
+  text: "Orion takes several minutes to thoughtfully scratch peculiar symbols into a roll of parchment. Once it is done, he hands it to you."
+  branches {
+    responseText: ""
+    nextNodeIndex: 51
+    idRef {
+      id: "556e3e2d6434311d1ca42094:56076161346435d0020063de"
+    }
+  }
+  nodeType: ConversationNodeType_GM_Speaker_Voice
+}
+nodes {
+  idRef {
+    id: "56076165346435d0020063e3"
+  }
+  index: 51
+  text: "Truthfully, this is all more or less nonsense, but it should serve as a visual approximation of what an orxploitation song might look like.\n\nMay it serve you well."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    idRef {
+      id: "556e3e2d6434311d1ca42094:5607616e346435d0020063e5"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Add Item to Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "cc_hub-Orxploitation"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "556e74a9346435e0140072db"
+  }
+  index: 52
   text: "Fare you well."
   nodeType: ConversationNodeType_Simple
 }
@@ -1422,11 +1640,11 @@ nodes {
   idRef {
     id: "556e3e586434311d1ca4209b"
   }
-  index: 48
+  index: 53
   text: "I greet you."
   branches {
     responseText: ""
-    nextNodeIndex: 49
+    nextNodeIndex: 54
     idRef {
       id: "556e3e2d6434311d1ca42094:55f1cdf9643431a11997cf55"
     }
@@ -1437,11 +1655,11 @@ nodes {
   idRef {
     id: "556e3e626434311d1ca4209e"
   }
-  index: 49
+  index: 54
   text: "On behalf of all metahumankind, I thank you for considering commerce with me. To avert future surprises, allow me to explicitly state my affiliations: I am an ork, and I am a proud member of the October 25th Alliance."
   branches {
     responseText: ""
-    nextNodeIndex: 50
+    nextNodeIndex: 55
     idRef {
       id: "556e3e2d6434311d1ca42094:55f1cdf9643431a11997cf58"
     }
@@ -1452,7 +1670,7 @@ nodes {
   idRef {
     id: "556e3e6d6434311d1ca420a1"
   }
-  index: 50
+  index: 55
   text: "Should you wish to purchase armaments from me to protect your body, I will gladly sell them to you. Should you wish to discuss the plight of metahumans in the Bay Area and the great struggle to lift them up, I will gladly speak for free."
   branches {
     responseText: ""
@@ -1539,7 +1757,7 @@ roots {
       }
     }
   }
-  nextNodeIndex: 48
+  nextNodeIndex: 53
   idRef {
     id: "556e3e2d6434311d1ca42094:55f1cdf9643431a11997cf52"
   }
