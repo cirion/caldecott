@@ -2,8 +2,38 @@ idRef {
   id: "5608db8e643431a3f0c09349"
 }
 ui_name: "cc_a4_heist_s1-DoorToFoodCar"
+nodes {
+  idRef {
+    id: "560980da6434317ffada502a"
+  }
+  index: 0
+  text: "The door to the dining car is only open to paying customers."
+  branches {
+    responseText: "{{CC}}\302\245100{{/CC}} {{GM}}Pay to access the car.{{/GM}}"
+    nextNodeIndex: -1
+    idRef {
+      id: "5608db8e643431a3f0c09349:560980fc6434317ffada502c"
+    }
+    comment: "TODO: Nuyen"
+  }
+  branches {
+    responseText: "{{GM}}Force the door open.{{/GM}}"
+    nextNodeIndex: -1
+    idRef {
+      id: "5608db8e643431a3f0c09349:560980fd6434317ffada502e"
+    }
+  }
+  branches {
+    responseText: "{{GM}}Walk away.{{/GM}}"
+    nextNodeIndex: -1
+    idRef {
+      id: "5608db8e643431a3f0c09349:560980fd6434317ffada5030"
+    }
+  }
+  nodeType: ConversationNodeType_GM_Voice
+}
 roots {
-  nextNodeIndex: -1
+  nextNodeIndex: 0
   idRef {
     id: "5608db8e643431a3f0c09349:5608db8e643431a3f0c0934d"
   }

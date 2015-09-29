@@ -2,8 +2,62 @@ idRef {
   id: "5608db2a643431a3f0c09318"
 }
 ui_name: "cc_a4_heist_s1-DoorToWealthyCar"
+nodes {
+  idRef {
+    id: "560986b56434317ffada50a0"
+  }
+  index: 0
+  text: "The upcoming car is for first-class passengers only."
+  branches {
+    responseText: "{{CC}}Drone Control: 3{{/CC}} {{GM}}Re-wire the locking mechanism.{{/GM}}"
+    nextNodeIndex: 1
+    idRef {
+      id: "5608db2a643431a3f0c09318:560986ec6434317ffada50a2"
+    }
+    comment: "TODO: Pre-reqs"
+  }
+  branches {
+    responseText: "{{CC}}Decking: 3{{/CC}} {{GM}}Re-code your ticket to add First Class credentials.{{/GM}}"
+    nextNodeIndex: 2
+    idRef {
+      id: "5608db2a643431a3f0c09318:560986ec6434317ffada50a4"
+    }
+  }
+  branches {
+    responseText: "{{GM}}Force the door open.{{/GM}}"
+    nextNodeIndex: -1
+    idRef {
+      id: "5608db2a643431a3f0c09318:560986ec6434317ffada50a6"
+    }
+  }
+  branches {
+    responseText: "{{GM}}Walk away.{{/GM}}"
+    nextNodeIndex: -1
+    idRef {
+      id: "5608db2a643431a3f0c09318:560986ed6434317ffada50a8"
+    }
+  }
+  nodeType: ConversationNodeType_GM_Voice
+}
+nodes {
+  idRef {
+    id: "560987626434317ffada50b4"
+  }
+  index: 1
+  text: "The fancy-looking chrome access panel does a poor job at defending against physical access. You\'re in and out before anyone notices."
+  nodeType: ConversationNodeType_GM_Voice
+  comment: "TODO: Sound and triggers for both successes."
+}
+nodes {
+  idRef {
+    id: "560988446434317ffada50c1"
+  }
+  index: 2
+  text: "Since the train periodically loses Matrix access along its route, credentials are stored in magnetic format for offline access. Your cyberdeck is easily able to twiddle the necessary bits to upgrade your status. As long as nobody examines the physical ticket, you\'ll be set."
+  nodeType: ConversationNodeType_GM_Voice
+}
 roots {
-  nextNodeIndex: -1
+  nextNodeIndex: 0
   idRef {
     id: "5608db2a643431a3f0c09318:5608db2a643431a3f0c0931c"
   }

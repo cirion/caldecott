@@ -2,8 +2,55 @@ idRef {
   id: "5608db57643431a3f0c0933f"
 }
 ui_name: "cc_a4_heist_s1-DoorToSecurityGuards"
+nodes {
+  idRef {
+    id: "5609f2d46434317ffada50e7"
+  }
+  index: 0
+  text: "This door is secured with a biometric lock, keyed to the fingerprint of Shiawase employees. Fortunately, you happen to be wearing just such a finger."
+  branches {
+    responseText: "{{GM}}Press the lock.{{/GM}}"
+    nextNodeIndex: -1
+    idRef {
+      id: "5608db57643431a3f0c0933f:5609f3376434317ffada50e9"
+    }
+    comment: "TODO: Valid fingerprint"
+  }
+  branches {
+    responseText: "{{GM}}Press the lock.{{/GM}}"
+    nextNodeIndex: 1
+    idRef {
+      id: "5608db57643431a3f0c0933f:5609f3376434317ffada50eb"
+    }
+    comment: "TODO: Invalid key"
+  }
+  branches {
+    responseText: "{{GM}}Force the door open.{{/GM}}"
+    nextNodeIndex: -1
+    idRef {
+      id: "5608db57643431a3f0c0933f:5609f3376434317ffada50ed"
+    }
+  }
+  branches {
+    responseText: "{{GM}}Leave.{{/GM}}"
+    nextNodeIndex: -1
+    idRef {
+      id: "5608db57643431a3f0c0933f:5609f3bd6434317ffada50f2"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5609f3606434317ffada50f0"
+  }
+  index: 1
+  text: "{{GM}}Bzzzt{{/GM}}\n\n>> Employee Cameron Ueda has questionable status. Unverified access detected from San Francisco office. Blocking access and notifying appropriate personnel."
+  nodeType: ConversationNodeType_Simple
+  comment: "TODO: Raise suspicion"
+}
 roots {
-  nextNodeIndex: -1
+  nextNodeIndex: 0
   idRef {
     id: "5608db57643431a3f0c0933f:5608db57643431a3f0c09343"
   }
