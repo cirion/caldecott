@@ -22201,12 +22201,53 @@ props {
     z: 150
   }
   orientation: ORIENTATION_S
+  displayName: "Car Door Civilian to Bar"
   idRef {
     id: "552ab6073464353826001942"
   }
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Compare Actor Team"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+    }
     doorPoint {
       doorState: false
       aiOnlyDoor: false
@@ -22362,12 +22403,53 @@ props {
     z: 150
   }
   orientation: ORIENTATION_S
+  displayName: "Car Door Bar to Executives"
   idRef {
     id: "552ab69c346435382600194e"
   }
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Compare Actor Team"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+    }
     doorPoint {
       doorState: false
       aiOnlyDoor: false
@@ -22568,12 +22650,53 @@ props {
     z: 150
   }
   orientation: ORIENTATION_S
+  displayName: "Car Door Executive to Guard"
   idRef {
     id: "552ab7393464353826001966"
   }
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Compare Actor Team"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+    }
     doorPoint {
       doorState: false
       aiOnlyDoor: false
@@ -23251,12 +23374,51 @@ props {
     z: 150
   }
   orientation: ORIENTATION_S
+  displayName: "Car Door Guards to Cargo"
   idRef {
     id: "552ab82934643538260019aa"
   }
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     doorPoint {
       doorState: false
       aiOnlyDoor: false
@@ -28283,7 +28445,7 @@ props {
   name: "undergroundBase_wallDecoration_netting02"
   gridPoint {
     x: -36
-    y: 2.7755576e-17
+    y: 2.7755576e-017
     z: 97.7
   }
   orientation: ORIENTATION_E
@@ -32434,7 +32596,7 @@ props {
   name: "office_tech_keycardLanyard"
   gridPoint {
     x: -14.3
-    y: 2.7755576e-17
+    y: 2.7755576e-017
     z: 2
   }
   orientation: ORIENTATION_E
@@ -50132,6 +50294,84 @@ props {
   orientation: ORIENTATION_S
   idRef {
     id: "56085d76643431b1e715dae8"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -2
+    y: 1
+    z: 151
+  }
+  orientation: ORIENTATION_S
+  displayName: "Fake Door Civilians to Bar"
+  idRef {
+    id: "560b49b0346435f81e00230d"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Prop Is Closed Door"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "552ab6073464353826001942"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    interactionIcon: InteractionIcon_Warp
+    interaction_info_text: "Open Door"
+  }
+  lod: 0
+}
+props {
+  name: "vfx_fx_SeatedMaleBarPatronSouth"
+  gridPoint {
+    x: 0.8
+    y: 0.6
+    z: 149.29999
+  }
+  orientation: ORIENTATION_S
+  properties {
+    property_id: "fxScript"
+    string_value: "SeatedMaleBarPatronSouth"
+  }
+  idRef {
+    id: "560b4e77346435f81e002335"
+  }
+  lod: 0
+}
+props {
+  name: "vfx_fx_SeatedFemaleBarPatronSouth"
+  gridPoint {
+    x: 2.1000001
+    y: 0.6
+    z: 148.70001
+  }
+  orientation: ORIENTATION_S
+  properties {
+    property_id: "fxScript"
+    string_value: "SeatedFemaleBarPatronSouth"
+  }
+  idRef {
+    id: "560b4e78346435f81e002336"
   }
   lod: 0
 }
