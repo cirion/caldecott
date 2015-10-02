@@ -10,22 +10,160 @@ nodes {
   text: "This door is secured with a biometric lock, keyed to the fingerprint of Shiawase employees. Fortunately, you happen to be wearing just such a finger."
   branches {
     responseText: "{{GM}}Press the lock.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "cc_a3_sf_s2-RevealedCameronFakeID"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "560df1fe346435f81e002407"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: -1
+    hideIfUnavailable: true
     idRef {
       id: "5608db57643431a3f0c0933f:5609f3376434317ffada50e9"
     }
-    comment: "TODO: Valid fingerprint"
   }
   branches {
     responseText: "{{GM}}Press the lock.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "cc_a3_sf_s2-RevealedCameronFakeID"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 1
+    onlyOnce: true
     idRef {
       id: "5608db57643431a3f0c0933f:5609f3376434317ffada50eb"
     }
-    comment: "TODO: Invalid key"
   }
   branches {
     responseText: "{{GM}}Force the door open.{{/GM}}"
+    actions {
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "560df1fe346435f81e002407"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "suspicion"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+    }
     nextNodeIndex: -1
     idRef {
       id: "5608db57643431a3f0c0933f:5609f3376434317ffada50ed"
@@ -47,7 +185,61 @@ nodes {
   index: 1
   text: "{{GM}}Bzzzt{{/GM}}\n\n>> Employee Cameron Ueda has questionable status. Unverified access detected from San Francisco office. Blocking access and notifying appropriate personnel."
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Raise suspicion"
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "suspicion"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "HongKong:ui"
+          }
+          args {
+            string_value: "badpassword"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Event_UpdateSuspicion"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0

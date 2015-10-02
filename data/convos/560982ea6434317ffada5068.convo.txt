@@ -10,23 +10,140 @@ nodes {
   text: "What can I get you?"
   branches {
     responseText: "{{CC}}\302\24550{{/CC}} Gimme a drink."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 50
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 50
+        }
+      }
+    }
     nextNodeIndex: 1
     onlyOnce: true
     idRef {
       id: "560982ea6434317ffada5068:560983006434317ffada5072"
     }
-    comment: "TODO: Pre-req. This is useless."
   }
   branches {
     responseText: "{{CC}}Etiquette: Socialite{{/CC}} Gar\303\247on! I simply cannot make an entrance without first being announced. Please be a dear and prepare the way into first class for me."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 16
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: 2
     idRef {
       id: "560982ea6434317ffada5068:560983006434317ffada5074"
     }
-    comment: "TODO: Verify that the \"c\" draws OK."
   }
   branches {
     responseText: "{{CC}}Etiquette: Corporate{{/CC}} I\'m headed to an office with the executive council, but got seated in coach by mistake. Can you let me in to first class?"
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 13
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: 3
     idRef {
       id: "560982ea6434317ffada5068:560983006434317ffada5076"
@@ -56,6 +173,30 @@ nodes {
   index: 2
   text: "Yes, $(l.sir)! Right away, $(l.sir)!"
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "560df10d346435f81e0023db"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -64,6 +205,44 @@ nodes {
   index: 3
   text: "{{GM}}He eyes you narrowly for a few moments.{{/GM}}\n\n... Sure. Though I\'m a bit surprised you would have boarded back there, the markings are quite clear."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "560df10d346435f81e0023db"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "suspicion"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0

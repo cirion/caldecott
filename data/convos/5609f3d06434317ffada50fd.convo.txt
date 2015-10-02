@@ -10,6 +10,52 @@ nodes {
   text: "Yes? Are you here for the off-site?"
   branches {
     responseText: "{{CC}}Etiquette: Security{{/CC}} No, sir, I am sweeping the car for imposters. Please verify your identity by opening the next train car door."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 14
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 1
     idRef {
       id: "5609f3d06434317ffada50fd:5609f3e86434317ffada5107"
@@ -17,6 +63,52 @@ nodes {
   }
   branches {
     responseText: "{{CC}}Etiquette: Shadowrunner{{/CC}} Let\'s just say I\'m here to meet a \"Mr. Johnson\" in the next car. Would you kindly get the door for me?"
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 17
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 2
     idRef {
       id: "5609f3d06434317ffada50fd:5609f3e96434317ffada5109"
@@ -38,6 +130,44 @@ nodes {
   index: 1
   text: "That... doesn\'t make much sense. But sure, anything to get you out of my hair."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "suspicion"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "560df1fe346435f81e002407"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -46,6 +176,44 @@ nodes {
   index: 2
   text: "Really? That\'s odd. I would have thought you would boarded there directly.\n\nWell. I suppose I shouldn\'t get involved in another Johnson\'s business. Go ahead."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "suspicion"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "560df1fe346435f81e002407"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0
