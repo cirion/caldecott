@@ -3325,6 +3325,82 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Set Actor AI Script"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isInitialSecurity"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        string_value: "gumbo_Soldier"
+      }
+    }
+    ops {
+      functionName: "Order Actor to Hunt And Destroy (Team)"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isInitialSecurity"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -6877,8 +6953,7 @@ characters {
       }
       specializations {
       }
-      archetypeName: "gumbo_Soldier"
-      attitude: AttitudeAggressive
+      archetypeName: "gumbo_noncombatant"
       attackRandom: AttackStyle_AllEqual
       vulnerabilities {
       }
@@ -7022,7 +7097,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_Soldier"
+      archetypeName: "gumbo_noncombatant"
       attitude: AttitudeAggressive
       attackRandom: AttackStyle_AllEqual
       vulnerabilities {
@@ -7114,7 +7189,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_Soldier"
+      archetypeName: "gumbo_noncombatant"
       attitude: AttitudeAggressive
       attackRandom: AttackStyle_AllEqual
       vulnerabilities {
@@ -7701,6 +7776,12 @@ characters {
   idRef {
     id: "56086280643431b1e715dbd6"
   }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    interactionIcon: InteractionIcon_BlockerIC
+    interaction_info_text: ""
+  }
   lod: 0
   character_instance {
     prefab_name: "HongKong:Matrix/MatrixIC_Blocker"
@@ -7793,6 +7874,12 @@ characters {
   displayName: "Cargo Override IC"
   idRef {
     id: "56086288643431b1e715dbd7"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    interactionIcon: InteractionIcon_BlockerIC
+    interaction_info_text: ""
   }
   lod: 0
   character_instance {
@@ -8948,7 +9035,7 @@ team_affiliations {
   team_name: "Monsters"
   affiliation: 1
   affiliation: 0
-  affiliation: 1
+  affiliation: 0
   affiliation: 0
   affiliation: 0
   affiliation: 0
@@ -8956,7 +9043,7 @@ team_affiliations {
 team_affiliations {
   team_name: "LoneStar"
   affiliation: 0
-  affiliation: 1
+  affiliation: 0
   affiliation: 0
   affiliation: 0
   affiliation: 0
@@ -9006,21 +9093,18 @@ character_roster {
     hiring_conditions {
     }
     hiring_cost: -1
-    content_pack_source: "5505a99b346435a418004d07"
   }
   roster_entries {
     reference_id: "crew_lv4_dorbi"
     hiring_conditions {
     }
     hiring_cost: -1
-    content_pack_source: "5505a99b346435a418004d07"
   }
   roster_entries {
     reference_id: "crew_lv4_sable"
     hiring_conditions {
     }
     hiring_cost: -1
-    content_pack_source: "5505a99b346435a418004d07"
   }
 }
 show_hiring_screen_on_scene_load: true
