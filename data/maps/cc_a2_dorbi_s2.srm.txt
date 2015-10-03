@@ -1,7 +1,7 @@
 minX: -80
 minZ: -137
 numX: 142
-numZ: 293
+numZ: 296
 props {
   name: "hive_wall_doorBack01"
   gridPoint {
@@ -23705,7 +23705,7 @@ props {
 props {
   name: "haven_wall_subwayCarDoor03"
   gridPoint {
-    x: -47
+    x: -48
     y: 0
     z: 150
   }
@@ -24083,7 +24083,7 @@ props {
 props {
   name: "haven_wall_subwayCarDoor01"
   gridPoint {
-    x: -48
+    x: -47
     y: 0
     z: 150
   }
@@ -24096,28 +24096,68 @@ props {
     interactionRadius: 1
     prerequisites {
       ops {
-        functionName: "Comparison (Actor)"
+        functionName: "OR"
         args {
           call_value {
-            functionName: "Triggering Actor"
+            functionName: "Comparison (Actor)"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "IsOrIsNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (Actor)"
+                args {
+                  string_value: "55fed02d346435d016002766"
+                }
+              }
+            }
           }
         }
         args {
           call_value {
-            functionName: "Get Preset Value (int)"
+            functionName: "Evaluate Goal"
             args {
-              string_value: "IsOrIsNot"
+              call_value {
+                functionName: "Get Map Item (Goal)"
+                args {
+                  string_value: "Return to Halferville"
+                }
+              }
             }
             args {
-              int_value: 1
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "GoalStatus"
+                }
+                args {
+                  int_value: 1
+                }
+              }
             }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (Actor)"
             args {
-              string_value: "55fed02d346435d016002766"
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "IsOrIsNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
             }
           }
         }
@@ -48663,6 +48703,39 @@ props {
           int_value: 0
         }
       }
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Wipe the Alarm Records"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
     }
     matrixNode {
       prerequisites_control_state: true
@@ -50205,146 +50278,6 @@ props {
   lod: 0
 }
 props {
-  name: "system_invisible_nonsolidProp"
-  gridPoint {
-    x: -1
-    y: 0
-    z: 142
-  }
-  orientation: ORIENTATION_S
-  displayName: "Debug Switch to Caves from Train"
-  idRef {
-    id: "55fed44a346435d016002776"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    interactionIcon: InteractionIcon_Generic
-    interaction_info_text: "Debug Switch to Caves"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_nonsolidProp"
-  gridPoint {
-    x: -17
-    y: 0
-    z: 11
-  }
-  orientation: ORIENTATION_S
-  displayName: "Debug Switch to Train from Caves"
-  idRef {
-    id: "55fed44e346435d016002777"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    interactionIcon: InteractionIcon_Generic
-    interaction_info_text: "Debug Switch to Train"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_nonsolidProp"
-  gridPoint {
-    x: -16
-    y: 0
-    z: 15
-  }
-  orientation: ORIENTATION_S
-  displayName: "Debug Switch to Matrix from Caves"
-  idRef {
-    id: "55feda3f346435d01600277c"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    interactionIcon: InteractionIcon_Generic
-    interaction_info_text: "Debug Switch to Matrix"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_nonsolidProp"
-  gridPoint {
-    x: -3
-    y: 0
-    z: 142
-  }
-  orientation: ORIENTATION_S
-  displayName: "Debug Switch to Matrix from Train"
-  idRef {
-    id: "55feda4c346435d01600277e"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    interactionIcon: InteractionIcon_Generic
-    interaction_info_text: "Debug Switch to Matrix"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_nonsolidProp"
-  gridPoint {
-    x: -5
-    y: 0
-    z: -111
-  }
-  orientation: ORIENTATION_S
-  displayName: "Debug Switch to Caves from Matrix"
-  idRef {
-    id: "55feda76346435d016002780"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    interactionIcon: InteractionIcon_Generic
-    interaction_info_text: "Debug Switch to Caves"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_nonsolidProp"
-  gridPoint {
-    x: -4
-    y: 0
-    z: -110
-  }
-  orientation: ORIENTATION_S
-  displayName: "Debug Switch to Train from Matrix"
-  idRef {
-    id: "55feda8a346435d016002782"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    interactionIcon: InteractionIcon_Generic
-    interaction_info_text: "Debug Switch to Train"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_nonsolidProp"
-  gridPoint {
-    x: 1
-    y: 0
-    z: 142
-  }
-  orientation: ORIENTATION_S
-  displayName: "Debug Return to Hub"
-  idRef {
-    id: "55fee27b3464350015007531"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    interactionIcon: InteractionIcon_Generic
-    interaction_info_text: "Debug Return to Hub"
-  }
-  lod: 0
-}
-props {
   name: "sleekOffice_storage_filingCabinetMid01"
   gridPoint {
     x: -31.099998
@@ -50894,5 +50827,972 @@ props {
     z: 21
   }
   orientation: ORIENTATION_S
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -46
+    y: 0
+    z: 148
+  }
+  orientation: ORIENTATION_S
+  displayName: "Magnetic Coupling 1"
+  idRef {
+    id: "560ff6e5346435981a007e13"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Deactivate the Train Couplings"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    interactionIcon: InteractionIcon_Generic
+    interaction_info_text: "Decouple Car"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -46
+    y: 0
+    z: 152
+  }
+  orientation: ORIENTATION_S
+  displayName: "Magnetic Coupling 2"
+  idRef {
+    id: "560ff709346435981a007e15"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Deactivate the Train Couplings"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    interactionIcon: InteractionIcon_Generic
+    interaction_info_text: "Decouple Car"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -38
+    y: 0
+    z: 152
+  }
+  orientation: ORIENTATION_S
+  displayName: "Magnetic Coupling 3"
+  idRef {
+    id: "560ff711346435981a007e16"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Deactivate the Train Couplings"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    interactionIcon: InteractionIcon_Generic
+    interaction_info_text: "Decouple Car"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -38
+    y: 0
+    z: 148
+  }
+  orientation: ORIENTATION_S
+  displayName: "Magnetic Coupling 4"
+  idRef {
+    id: "560ff719346435981a007e17"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Deactivate the Train Couplings"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    interactionIcon: InteractionIcon_Generic
+    interaction_info_text: "Decouple Car"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -33
+    y: 0
+    z: 148
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56100b98346435981a007e73"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -33
+    y: 0
+    z: 152
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56100ba4346435981a007e74"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -33
+    y: 0
+    z: 156
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56100bac346435981a007e75"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -29
+    y: 0
+    z: 156
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56100baf346435981a007e76"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -29
+    y: 0
+    z: 152
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56100baf346435981a007e77"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -29
+    y: 0
+    z: 148
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56100baf346435981a007e78"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -25
+    y: 0
+    z: 156
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56100bb2346435981a007e79"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -25
+    y: 0
+    z: 152
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56100bb2346435981a007e7a"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -25
+    y: 0
+    z: 148
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56100bb2346435981a007e7b"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -46
+    y: 0
+    z: 148
+  }
+  orientation: ORIENTATION_S
+  displayName: "Attach Magnetic Coupling 1"
+  idRef {
+    id: "56100f10346435981a007e81"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Connect Cargo Car to Persi\'s Engine"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    interactionIcon: InteractionIcon_Generic
+    interaction_info_text: "Activate Coupling"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -46
+    y: 0
+    z: 152
+  }
+  orientation: ORIENTATION_S
+  displayName: "Attach Magnetic Coupling 2"
+  idRef {
+    id: "56100f10346435981a007e82"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Connect Cargo Car to Persi\'s Engine"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    interactionIcon: InteractionIcon_Generic
+    interaction_info_text: "Activate Coupling"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -38
+    y: 0
+    z: 152
+  }
+  orientation: ORIENTATION_S
+  displayName: "Attach Magnetic Coupling 3"
+  idRef {
+    id: "56100f10346435981a007e83"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Connect Cargo Car to Persi\'s Engine"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    interactionIcon: InteractionIcon_Generic
+    interaction_info_text: "Activate Coupling"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -38
+    y: 0
+    z: 148
+  }
+  orientation: ORIENTATION_S
+  displayName: "Attach Magnetic Coupling 4"
+  idRef {
+    id: "56100f10346435981a007e84"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Connect Cargo Car to Persi\'s Engine"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    interactionIcon: InteractionIcon_Generic
+    interaction_info_text: "Activate Coupling"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -47
+    y: 0
+    z: 150
+  }
+  orientation: ORIENTATION_S
+  displayName: "Return to Halferville"
+  idRef {
+    id: "561013ed346435981a007edd"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    transitionPoint {
+      scene_name: "cc_a4_hub"
+      confirmation_text: "Nice work! Are you ready to return to Halferville with your spoils?"
+    }
+    interaction_info_text: "Enter Engine"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -21
+    y: 0
+    z: 148
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101a4e346435981a007ee2"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -21
+    y: 0
+    z: 152
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101a4e346435981a007ee3"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -21
+    y: 0
+    z: 156
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101a4e346435981a007ee4"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -17
+    y: 0
+    z: 148
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bcd346435981a007ee6"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -17
+    y: 0
+    z: 152
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bcd346435981a007ee7"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -17
+    y: 0
+    z: 156
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bcd346435981a007ee8"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -13
+    y: 0
+    z: 148
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bce346435981a007ee9"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -13
+    y: 0
+    z: 152
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bce346435981a007eea"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -13
+    y: 0
+    z: 156
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bce346435981a007eeb"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -9
+    y: 0
+    z: 148
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bd2346435981a007eec"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -9
+    y: 0
+    z: 152
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bd2346435981a007eed"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -9
+    y: 0
+    z: 156
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bd2346435981a007eee"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -5
+    y: 0
+    z: 148
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bd3346435981a007eef"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -5
+    y: 0
+    z: 152
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bd3346435981a007ef0"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -5
+    y: 0
+    z: 156
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bd3346435981a007ef1"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -1
+    y: 0
+    z: 148
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bed346435981a007ef5"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -1
+    y: 0
+    z: 152
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bed346435981a007ef6"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: -1
+    y: 0
+    z: 156
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bed346435981a007ef7"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: 3
+    y: 0
+    z: 148
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bef346435981a007ef8"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: 3
+    y: 0
+    z: 152
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bef346435981a007ef9"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: 3
+    y: 0
+    z: 156
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bef346435981a007efa"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: 7
+    y: 0
+    z: 148
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bf0346435981a007efb"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: 7
+    y: 0
+    z: 152
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bf0346435981a007efc"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: 7
+    y: 0
+    z: 156
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bf0346435981a007efd"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: 10
+    y: 0
+    z: 148
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bf2346435981a007efe"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: 10
+    y: 0
+    z: 152
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bf2346435981a007eff"
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_wall_4x4fill"
+  gridPoint {
+    x: 10
+    y: 0
+    z: 156
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "isSouthCarCover"
+  idRef {
+    id: "56101bf2346435981a007f00"
+  }
   lod: 0
 }
