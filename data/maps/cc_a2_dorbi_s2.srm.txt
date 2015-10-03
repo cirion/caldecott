@@ -23383,16 +23383,10 @@ props {
     interactionRadius: 1
     prerequisites {
       ops {
-        functionName: "Comparison (bool)"
+        functionName: "Compare Actor Team"
         args {
           call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 0
-            }
+            functionName: "Triggering Actor"
           }
         }
         args {
@@ -23408,12 +23402,20 @@ props {
         }
         args {
           call_value {
-            functionName: "Get Preset Value (int)"
+            functionName: "Get Preset Value (string)"
             args {
-              string_value: "bool"
+              string_value: "FactionList"
             }
             args {
-              int_value: 1
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
             }
           }
         }
@@ -23714,6 +23716,35 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (Actor)"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Actor)"
+            args {
+              string_value: "55fed02d346435d016002766"
+            }
+          }
+        }
+      }
+    }
     doorPoint {
       doorState: false
       aiOnlyDoor: false
@@ -24063,6 +24094,35 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (Actor)"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Actor)"
+            args {
+              string_value: "55fed02d346435d016002766"
+            }
+          }
+        }
+      }
+    }
     doorPoint {
       doorState: false
       aiOnlyDoor: false
@@ -50772,5 +50832,67 @@ props {
   idRef {
     id: "560e914b346435f81e002533"
   }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -73
+    y: 0
+    z: 42
+  }
+  orientation: ORIENTATION_S
+  displayName: "Block Cave 1"
+  idRef {
+    id: "560f47a8346435a01a004549"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    dummyInteraciton {
+    }
+    interaction_info_text: ""
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_solidProp"
+  gridPoint {
+    x: -74
+    y: 0
+    z: 43
+  }
+  orientation: ORIENTATION_S
+  displayName: "Block Cave 2"
+  idRef {
+    id: "560f47ae346435a01a00454a"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    dummyInteraciton {
+    }
+    interaction_info_text: ""
+  }
+  lod: 0
+}
+props {
+  name: "secretLab_floor_invisible2x2panel01"
+  gridPoint {
+    x: 32
+    y: 0
+    z: 24
+  }
+  orientation: ORIENTATION_S
+  lod: 0
+}
+props {
+  name: "secretLab_floor_invisible2x2panel01"
+  gridPoint {
+    x: 30
+    y: 0
+    z: 21
+  }
+  orientation: ORIENTATION_S
   lod: 0
 }
