@@ -93,7 +93,30 @@ nodes {
   index: 2
   text: "Enjoy your party. I\342\200\231m out of here."
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Rafik leaves, update crew var"
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "56105ce5346435981a0089e2"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {

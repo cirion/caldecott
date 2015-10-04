@@ -110,7 +110,7 @@ nodes {
         call_value {
           functionName: "Get Map Item (Trigger)"
           args {
-            string_value: "56084b55346435a416006ee1"
+            string_value: "56105ae2346435981a008917"
           }
         }
       }
@@ -263,6 +263,27 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "56084ad1346435a416006ec0"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Seattle:General/standing_interact"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -383,7 +404,33 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Music drops off. Enable death scene."
+  actions {
+    ops {
+      functionName: "Stop Music"
+    }
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "56107dc5346435881f006ca0"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   conditions {
