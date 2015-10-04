@@ -16,6 +16,36 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_GM_Voice
+  actions {
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "HongKong:props"
+          }
+          args {
+            string_value: "PDA-Ring1"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -24,7 +54,7 @@ nodes {
   index: 1
   text: "Hey, boss! I\342\200\231m bringing a chopper around outside - swing by the west windows and I\342\200\231ll get ya out of there."
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Verify window location."
+  sourceWithTagInScene: "isPersi"
 }
 nodes {
   idRef {
@@ -33,7 +63,7 @@ nodes {
   index: 2
   text: "Looks like we\342\200\231re gonna need a swift exit. I\342\200\231ve got a chopper hovering outside on standby - let\342\200\231s head by the west windows and I\342\200\231ll get us out of here."
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Verify these windows too!"
+  sourceWithTagInScene: "isPersi"
 }
 nodes {
   idRef {
@@ -42,22 +72,132 @@ nodes {
   index: 3
   text: "You\342\200\231ll need to make a swift exit from the building, and security is too tight at the entrance. Head to the west windows so your team can rappel down to safety."
   nodeType: ConversationNodeType_GM_Voice
-  comment: "TODO: Directions again..."
 }
 roots {
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_PersiTeamState"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "wasPersiPresent"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
   nextNodeIndex: 0
   idRef {
     id: "55f07e26643431a119976875:55f07e26643431a119976879"
   }
-  comment: "TODO: Persi valid crew member but was never on your team this scene"
+  comment: "Persi is around but not present for this run"
 }
 roots {
   responseText: ""
+  conditions {
+    ops {
+      functionName: "Evaluate If Actor is Inside Region"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isPersi"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "AreOrAreNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554f83753464351421004631"
+          }
+        }
+      }
+    }
+  }
   nextNodeIndex: 2
   idRef {
     id: "55f07e26643431a119976875:55f07e78643431a119976887"
   }
-  comment: "TODO: Persi currently present on team"
+  comment: "Persi currently present on team"
 }
 roots {
   responseText: ""
