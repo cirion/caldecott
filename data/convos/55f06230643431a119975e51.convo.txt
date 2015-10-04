@@ -23,7 +23,7 @@ nodes {
     id: "55f06272643431a119975e62"
   }
   index: 1
-  text: "With this.\n\n{{GM}}He hands you a fistful of certified credsticks.{{/GM}}\n\nThis is why we started the job in the first place."
+  text: "With this.\n\n{{GM}}He tosses you a fistful of certified credsticks.{{/GM}}\n\nThis is why we started the job in the first place."
   branches {
     responseText: "I\342\200\231ll be on my way."
     nextNodeIndex: 2
@@ -53,7 +53,7 @@ nodes {
     ops {
       functionName: "Add Nuyen"
       args {
-        int_value: 230000
+        int_value: 220000
       }
     }
   }
@@ -118,7 +118,15 @@ nodes {
       ops {
         functionName: "Comparison (int)"
         args {
-          int_value: 0
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_PersiTeamState"
+            }
+          }
         }
         args {
           call_value {
@@ -132,7 +140,7 @@ nodes {
           }
         }
         args {
-          int_value: 0
+          int_value: 2
         }
       }
     }
@@ -140,15 +148,45 @@ nodes {
     idRef {
       id: "55f06230643431a119975e51:55f062d5643431a119975e8e"
     }
-    comment: "TODO: Romanced Persi"
+    comment: "Romanced Persi"
   }
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_SableTeamState"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+    }
     nextNodeIndex: 7
     idRef {
       id: "55f06230643431a119975e51:55f06322643431a119975e94"
     }
-    comment: "TODO: Romanced Sable"
+    comment: "Romanced Sable"
   }
   branches {
     responseText: ""
@@ -176,6 +214,31 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPersi"
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "56084b55346435a416006ee1"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -192,6 +255,31 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isSable"
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "56084bfa346435a416006f02"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -207,6 +295,31 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isRafik"
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "56084bfc346435a416006f03"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -215,6 +328,7 @@ nodes {
   index: 9
   text: "Run along, $(l.firstname). By the time you\342\200\231re all healed up we should have this mess cleaned up. Then it\342\200\231ll be time to party!"
   nodeType: ConversationNodeType_Simple
+  speaker_override_id: "55e131ac346435e0140016a9"
 }
 roots {
   nextNodeIndex: 0

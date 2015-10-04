@@ -15,6 +15,44 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "56084ad1346435a416006ec0"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "numCrewTalkedTo"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -54,7 +92,31 @@ nodes {
   index: 2
   text: "I\342\200\231m outta here. Gonna hit the road again, get as far away from here as possible.\n\nThanks for the cash, but I\342\200\231ll just take my cut now. Don\342\200\231t bother tracking me down for the rest of what you owe me."
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Persi leaves"
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "56084b55346435a416006ee1"
+          }
+        }
+      }
+    }
+  }
+  comment: "Persi quits"
 }
 nodes {
   idRef {
@@ -86,6 +148,44 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "56084ad1346435a416006ec0"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "numCrewTalkedTo"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -95,11 +195,41 @@ nodes {
   text: "I can\342\200\231t wait to do it again! Only let\342\200\231s not do a train next time. An airplane would be pretty sweet. I\342\200\231ve already got some ideas on how to pull it off, too!"
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_PersiTeamState"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+    }
     nextNodeIndex: 5
     idRef {
       id: "55f07213643431a11997634d:55f072ac643431a119976396"
     }
-    comment: "TODO: Not romanced"
+    comment: "Not romanced"
   }
   branches {
     responseText: ""
@@ -256,11 +386,49 @@ nodes {
   comment: "TODO: Music drops off. Enable death scene."
 }
 roots {
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Persi"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 5
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Const_ApprovalHate"
+          }
+        }
+      }
+    }
+  }
   nextNodeIndex: 0
   idRef {
     id: "55f07213643431a11997634d:55f07213643431a119976351"
   }
-  comment: "TODO: Persi hates you"
+  comment: "Persi hates you"
 }
 roots {
   responseText: ""

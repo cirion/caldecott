@@ -16,6 +16,44 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "56084ac1346435a416006ebf"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "numCrewTalkedTo"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -25,11 +63,49 @@ nodes {
   text: "I got paid, and I think we\342\200\231re done here."
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "cc_a2_dorbi_s3-DorbiWonElection"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 2
     idRef {
       id: "55f064fe643431a119975ffa:55f0651f643431a119976019"
     }
-    comment: "TODO: She won the election"
+    comment: "She won the election"
   }
   branches {
     responseText: ""
@@ -156,7 +232,30 @@ nodes {
   index: 8
   text: "Bye."
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: She leaves. Update her crew status to... 3, I think?"
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "56105a04346435981a008806"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -172,6 +271,44 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "56084ac1346435a416006ebf"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "numCrewTalkedTo"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -182,6 +319,7 @@ nodes {
   branches {
     responseText: "What will you be up to next?"
     nextNodeIndex: 11
+    onlyOnce: true
     idRef {
       id: "55f064fe643431a119975ffa:55f065f3643431a119976094"
     }
@@ -189,6 +327,7 @@ nodes {
   branches {
     responseText: "What was your favorite part of the heist?"
     nextNodeIndex: 16
+    onlyOnce: true
     idRef {
       id: "55f064fe643431a119975ffa:55f06676643431a119976100"
     }
@@ -227,11 +366,49 @@ nodes {
   text: ""
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "cc_a2_dorbi_s3-DorbiWonElection"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 12
     idRef {
       id: "55f064fe643431a119975ffa:55f0660c643431a11997609d"
     }
-    comment: "TODO: She won the election"
+    comment: "She won the election"
   }
   branches {
     responseText: ""
@@ -345,11 +522,48 @@ nodes {
   nodeType: ConversationNodeType_Simple
 }
 roots {
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Dorbi"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 5
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Const_ApprovalHate"
+          }
+        }
+      }
+    }
+  }
   nextNodeIndex: 0
   idRef {
     id: "55f064fe643431a119975ffa:55f064fe643431a119975ffe"
   }
-  comment: "TODO: Low approval"
 }
 roots {
   responseText: ""

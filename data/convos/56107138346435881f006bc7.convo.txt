@@ -1,0 +1,77 @@
+idRef {
+  id: "56107138346435881f006bc7"
+}
+ui_name: "cc_a4_hub-OrderTerminal"
+nodes {
+  idRef {
+    id: "5610713f346435881f006bcf"
+  }
+  index: 0
+  text: "Here\'s where you\'ll be able to buy stuff."
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    idRef {
+      id: "56107138346435881f006bc7:56107149346435881f006bd1"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5610714b346435881f006bd4"
+  }
+  index: 1
+  text: ""
+  branches {
+    responseText: "{{GM}}Order equipment.{{/GM}}"
+    actions {
+      ops {
+        functionName: "Open Store Screen From Actor"
+        args {
+          call_value {
+            functionName: "Get Map Item (Actor)"
+            args {
+              string_value: "561071ab346435881f006bf8"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 2
+    idRef {
+      id: "56107138346435881f006bc7:5610714f346435881f006bd6"
+    }
+  }
+  branches {
+    responseText: "{{GM}}Log off.{{/GM}}"
+    nextNodeIndex: -1
+    idRef {
+      id: "56107138346435881f006bc7:56107150346435881f006bd8"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "Empty node"
+}
+nodes {
+  idRef {
+    id: "5610715d346435881f006be1"
+  }
+  index: 2
+  text: "Would you like to make any more purchases?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+    idRef {
+      id: "56107138346435881f006bc7:5610715f346435881f006be3"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  nextNodeIndex: 0
+  idRef {
+    id: "56107138346435881f006bc7:56107138346435881f006bcb"
+  }
+}
