@@ -136,7 +136,7 @@ nodes {
     id: "55f07f71643431a1199768c8"
   }
   index: 5
-  text: "So you had no idea what you were stumbling into? Unbelievable. At least that will assuage my colleagues\342\200\231 fears. They\342\200\231re convinced that only an Ares team would have the motive and opportunity to pull off what you\342\200\231ve done."
+  text: "So you had no idea what you were stumbling into? Unbelievable.\n\nAt least that will assuage my colleagues\342\200\231 fears. They\342\200\231re convinced that only an Ares team would have the motive and opportunity to pull off what you\342\200\231ve done."
   branches {
     responseText: ""
     nextNodeIndex: 8
@@ -1345,12 +1345,40 @@ nodes {
   nodeType: ConversationNodeType_Simple
   actions {
     ops {
-      functionName: "Trigger: Run Alternate Trigger"
+      functionName: "Play FX on Actor"
+      args {
+        string_value: "Berlin:AdversarySpiritTeleportOut"
+      }
       args {
         call_value {
-          functionName: "Get Map Item (Trigger)"
+          functionName: "Specific Actor"
           args {
-            string_value: "5611c306346435ec1a006a1d"
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "55f20ff064343109444633bb"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Kill Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "55f20ff064343109444633bb"
+              }
+            }
+          }
+          args {
           }
         }
       }
@@ -1358,10 +1386,10 @@ nodes {
         call_value {
           functionName: "Get Preset Value (int)"
           args {
-            string_value: "WithOrWithout"
+            string_value: "DeathMethod"
           }
           args {
-            int_value: 1
+            int_value: 3
           }
         }
       }
@@ -1369,7 +1397,7 @@ nodes {
         call_value {
           functionName: "Get Preset Value (int)"
           args {
-            string_value: "WaitOrNot"
+            string_value: "FacingDirection"
           }
           args {
             int_value: 0
@@ -1388,8 +1416,96 @@ nodes {
         }
       }
     }
+    ops {
+      functionName: "Set Ambient Light Color"
+      args {
+        float_value: 220
+      }
+      args {
+        float_value: 20
+      }
+      args {
+        float_value: 60
+      }
+      args {
+        float_value: 255
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (CameraRegion)"
+          args {
+            string_value: "554f9585346435e81c00369a"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Directional Light Color"
+      args {
+        float_value: 252
+      }
+      args {
+        float_value: 234
+      }
+      args {
+        float_value: 232
+      }
+      args {
+        float_value: 255
+      }
+      args {
+        float_value: -0.5
+      }
+      args {
+        float_value: -1
+      }
+      args {
+        float_value: -0.75
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (CameraRegion)"
+          args {
+            string_value: "554f9585346435e81c00369a"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "HongKong:props"
+          }
+          args {
+            string_value: "Alarm2"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
   }
-  comment: "TODO: Alarm sound, change lights, remove Ava"
 }
 nodes {
   idRef {
@@ -1398,6 +1514,7 @@ nodes {
   index: 43
   text: "{{GM}}Her voice taunts you from over the intercom system.{{/GM}}\n\nI\342\200\231m glad I could keep you talking for so long. I believe you know my friends in Lonestar. Au revoir, $(l.name). Try not to leave a mess before you expire."
   nodeType: ConversationNodeType_Simple
+  speaker_override_id: "55e8b766643431a6e4c440c3"
   comment: "TODO: Kick off the final fight."
 }
 roots {
