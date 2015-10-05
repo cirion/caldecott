@@ -7,7 +7,7 @@ nodes {
     id: "55ef4543643431f50b059768"
   }
   index: 0
-  text: "Apologies, $(l.sir), but this area is off-limits. Ms. Montalvo will be joining the rest of you shortly."
+  text: "Apologies, $(l.sir), but this area is off-limits. Ms. Montalvo will be joining the party shortly."
   branches {
     responseText: ""
     nextNodeIndex: 1
@@ -16,6 +16,30 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5611b80c346435ec1a006760"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -25,14 +49,85 @@ nodes {
   text: ""
   branches {
     responseText: "{{CC}}Disguise: Business{{/CC}} Critical information has emerged about the LBL disaster. Ava will want to see me immediately."
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Tsang Disguise"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 2
     idRef {
       id: "55ef4531643431f50b05975c:55ef4555643431f50b05976f"
     }
-    comment: "TODO: Pre-reqs for all these"
   }
   branches {
     responseText: "{{CC}}Disguise: Security{{/CC}} We\342\200\231ve detected a credible threat at the perimeter. I need to discuss ending the party prematurely."
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Aztechnology Disguise"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 3
     idRef {
       id: "55ef4531643431f50b05975c:55ef4578643431f50b059778"
@@ -53,14 +148,6 @@ nodes {
       id: "55ef4531643431f50b05975c:55ef45b1643431f50b059799"
     }
   }
-  branches {
-    responseText: "I\342\200\231m coming through you, one way or another! {{GM}}Attack.{{/GM}}"
-    nextNodeIndex: -1
-    idRef {
-      id: "55ef4531643431f50b05975c:55ef45bd643431f50b0597ab"
-    }
-    comment: "TODO: Start fight. (Could also start in the environment.)"
-  }
   nodeType: ConversationNodeType_Simple
   comment: "Empty root node"
 }
@@ -71,6 +158,30 @@ nodes {
   index: 2
   text: "I\342\200\231ve overheard more than a few comments about that snafu. All right, head on in."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5611b974346435ec1a00678b"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Proceed"
 }
 nodes {
@@ -80,7 +191,30 @@ nodes {
   index: 3
   text: "I do not envy you that task. Best get to it, then."
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Proceed"
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5611b974346435ec1a00678b"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {

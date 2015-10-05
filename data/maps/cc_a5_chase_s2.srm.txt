@@ -856,6 +856,41 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Find a Way Into Ava\'s Office"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
     doorPoint {
       doorState: false
       aiOnlyDoor: false
@@ -1697,6 +1732,41 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "isAvaDoorUnlocked"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     doorPoint {
       doorState: false
       aiOnlyDoor: false
@@ -5219,8 +5289,18 @@ props {
     z: -5
   }
   orientation: ORIENTATION_S
+  displayName: "Food Tray"
   idRef {
     id: "553d4d9c346435b81d003f05"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    pickupItem {
+      itemName: "cc_a5_chase_s2-FoodTray"
+      destroyOnPickup: true
+    }
+    interaction_info_text: "Tray of Food"
   }
   lod: 0
 }
@@ -5413,6 +5493,16 @@ props {
     z: -27
   }
   orientation: ORIENTATION_E
+  displayName: "Duty Closet"
+  idRef {
+    id: "5611bd45346435ec1a006804"
+  }
+  interactionRoot {
+    isEnabled: false
+    interactionRadius: 1
+    interactionIcon: InteractionIcon_ItemPickup
+    interaction_info_text: "Put On Uniforms"
+  }
   lod: 0
 }
 props {
@@ -8233,6 +8323,85 @@ props {
   orientation: ORIENTATION_N
   idRef {
     id: "56118b3f346435ec1a0065b5"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -9
+    y: 0
+    z: 4
+  }
+  orientation: ORIENTATION_S
+  displayName: "Exit"
+  idRef {
+    id: "5611c751346435ec1a006c5f"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Find a Cure in Berkeley"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    transitionPoint {
+      scene_name: "cc_a5_chase_s3"
+      confirmation_text: "The coast looks clear for now. Are you ready to head back across the Bay to Berkeley?"
+    }
+    interaction_info_text: "Travel to Berkeley"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -33
+    y: 0
+    z: -30
+  }
+  orientation: ORIENTATION_S
+  displayName: "Debug Start Here"
+  idRef {
+    id: "5611c991346435ec1a006c77"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    dummyInteraciton {
+    }
+    interaction_info_text: ""
   }
   lod: 0
 }
