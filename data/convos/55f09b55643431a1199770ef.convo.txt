@@ -422,9 +422,85 @@ nodes {
   text: "Fare well, $(l.name). I will try to meet you on the island."
   nodeType: ConversationNodeType_Simple
 }
+nodes {
+  idRef {
+    id: "5611ec83346435d02f007a6e"
+  }
+  index: 22
+  text: "The heading on the locked screen grabs your attention: HEMLOCK PROJECT REPORTS.\n\nThis unit appears to be keyed to a researcher\'s private keys. You\'ll need to acquire their credentials or find a jack point to upload your own."
+  nodeType: ConversationNodeType_GM_Voice
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5611edbb346435d02f007ab6"
+          }
+        }
+      }
+    }
+  }
+}
 roots {
+  conditions {
+    ops {
+      functionName: "Evaluate If Actor Has Item"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "cc_a5_chase_s3-Keycards"
+          }
+        }
+      }
+    }
+  }
   nextNodeIndex: 0
   idRef {
     id: "55f09b55643431a1199770ef:55f09b55643431a1199770f3"
   }
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 22
+  idRef {
+    id: "55f09b55643431a1199770ef:5611ec7b346435d02f007a6b"
+  }
+  comment: "Fallback: No access yet"
 }
