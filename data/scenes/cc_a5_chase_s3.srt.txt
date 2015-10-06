@@ -856,6 +856,102 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Add Item to Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "cc_a3_berkeley_s1-LibraryCard"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add Item to Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "cc_a3_berkeley_s1-SecurityCard"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -9623,6 +9719,124 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Library Taunt"
+  events {
+    ops {
+      functionName: "On Actor Awareness of Another Actor"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isSquadLibrary"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Compare Actor Team"
+      args {
+        call_value {
+          functionName: "Triggering Target Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "55ef4753643431f50b05985b"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5613426f3464350430002aaf"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Camera Campus"
   position {
@@ -9860,7 +10074,7 @@ regions {
   position {
     x: 229
     y: 100
-    width: 31
+    width: 33
     height: 24
   }
   enabledAtStart: true
@@ -12338,11 +12552,12 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -107
+    x: 246
     y: 0
-    z: 71
+    z: 103
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_E
+  GeneralTags: "isSquadLibrary"
   idRef {
     id: "55f2142864343109444633c1"
   }
@@ -12373,6 +12588,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Security Mage"
+    GeneralTags: "isSquadLibrary"
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -12384,11 +12600,12 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -106
+    x: 261
     y: 0
-    z: 71
+    z: 111
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_N
+  GeneralTags: "isSquadLibrary"
   idRef {
     id: "55f2143364343109444633c2"
   }
@@ -12419,6 +12636,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Security Captain"
+    GeneralTags: "isSquadLibrary"
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -12430,11 +12648,12 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -108
+    x: 243
     y: 0
-    z: 71
+    z: 110
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_W
+  GeneralTags: "isSquadLibrary"
   idRef {
     id: "55f2144364343109444633c3"
   }
@@ -12465,6 +12684,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Security Guard"
+    GeneralTags: "isSquadLibrary"
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -12476,11 +12696,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -106
+    x: 54
     y: 0
-    z: 70
+    z: 77
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_W
   idRef {
     id: "55f2144764343109444633c4"
   }
@@ -12522,9 +12742,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -107
+    x: 50
     y: 0
-    z: 70
+    z: 75
   }
   orientation: ORIENTATION_S
   idRef {
