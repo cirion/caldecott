@@ -7707,6 +7707,82 @@ props {
     z: 99
   }
   orientation: ORIENTATION_S
+  displayName: "Exit Campus Main Gate"
+  idRef {
+    id: "56133a0834643504300026f2"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 6
+        }
+      }
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Travel to Alameda"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    transitionPoint {
+      scene_name: "cc_a5_chase_s4"
+      confirmation_text: "You hear the howl of sirens approaching from the distance. Will you brave the cordon and flee south to Alameda?"
+    }
+    interaction_info_text: ""
+  }
   lod: 0
 }
 props {
@@ -29011,6 +29087,7 @@ props {
     conversationPoint {
       conversationID: "55f09b55643431a1199770ef"
       turnToFace: false
+      default_speaker_id: "55f215c264343109444633cb"
     }
     interactionIcon: InteractionIcon_Inspect
     interaction_info_text: "Examine Research Data"
@@ -30034,6 +30111,40 @@ props {
         }
         args {
           int_value: 6
+        }
+      }
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_a5_chase_s3-Keycards"
+            }
+          }
         }
       }
     }
@@ -31820,6 +31931,30 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Turn Mode in Dimension"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TurnBasedOrFreeMove"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+    }
     interactionIcon: InteractionIcon_Warp
     interaction_info_text: "Research Lab"
   }
@@ -31871,6 +32006,28 @@ props {
             functionName: "Get Map Item (Item)"
             args {
               string_value: "cc_a3_berkeley_s1-LibraryCard"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Evaluate Turn Mode in Dimension"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TurnBasedOrFreeMove"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
             }
           }
         }
@@ -71223,5 +71380,111 @@ props {
     z: 105.7
   }
   orientation: ORIENTATION_S
+  lod: 0
+}
+props {
+  name: "undergroundBase_tech_PDA01"
+  gridPoint {
+    x: 125.6
+    y: 1.2
+    z: 109.39999
+  }
+  orientation: ORIENTATION_E
+  displayName: "Return Pickup Library Card"
+  idRef {
+    id: "5613340f34643504300024fd"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 7
+        }
+      }
+    }
+    pickupItem {
+      itemName: "cc_a3_berkeley_s1-LibraryCard"
+      destroyOnPickup: true
+    }
+    interaction_info_text: "Keycard"
+  }
+  lod: 0
+}
+props {
+  name: "undergroundBase_tech_PDA01"
+  gridPoint {
+    x: 122.1
+    y: 1.2
+    z: 112.49999
+  }
+  orientation: ORIENTATION_S
+  displayName: "Return Pickup Security Card"
+  idRef {
+    id: "5613346334643504300024ff"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 7
+        }
+      }
+    }
+    pickupItem {
+      itemName: "cc_a3_berkeley_s1-SecurityCard"
+      destroyOnPickup: true
+    }
+    interaction_info_text: "Keycard"
+  }
   lod: 0
 }

@@ -8,13 +8,31 @@ nodes {
   }
   index: 0
   text: "You\342\200\231ve found the central repository of research data for Project Hemlock. It is vast, with petabytes of unstructured data all jumbled together. It would take ages to search through it."
-  branches {
-    nextNodeIndex: 1
-    idRef {
-      id: "55f09b55643431a1199770ef:55f09b85643431a1199770fd"
+  nodeType: ConversationNodeType_GM_Voice
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "561337bb346435043000261d"
+          }
+        }
+      }
     }
   }
-  nodeType: ConversationNodeType_GM_Voice
 }
 nodes {
   idRef {
@@ -85,6 +103,22 @@ nodes {
   text: ""
   branches {
     responseText: "Who are you?"
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numQuestionsEriana"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: 5
     onlyOnce: true
     idRef {
@@ -92,28 +126,86 @@ nodes {
     }
   }
   branches {
-    responseText: "What do you want with me?"
-    nextNodeIndex: 8
-    onlyOnce: true
-    idRef {
-      id: "55f09b55643431a1199770ef:55f09bf0643431a119977146"
-    }
-  }
-  branches {
     responseText: "Can you make anything out of this data?"
-    nextNodeIndex: 10
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numQuestionsEriana"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    nextNodeIndex: 8
     onlyOnce: true
     idRef {
       id: "55f09b55643431a1199770ef:55f09bfe643431a11997714e"
     }
   }
   branches {
+    responseText: "What do you want with me?"
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numQuestionsEriana"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    nextNodeIndex: 19
+    onlyOnce: true
+    idRef {
+      id: "55f09b55643431a1199770ef:55f09bf0643431a119977146"
+    }
+  }
+  branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numQuestionsEriana"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 3
+        }
+      }
+    }
     nextNodeIndex: 21
     idRef {
       id: "55f09b55643431a1199770ef:55f0a184643431a1199772c9"
     }
-    comment: "TODO: Only available after all queries exhausted."
   }
   nodeType: ConversationNodeType_Simple
   comment: "Empty interrogation node"
@@ -132,7 +224,29 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Maybe update name here?"
+  actions {
+    ops {
+      functionName: "Set Actor Display Name"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "55f215c264343109444633cb"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        string_value: "Eriana"
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -167,13 +281,470 @@ nodes {
 }
 nodes {
   idRef {
-    id: "55f09b55643431a1199770ef:55f09bf0643431a119977148"
+    id: "55f09b55643431a1199770ef:55f09bfe643431a119977150"
   }
   index: 8
-  text: "We would love for you to interfere with Shiawase\342\200\231s plans, but you seem to be doing a fine job of that on your own. We also favor any action that will weaken Colonel Saito, but once again, you have performed remarkably well as an independent agent."
+  text: "Indeed. I managed to slip into this facility while you were engaging Mr. Bullion\342\200\231s rabble outside. Fortunately, my expertise lies in being able to swiftly extract meaningful data from noise, to find the platinum needle in a haystack."
   branches {
     responseText: ""
     nextNodeIndex: 9
+    idRef {
+      id: "55f09b55643431a1199770ef:55f09c00643431a119977152"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55f09b55643431a1199770ef:55f09c00643431a119977154"
+  }
+  index: 9
+  text: "There\342\200\231s a great deal of fascinating information here. For better or worse, it does not include any data on actually manufacturing Project Hemlock. Those genetic keys are undoubtedly kept under high security in San Francisco. However, it appears that a rogue geneticist spent some time secretly researching a cure for Hemlock. "
+  branches {
+    responseText: ""
+    nextNodeIndex: 10
+    idRef {
+      id: "55f09b55643431a1199770ef:55f09c02643431a119977156"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55f09b55643431a1199770ef:55f09c02643431a119977158"
+  }
+  index: 10
+  text: "These notes align nicely with research being done at one of our own labs, building off of a prototype developed by a Russian \303\251migr\303\251 with a penchant for transhumanism.\n\nWe recently... lost track of our prototype, but were making strides towards achieving a dream of immortality: self-healing machines integrated into the body, repairing themselves for an infinite time. This radical treatment could provide salvation for $(story.victim_name)."
+  branches {
+    responseText: ""
+    nextNodeIndex: 11
+    idRef {
+      id: "55f09b55643431a1199770ef:56048222643431dec7726781"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "56048228643431dec7726784"
+  }
+  index: 11
+  text: "According to the scientist\'s notes, implanting a nanohive equipped with a black unicorn horn into the victim will allow you to reprogram the virus, dissociating the anti-trog payload from the metagene and rendering the infection inert.\n\nWith our own research halted, this seems like the only chance of a remedy."
+  branches {
+    responseText: ""
+    nextNodeIndex: 12
+    idRef {
+      id: "55f09b55643431a1199770ef:55f09c82643431a1199771ca"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55f09c85643431a1199771cd"
+  }
+  index: 12
+  text: ""
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor is Inside Region"
+        args {
+          call_value {
+            functionName: "All Actors With Tag"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "isKora"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "AreOrAreNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Region)"
+            args {
+              string_value: "554f99bc346435e81c00369e"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 13
+    onlyOnce: true
+    idRef {
+      id: "55f09b55643431a1199770ef:55f0a11a643431a1199771f6"
+    }
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor is Inside Region"
+        args {
+          call_value {
+            functionName: "All Actors With Tag"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "isDorbi"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "AreOrAreNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Region)"
+            args {
+              string_value: "554f99bc346435e81c00369e"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 14
+    onlyOnce: true
+    idRef {
+      id: "55f09b55643431a1199770ef:55f0a12a643431a119977206"
+    }
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor is Inside Region"
+        args {
+          call_value {
+            functionName: "All Actors With Tag"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "isRafik"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "AreOrAreNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Region)"
+            args {
+              string_value: "554f99bc346435e81c00369e"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 15
+    onlyOnce: true
+    idRef {
+      id: "55f09b55643431a1199770ef:55f0a12d643431a119977212"
+    }
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor is Inside Region"
+        args {
+          call_value {
+            functionName: "All Actors With Tag"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "isPersi"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "AreOrAreNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Region)"
+            args {
+              string_value: "554f99bc346435e81c00369e"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 16
+    onlyOnce: true
+    idRef {
+      id: "55f09b55643431a1199770ef:55f0a12e643431a11997721a"
+    }
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor is Inside Region"
+        args {
+          call_value {
+            functionName: "All Actors With Tag"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "isSable"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "AreOrAreNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Region)"
+            args {
+              string_value: "554f99bc346435e81c00369e"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 17
+    onlyOnce: true
+    idRef {
+      id: "55f09b55643431a1199770ef:55f0a12e643431a119977222"
+    }
+  }
+  branches {
+    responseText: ""
+    nextNodeIndex: 18
+    idRef {
+      id: "55f09b55643431a1199770ef:55f0a160643431a119977265"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "Reactive loop node"
+}
+nodes {
+  idRef {
+    id: "55f0a11d643431a1199771f9"
+  }
+  index: 13
+  text: "A black unicorn horn AND a nanohive?! Hm, where could we find something like that?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 12
+    idRef {
+      id: "55f09b55643431a1199770ef:55f0a11f643431a1199771fb"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  speaker_override_id: "55e131ac346435e0140016a9"
+}
+nodes {
+  idRef {
+    id: "55f09b55643431a1199770ef:55f0a12a643431a119977208"
+  }
+  index: 14
+  text: "Once again, you can find anything you might want in the Alameda Antiques Faire."
+  branches {
+    responseText: ""
+    nextNodeIndex: 12
+    idRef {
+      id: "55f09b55643431a1199770ef:55f0a12a643431a11997720a"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  speaker_override_id: "55e131ce346435e0140016aa"
+}
+nodes {
+  idRef {
+    id: "55f09b55643431a1199770ef:55f0a12d643431a119977214"
+  }
+  index: 15
+  text: "The Alameda Faire has lots of magic sellers. I\342\200\231m sure they have unicorn horns. They\342\200\231re probably our best shot at finding a black one."
+  branches {
+    responseText: ""
+    nextNodeIndex: 12
+    idRef {
+      id: "55f09b55643431a1199770ef:55f0a12d643431a119977216"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  speaker_override_id: "55e13144346435e0140016a8"
+}
+nodes {
+  idRef {
+    id: "55f09b55643431a1199770ef:55f0a12e643431a11997721c"
+  }
+  index: 16
+  text: "I remember seeing some cybernetic waste back on Alameda, including nanotech. Wish I\342\200\231d thought to grab some when I had the chance."
+  branches {
+    responseText: ""
+    nextNodeIndex: 12
+    idRef {
+      id: "55f09b55643431a1199770ef:55f0a12e643431a11997721e"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  speaker_override_id: "55e131da346435e0140016ab"
+}
+nodes {
+  idRef {
+    id: "55f09b55643431a1199770ef:55f0a12e643431a119977224"
+  }
+  index: 17
+  text: "Well, back to Alameda we go. I hope we\342\200\231re nearly finished with all this running about!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 12
+    idRef {
+      id: "55f09b55643431a1199770ef:55f0a12e643431a119977226"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  speaker_override_id: "55e131f5346435e0140016ac"
+}
+nodes {
+  idRef {
+    id: "55f0a163643431a119977268"
+  }
+  index: 18
+  text: "Alameda is probably your best bet. Nanohives are expensive anywhere, and black unicorn horns are extremely rare. I hope you can find what you need.\n\nI\342\200\231ll try to extract as much information as I can from this lab before Saito moves in force to reclaim it for the megacorps."
+  branches {
+    responseText: ""
+    nextNodeIndex: 4
+    idRef {
+      id: "55f09b55643431a1199770ef:55f0a170643431a11997726a"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55f09b55643431a1199770ef:55f09bf0643431a119977148"
+  }
+  index: 19
+  text: "We would love for you to interfere with Shiawase\342\200\231s plans, but you seem to be doing a fine job of that on your own. We also favor any action that will weaken Colonel Saito, but once again, you have performed remarkably well as an independent agent."
+  branches {
+    responseText: ""
+    nextNodeIndex: 20
     idRef {
       id: "55f09b55643431a1199770ef:55f09bf8643431a11997714a"
     }
@@ -184,7 +755,7 @@ nodes {
   idRef {
     id: "55f09b55643431a1199770ef:55f09bf8643431a11997714c"
   }
-  index: 9
+  index: 20
   text: "I want to set you up for success. In the short term, that means restoring $(story.victim_name) to a position of health. In the longer term, however, you may aid our efforts against our mutual foes."
   branches {
     responseText: ""
@@ -198,229 +769,35 @@ nodes {
 }
 nodes {
   idRef {
-    id: "55f09b55643431a1199770ef:55f09bfe643431a119977150"
-  }
-  index: 10
-  text: "Indeed. I managed to slip into this facility while you were engaging Mr. Bullion\342\200\231s rabble outside. Fortunately, my expertise lies in being able to swiftly extract meaningful data from noise, to find the platinum needle in a haystack."
-  branches {
-    responseText: ""
-    nextNodeIndex: 11
-    idRef {
-      id: "55f09b55643431a1199770ef:55f09c00643431a119977152"
-    }
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "55f09b55643431a1199770ef:55f09c00643431a119977154"
-  }
-  index: 11
-  text: "There\342\200\231s a great deal of fascinating information here. For better or worse, it does not include any data on actually manufacturing Project Hemlock. Those genetic keys are undoubtedly kept under high security in San Francisco. However, it appears that a rogue geneticist spent some time secretly researching a cure for Hemlock. "
-  branches {
-    responseText: ""
-    nextNodeIndex: 12
-    idRef {
-      id: "55f09b55643431a1199770ef:55f09c02643431a119977156"
-    }
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "55f09b55643431a1199770ef:55f09c02643431a119977158"
-  }
-  index: 12
-  text: "These notes align nicely with research being done at one of our own labs, building off of a prototype developed by a Russian \303\251migr\303\251 with a penchant for transhumanism.\n\nWe recently... lost track of our prototype, but were making strides towards achieving a dream of immortality: self-healing machines integrated into the body, repairing themselves for an infinite time. This radical treatment could provide salvation for $(story.victim_name)."
-  branches {
-    responseText: ""
-    nextNodeIndex: 13
-    idRef {
-      id: "55f09b55643431a1199770ef:56048222643431dec7726781"
-    }
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "56048228643431dec7726784"
-  }
-  index: 13
-  text: "According to the scientist\'s notes, implanting a nanohive equipped with a black unicorn horn into the victim will allow you to reprogram the virus, dissociating the anti-trog payload from the metagene and rendering the infection inert.\n\nWith our own research halted, this seems like the only chance of a remedy."
-  branches {
-    responseText: ""
-    nextNodeIndex: 14
-    idRef {
-      id: "55f09b55643431a1199770ef:55f09c82643431a1199771ca"
-    }
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "55f09c85643431a1199771cd"
-  }
-  index: 14
-  text: ""
-  branches {
-    responseText: ""
-    nextNodeIndex: 15
-    onlyOnce: true
-    idRef {
-      id: "55f09b55643431a1199770ef:55f0a11a643431a1199771f6"
-    }
-    comment: "TODO: Check speakers for all"
-  }
-  branches {
-    responseText: ""
-    nextNodeIndex: 16
-    onlyOnce: true
-    idRef {
-      id: "55f09b55643431a1199770ef:55f0a12a643431a119977206"
-    }
-  }
-  branches {
-    responseText: ""
-    nextNodeIndex: 17
-    onlyOnce: true
-    idRef {
-      id: "55f09b55643431a1199770ef:55f0a12d643431a119977212"
-    }
-  }
-  branches {
-    responseText: ""
-    nextNodeIndex: 18
-    onlyOnce: true
-    idRef {
-      id: "55f09b55643431a1199770ef:55f0a12e643431a11997721a"
-    }
-  }
-  branches {
-    responseText: ""
-    nextNodeIndex: 19
-    onlyOnce: true
-    idRef {
-      id: "55f09b55643431a1199770ef:55f0a12e643431a119977222"
-    }
-  }
-  branches {
-    responseText: ""
-    nextNodeIndex: 20
-    idRef {
-      id: "55f09b55643431a1199770ef:55f0a160643431a119977265"
-    }
-  }
-  nodeType: ConversationNodeType_Simple
-  comment: "Reactive loop node"
-}
-nodes {
-  idRef {
-    id: "55f0a11d643431a1199771f9"
-  }
-  index: 15
-  text: "A black unicorn horn AND a nanohive?! Hm, where could we find something like that?"
-  branches {
-    responseText: ""
-    nextNodeIndex: 14
-    idRef {
-      id: "55f09b55643431a1199770ef:55f0a11f643431a1199771fb"
-    }
-    auxiliaryLink: true
-  }
-  nodeType: ConversationNodeType_Simple
-  speaker_override_id: "55e131ac346435e0140016a9"
-}
-nodes {
-  idRef {
-    id: "55f09b55643431a1199770ef:55f0a12a643431a119977208"
-  }
-  index: 16
-  text: "Once again, you can find anything you might want in the Alameda Antiques Faire."
-  branches {
-    responseText: ""
-    nextNodeIndex: 14
-    idRef {
-      id: "55f09b55643431a1199770ef:55f0a12a643431a11997720a"
-    }
-    auxiliaryLink: true
-  }
-  nodeType: ConversationNodeType_Simple
-  speaker_override_id: "55e131ce346435e0140016aa"
-}
-nodes {
-  idRef {
-    id: "55f09b55643431a1199770ef:55f0a12d643431a119977214"
-  }
-  index: 17
-  text: "The Alameda Faire has lots of magic sellers. I\342\200\231m sure they have unicorn horns. They\342\200\231re probably our best shot at finding a black one."
-  branches {
-    responseText: ""
-    nextNodeIndex: 14
-    idRef {
-      id: "55f09b55643431a1199770ef:55f0a12d643431a119977216"
-    }
-    auxiliaryLink: true
-  }
-  nodeType: ConversationNodeType_Simple
-  speaker_override_id: "55e13144346435e0140016a8"
-}
-nodes {
-  idRef {
-    id: "55f09b55643431a1199770ef:55f0a12e643431a11997721c"
-  }
-  index: 18
-  text: "I remember seeing some cybernetic waste back on Alameda, including nanotech. Wish I\342\200\231d thought to grab some when I had the chance."
-  branches {
-    responseText: ""
-    nextNodeIndex: 14
-    idRef {
-      id: "55f09b55643431a1199770ef:55f0a12e643431a11997721e"
-    }
-    auxiliaryLink: true
-  }
-  nodeType: ConversationNodeType_Simple
-  speaker_override_id: "55e131da346435e0140016ab"
-}
-nodes {
-  idRef {
-    id: "55f09b55643431a1199770ef:55f0a12e643431a119977224"
-  }
-  index: 19
-  text: "Well, back to Alameda we go. I hope we\342\200\231re nearly finished with all this running about!"
-  branches {
-    responseText: ""
-    nextNodeIndex: 14
-    idRef {
-      id: "55f09b55643431a1199770ef:55f0a12e643431a119977226"
-    }
-    auxiliaryLink: true
-  }
-  nodeType: ConversationNodeType_Simple
-  speaker_override_id: "55e131f5346435e0140016ac"
-}
-nodes {
-  idRef {
-    id: "55f0a163643431a119977268"
-  }
-  index: 20
-  text: "Alameda is probably your best bet. Nanohives are expensive anywhere, and black unicorn horns are extremely rare. I hope you can find what you need.\n\nI\342\200\231ll try to extract as much information as I can from this system before Saito moves in force to reclaim it for the megacorps."
-  branches {
-    responseText: ""
-    nextNodeIndex: 4
-    idRef {
-      id: "55f09b55643431a1199770ef:55f0a170643431a11997726a"
-    }
-    auxiliaryLink: true
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
     id: "55f0a19a643431a11997730c"
   }
   index: 21
   text: "Fare well, $(l.name). I will try to meet you on the island."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5613390134643504300026ee"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -492,9 +869,54 @@ roots {
     }
   }
   nextNodeIndex: 0
+  onlyOnce: true
   idRef {
     id: "55f09b55643431a1199770ef:55f09b55643431a1199770f3"
   }
+  comment: "First trigger"
+}
+roots {
+  conditions {
+    ops {
+      functionName: "Evaluate If Actor Has Item"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "cc_a5_chase_s3-Keycards"
+          }
+        }
+      }
+    }
+  }
+  nextNodeIndex: 1
+  idRef {
+    id: "55f09b55643431a1199770ef:55f09b85643431a1199770fd"
+  }
+  comment: "Second trigger, after Eriana is in motion"
 }
 roots {
   responseText: ""
