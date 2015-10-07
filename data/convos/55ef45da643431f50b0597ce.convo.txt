@@ -38,14 +38,105 @@ nodes {
   text: ""
   branches {
     responseText: "{{CC}}Etiquette: Corporate{{/CC}} I\342\200\231m a dotted-line reportee. I wanted to ping you about some mixed directives I\342\200\231ve received lately."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 13
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 3
     idRef {
       id: "55ef45da643431f50b0597ce:55ef45e8643431f50b0597e2"
     }
-    comment: "TODO: Pre-reqs for these"
   }
   branches {
     responseText: "{{CC}}Etiquette: Socialite{{/CC}} Oh, dear! I\342\200\231ve just discovered that another guest is wearing my EXACT same outfit! I\342\200\231ll simply die if we\342\200\231re seen together!"
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 16
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 4
     idRef {
       id: "55ef45da643431f50b0597ce:55ef4642643431f50b0597e8"
@@ -53,11 +144,56 @@ nodes {
   }
   branches {
     responseText: "{{CC}}Charisma: 6{{/CC}} This is terribly forward of me, but has anyone ever told you that you have lovely eyes? I can\342\200\231t help staring at them."
+    conditions {
+      ops {
+        functionName: "Compare Actor Attribute"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorAttributes"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 6
+        }
+      }
+    }
     nextNodeIndex: 5
     idRef {
       id: "55ef45da643431f50b0597ce:55ef4666643431f50b0597ed"
     }
-    comment: "TODO: 6 charisma"
   }
   branches {
     responseText: "Quick. Give me your clothes!"
@@ -84,7 +220,30 @@ nodes {
   index: 3
   text: "Don\342\200\231t tell me: you\342\200\231re one of Frank\342\200\231s minions, right? That idiot couldn\342\200\231t manage his way out of a paper bag. Let\342\200\231s talk shop over there."
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Proceed. Take disguise. Probably show some GM text explaining what happened"
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5611b583346435ec1a00674a"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -93,6 +252,30 @@ nodes {
   index: 4
   text: "Oh, you poor $(l.man)! I always travel with a spare wardrobe to protect against that very same eventuality. I believe I may have something in your size. Let\342\200\231s suit you up."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5611b583346435ec1a00674a"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -101,6 +284,30 @@ nodes {
   index: 5
   text: "Mmm\342\200\246 I quite like a forward $(l.man). Why don\342\200\231t we continue this conversation in private\342\200\246"
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5611b583346435ec1a00674a"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -118,9 +325,33 @@ nodes {
   }
   nodeType: ConversationNodeType_Simple
 }
+nodes {
+  idRef {
+    id: "5611c0e7346435ec1a0068df"
+  }
+  index: 7
+  text: "Hmmm?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 2
+    idRef {
+      id: "55ef45da643431f50b0597ce:5611c0e9346435ec1a0068e1"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
 roots {
   nextNodeIndex: 0
+  onlyOnce: true
   idRef {
     id: "55ef45da643431f50b0597ce:55ef45da643431f50b0597d2"
+  }
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 7
+  idRef {
+    id: "55ef45da643431f50b0597ce:5611c0e3346435ec1a0068dc"
   }
 }

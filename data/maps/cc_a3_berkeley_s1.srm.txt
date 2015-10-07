@@ -7707,6 +7707,82 @@ props {
     z: 99
   }
   orientation: ORIENTATION_S
+  displayName: "Exit Campus Main Gate"
+  idRef {
+    id: "56133a0834643504300026f2"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 6
+        }
+      }
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Travel to Alameda"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    transitionPoint {
+      scene_name: "cc_a5_chase_s4"
+      confirmation_text: "You hear the howl of sirens approaching from the distance. Will you brave the cordon and flee south to Alameda?"
+    }
+    interaction_info_text: ""
+  }
   lod: 0
 }
 props {
@@ -27398,9 +27474,9 @@ props {
 props {
   name: "office_decor_pottedBamboo"
   gridPoint {
-    x: 183
+    x: 182
     y: 0
-    z: 101
+    z: 100
   }
   orientation: ORIENTATION_S
   lod: 0
@@ -27440,7 +27516,7 @@ props {
   gridPoint {
     x: 184
     y: 0
-    z: 103
+    z: 105
   }
   orientation: ORIENTATION_S
   lod: 0
@@ -28971,6 +29047,51 @@ props {
     z: 94
   }
   orientation: ORIENTATION_E
+  displayName: "Hemlock Display Stand"
+  idRef {
+    id: "5611ebd9346435d02f007a25"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 6
+        }
+      }
+    }
+    conversationPoint {
+      conversationID: "55f09b55643431a1199770ef"
+      turnToFace: false
+      default_speaker_id: "55f215c264343109444633cb"
+    }
+    interactionIcon: InteractionIcon_Inspect
+    interaction_info_text: "Examine Research Data"
+  }
   lod: 0
 }
 props {
@@ -29956,21 +30077,82 @@ props {
     z: 109.5
   }
   orientation: ORIENTATION_S
+  displayName: "Keycard Lab Credential Pickup"
   idRef {
     id: "553ba8f0346435fc14007a6f"
   }
-  lod: 0
-}
-props {
-  name: "undergroundBase_tech_PDA01_lights"
-  gridPoint {
-    x: 260
-    y: 1
-    z: 109.5
-  }
-  orientation: ORIENTATION_E
-  idRef {
-    id: "553ba91d346435fc14007a70"
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 6
+        }
+      }
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_a5_chase_s3-Keycards"
+            }
+          }
+        }
+      }
+    }
+    pickupItem {
+      itemName: "cc_a5_chase_s3-Keycards"
+      destroyOnPickup: true
+    }
+    interaction_info_text: "Lab Credentials"
   }
   lod: 0
 }
@@ -31587,6 +31769,36 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          int_value: 7
+        }
+      }
+    }
     interactionIcon: InteractionIcon_Warp
     interaction_info_text: "Campus"
   }
@@ -31719,6 +31931,30 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Turn Mode in Dimension"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TurnBasedOrFreeMove"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+    }
     interactionIcon: InteractionIcon_Warp
     interaction_info_text: "Research Lab"
   }
@@ -31770,6 +32006,28 @@ props {
             functionName: "Get Map Item (Item)"
             args {
               string_value: "cc_a3_berkeley_s1-LibraryCard"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Evaluate Turn Mode in Dimension"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TurnBasedOrFreeMove"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
             }
           }
         }
@@ -32768,110 +33026,6 @@ props {
   orientation: ORIENTATION_S
   idRef {
     id: "554584873464357820004991"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_blockSight"
-  gridPoint {
-    x: 1
-    y: 0
-    z: 40
-  }
-  orientation: ORIENTATION_S
-  idRef {
-    id: "554584873464357820004992"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_blockSight"
-  gridPoint {
-    x: 1
-    y: 0
-    z: 39
-  }
-  orientation: ORIENTATION_S
-  idRef {
-    id: "5545848b3464357820004993"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_blockSight"
-  gridPoint {
-    x: 1
-    y: 0
-    z: 38
-  }
-  orientation: ORIENTATION_S
-  idRef {
-    id: "5545848b3464357820004994"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_blockSight"
-  gridPoint {
-    x: 1
-    y: 0
-    z: 37
-  }
-  orientation: ORIENTATION_S
-  idRef {
-    id: "5545848b3464357820004995"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_blockSight"
-  gridPoint {
-    x: 1
-    y: 0
-    z: 36
-  }
-  orientation: ORIENTATION_S
-  idRef {
-    id: "5545848b3464357820004996"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_blockSight"
-  gridPoint {
-    x: 1
-    y: 0
-    z: 35
-  }
-  orientation: ORIENTATION_S
-  idRef {
-    id: "5545848b3464357820004997"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_blockSight"
-  gridPoint {
-    x: 1
-    y: 0
-    z: 34
-  }
-  orientation: ORIENTATION_S
-  idRef {
-    id: "5545848b3464357820004998"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_blockSight"
-  gridPoint {
-    x: 1
-    y: 0
-    z: 33
-  }
-  orientation: ORIENTATION_S
-  idRef {
-    id: "5545848b3464357820004999"
   }
   lod: 0
 }
@@ -35178,45 +35332,6 @@ props {
   gridPoint {
     x: 1
     y: 0
-    z: 109
-  }
-  orientation: ORIENTATION_S
-  idRef {
-    id: "554586703464357820004a54"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_blockSight"
-  gridPoint {
-    x: 1
-    y: 0
-    z: 108
-  }
-  orientation: ORIENTATION_S
-  idRef {
-    id: "554586703464357820004a55"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_blockSight"
-  gridPoint {
-    x: 1
-    y: 0
-    z: 107
-  }
-  orientation: ORIENTATION_S
-  idRef {
-    id: "554586703464357820004a56"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_blockSight"
-  gridPoint {
-    x: 1
-    y: 0
     z: 106
   }
   orientation: ORIENTATION_S
@@ -37273,123 +37388,6 @@ props {
   orientation: ORIENTATION_S
   idRef {
     id: "554587c03464357820004af8"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_blockSight"
-  gridPoint {
-    x: 10
-    y: 0
-    z: 106
-  }
-  orientation: ORIENTATION_S
-  idRef {
-    id: "554587c93464357820004af9"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_blockSight"
-  gridPoint {
-    x: 9
-    y: 0
-    z: 106
-  }
-  orientation: ORIENTATION_S
-  idRef {
-    id: "554587c93464357820004afa"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_blockSight"
-  gridPoint {
-    x: 8
-    y: 0
-    z: 106
-  }
-  orientation: ORIENTATION_S
-  idRef {
-    id: "554587c93464357820004afb"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_blockSight"
-  gridPoint {
-    x: 7
-    y: 0
-    z: 106
-  }
-  orientation: ORIENTATION_S
-  idRef {
-    id: "554587c93464357820004afc"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_blockSight"
-  gridPoint {
-    x: 6
-    y: 0
-    z: 106
-  }
-  orientation: ORIENTATION_S
-  idRef {
-    id: "554587c93464357820004afd"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_blockSight"
-  gridPoint {
-    x: 5
-    y: 0
-    z: 106
-  }
-  orientation: ORIENTATION_S
-  idRef {
-    id: "554587c93464357820004afe"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_blockSight"
-  gridPoint {
-    x: 4
-    y: 0
-    z: 106
-  }
-  orientation: ORIENTATION_S
-  idRef {
-    id: "554587c93464357820004aff"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_blockSight"
-  gridPoint {
-    x: 3
-    y: 0
-    z: 106
-  }
-  orientation: ORIENTATION_S
-  idRef {
-    id: "554587c93464357820004b00"
-  }
-  lod: 0
-}
-props {
-  name: "system_invisible_blockSight"
-  gridPoint {
-    x: 2
-    y: 0
-    z: 106
-  }
-  orientation: ORIENTATION_S
-  idRef {
-    id: "554587c93464357820004b01"
   }
   lod: 0
 }
@@ -66991,6 +66989,36 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 5
+            }
+          }
+        }
+        args {
+          int_value: 6
+        }
+      }
+    }
     conversationPoint {
       conversationID: "55fd88543464352014000ebd"
       turnToFace: false
@@ -67003,9 +67031,9 @@ props {
 props {
   name: "system_invisible_nonsolidProp"
   gridPoint {
-    x: 121
+    x: -33
     y: 0
-    z: 85
+    z: 64
   }
   orientation: ORIENTATION_S
   displayName: "Debug Start Here"
@@ -71352,5 +71380,111 @@ props {
     z: 105.7
   }
   orientation: ORIENTATION_S
+  lod: 0
+}
+props {
+  name: "undergroundBase_tech_PDA01"
+  gridPoint {
+    x: 125.6
+    y: 1.2
+    z: 109.39999
+  }
+  orientation: ORIENTATION_E
+  displayName: "Return Pickup Library Card"
+  idRef {
+    id: "5613340f34643504300024fd"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 7
+        }
+      }
+    }
+    pickupItem {
+      itemName: "cc_a3_berkeley_s1-LibraryCard"
+      destroyOnPickup: true
+    }
+    interaction_info_text: "Keycard"
+  }
+  lod: 0
+}
+props {
+  name: "undergroundBase_tech_PDA01"
+  gridPoint {
+    x: 122.1
+    y: 1.2
+    z: 112.49999
+  }
+  orientation: ORIENTATION_S
+  displayName: "Return Pickup Security Card"
+  idRef {
+    id: "5613346334643504300024ff"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 7
+        }
+      }
+    }
+    pickupItem {
+      itemName: "cc_a3_berkeley_s1-SecurityCard"
+      destroyOnPickup: true
+    }
+    interaction_info_text: "Keycard"
+  }
   lod: 0
 }

@@ -10,26 +10,109 @@ nodes {
   text: "Yes?"
   branches {
     responseText: "{{CC}}Etiquette: Security{{/CC}} Our plainclothes detail is returning from rotation. Ava wants a dress inspection for her party guests, stat."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 14
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 1
     idRef {
       id: "55ef46ab643431f50b059821:55ef46bd643431f50b05982f"
     }
-    comment: "TODO: Pre-reqs for both"
   }
   branches {
     responseText: "{{CC}}Drone control: 5{{/CC}} The auxiliary turret regulator has gone haywire."
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 10
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 5
+        }
+      }
+    }
     nextNodeIndex: 2
     idRef {
       id: "55ef46ab643431f50b059821:55ef46c8643431f50b059834"
     }
-  }
-  branches {
-    responseText: "I\342\200\231m relieving you of duty. {{GM}}Attack.{{/GM}}"
-    nextNodeIndex: -1
-    idRef {
-      id: "55ef46ab643431f50b059821:55ef46c8643431f50b059836"
-    }
-    comment: "TODO: Start fight, just with this one guard."
   }
   branches {
     responseText: "{{GM}}Leave.{{/GM}}"
@@ -39,6 +122,27 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55f20d7f64343109444633ac"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Seattle:General/standing_idle"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -47,15 +151,62 @@ nodes {
   index: 1
   text: "Typical. All right, I\342\200\231ll unlock the duty closet. Make it snappy, you know how much she dislikes waiting."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5611bcc1346435ec1a0067ed"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
     id: "55ef46f2643431f50b05983e"
   }
   index: 2
-  text: "Shit! I need shut it down before it begins slaughtering the guests.\n\nAs nice as that sounds\342\200\246"
+  text: "Shit! I need to shut it down before it begins slaughtering the guests.\n\nAs nice as that sounds\342\200\246"
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Unlock closet; guard leaves."
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5611bc90346435ec1a0067ec"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0
