@@ -7,7 +7,7 @@ nodes {
     id: "55f0a1b0643431a119977356"
   }
   index: 0
-  text: "I take it you\342\200\231re looking for this item. Let\342\200\231s have a little chat first."
+  text: "I see that you found whatever item you\'ve been searching for. Let\342\200\231s have a little chat first."
   branches {
     nextNodeIndex: 1
     idRef {
@@ -67,7 +67,7 @@ nodes {
   }
   branches {
     responseText: "I don\342\200\231t have time for this. {{GM}}Attack.{{/GM}}"
-    nextNodeIndex: 37
+    nextNodeIndex: 36
     idRef {
       id: "55f0a1aa643431a11997734e:55f0a1da643431a11997736e"
     }
@@ -97,7 +97,7 @@ nodes {
   text: "So, tell me, what turns a lapdog like you into a rabid threat?"
   branches {
     responseText: "Idiotic questions like that do. {{GM}}Attack.{{/GM}}"
-    nextNodeIndex: 37
+    nextNodeIndex: 36
     idRef {
       id: "55f0a1aa643431a11997734e:55f0a20f643431a11997737d"
     }
@@ -206,7 +206,7 @@ nodes {
   text: "Sorry, pal, but this has to end in blood. Your blood. Let\342\200\231s do this, once and for all."
   branches {
     responseText: ""
-    nextNodeIndex: 37
+    nextNodeIndex: 36
     idRef {
       id: "55f0a1aa643431a11997734e:55f0a2cc643431a1199773d1"
     }
@@ -259,7 +259,7 @@ nodes {
   }
   branches {
     responseText: "I have no interest in this arrangement. {{GM}}Attack.{{/GM}}"
-    nextNodeIndex: 37
+    nextNodeIndex: 36
     idRef {
       id: "55f0a1aa643431a11997734e:55f0a36c643431a11997741c"
     }
@@ -358,7 +358,7 @@ nodes {
   }
   branches {
     responseText: "This is obviously going nowhere. {{GM}}Attack.{{/GM}}"
-    nextNodeIndex: 37
+    nextNodeIndex: 36
     idRef {
       id: "55f0a1aa643431a11997734e:55f0a466643431a1199774b8"
     }
@@ -660,7 +660,7 @@ nodes {
   text: "As you wish. It\342\200\231s a shame it had to end this way, I would have loved watching you take down your old bosses.\n\nI promise you a clean death."
   branches {
     responseText: ""
-    nextNodeIndex: 37
+    nextNodeIndex: 36
     idRef {
       id: "55f0a1aa643431a11997734e:55f0a5b8643431a11997762c"
     }
@@ -676,7 +676,7 @@ nodes {
   text: "It\342\200\231s long past time you learned that this is a bloody world. Those who like to pretend it isn\342\200\231t are the first to enter the abattoir.\n\nPerhaps you will at least learn that lesson before you die."
   branches {
     responseText: ""
-    nextNodeIndex: 37
+    nextNodeIndex: 36
     idRef {
       id: "55f0a1aa643431a11997734e:55f0a5ba643431a119977632"
     }
@@ -692,7 +692,7 @@ nodes {
   text: "How very practical of you. In time, perhaps you will learn that we share many other targets as well."
   branches {
     responseText: ""
-    nextNodeIndex: 36
+    nextNodeIndex: 35
     idRef {
       id: "55f0a1aa643431a11997734e:55f0a5bb643431a11997763b"
     }
@@ -710,32 +710,16 @@ nodes {
     responseText: ""
     nextNodeIndex: 35
     idRef {
-      id: "55f0a1aa643431a11997734e:55f0a5bc643431a119977641"
-    }
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "55f0a604643431a1199776bc"
-  }
-  index: 35
-  text: "Here. Make good use of this."
-  branches {
-    responseText: ""
-    nextNodeIndex: 36
-    idRef {
       id: "55f0a1aa643431a11997734e:55f0a60f643431a1199776be"
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Receive item"
 }
 nodes {
   idRef {
     id: "55f0a612643431a1199776c1"
   }
-  index: 36
+  index: 35
   text: "I\342\200\231ll gather my people and meet you back in Halferville. Let me know when it\342\200\231s time to strike against Project Hemlock. I\342\200\231ll gladly fight by your side if you\342\200\231ll have me."
   nodeType: ConversationNodeType_Simple
   comment: "TODO: Update trigger to remove Zielor (& crew?)"
@@ -744,10 +728,33 @@ nodes {
   idRef {
     id: "55f0a246643431a119977399"
   }
-  index: 37
+  index: 36
   text: "Come at me!"
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Start fight"
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5615d1783464358834006f6f"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0
