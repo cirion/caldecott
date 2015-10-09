@@ -462,6 +462,69 @@ triggers {
   is_oneshot: true
 }
 triggers {
+  name: "Spawn Cosmetic Civilians"
+  events {
+    ops {
+      functionName: "On Map Setup"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Activate Actor Spawner By Tag"
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isSlumActor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Activate Actor Spawner By Tag"
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isHallActor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "56173cda64343183136962ac"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
   name: "Dummy"
   events {
   }
@@ -25975,6 +26038,7 @@ characters {
     z: 61
   }
   orientation: ORIENTATION_S
+  GeneralTags: "isDisActor"
   displayName: "Dis Marta Female Elf"
   idRef {
     id: "56156f886434313307a289fa"
@@ -26046,6 +26110,7 @@ characters {
     }
     team_id: "Civilians"
     char_name: "New Civilian"
+    GeneralTags: "isDisActor"
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -26060,6 +26125,7 @@ characters {
     z: 62
   }
   orientation: ORIENTATION_S
+  GeneralTags: "isDisActor"
   displayName: "Dis Human Male Haven Blazer 2"
   idRef {
     id: "56156f966434313307a289fb"
@@ -26131,6 +26197,7 @@ characters {
     }
     team_id: "Civilians"
     char_name: "New Civilian"
+    GeneralTags: "isDisActor"
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -26145,6 +26212,7 @@ characters {
     z: 62
   }
   orientation: ORIENTATION_S
+  GeneralTags: "isDisActor"
   displayName: "Dis Human Female Longhair Grey Punk"
   idRef {
     id: "56156f986434313307a289fc"
@@ -26216,6 +26284,7 @@ characters {
     }
     team_id: "Civilians"
     char_name: "New Civilian"
+    GeneralTags: "isDisActor"
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -26230,6 +26299,7 @@ characters {
     z: 61
   }
   orientation: ORIENTATION_S
+  GeneralTags: "isDisActor"
   displayName: "Dis Human Female 2"
   idRef {
     id: "56156f996434313307a289fd"
@@ -26301,6 +26371,7 @@ characters {
     }
     team_id: "Civilians"
     char_name: "New Civilian"
+    GeneralTags: "isDisActor"
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -26315,6 +26386,7 @@ characters {
     z: 61
   }
   orientation: ORIENTATION_S
+  GeneralTags: "isDisActor"
   displayName: "Dis Elf Female Fashionista"
   idRef {
     id: "56156f9a6434313307a289fe"
@@ -26386,6 +26458,7 @@ characters {
     }
     team_id: "Civilians"
     char_name: "New Civilian"
+    GeneralTags: "isDisActor"
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -26400,6 +26473,7 @@ characters {
     z: 62
   }
   orientation: ORIENTATION_S
+  GeneralTags: "isDisActor"
   displayName: "Dis Dwarf Male Exec Security"
   idRef {
     id: "56156f9c6434313307a289ff"
@@ -26471,6 +26545,7 @@ characters {
     }
     team_id: "Civilians"
     char_name: "New Civilian"
+    GeneralTags: "isDisActor"
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -26993,94 +27068,6 @@ characters {
   lod: 0
   character_instance {
     prefab_name: "Berlin:HavenCivilians/OrkFemaleHavenCivilian_2"
-    character_sheet_id: "BaseCivilian"
-    character_mod {
-      stats {
-        body: 0
-        quickness: 0
-        strength: 0
-        charisma: 0
-        intelligence: 0
-        willpower: 0
-        essence: 0
-        magic: 0
-        hp: 0
-        ap: 0
-        armor: 0
-        force: 0
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-        vision_peripheral_distance: 0
-        vision_cone_distance: 0
-        vision_cone_angle: 0
-      }
-      skills {
-        ranged_combat: 0
-        close_combat: 0
-        throwing_weapons: 0
-        spellcasting: 0
-        decking: 0
-        conjuring: 0
-        spirit_summoning: 0
-        drone_control: 0
-        biotech: 0
-        dodge: 0
-        etiquette_corporate: 0
-        etiquette_security: 0
-        etiquette_gang: 0
-        etiquette_socialite: 0
-        chi_casting: 0
-        etiquette_shadowrunner: 0
-        etiquette_street: 0
-        etiquette_academic: 0
-      }
-      specializations {
-        pistol: 0
-        rifle: 0
-        shotgun: 0
-        smg: 0
-        edged: 0
-        unarmed: 0
-        spirit_control: 0
-        esp_control: 0
-        drone_combat: 0
-      }
-      archetypeName: "Non-Combatant"
-      attitude: AttitudeCautious
-      vulnerabilities {
-      }
-    }
-    team_id: "Civilians"
-    char_name: "New Civilian"
-    GeneralTags: "isSlumActor"
-    enabled_at_start: false
-    pc_spawn_number: -1
-    hiring_type: HiringType_None
-    karma: 6
-    hiring_cost_override: 3000
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -146
-    y: 0
-    z: 29
-  }
-  orientation: ORIENTATION_S
-  GeneralTags: "isSlumActor"
-  displayName: "Slum Troll Male Haven 2"
-  idRef {
-    id: "5615962d6434313307a28a08"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "Berlin:HavenCivilians/TrollMaleHavenCivilian_2"
     character_sheet_id: "BaseCivilian"
     character_mod {
       stats {
