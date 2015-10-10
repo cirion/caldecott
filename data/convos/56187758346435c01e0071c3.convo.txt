@@ -22,13 +22,6 @@ nodes {
   }
   index: 1
   text: "{{GM}}You hand the unicorn horn and nanohive to \342\200\234Doctor\342\200\235 Tolar. She sighs.{{/GM}}\n\nSo it\'s going to be like that\342\200\246 I had hoped that we might be able to derive an antidote from this, but once this is implanted, it will be useless to anyone else. At least we can save a single life.\n\nWell. I\342\200\231ll get to it, then."
-  branches {
-    nextNodeIndex: 2
-    onlyOnce: true
-    idRef {
-      id: "56187758346435c01e0071c3:56187788346435c01e0071d7"
-    }
-  }
   nodeType: ConversationNodeType_Simple
   actions {
     ops {
@@ -99,6 +92,39 @@ nodes {
         }
       }
     }
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Give the Cure to Tolar"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
   }
 }
 nodes {
@@ -114,24 +140,6 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_GM_Speaker_Voice
-  actions {
-    ops {
-      functionName: "Teleport Camera To Point"
-      args {
-        call_value {
-          functionName: "Current Location of Prop"
-          args {
-            call_value {
-              functionName: "Get Map Item (Prop)"
-              args {
-                string_value: "56077289346435d00200702b"
-              }
-            }
-          }
-        }
-      }
-    }
-  }
 }
 nodes {
   idRef {
@@ -139,70 +147,9 @@ nodes {
   }
   index: 3
   text: "You pace the waiting room, gradually exposing grimy concrete beneath the tacky carpet. Swears emanate from the operating room almost constantly. Sometimes followed by silence.\n\nThe silence is worse than the swearing."
-  branches {
-    nextNodeIndex: 4
-    idRef {
-      id: "56187758346435c01e0071c3:5618778b346435c01e0071df"
-    }
-  }
   nodeType: ConversationNodeType_GM_Speaker_Voice
   sourceInSceneRef {
     id: "561533866434313f674a4a21"
-  }
-  actions {
-    ops {
-      functionName: "Teleport Actor"
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Actor)"
-              args {
-                string_value: "561533866434313f674a4a0f"
-              }
-            }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Center of Region"
-          args {
-            call_value {
-              functionName: "Get Map Item (Region)"
-              args {
-                string_value: "56187a35346435c01e007263"
-              }
-            }
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "FacingDirection"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "TeleportMethod"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
   }
 }
 nodes {
@@ -218,19 +165,6 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  actions {
-    ops {
-      functionName: "Teleport Camera To Actor"
-      args {
-        call_value {
-          functionName: "Get Map Item (Actor)"
-          args {
-            string_value: "561533866434313f674a4a0f"
-          }
-        }
-      }
-    }
-  }
 }
 nodes {
   idRef {
@@ -259,5 +193,18 @@ roots {
   onlyOnce: true
   idRef {
     id: "56187758346435c01e0071c3:56187758346435c01e0071c7"
+  }
+}
+roots {
+  nextNodeIndex: 2
+  onlyOnce: true
+  idRef {
+    id: "56187758346435c01e0071c3:56187788346435c01e0071d7"
+  }
+}
+roots {
+  nextNodeIndex: 4
+  idRef {
+    id: "56187758346435c01e0071c3:5618778b346435c01e0071df"
   }
 }

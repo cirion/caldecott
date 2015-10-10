@@ -462,6 +462,50 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Set Waypoint on Prop"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PrimaryOrSecondary"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "5538695a346435700f004e00"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "canEnterDorbiOffice"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -1552,7 +1596,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Trigger)"
           args {
-            string_value: "56187ccf346435c01e0072de"
+            string_value: "561879c5346435c01e007262"
           }
         }
       }
@@ -1576,29 +1620,6 @@ triggers {
   conditions {
   }
   actions {
-    ops {
-      functionName: "Fade Camera Out"
-      args {
-        float_value: 2
-      }
-      args {
-        float_value: 0
-      }
-    }
-    ops {
-      functionName: "Send Event After Delay"
-      args {
-        call_value {
-          functionName: "Get Map Item (Event)"
-          args {
-            string_value: "Wait"
-          }
-        }
-      }
-      args {
-        float_value: 2
-      }
-    }
     ops {
       functionName: "Order Actor to Move To (Region)"
       args {
@@ -1640,20 +1661,88 @@ triggers {
       functionName: "End Current Team Round"
     }
     ops {
-      functionName: "Clear Camera Points of Interest"
+      functionName: "Fade Camera Out"
+      args {
+        float_value: 2
+      }
+      args {
+        float_value: 0
+      }
     }
     ops {
-      functionName: "Teleport Camera To Point"
+      functionName: "Send Event After Delay"
       args {
         call_value {
-          functionName: "Current Location of Prop"
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Wait"
+          }
+        }
+      }
+      args {
+        float_value: 3
+      }
+    }
+    ops {
+      functionName: "Trigger: Wait for Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Wait"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Teleport Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
           args {
             call_value {
-              functionName: "Get Map Item (Prop)"
+              functionName: "Get Map Item (Actor)"
               args {
-                string_value: "56077289346435d00200702b"
+                string_value: "561533866434313f674a4a0f"
               }
             }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Center of Region"
+          args {
+            call_value {
+              functionName: "Get Map Item (Region)"
+              args {
+                string_value: "561534836434313f674a4a24"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeleportMethod"
+          }
+          args {
+            int_value: 0
           }
         }
       }
@@ -1672,7 +1761,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Actor)"
           args {
-            string_value: "561533866434313f674a49fa"
+            string_value: "561533866434313f674a4a0f"
           }
         }
       }
@@ -1739,6 +1828,40 @@ triggers {
   }
   actions {
     ops {
+      functionName: "Fade Camera Out"
+      args {
+        float_value: 2
+      }
+      args {
+        float_value: 0
+      }
+    }
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Wait"
+          }
+        }
+      }
+      args {
+        float_value: 2
+      }
+    }
+    ops {
+      functionName: "Trigger: Wait for Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Wait"
+          }
+        }
+      }
+    }
+    ops {
       functionName: "Teleport Actor"
       args {
         call_value {
@@ -1775,7 +1898,7 @@ triggers {
             string_value: "FacingDirection"
           }
           args {
-            int_value: 5
+            int_value: 7
           }
         }
       }
@@ -1792,7 +1915,7 @@ triggers {
       }
     }
     ops {
-      functionName: "Order Actor to Move To (Region)"
+      functionName: "Teleport Actor"
       args {
         call_value {
           functionName: "Specific Actor"
@@ -1810,9 +1933,14 @@ triggers {
       }
       args {
         call_value {
-          functionName: "Get Map Item (Region)"
+          functionName: "Center of Region"
           args {
-            string_value: "56187a35346435c01e007263"
+            call_value {
+              functionName: "Get Map Item (Region)"
+              args {
+                string_value: "56187a35346435c01e007263"
+              }
+            }
           }
         }
       }
@@ -1827,9 +1955,17 @@ triggers {
           }
         }
       }
-    }
-    ops {
-      functionName: "End Current Team Round"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeleportMethod"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
     }
     ops {
       functionName: "Start Conversation"
@@ -1857,6 +1993,37 @@ triggers {
           }
           args {
             int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Fade Camera In"
+      args {
+        float_value: 2
+      }
+      args {
+        float_value: 1
+      }
+    }
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "56187ccf346435c01e0072de"
           }
         }
       }
@@ -5886,6 +6053,41 @@ characters {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Give the Cure to Tolar"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
     conversationPoint {
       conversationID: "5570da8c643431ae48a40f8d"
       turnToFace: true
@@ -6583,6 +6785,14 @@ variables {
   variableref_value {
     scope: TsVariableScope_Scene
     name: "canEnterSlums"
+    typeName: "bool"
+  }
+}
+variables {
+  bool_value: false
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "canEnterDorbiOffice"
     typeName: "bool"
   }
 }
