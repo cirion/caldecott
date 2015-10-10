@@ -2167,9 +2167,9 @@ props {
 props {
   name: "barrens_vehicle_brunerMotorcycle02"
   gridPoint {
-    x: -21
+    x: -20
     y: 0
-    z: -17
+    z: -11
   }
   orientation: ORIENTATION_E
   lod: 0
@@ -3964,6 +3964,53 @@ props {
   orientation: ORIENTATION_S
   idRef {
     id: "5604c8cf346435001a00434b"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -6
+    y: 1
+    z: -14
+  }
+  orientation: ORIENTATION_S
+  displayName: "Entrance"
+  idRef {
+    id: "5618a1c634643534360042c7"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Turn Mode in Dimension"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TurnBasedOrFreeMove"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+    }
+    transitionPoint {
+      scene_name: "cc_a5_climax_s2"
+      confirmation_text: "The guards outside have been disposed of. More surely await within."
+    }
+    interaction_info_text: "Factory"
   }
   lod: 0
 }
