@@ -130,11 +130,35 @@ nodes {
   text: ""
   branches {
     responseText: "I\342\200\231ve got you both where I want you. {{GM}}Attack.{{/GM}}"
+    actions {
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "56198fac34643530160017fd"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: -1
     idRef {
       id: "55f0adf1643431a119977c22:55f0b3c2643431a119977c9b"
     }
-    comment: "TODO: Start fight"
+    comment: "Start fight"
   }
   branches {
     responseText: "Why did you two take part in this?"
@@ -235,7 +259,23 @@ nodes {
   sourceInSceneRef {
     id: "55f0b2ed643431a119977c30"
   }
-  comment: "TODO: +1 opinion"
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "avaOpinion"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  comment: "+1 opinion"
 }
 nodes {
   idRef {
@@ -568,7 +608,54 @@ nodes {
   sourceInSceneRef {
     id: "55f0b2ed643431a119977c30"
   }
-  comment: "TODO: Lower Ava\'s opinion. Do I want to show a \"Lost Favor\" popup here? Or is that too obvious?"
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "avaOpinion"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+    ops {
+      functionName: "Apply Camera Shake"
+      args {
+        float_value: 0.1
+      }
+      args {
+        float_value: 0.25
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "mentionedAres"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  comment: "Lose Opinion"
 }
 nodes {
   idRef {
@@ -660,7 +747,54 @@ nodes {
   sourceInSceneRef {
     id: "55f0b2ed643431a119977c30"
   }
-  comment: "TODO: Lower Ava\'s opinion. Show popup?"
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "avaOpinion"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+    ops {
+      functionName: "Apply Camera Shake"
+      args {
+        float_value: 0.1
+      }
+      args {
+        float_value: 0.25
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "askedKroinToBackOff"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  comment: "Lose Opinion"
 }
 nodes {
   idRef {
@@ -777,11 +911,46 @@ nodes {
   text: ""
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "askedKroinToBackOff"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 39
     idRef {
       id: "55f0adf1643431a119977c22:55f0b6a6643431a119978223"
     }
-    comment: "TODO: Previously asked him"
+    comment: "Previously asked him"
   }
   branches {
     responseText: ""
@@ -821,11 +990,46 @@ nodes {
   text: ""
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "mentionedAres"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 41
     idRef {
       id: "55f0adf1643431a119977c22:55f0b6d7643431a11997822f"
     }
-    comment: "TODO: Previously invoked Ares"
+    comment: "Previously invoked Ares"
   }
   branches {
     responseText: ""
@@ -1193,7 +1397,31 @@ nodes {
   sourceInSceneRef {
     id: "55f0b307643431a119977c31"
   }
-  comment: "TODO: Start fight, only against HPF"
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "56198fbf34643530160017fe"
+          }
+        }
+      }
+    }
+  }
+  comment: "Start fight, only against HPF"
 }
 nodes {
   idRef {
@@ -1262,7 +1490,31 @@ nodes {
   sourceInSceneRef {
     id: "55f0b2ed643431a119977c30"
   }
-  comment: "TODO: Start fight, against both of them."
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "56198fac34643530160017fd"
+          }
+        }
+      }
+    }
+  }
+  comment: "Start fight, against both of them."
 }
 nodes {
   idRef {
