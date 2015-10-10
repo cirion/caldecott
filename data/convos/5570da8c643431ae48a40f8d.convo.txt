@@ -4,13 +4,120 @@ idRef {
 ui_name: "cc_a5_hub_s1-Tolar"
 nodes {
   idRef {
-    id: "5570dab3643431ae48a40f9b"
+    id: "5570da90643431ae48a40f93"
   }
   index: 0
-  text: "Did you need any more supplies?"
+  text: "What a rush. This has been really intense."
   branches {
     responseText: ""
     nextNodeIndex: 1
+    idRef {
+      id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e251"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e253"
+  }
+  index: 1
+  text: "Healing your injury could have been a lifetime achievement on its own. Add in what happened to $(story.victim_name) and\342\200\246 well, I don\342\200\231t know where to start."
+  branches {
+    responseText: "Just leave me out of it."
+    nextNodeIndex: 2
+    idRef {
+      id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e255"
+    }
+  }
+  branches {
+    responseText: "Thanks for all that you\342\200\231ve done."
+    nextNodeIndex: 3
+    idRef {
+      id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e25b"
+    }
+  }
+  branches {
+    responseText: "I\342\200\231m more concerned with where you\342\200\231ll end."
+    nextNodeIndex: 4
+    idRef {
+      id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e262"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5570db2b643431ae48a40fc6"
+  }
+  index: 2
+  text: "Heh, I can\342\200\231t blame you for being skittish. I always seem to show up when you\342\200\231re in a rotten position. "
+  branches {
+    responseText: ""
+    nextNodeIndex: 5
+    idRef {
+      id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e258"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e25d"
+  }
+  index: 3
+  text: "No: thank you for the opportunity. I would have frittered away my talent in the Oakland sprawl without all the disasters that have befallen you."
+  branches {
+    responseText: ""
+    nextNodeIndex: 5
+    idRef {
+      id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e25f"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e264"
+  }
+  index: 4
+  text: "Don\342\200\231t worry, I won\342\200\231t keep you long. I\342\200\231m sure you\342\200\231re in a rush anyhow."
+  branches {
+    responseText: ""
+    nextNodeIndex: 5
+    idRef {
+      id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e266"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5570db35643431ae48a40fd2"
+  }
+  index: 5
+  text: "Before you go\342\200\246 do you need any final supplies for the road?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 7
+    idRef {
+      id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e269"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5570dab3643431ae48a40f9b"
+  }
+  index: 6
+  text: "Did you need any more supplies?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 7
     idRef {
       id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e23d"
     }
@@ -21,39 +128,47 @@ nodes {
   idRef {
     id: "5570dac5643431ae48a40f9e"
   }
-  index: 1
+  index: 7
   text: ""
   branches {
     responseText: "I need some medical equipment."
-    nextNodeIndex: 2
+    actions {
+      ops {
+        functionName: "Open Store Screen From Actor"
+        args {
+          call_value {
+            functionName: "Get Map Item (Actor)"
+            args {
+              string_value: "561533866434313f674a4a0f"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 8
     idRef {
       id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e240"
     }
   }
   branches {
     responseText: "I need more cyberware."
-    nextNodeIndex: 3
+    actions {
+      ops {
+        functionName: "Open Cyberware Screen From Actor"
+        args {
+          call_value {
+            functionName: "Get Map Item (Actor)"
+            args {
+              string_value: "561533866434313f674a4a0f"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 9
     idRef {
       id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e246"
     }
-  }
-  branches {
-    responseText: "I heard that you bought a karaoke machine. Can I borrow it?"
-    nextNodeIndex: 4
-    hideIfUnavailable: true
-    onlyOnce: true
-    idRef {
-      id: "5570da8c643431ae48a40f8d:55ef6b9e643431351205e26d"
-    }
-    comment: "TODO: On the right stage of Sable karaoke quest"
-  }
-  branches {
-    responseText: "{{CC}}Delivery receipt{{/CC}} I delivered those suits like you asked."
-    nextNodeIndex: 10
-    idRef {
-      id: "5570da8c643431ae48a40f8d:55ef6c94643431351205e34c"
-    }
-    comment: "TODO: Delivered biohazard suits"
   }
   branches {
     responseText: "That\'s all."
@@ -69,11 +184,11 @@ nodes {
   idRef {
     id: "5570daeb643431ae48a40fa3"
   }
-  index: 2
+  index: 8
   text: "Done. Anything more?"
   branches {
     responseText: ""
-    nextNodeIndex: 1
+    nextNodeIndex: 7
     idRef {
       id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e243"
     }
@@ -85,11 +200,11 @@ nodes {
   idRef {
     id: "5570daff643431ae48a40fad"
   }
-  index: 3
+  index: 9
   text: "Cyberware is pretty important."
   branches {
     responseText: ""
-    nextNodeIndex: 1
+    nextNodeIndex: 7
     idRef {
       id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e249"
     }
@@ -97,317 +212,17 @@ nodes {
   }
   nodeType: ConversationNodeType_Simple
 }
-nodes {
+roots {
+  nextNodeIndex: 0
+  onlyOnce: true
   idRef {
-    id: "55ef6bb2643431351205e270"
+    id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e24e"
   }
-  index: 4
-  text: "What?! That blabbermouth dwarf! How can he expect to stay in business when he keeps running his mouth about the embarrassing purchases his customers make?\n\nThen again, he\342\200\231s obviously trying to get out of business, so who knows! Maybe this is all part of his plan."
-  branches {
-    responseText: ""
-    nextNodeIndex: 5
-    idRef {
-      id: "5570da8c643431ae48a40f8d:55ef6bc4643431351205e272"
-    }
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "5570da8c643431ae48a40f8d:55ef6bc5643431351205e274"
-  }
-  index: 5
-  text: "In any case: I don\342\200\231t have the machine on hand here. I can let you use it, though, if you\342\200\231re willing to run a little errand for me.\n\nKroin purchased some biohazard suits from me. I\342\200\231ve been too busy to deliver them, but if you can run these over to him, I\342\200\231ll allow you to use my karaoke machine for\342\200\246 45 minutes."
-  branches {
-    responseText: "{{CC}}\302\245200{{/CC}} This is stupid. Here, I\342\200\231ll just pay you for the machine now."
-    nextNodeIndex: 6
-    idRef {
-      id: "5570da8c643431ae48a40f8d:55ef6bc5643431351205e276"
-    }
-    comment: "TODO: Nuyen"
-  }
-  branches {
-    responseText: "{{CC}}Etiquette: Shadowrunner{{/CC}} That\342\200\231s beneath my pay rate. I\342\200\231ll subcontract to one of the street kids."
-    nextNodeIndex: 7
-    idRef {
-      id: "5570da8c643431ae48a40f8d:55ef6c07643431351205e27f"
-    }
-    comment: "TODO: Etiquette"
-  }
-  branches {
-    responseText: "All right, hand them over."
-    nextNodeIndex: 9
-    idRef {
-      id: "5570da8c643431ae48a40f8d:55ef6c63643431351205e2d5"
-    }
-    auxiliaryLink: true
-  }
-  branches {
-    responseText: "Well\342\200\246 if it\342\200\231ll help\342\200\246"
-    nextNodeIndex: 9
-    idRef {
-      id: "5570da8c643431ae48a40f8d:55ef6c64643431351205e2d7"
-    }
-    auxiliaryLink: true
-  }
-  branches {
-    responseText: "I can\342\200\231t believe I\342\200\231ve been reduced to a garment delivery service."
-    nextNodeIndex: 9
-    idRef {
-      id: "5570da8c643431ae48a40f8d:55ef6c64643431351205e2d9"
-    }
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "55ef6bf9643431351205e27b"
-  }
-  index: 6
-  text: "{{GM}}Tolar\342\200\231s eyes gleam. You recognize the look of true love: the love of money.{{/GM}}\n\nIndeed! This will be quite sufficient."
-  branches {
-    responseText: ""
-    nextNodeIndex: 8
-    idRef {
-      id: "5570da8c643431ae48a40f8d:55ef6bfa643431351205e27d"
-    }
-    auxiliaryLink: true
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "55ef6c14643431351205e282"
-  }
-  index: 7
-  text: "Well\342\200\246 ordinarily I\342\200\231d say no, but this is your profession after all. I\342\200\231ll give you the benefit of the doubt, just this once."
-  branches {
-    responseText: ""
-    nextNodeIndex: 8
-    idRef {
-      id: "5570da8c643431ae48a40f8d:55ef6c17643431351205e284"
-    }
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "55ef6c34643431351205e287"
-  }
-  index: 8
-  text: "Ah, yes, the machine: I have it on hold in Dis. Tell the staff I gave you my permission to use it.\n\nFor forty-five minutes! After that I\342\200\231ll start charging you!"
-  branches {
-    responseText: ""
-    nextNodeIndex: 1
-    idRef {
-      id: "5570da8c643431ae48a40f8d:55ef6c45643431351205e289"
-    }
-    auxiliaryLink: true
-  }
-  nodeType: ConversationNodeType_Simple
-  comment: "TODO: Update goals"
-}
-nodes {
-  idRef {
-    id: "55ef6c7a643431351205e30f"
-  }
-  index: 9
-  text: "Now, be quick about it! Chop-chop!"
-  nodeType: ConversationNodeType_Simple
-  comment: "TODO: Give item, update goal"
-}
-nodes {
-  idRef {
-    id: "55ef6ca6643431351205e34f"
-  }
-  index: 10
-  text: "Hm?\n\nOh, right. I did ask you to do that."
-  branches {
-    responseText: ""
-    nextNodeIndex: 8
-    idRef {
-      id: "5570da8c643431ae48a40f8d:55ef6cb6643431351205e351"
-    }
-    auxiliaryLink: true
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "5570da90643431ae48a40f93"
-  }
-  index: 11
-  text: "What a rush. This has been really intense."
-  branches {
-    responseText: ""
-    nextNodeIndex: 12
-    idRef {
-      id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e251"
-    }
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e253"
-  }
-  index: 12
-  text: "Healing your injury could have been a lifetime achievement on its own. Add in what happened to $(story.victim_name) and\342\200\246 well, I don\342\200\231t know where to start."
-  branches {
-    responseText: "Just leave me out of it."
-    nextNodeIndex: 13
-    idRef {
-      id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e255"
-    }
-  }
-  branches {
-    responseText: "Thanks for all that you\342\200\231ve done."
-    nextNodeIndex: 14
-    idRef {
-      id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e25b"
-    }
-  }
-  branches {
-    responseText: "I\342\200\231m more concerned with where you\342\200\231ll end."
-    nextNodeIndex: 15
-    idRef {
-      id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e262"
-    }
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "5570db2b643431ae48a40fc6"
-  }
-  index: 13
-  text: "Heh, I can\342\200\231t blame you for being skittish. I always seem to show up when you\342\200\231re in a rotten position. "
-  branches {
-    responseText: ""
-    nextNodeIndex: 16
-    idRef {
-      id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e258"
-    }
-    auxiliaryLink: true
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e25d"
-  }
-  index: 14
-  text: "No: thank you for the opportunity. I would have frittered away my talent in the Oakland sprawl without all the disasters that have befallen you."
-  branches {
-    responseText: ""
-    nextNodeIndex: 16
-    idRef {
-      id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e25f"
-    }
-    auxiliaryLink: true
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e264"
-  }
-  index: 15
-  text: "Don\342\200\231t worry, I won\342\200\231t keep you long. I\342\200\231m sure you\342\200\231re in a rush anyhow."
-  branches {
-    responseText: ""
-    nextNodeIndex: 16
-    idRef {
-      id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e266"
-    }
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "5570db35643431ae48a40fd2"
-  }
-  index: 16
-  text: "Before you go\342\200\246 do you need any final supplies for the road?"
-  branches {
-    responseText: ""
-    nextNodeIndex: 1
-    idRef {
-      id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e269"
-    }
-    auxiliaryLink: true
-  }
-  nodeType: ConversationNodeType_Simple
 }
 roots {
   responseText: ""
-  conditions {
-    ops {
-      functionName: "Comparison (bool)"
-      args {
-        call_value {
-          functionName: "Get Variable (bool)"
-          args {
-            string_value: "didGreetA5Tolar"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "IsOrIsNot"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "bool"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-    }
-  }
-  nextNodeIndex: 0
+  nextNodeIndex: 6
   idRef {
     id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e23a"
-  }
-}
-roots {
-  actions {
-    ops {
-      functionName: "Set Variable (bool)"
-      args {
-        call_value {
-          functionName: "Get Variable (bool)"
-          args {
-            string_value: "didGreetA5Tolar"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "bool"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-    }
-  }
-  nextNodeIndex: 11
-  idRef {
-    id: "5570da8c643431ae48a40f8d:55ef6b96643431351205e24e"
   }
 }
