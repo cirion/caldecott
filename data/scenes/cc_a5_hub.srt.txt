@@ -7912,11 +7912,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -29
+    x: -43
     y: 0
-    z: 28
+    z: 11
   }
-  orientation: ORIENTATION_N
+  orientation: ORIENTATION_E
   displayName: "Zielor"
   idRef {
     id: "561538456434313f674a4c9d"
@@ -7924,6 +7924,41 @@ characters {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Destroy Project Hemlock"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     conversationPoint {
       conversationID: "55725884346435d804005feb"
       turnToFace: true
