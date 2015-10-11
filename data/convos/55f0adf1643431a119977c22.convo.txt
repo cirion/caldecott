@@ -18,6 +18,52 @@ nodes {
   sourceInSceneRef {
     id: "55f0b307643431a119977c31"
   }
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "561993f23464353016001960"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "561993fa3464353016001961"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -102,6 +148,39 @@ nodes {
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
     id: "55f0b307643431a119977c31"
+  }
+  actions {
+    ops {
+      functionName: "Order Actor to Face Point"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "55f0b307643431a119977c31"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Current Location of Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 nodes {
@@ -310,13 +389,14 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  speaker_override_id: "55e8b766643431a6e4c440c3"
 }
 nodes {
   idRef {
     id: "55f0adf1643431a119977c22:55f0b3c2643431a119977ca7"
   }
   index: 12
-  text: "Ugh, you people go to such lengths to justify your actions. It\342\200\231s really very simple. There are good people in the world, and bad people. Hemlock is an opportunity for us to get rid of the bad people."
+  text: "Ugh, you people go to such lengths to justify your actions.\n\nIt\342\200\231s really very simple. There are good people in the world, and bad people. Hemlock is an opportunity for us to get rid of the bad people."
   branches {
     responseText: "You can\342\200\231t just dismiss entire metatypes with labels like \342\200\234bad\342\200\235."
     nextNodeIndex: 13
@@ -358,6 +438,7 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  speaker_override_id: "55f07c71643431a119976783"
 }
 nodes {
   idRef {
@@ -374,6 +455,7 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  speaker_override_id: "55f07c71643431a119976783"
 }
 nodes {
   idRef {
@@ -389,6 +471,7 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  speaker_override_id: "55f07c71643431a119976783"
 }
 nodes {
   idRef {
@@ -522,7 +605,7 @@ nodes {
     id: "55f0adf1643431a119977c22:55f0b4cf643431a119977d94"
   }
   index: 23
-  text: "We\342\200\231ll do everything in our power to ensure that this stockpile remains intact and can fulfill its destiny. If Saito doesn\342\200\231t arrive to claim it, I\342\200\231ll grab every drop that my guys can carry and will put it to use back home."
+  text: "We\342\200\231ll do everything in our power to ensure that this stockpile remains intact and can fulfill its destiny.\n\nIf Saito doesn\342\200\231t arrive to claim it, I\342\200\231ll grab every drop that my guys can carry and will put it to use back home."
   branches {
     responseText: ""
     nextNodeIndex: 7

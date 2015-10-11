@@ -32,7 +32,30 @@ nodes {
   text: "I\342\200\231ve locked on to your signal. I have a team in place that will arrive shortly. We\342\200\231ll shut this threat down together."
   nodeType: ConversationNodeType_Simple
   speaker_override_id: "55f09a56643431a1199770ee"
-  comment: "TODO: Disable this point; "
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5619a4383464353016001a64"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -40,7 +63,7 @@ nodes {
   }
   index: 2
   text: "The comm channel remains open."
-  nodeType: ConversationNodeType_Simple
+  nodeType: ConversationNodeType_GM_Voice
   speaker_override_id: "55f09a56643431a1199770ee"
 }
 roots {

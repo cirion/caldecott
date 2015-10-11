@@ -9,17 +9,87 @@ nodes {
   index: 0
   text: "Well done, $(l.name).\n\nI must say, your team is remarkably efficient. If you\342\200\231re looking for more secure corporate employ, we would certainly have a place for a $(l.man) of your talents."
   branches {
+    conditions {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Contact Eriana for Reinforcements"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 1
     idRef {
       id: "55f0ba71643431a11997873a:55f0ba77643431a119978744"
     }
-    comment: "TODO: You summoned KE during fight"
+    comment: "You summoned KE during fight"
   }
   branches {
-    responseText: "I wish we could have arrived sooner to help you take them down. Still, better late than never. Our team is incoming, and we\342\200\231ll ensure you remain undisturbed by any remaining Shiawase forces."
+    responseText: ""
+    actions {
+      ops {
+        functionName: "Set Goal Status"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Contact Eriana for Reinforcements"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 2
     idRef {
-      id: "55f0ba71643431a11997873a:55f0ba93643431a11997874a"
+      id: "55f0ba71643431a11997873a:5619a8123464353016001dbf"
     }
   }
   nodeType: ConversationNodeType_Simple
@@ -32,7 +102,7 @@ nodes {
   text: "I\342\200\231m glad we were able to play our own small part in bringing down this operation. No matter how skilled you may be, you\342\200\231ll always be better with more resources at your disposal."
   branches {
     responseText: ""
-    nextNodeIndex: 3
+    nextNodeIndex: 4
     idRef {
       id: "55f0ba71643431a11997873a:55f0baa0643431a11997874e"
     }
@@ -42,20 +112,154 @@ nodes {
 }
 nodes {
   idRef {
-    id: "55f0ba71643431a11997873a:55f0ba93643431a11997874c"
+    id: "5619a8183464353016001dc2"
   }
   index: 2
+  text: "I wish we could have arrived sooner to help you take them down. Still, better late than never. Our team is incoming, and we\342\200\231ll ensure you remain undisturbed by any remaining Shiawase forces."
+  branches {
+    responseText: ""
+    nextNodeIndex: 3
+    idRef {
+      id: "55f0ba71643431a11997873a:55f0ba93643431a11997874a"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55f0ba71643431a11997873a:55f0ba93643431a11997874c"
+  }
+  index: 3
   text: "As I mentioned before, my employer has significant interest in the contents of this facility. Rather than let Ava\342\200\231s research go to waste, we\342\200\231ll bring it under the umbrella of our own R&D department. With proper oversight and control, Hemlock might still bring some benefit to the world."
   branches {
-    nextNodeIndex: 3
+    conditions {
+      ops {
+        functionName: "OR"
+        args {
+          call_value {
+            functionName: "Evaluate If Actor is Inside Region"
+            args {
+              call_value {
+                functionName: "Specific Actor"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Player)"
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+                args {
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AreOrAreNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (Region)"
+                args {
+                  string_value: "554f9fac346435e81c0036aa"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Evaluate If Actor is Inside Region"
+            args {
+              call_value {
+                functionName: "Specific Actor"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Player)"
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+                args {
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AreOrAreNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (Region)"
+                args {
+                  string_value: "554f9fc2346435e81c0036ab"
+                }
+              }
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "cc_a5_climax_s2-ToldTeamAboutEriana"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 4
     idRef {
       id: "55f0ba71643431a11997873a:55f0baa2643431a119978750"
     }
-    comment: "TODO: Didn\'t tell team about Ares\' offer and PC1 is alive."
+    comment: "Didn\'t tell team about Ares\' offer and PC1 is alive."
   }
   branches {
     responseText: ""
-    nextNodeIndex: 7
+    nextNodeIndex: 8
     idRef {
       id: "55f0ba71643431a11997873a:55f0bb45643431a119978792"
     }
@@ -67,89 +271,201 @@ nodes {
   idRef {
     id: "55f0ba71643431a11997873a:55f0baa2643431a119978752"
   }
-  index: 3
+  index: 4
   text: "What\342\200\231s this? Are you holding back secret conversations from us?"
   branches {
     responseText: "Don\342\200\231t worry about it."
-    nextNodeIndex: 4
+    nextNodeIndex: 5
     idRef {
       id: "55f0ba71643431a11997873a:55f0bae9643431a119978764"
     }
   }
   branches {
     responseText: "I was going to tell you later."
-    nextNodeIndex: 5
+    nextNodeIndex: 6
     idRef {
       id: "55f0ba71643431a11997873a:55f0bb1a643431a11997876c"
     }
   }
   branches {
     responseText: "I have no idea what she\342\200\231s talking about."
-    nextNodeIndex: 6
+    nextNodeIndex: 7
     idRef {
       id: "55f0ba71643431a11997873a:55f0bb20643431a119978773"
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: PC1 for this and following nodes."
+  sourceInSceneRef {
+    id: "55ff82e8346435280e006b8e"
+  }
 }
 nodes {
   idRef {
     id: "55f0ba71643431a11997873a:55f0baea643431a119978766"
   }
-  index: 4
+  index: 5
   text: "I get nervous when my leader starts keeping me in the dark."
   branches {
     responseText: ""
-    nextNodeIndex: 7
+    nextNodeIndex: 8
     idRef {
       id: "55f0ba71643431a11997873a:55f0baea643431a119978768"
     }
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55ff82e8346435280e006b8e"
+  }
 }
 nodes {
   idRef {
     id: "55f0bb1c643431a11997876f"
   }
-  index: 5
+  index: 6
   text: "Well, I guess that \342\200\234later\342\200\235 is now."
   branches {
     responseText: ""
-    nextNodeIndex: 7
+    nextNodeIndex: 8
     idRef {
       id: "55f0ba71643431a11997873a:55f0bb1e643431a119978771"
     }
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55ff82e8346435280e006b8e"
+  }
 }
 nodes {
   idRef {
     id: "55f0ba71643431a11997873a:55f0bb20643431a119978775"
   }
-  index: 6
+  index: 7
   text: "Right\342\200\246"
   branches {
     responseText: ""
-    nextNodeIndex: 7
+    nextNodeIndex: 8
     idRef {
       id: "55f0ba71643431a11997873a:55f0bb20643431a119978777"
     }
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "55ff82e8346435280e006b8e"
+  }
 }
 nodes {
   idRef {
     id: "55f0bb53643431a119978795"
   }
-  index: 7
+  index: 8
   text: ""
   branches {
     responseText: ""
-    nextNodeIndex: 8
+    conditions {
+      ops {
+        functionName: "OR"
+        args {
+          call_value {
+            functionName: "Evaluate If Actor is Inside Region"
+            args {
+              call_value {
+                functionName: "All Actors With Tag"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (SenseTagList)"
+                    args {
+                      string_value: "isKora"
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AreOrAreNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (Region)"
+                args {
+                  string_value: "554f9fac346435e81c0036aa"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Evaluate If Actor is Inside Region"
+            args {
+              call_value {
+                functionName: "All Actors With Tag"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (SenseTagList)"
+                    args {
+                      string_value: "isKora"
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AreOrAreNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (Region)"
+                args {
+                  string_value: "554f9fc2346435e81c0036ab"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 9
     onlyOnce: true
     idRef {
       id: "55f0ba71643431a11997873a:55f0bb69643431a1199787b9"
@@ -157,7 +473,108 @@ nodes {
   }
   branches {
     responseText: ""
-    nextNodeIndex: 9
+    conditions {
+      ops {
+        functionName: "OR"
+        args {
+          call_value {
+            functionName: "Evaluate If Actor is Inside Region"
+            args {
+              call_value {
+                functionName: "All Actors With Tag"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (SenseTagList)"
+                    args {
+                      string_value: "isDorbi"
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AreOrAreNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (Region)"
+                args {
+                  string_value: "554f9fac346435e81c0036aa"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Evaluate If Actor is Inside Region"
+            args {
+              call_value {
+                functionName: "All Actors With Tag"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (SenseTagList)"
+                    args {
+                      string_value: "isDorbi"
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AreOrAreNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (Region)"
+                args {
+                  string_value: "554f9fc2346435e81c0036ab"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 10
     onlyOnce: true
     idRef {
       id: "55f0ba71643431a11997873a:55f0bb86643431a1199787e5"
@@ -165,7 +582,108 @@ nodes {
   }
   branches {
     responseText: ""
-    nextNodeIndex: 10
+    conditions {
+      ops {
+        functionName: "OR"
+        args {
+          call_value {
+            functionName: "Evaluate If Actor is Inside Region"
+            args {
+              call_value {
+                functionName: "All Actors With Tag"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (SenseTagList)"
+                    args {
+                      string_value: "isRafik"
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AreOrAreNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (Region)"
+                args {
+                  string_value: "554f9fac346435e81c0036aa"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Evaluate If Actor is Inside Region"
+            args {
+              call_value {
+                functionName: "All Actors With Tag"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (SenseTagList)"
+                    args {
+                      string_value: "isRafik"
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AreOrAreNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (Region)"
+                args {
+                  string_value: "554f9fc2346435e81c0036ab"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 11
     onlyOnce: true
     idRef {
       id: "55f0ba71643431a11997873a:55f0bb88643431a1199787f1"
@@ -173,7 +691,108 @@ nodes {
   }
   branches {
     responseText: ""
-    nextNodeIndex: 11
+    conditions {
+      ops {
+        functionName: "OR"
+        args {
+          call_value {
+            functionName: "Evaluate If Actor is Inside Region"
+            args {
+              call_value {
+                functionName: "All Actors With Tag"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (SenseTagList)"
+                    args {
+                      string_value: "isSable"
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AreOrAreNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (Region)"
+                args {
+                  string_value: "554f9fac346435e81c0036aa"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Evaluate If Actor is Inside Region"
+            args {
+              call_value {
+                functionName: "All Actors With Tag"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (SenseTagList)"
+                    args {
+                      string_value: "isSable"
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AreOrAreNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (Region)"
+                args {
+                  string_value: "554f9fc2346435e81c0036ab"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 12
     onlyOnce: true
     idRef {
       id: "55f0ba71643431a11997873a:55f0bb88643431a1199787f9"
@@ -181,7 +800,108 @@ nodes {
   }
   branches {
     responseText: ""
-    nextNodeIndex: 12
+    conditions {
+      ops {
+        functionName: "OR"
+        args {
+          call_value {
+            functionName: "Evaluate If Actor is Inside Region"
+            args {
+              call_value {
+                functionName: "All Actors With Tag"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (SenseTagList)"
+                    args {
+                      string_value: "isPersi"
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AreOrAreNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (Region)"
+                args {
+                  string_value: "554f9fac346435e81c0036aa"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Evaluate If Actor is Inside Region"
+            args {
+              call_value {
+                functionName: "All Actors With Tag"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (SenseTagList)"
+                    args {
+                      string_value: "isPersi"
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AreOrAreNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (Region)"
+                args {
+                  string_value: "554f9fc2346435e81c0036ab"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 13
     onlyOnce: true
     idRef {
       id: "55f0ba71643431a11997873a:55f0bb88643431a119978801"
@@ -189,7 +909,108 @@ nodes {
   }
   branches {
     responseText: ""
-    nextNodeIndex: 13
+    conditions {
+      ops {
+        functionName: "OR"
+        args {
+          call_value {
+            functionName: "Evaluate If Actor is Inside Region"
+            args {
+              call_value {
+                functionName: "All Actors With Tag"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (SenseTagList)"
+                    args {
+                      string_value: "isZielor"
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AreOrAreNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (Region)"
+                args {
+                  string_value: "554f9fac346435e81c0036aa"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Evaluate If Actor is Inside Region"
+            args {
+              call_value {
+                functionName: "All Actors With Tag"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (SenseTagList)"
+                    args {
+                      string_value: "isZielor"
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AreOrAreNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (Region)"
+                args {
+                  string_value: "554f9fc2346435e81c0036ab"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 14
     onlyOnce: true
     idRef {
       id: "55f0ba71643431a11997873a:55f0bb89643431a119978809"
@@ -197,23 +1018,28 @@ nodes {
   }
   branches {
     responseText: ""
-    nextNodeIndex: 14
+    nextNodeIndex: 15
     idRef {
       id: "55f0ba71643431a11997873a:55f0bbfb643431a119978844"
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "Empty reaction loop node. TODO: Check for team members present"
+  actions {
+    ops {
+      functionName: "No Effect"
+    }
+  }
+  comment: "Empty reaction loop node"
 }
 nodes {
   idRef {
     id: "55f0bb6b643431a1199787bc"
   }
-  index: 8
+  index: 9
   text: "We\342\200\231ve come too far to hand over a weapon of this magnitude to another faceless megacorp. Burn it all to the ground."
   branches {
     responseText: ""
-    nextNodeIndex: 7
+    nextNodeIndex: 8
     idRef {
       id: "55f0ba71643431a11997873a:55f0bb6d643431a1199787be"
     }
@@ -226,11 +1052,11 @@ nodes {
   idRef {
     id: "55f0ba71643431a11997873a:55f0bb86643431a1199787e7"
   }
-  index: 9
+  index: 10
   text: "Say what you will about our friend Eriana, she\'s been far less inclined to shoot us than most people we\342\200\231ve encountered. A secret like Hemlock is going to get out sooner or later. We might as well leave it in the hands of someone who will reward us for it."
   branches {
     responseText: ""
-    nextNodeIndex: 7
+    nextNodeIndex: 8
     idRef {
       id: "55f0ba71643431a11997873a:55f0bb86643431a1199787e9"
     }
@@ -243,11 +1069,11 @@ nodes {
   idRef {
     id: "55f0ba71643431a11997873a:55f0bb88643431a1199787f3"
   }
-  index: 10
+  index: 11
   text: "Eriana hasn\342\200\231t given us any reason to doubt her. Let them own the problem. We\342\200\231ve done what we set out to do here: avenged ourselves and stopped the threat to the East Bay."
   branches {
     responseText: ""
-    nextNodeIndex: 7
+    nextNodeIndex: 8
     idRef {
       id: "55f0ba71643431a11997873a:55f0bb88643431a1199787f5"
     }
@@ -260,11 +1086,11 @@ nodes {
   idRef {
     id: "55f0ba71643431a11997873a:55f0bb88643431a1199787fb"
   }
-  index: 11
+  index: 12
   text: "The world is a much bigger and stranger place than any of us can imagine. What seems like a deadly disease today, may prove to be a useful discovery in the future. We should ensure that knowledge is not needlessly lost."
   branches {
     responseText: ""
-    nextNodeIndex: 7
+    nextNodeIndex: 8
     idRef {
       id: "55f0ba71643431a11997873a:55f0bb88643431a1199787fd"
     }
@@ -277,11 +1103,11 @@ nodes {
   idRef {
     id: "55f0ba71643431a11997873a:55f0bb88643431a119978803"
   }
-  index: 12
+  index: 13
   text: "Fuck that! I don\342\200\231t want any of that Hemlock stuff getting on me, ever. The world ain\342\200\231t safe as long as it\342\200\231s floatin\342\200\231 around out there. We annihilate every last trace of it. End of story."
   branches {
     responseText: ""
-    nextNodeIndex: 7
+    nextNodeIndex: 8
     idRef {
       id: "55f0ba71643431a11997873a:55f0bb88643431a119978805"
     }
@@ -294,11 +1120,11 @@ nodes {
   idRef {
     id: "55f0ba71643431a11997873a:55f0bb89643431a11997880b"
   }
-  index: 13
+  index: 14
   text: "All I know is, Saito wants this stuff, and I\342\200\231ll be damned before I see him take it.\n\nWho cares if it\342\200\231s Shiawase selling it to him, or your friends to the south? If you try to hand this over, you\342\200\231ll need to go through me first."
   branches {
     responseText: ""
-    nextNodeIndex: 7
+    nextNodeIndex: 8
     idRef {
       id: "55f0ba71643431a11997873a:55f0bb89643431a11997880d"
     }
@@ -311,11 +1137,11 @@ nodes {
   idRef {
     id: "55f0bc01643431a119978847"
   }
-  index: 14
+  index: 15
   text: "I don\342\200\231t want to cause difficulty for you. But this decision has been made at a much higher level.\n\nWe\342\200\231re taking control of the project. I hope we can do so with your cooperation. I offer you my personal assurances that it will never be deployed as a weapon here in the Bay Area."
   branches {
     responseText: ""
-    nextNodeIndex: 15
+    nextNodeIndex: 16
     idRef {
       id: "55f0ba71643431a11997873a:55f0bc12643431a119978849"
     }
@@ -326,11 +1152,11 @@ nodes {
   idRef {
     id: "55f0bc14643431a11997884c"
   }
-  index: 15
+  index: 16
   text: ""
   branches {
     responseText: "And will it be deployed elsewhere?"
-    nextNodeIndex: 16
+    nextNodeIndex: 17
     onlyOnce: true
     idRef {
       id: "55f0ba71643431a11997873a:55f0bc16643431a11997884e"
@@ -338,28 +1164,30 @@ nodes {
   }
   branches {
     responseText: "What will be my reward for cooperation?"
-    nextNodeIndex: 18
+    nextNodeIndex: 19
+    onlyOnce: true
     idRef {
       id: "55f0ba71643431a11997873a:55f0bc2e643431a11997885a"
     }
   }
   branches {
     responseText: "What will happen to Shiawase?"
-    nextNodeIndex: 19
+    nextNodeIndex: 20
+    onlyOnce: true
     idRef {
       id: "55f0ba71643431a11997873a:55f0bc35643431a11997885e"
     }
   }
   branches {
     responseText: "All right. Take whatever you need from the Hemlock project."
-    nextNodeIndex: 21
+    nextNodeIndex: 22
     idRef {
       id: "55f0ba71643431a11997873a:55f0bc3f643431a11997886a"
     }
   }
   branches {
     responseText: "No. I can\342\200\231t let you take something this dangerous."
-    nextNodeIndex: 29
+    nextNodeIndex: 30
     idRef {
       id: "55f0ba71643431a11997873a:55f0bc46643431a11997886e"
     }
@@ -371,11 +1199,11 @@ nodes {
   idRef {
     id: "55f0ba71643431a11997873a:55f0bc16643431a119978850"
   }
-  index: 16
+  index: 17
   text: "I can\342\200\231t answer that. I hope not.\n\nNot every weapon needs to be used in order to be useful. The Fifth World enjoyed nearly a century of relative peace thanks to the threat of nuclear annihilation between two superpowers. Sometimes the threat posed by a weapon can ensure that you never need to wield that weapon, nor any of the myriad lesser weapons at your disposal."
   branches {
     responseText: ""
-    nextNodeIndex: 17
+    nextNodeIndex: 18
     idRef {
       id: "55f0ba71643431a11997873a:55f0bc29643431a119978854"
     }
@@ -386,11 +1214,11 @@ nodes {
   idRef {
     id: "55f0ba71643431a11997873a:55f0bc29643431a119978856"
   }
-  index: 17
+  index: 18
   text: "And besides, the research on the metagene is truly invaluable. We aren\342\200\231t just weapons manufacturers, you know. With an asset like this, we could develop radical new therapies, research hybridization, and create a whole myriad of other applications that an agent like me can\342\200\231t even begin to imagine."
   branches {
     responseText: ""
-    nextNodeIndex: 15
+    nextNodeIndex: 16
     idRef {
       id: "55f0ba71643431a11997873a:55f0bc2c643431a119978858"
     }
@@ -402,11 +1230,11 @@ nodes {
   idRef {
     id: "55f0ba71643431a11997873a:55f0bc2e643431a11997885c"
   }
-  index: 18
+  index: 19
   text: "Whatever you wish. Within reason, of course. A corporate sinecure, access to our latest and greatest tech, or even an assurance that our agents will leave you alone for the rest of your life.\n\nYou don\342\200\231t have to decide now. Consider yourself in possession of an enormous IOU from yours truly."
   branches {
     responseText: ""
-    nextNodeIndex: 15
+    nextNodeIndex: 16
     idRef {
       id: "55f0ba71643431a11997873a:55f0bc3e643431a119978868"
     }
@@ -418,11 +1246,11 @@ nodes {
   idRef {
     id: "55f0ba71643431a11997873a:55f0bc35643431a119978860"
   }
-  index: 19
+  index: 20
   text: "What always happens. Corporate turnover, infighting among mid-level executives.\n\nThose on the top will sail on, blissfully unaware of what nearly happened. Those at the bottom will sharpen their knives and prepare for the next opportunity to advance themselves."
   branches {
     responseText: ""
-    nextNodeIndex: 20
+    nextNodeIndex: 21
     idRef {
       id: "55f0ba71643431a11997873a:55f0bc37643431a119978862"
     }
@@ -433,11 +1261,11 @@ nodes {
   idRef {
     id: "55f0ba71643431a11997873a:55f0bc37643431a119978864"
   }
-  index: 20
+  index: 21
   text: "I doubt that this will disrupt the balance of power in San Francisco. The Japanese megacorps have more commonalities than differences, and Saito remains their anchor. Shiawase has lost a chance to curry favor with him, but they will continue to collude and compete and expand their sphere of influence. All we can do is protect ourselves and wait for an opening."
   branches {
     responseText: ""
-    nextNodeIndex: 15
+    nextNodeIndex: 16
     idRef {
       id: "55f0ba71643431a11997873a:55f0bc3b643431a119978866"
     }
@@ -449,27 +1277,98 @@ nodes {
   idRef {
     id: "55f0ba71643431a11997873a:55f0bc3f643431a11997886c"
   }
-  index: 21
+  index: 22
   text: "I thank you. You\342\200\231ve made a wise decision."
   branches {
     responseText: ""
-    nextNodeIndex: 22
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Count of Alive Actors"
+            args {
+              call_value {
+                functionName: "Specific Actor"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Actor)"
+                    args {
+                      string_value: "55f0b2ed643431a119977c30"
+                    }
+                  }
+                }
+                args {
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    nextNodeIndex: 23
     idRef {
       id: "55f0ba71643431a11997873a:55f0bcb3643431a119978872"
     }
-    comment: "TODO: Ava was killed"
+    comment: "Ava was killed"
   }
   branches {
     responseText: ""
-    nextNodeIndex: 23
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "avaOpinion"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "avaOpinionThreshold"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 24
     idRef {
       id: "55f0ba71643431a11997873a:55f0bce3643431a119978877"
     }
-    comment: "TODO: Made a deal with Ava, she did not trust you"
+    comment: "Made a deal with Ava, she did not trust you"
   }
   branches {
     responseText: ""
-    nextNodeIndex: 26
+    nextNodeIndex: 27
     idRef {
       id: "55f0ba71643431a11997873a:55f0bd40643431a119978886"
     }
@@ -481,20 +1380,44 @@ nodes {
   idRef {
     id: "55f0bcd6643431a119978875"
   }
-  index: 22
+  index: 23
   text: "My forces will take it from here. Get your team back to Halferville safely.\n\nIt\342\200\231s been a pleasure, $(l.name). Good running."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5619a93a346435301600203b"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Update goal, peaceful end."
 }
 nodes {
   idRef {
     id: "55f0bcfa643431a11997887a"
   }
-  index: 23
+  index: 24
   text: "Ha! I suspected you would go behind my back.\n\nYou tried to make me think that you\342\200\231re an idealist who wants to save the world, when all along you\342\200\231ve been willing to jump in bed with the corporate paymaster who offers you the biggest reward."
   branches {
     responseText: ""
-    nextNodeIndex: 24
+    nextNodeIndex: 25
     idRef {
       id: "55f0ba71643431a11997873a:55f0bd0c643431a11997887c"
     }
@@ -508,11 +1431,11 @@ nodes {
   idRef {
     id: "55f0bd0e643431a11997887f"
   }
-  index: 24
+  index: 25
   text: "Your actions have shown me that you\342\200\231re not to be trusted with company property, and I\342\200\231ll see you dead before you have the chance to hook up with a competitor."
   branches {
     responseText: ""
-    nextNodeIndex: 25
+    nextNodeIndex: 26
     idRef {
       id: "55f0ba71643431a11997873a:55f0bd26643431a119978881"
     }
@@ -526,20 +1449,44 @@ nodes {
   idRef {
     id: "55f0bd28643431a119978884"
   }
-  index: 25
+  index: 26
   text: "$(l.name) just knows a good opportunity when $(l.he) sees one. Come at us. You\342\200\231re about to see what a real corporate security force looks like."
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Start fight. KE on your side, Ava against."
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5619a9ae34643530160020a9"
+          }
+        }
+      }
+    }
+  }
+  comment: "Start fight. KE on your side, Ava against."
 }
 nodes {
   idRef {
     id: "55f0bd4c643431a119978889"
   }
-  index: 26
+  index: 27
   text: "Ha! I should have known that you would go behind my back.\n\nYou tried to convince me that you\342\200\231re an idealist who wants to save the world, when all along you\342\200\231ve been willing to jump in bed with whatever corporate paymaster will offer you the biggest reward."
   branches {
     responseText: ""
-    nextNodeIndex: 27
+    nextNodeIndex: 28
     idRef {
       id: "55f0ba71643431a11997873a:55f0bd61643431a11997888b"
     }
@@ -553,11 +1500,11 @@ nodes {
   idRef {
     id: "55f0bd64643431a11997888e"
   }
-  index: 27
+  index: 28
   text: "And here I thought that we could see eye to eye. You may be a runner, but you\342\200\231ve been a remarkably well-behaved one.\n\nStill: I\342\200\231ll see you dead before you have the chance to hook up with a competitor."
   branches {
     responseText: ""
-    nextNodeIndex: 28
+    nextNodeIndex: 29
     idRef {
       id: "55f0ba71643431a11997873a:55f0bd79643431a119978890"
     }
@@ -571,35 +1518,130 @@ nodes {
   idRef {
     id: "55f0bd7a643431a119978893"
   }
-  index: 28
+  index: 29
   text: "$(l.name) just knows a good opportunity when $(l.he) sees one.\n\nCome at us. You\342\200\231re about to see what a real corporate security force looks like."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5619a9ae34643530160020a9"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
     id: "55f0ba71643431a11997873a:55f0bc46643431a119978870"
   }
-  index: 29
+  index: 30
   text: "This disappoints me. I had hoped that we might be amicable colleagues. Still, I must fulfill my duty."
   branches {
     responseText: ""
-    nextNodeIndex: 30
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Count of Alive Actors"
+            args {
+              call_value {
+                functionName: "Specific Actor"
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Actor)"
+                    args {
+                      string_value: "55f0b2ed643431a119977c30"
+                    }
+                  }
+                }
+                args {
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    nextNodeIndex: 31
     idRef {
       id: "55f0ba71643431a11997873a:55f0bda1643431a119978895"
     }
-    comment: "TODO: Killed Ava"
+    comment: "Killed Ava"
   }
   branches {
     responseText: ""
-    nextNodeIndex: 31
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "avaOpinion"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "avaOpinionThreshold"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 32
     idRef {
       id: "55f0ba71643431a11997873a:55f0bdd3643431a11997889a"
     }
-    comment: "TODO: Ava alive, she trusts you"
+    comment: "Ava alive, she trusts you"
   }
   branches {
     responseText: ""
-    nextNodeIndex: 34
+    nextNodeIndex: 35
     idRef {
       id: "55f0ba71643431a11997873a:55f0be2e643431a119978965"
     }
@@ -611,20 +1653,44 @@ nodes {
   idRef {
     id: "55f0bdb6643431a119978898"
   }
-  index: 30
-  text: "{{GM}}He heaves a heavy sigh.{{/GM}}\n\nTroops! On my mark. Destroy the intruders and secure this position."
+  index: 31
+  text: "{{GM}}She heaves a heavy sigh.{{/GM}}\n\nTroops! On my mark. Destroy the intruders and secure this position."
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Start fight. Update: Maybe give a chance to talk out of it with a particular etiquette or earlier decision or something."
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5619ab1f3464353016002117"
+          }
+        }
+      }
+    }
+  }
+  comment: "Start fight"
 }
 nodes {
   idRef {
     id: "55f0bde8643431a11997889d"
   }
-  index: 31
+  index: 32
   text: "Oh, no you don\342\200\231t!"
   branches {
     responseText: ""
-    nextNodeIndex: 32
+    nextNodeIndex: 33
     idRef {
       id: "55f0ba71643431a11997873a:55f0bdf4643431a11997889f"
     }
@@ -638,11 +1704,11 @@ nodes {
   idRef {
     id: "55f0bdf7643431a1199788a2"
   }
-  index: 32
+  index: 33
   text: "Surprised to see me? The thought of my life\342\200\231s work being destroyed is hard enough. I\342\200\231m not about to watch someone else claim credit for it."
   branches {
     responseText: ""
-    nextNodeIndex: 33
+    nextNodeIndex: 34
     idRef {
       id: "55f0ba71643431a11997873a:55f0be03643431a1199788a4"
     }
@@ -656,23 +1722,47 @@ nodes {
   idRef {
     id: "55f0be05643431a1199788a7"
   }
-  index: 33
+  index: 34
   text: "Come on, $(l.name). Let\342\200\231s show these errant assholes the price of overreaching."
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
     id: "55f0b2ed643431a119977c30"
   }
-  comment: "TODO: Start fight. Ava supports you, Errant against. Set a flag for a post-fight convo."
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5619ab4f3464353016002118"
+          }
+        }
+      }
+    }
+  }
+  comment: "Start fight. Ava supports you, Errant against."
 }
 nodes {
   idRef {
     id: "55f0be38643431a119978968"
   }
-  index: 34
+  index: 35
   text: "I THOUGHT I smelled a rat sniffing around my factory!"
   branches {
     responseText: ""
-    nextNodeIndex: 35
+    nextNodeIndex: 36
     idRef {
       id: "55f0ba71643431a11997873a:55f0be3a643431a11997896a"
     }
@@ -686,11 +1776,11 @@ nodes {
   idRef {
     id: "55f0ba71643431a11997873a:55f0be3b643431a11997896c"
   }
-  index: 35
+  index: 36
   text: "Shit. You didn\342\200\231t take care of Ava?"
   branches {
     responseText: ""
-    nextNodeIndex: 36
+    nextNodeIndex: 37
     idRef {
       id: "55f0ba71643431a11997873a:55f0be3b643431a11997896e"
     }
@@ -701,11 +1791,11 @@ nodes {
   idRef {
     id: "55f0ba71643431a11997873a:55f0be47643431a119978972"
   }
-  index: 36
+  index: 37
   text: "I don\342\200\231t need anybody taking care of me.\n\nWhether it\342\200\231s runners who are traveling out of bounds, or corporate raiders who are overly ambitious, I\342\200\231ll see that you learn to respect Shiawase and, more specifically, my turf."
   branches {
     responseText: ""
-    nextNodeIndex: 37
+    nextNodeIndex: 38
     idRef {
       id: "55f0ba71643431a11997873a:55f0be47643431a119978974"
     }
@@ -719,11 +1809,11 @@ nodes {
   idRef {
     id: "55f0ba71643431a11997873a:55f0be49643431a119978976"
   }
-  index: 37
+  index: 38
   text: "You developed some guts at the end there, $(l.name). Too bad I can\342\200\231t trust you to hold up your end of the deal. It seems like every time we meet, you destroy corporate property. I can\342\200\231t have a wild saboteur on my side. It\342\200\231s time to clean house."
   branches {
     responseText: ""
-    nextNodeIndex: 38
+    nextNodeIndex: 39
     idRef {
       id: "55f0ba71643431a11997873a:55f0be49643431a119978978"
     }
@@ -737,10 +1827,34 @@ nodes {
   idRef {
     id: "55f0ba71643431a11997873a:55f0be4b643431a11997897a"
   }
-  index: 38
+  index: 39
   text: "Forward! Leave no enemy standing!"
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Start fight. Ava, Errant and SRers all mutually hostile."
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5619ac1d3464353016002186"
+          }
+        }
+      }
+    }
+  }
+  comment: "Start fight. Ava, Errant and SRers all mutually hostile."
 }
 roots {
   nextNodeIndex: 0
