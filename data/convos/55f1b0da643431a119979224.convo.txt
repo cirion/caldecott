@@ -25,11 +25,35 @@ nodes {
   text: "Shall we make our exit? Or do you still need to talk to anyone else here?"
   branches {
     responseText: "Let\342\200\231s go."
+    actions {
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "561b16673464351c240052ed"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: -1
     idRef {
       id: "55f1b0da643431a119979224:55f1b10b643431a119979239"
     }
-    comment: "TODO: Enable end romance talk"
+    comment: "Enable end romance talk"
   }
   branches {
     responseText: "I need to check in on someone else first."

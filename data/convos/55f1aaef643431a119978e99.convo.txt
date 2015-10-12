@@ -15,6 +15,30 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "561b08b2346435cc39004882"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -114,11 +138,49 @@ nodes {
   text: "I knew that Saito was bad, but that business with Hemlock\342\200\246 gods, that shit still gives me nightmares.\n\n{{GM}}She shivers.{{/GM}}"
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "cc_a5_chase_s4-GaveCureToEriana"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 7
     idRef {
       id: "55f1aaef643431a119978e99:55f1ab79643431a119978ed5"
     }
-    comment: "TODO: Reactive - you gave Ares the antidote"
+    comment: "Reactive - you gave Ares the antidote"
   }
   branches {
     responseText: ""
@@ -205,12 +267,50 @@ nodes {
   }
   branches {
     responseText: "This could be the perfect opportunity for you to start that drone business of yours."
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_End_AdvisedPersiToStartBusiness"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 14
     hideIfUnavailable: true
     idRef {
       id: "55f1aaef643431a119978e99:55f1ac5f643431a119978f0a"
     }
-    comment: "TODO: Only if you advised her to start a business"
+    comment: "Only if you advised her to start a business"
   }
   nodeType: ConversationNodeType_Simple
 }

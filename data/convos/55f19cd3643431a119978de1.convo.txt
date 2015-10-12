@@ -7,7 +7,7 @@ nodes {
     id: "55f19ce0643431a119978ded"
   }
   index: 0
-  text: "Well... this feels a bit awkward. After I tried to kill you, I didn\342\200\231t expect to be invited to your victory party."
+  text: "Well... this feels a bit awkward.\n\nAfter I tried to kill you, I didn\342\200\231t expect to be invited to your victory party."
   branches {
     responseText: "I sure didn\342\200\231t invite you."
     nextNodeIndex: 1
@@ -30,6 +30,30 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "561b08bd346435cc39004884"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {

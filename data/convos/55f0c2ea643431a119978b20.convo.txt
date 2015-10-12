@@ -15,6 +15,46 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_GM_Speaker_Voice
+  actions {
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Triggering Target Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Seattle:General/standing_idle"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "56044a38643431f8c0e4b762"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -23,19 +63,87 @@ nodes {
   index: 1
   text: "You did it! I can\342\200\231t believe that you saved the day like this. I\342\200\231m still giddy.\n\n{{GM}}She releases her grip and beams up at you.{{/GM}}\n\nJust the thought of Saito and the Shiawase brass shouting at each other makes me unbelievably happy."
   branches {
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_ZielorTeamState"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: 2
     idRef {
       id: "55f0c2ea643431a119978b20:55f0c30c643431a119978b34"
     }
-    comment: "TODO: You allied with the MPA and stayed with them"
+    comment: "You allied with the MPA and stayed with them"
   }
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 3
     idRef {
       id: "55f0c2ea643431a119978b20:55f0c343643431a119978b3a"
     }
-    comment: "TODO: You allied with the MPA but they turned on you"
+    comment: "NOTE: I was originally planning a flow where the MPA would betray you. Pretty sure I\'m cutting that for time and simplicity. If it\'s restored, re-activate this if you allied with the MPA but they turned on you"
   }
   branches {
     responseText: ""
@@ -243,7 +351,25 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Animate"
+  actions {
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Triggering Target Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Berlin:General/standing_idle_shuffledance"
+          }
+        }
+      }
+    }
+  }
+  comment: "Dances"
 }
 nodes {
   idRef {

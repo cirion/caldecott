@@ -25,11 +25,35 @@ nodes {
   text: "You about ready to get on out of here?"
   branches {
     responseText: "Absolutely."
+    actions {
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "561b14cc3464351c24004b19"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: -1
     idRef {
       id: "55732593346435d804007168:55f1ae8d643431a119979054"
     }
-    comment: "TODO: Enable romance ending"
+    comment: "Enable romance ending"
   }
   branches {
     responseText: "Let me finish making the rounds first."
@@ -54,7 +78,7 @@ roots {
   idRef {
     id: "55732593346435d804007168:55f1ae60643431a119979049"
   }
-  comment: "TODO: First talk only"
+  comment: "First talk only"
 }
 roots {
   responseText: ""

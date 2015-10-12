@@ -7,7 +7,7 @@ nodes {
     id: "55f0c4be643431a119978c46"
   }
   index: 0
-  text: "Over here, champ!\n\n{{GM}}Rafik is on what appears to be his dozenth beer of the night. Another case and he might start to get drunk.{{/GM}}\n\nThere $(l.he) is, the $(l.man) who saved us all! Three cheers for the savior of ork-kind!"
+  text: "Over here, champ!\n\n{{GM}}Rafik finishes what appears to be his dozenth beer of the night. Another case and he might start to get drunk.{{/GM}}\n\nThere $(l.he) is, the $(l.man) who saved us all! Three cheers for the savior of ork-kind!"
   branches {
     nextNodeIndex: 1
     idRef {
@@ -15,6 +15,30 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "561b086b346435cc3900487e"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -23,11 +47,41 @@ nodes {
   index: 1
   text: "Rafik throws his arm around your shoulder and leans in, winking conspiratorially."
   branches {
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_ZielorTeamState"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: 2
     idRef {
       id: "55f0c4b7643431a119978c3e:55f0c4cb643431a119978c4e"
     }
-    comment: "TODO: Killed Zielor, one way or another"
+    comment: "Killed Zielor, one way or another"
   }
   branches {
     responseText: ""
@@ -78,11 +132,41 @@ nodes {
   text: "Speaking of righting the scales, you haven\342\200\231t just been looking out for yourself: there\342\200\231s the little matter of you striking back at the people who went after your inner circle."
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_RafikTeamState"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 3
+        }
+      }
+    }
     nextNodeIndex: 5
     idRef {
       id: "55f0c4b7643431a119978c3e:55f0c52e643431a119978c6e"
     }
-    comment: "TODO: Rafik was targeted"
+    comment: "Rafik was targeted"
   }
   branches {
     responseText: ""

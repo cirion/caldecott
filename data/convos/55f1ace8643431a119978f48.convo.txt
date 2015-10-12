@@ -15,6 +15,30 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "561b08b8346435cc39004883"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -115,19 +139,95 @@ nodes {
   text: "I notice that you seem to always have a handle on the best way to approach a given situation, using the right tool at your disposal for any particular encounter. It\342\200\231s so much more rewarding than the gauche \342\200\234one size fits all\342\200\235 approach to gunslinging that we see so often on the trideo."
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "cc_a5_climax_s3-AlliedWithAva"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 7
     idRef {
       id: "55f1ace8643431a119978f48:55f1ad65643431a119978f92"
     }
-    comment: "TODO Reactive - You made a deal with Ava and she honored it"
+    comment: "Reactive - You made a deal with Ava and she honored it"
   }
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "cc_a5_climax_s3-AlliedWithErrant"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 8
     idRef {
       id: "55f1ace8643431a119978f48:55f1ad81643431a119978fb3"
     }
-    comment: "TODO reactive: You tried to make a deal with Ava, but she reneged"
+    comment: "Ava reneged"
   }
   branches {
     responseText: ""
