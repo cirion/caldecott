@@ -462,13 +462,49 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Spawn Cosmetic Civilians"
+  name: "Kill Cosmetic Civilians"
   events {
     ops {
       functionName: "On Map Setup"
     }
   }
   conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_SlowComputer"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
   }
   actions {
     ops {
@@ -875,6 +911,25 @@ triggers {
           functionName: "Get Map Item (Animation)"
           args {
             string_value: "Seattle:General/standing_idle_preen"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "561599466434313307a28a13"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "HongKong:General/sitting_idle_talking"
           }
         }
       }
@@ -26015,7 +26070,7 @@ characters {
     y: 0
     z: 63
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_W
   displayName: "DJ"
   idRef {
     id: "560758df346435d0020055fb"
@@ -26764,6 +26819,7 @@ characters {
     team_id: "Civilians"
     char_name: "Sexy 1 Dis"
     GeneralTags: "isDisActor"
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -26851,6 +26907,7 @@ characters {
     team_id: "Civilians"
     char_name: "Talk 5 Dis"
     GeneralTags: "isDisActor"
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -26938,6 +26995,7 @@ characters {
     team_id: "Civilians"
     char_name: "Talk 6 Dis"
     GeneralTags: "isDisActor"
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -26953,6 +27011,7 @@ characters {
   }
   orientation: ORIENTATION_N
   GeneralTags: "isDisActor"
+  GeneralTags: "isWanderer"
   displayName: "Dis Human Female 2"
   idRef {
     id: "56156f996434313307a289fd"
@@ -27025,6 +27084,8 @@ characters {
     team_id: "Civilians"
     char_name: "Wanderer 6 Dis"
     GeneralTags: "isDisActor"
+    GeneralTags: "isWanderer"
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -27112,6 +27173,7 @@ characters {
     team_id: "Civilians"
     char_name: "Flirt 3 Dis"
     GeneralTags: "isDisActor"
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -27126,7 +27188,6 @@ characters {
     z: 53
   }
   orientation: ORIENTATION_E
-  GeneralTags: "isDisActor"
   displayName: "Dis Dwarf Male Exec Security"
   idRef {
     id: "56156f9c6434313307a289ff"
@@ -27198,7 +27259,6 @@ characters {
     }
     team_id: "Civilians"
     char_name: "New Civilian"
-    GeneralTags: "isDisActor"
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -28047,7 +28107,7 @@ characters {
     team_id: "Civilians"
     char_name: "Shuffle Dance 1 Dis"
     GeneralTags: "isDisActor"
-    enabled_at_start: false
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -28061,7 +28121,7 @@ characters {
     y: 0
     z: 60
   }
-  orientation: ORIENTATION_N
+  orientation: ORIENTATION_W
   GeneralTags: "isDisActor"
   displayName: "Dis Dwarf Male Berlin Ganger Magnifiker"
   idRef {
@@ -28135,7 +28195,7 @@ characters {
     team_id: "Civilians"
     char_name: "Head Bang 3"
     GeneralTags: "isDisActor"
-    enabled_at_start: false
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -28223,7 +28283,7 @@ characters {
     team_id: "Civilians"
     char_name: "Dance 2 Dis"
     GeneralTags: "isDisActor"
-    enabled_at_start: false
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -28311,7 +28371,7 @@ characters {
     team_id: "Civilians"
     char_name: "Dance 1 Dis"
     GeneralTags: "isDisActor"
-    enabled_at_start: false
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -28399,7 +28459,7 @@ characters {
     team_id: "Civilians"
     char_name: "Preen 3 Dis"
     GeneralTags: "isDisActor"
-    enabled_at_start: false
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -28413,7 +28473,7 @@ characters {
     y: 0
     z: 60
   }
-  orientation: ORIENTATION_N
+  orientation: ORIENTATION_W
   GeneralTags: "isDisActor"
   displayName: "Dis Human Female Gray Skirt Punk"
   idRef {
@@ -28487,7 +28547,7 @@ characters {
     team_id: "Civilians"
     char_name: "Head Bang 2 Dis"
     GeneralTags: "isDisActor"
-    enabled_at_start: false
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -28497,9 +28557,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 98
+    x: 92
     y: 0
-    z: 61
+    z: 52
   }
   orientation: ORIENTATION_S
   GeneralTags: "isDisActor"
@@ -28573,9 +28633,9 @@ characters {
       }
     }
     team_id: "Civilians"
-    char_name: "New Civilian"
+    char_name: "Preen 4 Dis"
     GeneralTags: "isDisActor"
-    enabled_at_start: false
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -28589,7 +28649,7 @@ characters {
     y: 0
     z: 62
   }
-  orientation: ORIENTATION_N
+  orientation: ORIENTATION_W
   GeneralTags: "isDisActor"
   displayName: "Dis Dodger"
   idRef {
@@ -28663,7 +28723,7 @@ characters {
     team_id: "Civilians"
     char_name: "Head Bang 1 Dis"
     GeneralTags: "isDisActor"
-    enabled_at_start: false
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -28751,7 +28811,7 @@ characters {
     team_id: "Civilians"
     char_name: "Talk 7 Dis"
     GeneralTags: "isDisActor"
-    enabled_at_start: false
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -28839,7 +28899,7 @@ characters {
     team_id: "Civilians"
     char_name: "Shuffle Dance 2 Dis"
     GeneralTags: "isDisActor"
-    enabled_at_start: false
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -28927,7 +28987,7 @@ characters {
     team_id: "Civilians"
     char_name: "Gesture 1 Dis"
     GeneralTags: "isDisActor"
-    enabled_at_start: false
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
