@@ -144,7 +144,31 @@ nodes {
   index: 4
   text: "I wish you no harm, but neither do I wish to meet you again. Don\342\200\231t use me as a reference, and I\342\200\231d appreciate it if you left me alone in the Matrix. Farewell."
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Sable exits"
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "56105ce6346435981a0089e3"
+          }
+        }
+      }
+    }
+  }
+  comment: "Sable exits"
 }
 nodes {
   idRef {

@@ -3375,7 +3375,19 @@ nodes {
   index: 73
   text: "{{GM}}Persi squeezes your hand, then plants a kiss on your startled lips.{{/GM}}\n\nI swear I\342\200\231m not doin\342\200\231 this to get outta anythin\342\200\231. I\342\200\231ll make it up to ya later, okay? "
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Gain approval"
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Persi Approves"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -4577,7 +4589,7 @@ nodes {
     id: "5567e4b9346435ac07006d6d"
   }
   index: 125
-  text: "{{GM}}Grinning, Persi saunters away. She calls back over her shoulder.{{/GM}}\n\nI owe ya one, $(l.firstname). Let me know when you\342\200\231re ready for some payback."
+  text: "{{GM}}Grinning, Persi turns away. She calls back over her shoulder.{{/GM}}\n\nI owe ya one, $(l.firstname). Let me know when you\342\200\231re ready for some payback."
   nodeType: ConversationNodeType_Simple
   actions {
     ops {
@@ -4605,7 +4617,6 @@ nodes {
       }
     }
   }
-  comment: "TODO: Maybe have Persi actually walk away from here? Once I have the region established, at least."
 }
 nodes {
   idRef {
@@ -5815,6 +5826,23 @@ nodes {
         }
       }
     }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Approval_Persi"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
   }
 }
 nodes {
@@ -5852,6 +5880,23 @@ nodes {
             int_value: 1
           }
         }
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_PersiTeamState"
+          }
+        }
+      }
+      args {
+        int_value: 1
       }
     }
   }
