@@ -9,7 +9,30 @@ nodes {
   index: 0
   text: "Politics REALLY ain\342\200\231t my thing.\n\nI think I saw some gear in a shop near here. I\342\200\231ll catch up once it\342\200\231s time to leave."
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Persi wanders off, leaves."
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "561c785f3464351409006961"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0

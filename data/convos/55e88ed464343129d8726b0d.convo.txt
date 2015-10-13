@@ -9,7 +9,30 @@ nodes {
   index: 0
   text: "I doubt that having a big, toothy ork by your side will win you many votes. I\342\200\231ll see if I can find some of Kora\342\200\231s family.\n\nCatch you later, $(l.firstname)."
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Wire up Rafik triggers."
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "561c785c346435140900695f"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0
