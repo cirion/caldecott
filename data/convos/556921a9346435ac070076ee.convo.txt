@@ -32,7 +32,6 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Update talk vars"
 }
 nodes {
   idRef {
@@ -290,14 +289,39 @@ nodes {
   text: "But please look at it from my perspective as well. As I\342\200\231ve said all along, I don\342\200\231t particularly care about the money one way or another. I wanted this this job because it\342\200\231s interesting to me.\n\nIf something else comes along that\342\200\231s more interesting, then, well, that\342\200\231s what I\342\200\231ll pursue."
   branches {
     responseText: "This is the last straw. I\342\200\231m restricting your Matrix access for as long as you\342\200\231re in the group."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Sable Greatly Disapproves"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 15
     idRef {
       id: "556921a9346435ac070076ee:56144feb6434314e5a981790"
     }
-    comment: "TODO: Big disapproval"
   }
   branches {
     responseText: "Shut up. You\342\200\231re here to rob a train, not to pursue your quest for self-actualization."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Sable Greatly Disapproves"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 16
     idRef {
       id: "556921a9346435ac070076ee:561450396434314e5a981798"
@@ -305,6 +329,19 @@ nodes {
   }
   branches {
     responseText: "We\342\200\231ll take extra precautions for the heist. If any problems occur, you\342\200\231ll answer for them. If the job goes smoothly, I\342\200\231ll hold you blameless."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Sable Approves"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 17
     idRef {
       id: "556921a9346435ac070076ee:5614503f6434314e5a98179f"
@@ -312,6 +349,19 @@ nodes {
   }
   branches {
     responseText: "The next time you are tempted, please include me in any information exchange."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Sable Approves"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 18
     idRef {
       id: "556921a9346435ac070076ee:561450426434314e5a9817a8"
@@ -350,7 +400,6 @@ nodes {
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Big disapproval"
 }
 nodes {
   idRef {
@@ -2684,7 +2733,37 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Audio: comm ring"
+  actions {
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "HongKong:props"
+          }
+          args {
+            string_value: "PDA-Ring1"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  comment: "Audio: comm ring"
 }
 nodes {
   idRef {
@@ -3916,7 +3995,6 @@ nodes {
       }
     }
   }
-  comment: "TODO: Kick off quest."
 }
 nodes {
   idRef {
@@ -6192,7 +6270,6 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Approval changes below"
 }
 nodes {
   idRef {
@@ -6324,7 +6401,6 @@ nodes {
   index: 191
   text: "You\342\200\231re a busy $(l.man), I understand. Let me know if you\342\200\231re ever in the mood for a break and I\342\200\231ll spin you a tale of exploration, power, and betrayal."
   nodeType: ConversationNodeType_Simple
-  comment: "TODO set global flag to pick convo back up later"
 }
 nodes {
   idRef {
@@ -6728,35 +6804,87 @@ nodes {
   text: "I fled. I won\342\200\231t pretend otherwise. I liked Bert, but his situation was hopeless. I watched from a distance as the Goddam Hind was incinerated, slowly sinking into the slimy depths of Lake Michigan. And I did not regret that my piratical career had come to an end."
   branches {
     responseText: "Your actions caused a great deal of harm. I hope you\342\200\231re planning to recompensate the victims of your spree."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Sable Disapproves"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 213
     idRef {
       id: "556921a9346435ac070076ee:55f753b86434312269c0a444"
     }
-    comment: "TODO: Disapproval"
+    comment: "Disapprove"
   }
   branches {
     responseText: "You must be rich! I envy you."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Sable Disapproves"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 215
     idRef {
       id: "556921a9346435ac070076ee:55f754736434312269c0a494"
     }
-    comment: "TODO: DIsapprove"
+    comment: "Disapprove"
   }
   branches {
     responseText: "I hadn\342\200\231t realized that you have so much hands-on experience with theft. You\342\200\231ll be even more helpful than I thought."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Sable Approves"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 216
     idRef {
       id: "556921a9346435ac070076ee:55f754756434312269c0a49d"
     }
-    comment: "TODO: Approval"
+    comment: "Approval"
   }
   branches {
     responseText: "Wow, that\342\200\231s an exciting story!"
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Sable Approves"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 217
     idRef {
       id: "556921a9346435ac070076ee:55f754756434312269c0a4a3"
     }
-    comment: "TODO: Approval"
+    comment: "Approval"
   }
   nodeType: ConversationNodeType_Simple
 }

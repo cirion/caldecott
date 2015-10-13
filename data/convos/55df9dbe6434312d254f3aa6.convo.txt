@@ -62,7 +62,6 @@ nodes {
       }
     }
   }
-  comment: "TODO: Karma, actions (all outcomes)"
 }
 nodes {
   idRef {
@@ -71,6 +70,30 @@ nodes {
   index: 2
   text: "If you insist."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55edf078346435e025001a22"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   nextNodeIndex: 0
