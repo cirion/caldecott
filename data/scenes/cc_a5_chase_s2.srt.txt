@@ -559,7 +559,7 @@ triggers {
       }
     }
   }
-  isActive: true
+  isActive: false
   idRef {
     id: "55f1f2f3643431743dd6125b"
   }
@@ -1704,12 +1704,41 @@ triggers {
   }
   actions {
     ops {
-      functionName: "Activate Actor Spawner"
+      functionName: "Kill Actor"
       args {
         call_value {
-          functionName: "Get Map Item (Actor Reference)"
+          functionName: "Specific Actor"
           args {
-            string_value: "55f20fe864343109444633ba"
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "5611ba63346435ec1a0067be"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "DeathMethod"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
           }
         }
       }
@@ -1758,12 +1787,41 @@ triggers {
   }
   elseActions {
     ops {
-      functionName: "Activate Actor Spawner"
+      functionName: "Kill Actor"
       args {
         call_value {
-          functionName: "Get Map Item (Actor Reference)"
+          functionName: "Specific Actor"
           args {
-            string_value: "5611ba63346435ec1a0067be"
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "55f20fe864343109444633ba"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "DeathMethod"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
           }
         }
       }
@@ -4058,7 +4116,7 @@ characters {
     team_id: "Civilians"
     char_name: "Guest"
     GeneralTags: "isGuest"
-    enabled_at_start: false
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -4294,7 +4352,7 @@ characters {
     team_id: "Civilians"
     char_name: "Guest"
     GeneralTags: "isGuest"
-    enabled_at_start: false
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -5061,7 +5119,7 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -7
+    x: -8
     y: 0
     z: -21
   }
@@ -5233,7 +5291,7 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
-    is_prop_character: true
+    is_prop_character: false
   }
 }
 characters {
@@ -5323,7 +5381,7 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
-    is_prop_character: true
+    is_prop_character: false
   }
 }
 characters {
