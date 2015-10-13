@@ -1465,15 +1465,139 @@ nodes {
     idRef {
       id: "556921a9346435ac070076ee:55f753576434312269c0a3b3"
     }
-    comment: "TODO approval and pre-reqs Friendship 4"
+    comment: "Friendship 4"
   }
   branches {
     responseText: "What do you think about Dorbi\342\200\231s political aspirations?"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksSable"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Const_ConvosPerHubVisit"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Sable"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "numTalksSable"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Convos_Sable"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
     nextNodeIndex: 219
     idRef {
       id: "556921a9346435ac070076ee:561450d66434314e5a981fce"
     }
-    comment: "TODO: Approval and pre-reqs Friendship 5"
+    comment: "Friendship 5"
   }
   branches {
     responseText: "I\342\200\231m working on a Shadowrun game. Can you help me write a game engine?"
@@ -6255,11 +6379,41 @@ nodes {
   text: "Kora is a great match for Rafik. I think they complement each other wonderfully: her bright-eyed idealism, his solid reliability. Particularly living as they do in the intersection between Oakland and Halferville, they can each contribute immensely to their overall success in the world."
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_PersiLoveTalks"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 196
     idRef {
       id: "556921a9346435ac070076ee:55f753576434312269c0a3bb"
     }
-    comment: "TODO: You are romancing Persi"
+    comment: "You are romancing Persi"
   }
   branches {
     responseText: ""
@@ -6292,7 +6446,7 @@ nodes {
     id: "556921a9346435ac070076ee:55f753576434312269c0a3bf"
   }
   index: 197
-  text: "And Persi is a reckless, irresponsible, chaotic force of nature. What a wonderful find! It\342\200\231s exhausting to watch her, but as long as your goals align, she will be an invaluable ally for you."
+  text: "And Persi is a reckless, irresponsible, chaotic force of nature. What a wonderful find!\n\nIt\342\200\231s exhausting to watch her, but as long as your goals align, she will be an invaluable ally for you."
   branches {
     responseText: ""
     nextNodeIndex: 198
@@ -6984,35 +7138,87 @@ nodes {
   text: "I don\342\200\231t know what I would *do* with that experience - I have absolutely no interest in following our dear Dorbi\342\200\231s path and taking any power for myself - but this may be a once-in-a-lifetime opportunity to witness history being made, as a dragon ascends to become head of state."
   branches {
     responseText: "You sure aren\342\200\231t improving anything in CalFree. We would be well rid of you."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Sable Disapproves"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 236
     idRef {
       id: "556921a9346435ac070076ee:5614520d6434314e5a98258e"
     }
-    comment: "TODO: Disapproval"
+    comment: "Disapproval"
   }
   branches {
     responseText: "You should follow your dreams. Head back home and experience life on the inside of any potential campaign."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Sable Approves"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 237
     idRef {
       id: "556921a9346435ac070076ee:561452e86434314e5a9825a7"
     }
-    comment: "TODO: Approval"
+    comment: "Approval"
   }
   branches {
     responseText: "A dragon wouldn\342\200\231t have any use for an itinerant troll decker. Best stay here where you\342\200\231re still wanted."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Sable Disapproves"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 238
     idRef {
       id: "556921a9346435ac070076ee:561452eb6434314e5a9825b0"
     }
-    comment: "TODO: Disapproval"
+    comment: "Disapproval"
   }
   branches {
     responseText: "UCAS is the old world. You should focus on the new."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Sable Approves"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 239
     idRef {
       id: "556921a9346435ac070076ee:561452eb6434314e5a9825b6"
     }
-    comment: "TODO: Approval"
+    comment: "Approval"
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -7344,17 +7550,92 @@ nodes {
 roots {
   conditions {
     ops {
-      functionName: "Invert Bool"
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Convos_Sable"
+          }
+        }
+      }
       args {
         call_value {
           functionName: "Get Preset Value (int)"
           args {
-            string_value: "bool"
+            string_value: "Comparison Ops"
           }
           args {
-            int_value: 1
+            int_value: 0
           }
         }
+      }
+      args {
+        int_value: 5
+      }
+    }
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_numMissionsCompleted"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 5
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "numTalksSable"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Convos_Sable"
+          }
+        }
+      }
+      args {
+        int_value: 1
       }
     }
   }
@@ -7362,7 +7643,7 @@ roots {
   idRef {
     id: "556921a9346435ac070076ee:55f753576434312269c0a206"
   }
-  comment: "TODO: Interjections go here - Friendship 6"
+  comment: "Interjection: Friendship 6"
 }
 roots {
   responseText: ""

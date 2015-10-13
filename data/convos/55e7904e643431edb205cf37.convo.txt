@@ -126,11 +126,47 @@ nodes {
   text: "Look, lady\342\200\246 you got my vote, okay? Hell, I\342\200\231ll make sure you have the vote of every ork and troll in the Little York district.\n\n{{GM}}He shifts his gaze towards you.{{/GM}}\n\nHave you seen my boy? We lost sight of him when we had to flee our home."
   branches {
     responseText: ""
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "cc_a2_dorbi_s1-OrkDiedArtifact"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 7
     idRef {
       id: "55e7904e643431edb205cf37:55e790e1643431edb205cf6b"
     }
-    comment: "TODO: Child died"
+    comment: "Child died"
   }
   branches {
     responseText: ""
@@ -198,7 +234,6 @@ nodes {
   index: 8
   text: "No. No, no, no! Oh, why did I ever bring my family here?! I thought it would be safer than life under Saito, but\342\200\246 it\342\200\231s just as bad everywhere you go.\n\nShavarus was right. As long as the other metatypes are around, we\342\200\231ll always be threatened. The only way to save ourselves is to get rid of them."
   nodeType: ConversationNodeType_Simple
-  comment: "TODO: Update script, proceed."
 }
 nodes {
   idRef {
@@ -208,18 +243,19 @@ nodes {
   text: ""
   branches {
     responseText: "Yes, we sent him to safety."
-    nextNodeIndex: -1
+    nextNodeIndex: 10
     idRef {
       id: "55e7904e643431edb205cf37:55e791d2643431edb205cf86"
     }
-    comment: "TODO: These should set a flag for giving good karma."
+    auxiliaryLink: true
   }
   branches {
     responseText: "He\342\200\231ll be eager to see you again."
-    nextNodeIndex: -1
+    nextNodeIndex: 10
     idRef {
       id: "55e7904e643431edb205cf37:55e791df643431edb205cf88"
     }
+    auxiliaryLink: true
   }
   branches {
     responseText: "Saving him was good practice for saving you."
@@ -229,6 +265,30 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "561c856234643514090080c7"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -237,6 +297,30 @@ nodes {
   index: 10
   text: "Oh, thank goodness! Here, please, take this. It\342\200\231s the least I can do for your help."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "561c853534643514090080c6"
+          }
+        }
+      }
+    }
+  }
   comment: "TODO: Give nuyen, proceed."
 }
 roots {

@@ -28545,7 +28545,7 @@ props {
   name: "undergroundBase_wallDecoration_netting02"
   gridPoint {
     x: -36
-    y: 2.7755576e-17
+    y: 2.7755576e-017
     z: 97.7
   }
   orientation: ORIENTATION_E
@@ -32629,9 +32629,9 @@ props {
 props {
   name: "system_invisible_nonsolidProp"
   gridPoint {
-    x: -33
+    x: -37
     y: 0
-    z: 40
+    z: 75
   }
   orientation: ORIENTATION_S
   displayName: "Debug Start Here"
@@ -32696,7 +32696,7 @@ props {
   name: "office_tech_keycardLanyard"
   gridPoint {
     x: -14.3
-    y: 2.7755576e-17
+    y: 2.7755576e-017
     z: 2
   }
   orientation: ORIENTATION_E
@@ -51825,6 +51825,61 @@ props {
   properties {
     property_id: "fxScript"
     string_value: "HongKong:CivilianSittingRoofEdge"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -41
+    y: 0
+    z: 90
+  }
+  orientation: ORIENTATION_S
+  displayName: "Debug Kill All HPF"
+  idRef {
+    id: "561c860a3464351409008121"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "debugging"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    interactionIcon: InteractionIcon_Generic
+    interaction_info_text: "Debug Kill All HPF"
   }
   lod: 0
 }

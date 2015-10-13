@@ -208,7 +208,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Goal)"
           args {
-            string_value: "Travel to the Halferville Depths."
+            string_value: "Investigate the Northeast District."
           }
         }
       }
@@ -342,6 +342,25 @@ triggers {
       }
       args {
         int_value: 1
+      }
+    }
+    ops {
+      functionName: "Delete Props by Tag"
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isSlumFX"
+          }
+        }
+      }
+      args {
+        float_value: -1
+      }
+      args {
+        call_value {
+          functionName: "Everywhere"
+        }
       }
     }
   }
@@ -9665,7 +9684,7 @@ triggers {
       functionName: "Comparison (Actor)"
       args {
         call_value {
-          functionName: "Triggering Actor"
+          functionName: "Triggering Target Actor"
         }
       }
       args {
