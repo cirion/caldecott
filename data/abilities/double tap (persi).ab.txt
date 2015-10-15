@@ -1,0 +1,48 @@
+id: "Double Tap (Persi)"
+uirep {
+  icon: "icon_doubletap"
+  name: "Double-Barrelled Blast"
+  description: "Attack twice in a single action."
+}
+anim_action: AnimAction_Attack
+apCostMod: 1
+cooldown: 3
+hpDamageMod: 0
+apDamageMod: 0
+accuracyMod: 0
+prereqStrings: "Item.FLAG.WEAPON_CUR_AMMO > 1"
+prereqStrings: "TAG.Persi_Demolisher_2 EXISTS"
+damageBucket {
+  successEntries {
+    weight: 0.3
+    value: 2
+  }
+  successEntries {
+    weight: 0.3
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.4
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 0.5
+  }
+}
+offensiveAbility: true
+ammoCost: 2
+repetition: 2
+fxrep {
+  preActionFxName: ""
+  actionFxName: "ShotgunBurstFireAction"
+  postActionFxName: ""
+  hitReactionFxName: "ShotgunHitReaction"
+  missReactionFxName: "ShotgunMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"
