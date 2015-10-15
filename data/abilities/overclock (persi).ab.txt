@@ -1,0 +1,36 @@
+id: "Overclock (Persi)"
+uirep {
+  icon: "icon_ability_overclock_1"
+  name: "Neural Network"
+  description: "Persi devotes her attention to her drone, increasing its AP by 1. She can boost multiple drones in one round, but not one drone multiple times."
+}
+apCostMod: 1
+hpDamageMod: 0
+apDamageMod: 0
+accuracyMod: 0
+prereqStrings: "TAG.Persi_Rigger_1 EXISTS"
+attackRatingMod: 0
+effectDuration: 1
+cooldown: 0
+fxrep {
+  preActionFxName: "Berlin:TaserAiming"
+  actionFxName: "Berlin:TaserFireAction"
+  postActionFxName: ""
+  hitReactionFxName: "Berlin:TaserHitReaction"
+  missReactionFxName: "GunMissReaction"
+}
+toHitFunction: "autoHitDroneActorInRange"
+damageFunction: "buffTarget"
+activationStatusEffects {
+  uirep {
+    icon: "icon_nitro"
+    name: "Neural Net: AP +1"
+  }
+  stackingCategory: "Adrenaline"
+  statMods {
+    attribute: Attribute_AP
+    intModValue: 1
+  }
+  fxScript: "HongKong:DroneOverclockStatus"
+  is_buff: true
+}

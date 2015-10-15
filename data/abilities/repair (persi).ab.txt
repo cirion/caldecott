@@ -1,0 +1,22 @@
+id: "Repair (Persi)"
+uirep {
+  icon: "icon_ability_repair_2"
+  name: "Repair"
+  description: "Persi activates her drones' self-heal program, repairing the most recent battle damage."
+}
+apCostMod: 0
+hpDamageMod: 0
+apDamageMod: 0
+accuracyMod: 0
+prereqStrings: "TAG.Persi_Rigger_4 EXISTS"
+attackRatingMod: 0
+cooldown: 3
+fxrep {
+  preActionFxName: "Berlin:TaserAiming"
+  actionFxName: "Berlin:TaserFireAction"
+  postActionFxName: ""
+  hitReactionFxName: "HongKong:DroneRepairHitReaction"
+  missReactionFxName: "GunMissReaction"
+}
+toHitFunction: "autoHitHealDroneActorInRange"
+damageFunction: "magicHealTarget"
