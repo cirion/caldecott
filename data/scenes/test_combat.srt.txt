@@ -385,6 +385,122 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Chatty Bark"
+  events {
+    ops {
+      functionName: "On Actor Damage"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HPOrAP"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Display Text over Actor"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        string_value: "Haha I shot you!!"
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 0
+      }
+    }
+    ops {
+      functionName: "Display Text over Actor"
+      args {
+        call_value {
+          functionName: "Triggering Target Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        string_value: "Ouch! I\'ve been shot!"
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 0
+      }
+    }
+  }
+  isActive: false
+  idRef {
+    id: "5620523a346435a812001239"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
 regions {
   name: "My Eye is a Camera"
   position {
@@ -515,52 +631,6 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 4
-    y: 0
-    z: 8
-  }
-  orientation: ORIENTATION_S
-  idRef {
-    id: "561f1f8f3464352c2a007284"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "Core/HumanFemale"
-    character_sheet_id: "Errant_Lv1_Ork_Shotgun"
-    equipment_sheet_id: "Errant_Lv1_Shotgun"
-    character_mod {
-      stats {
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-      }
-      skills {
-      }
-      specializations {
-      }
-      archetypeName: "gumbo_Soldier"
-      attitude: AttitudeAggressive
-      attackRandom: AttackStyle_AllEqual
-      vulnerabilities {
-      }
-    }
-    team_id: "LoneStar"
-    char_name: "Knight Errant Enforcer"
-    pc_spawn_number: -1
-    portrait {
-      filename: ""
-    }
-    hiring_set_randomizer: "errant_enforcer"
-    scale_character_sheet: true
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
     x: 6
     y: 0
     z: 9
@@ -571,24 +641,26 @@ characters {
   }
   lod: 0
   character_instance {
-    prefab_name: "HumanMaleKnightErrantCaptain"
+    prefab_name: "Berlin:KnightErrants/HumanMaleKnightErrantCaptain"
     character_sheet_id: "Errant_Lv1_Captain"
     equipment_sheet_id: "Errant_Lv1_Captain"
     character_mod {
       stats {
+        hp: 70
+        ap: -2
         morale: 0
         discipline: 0
         awareness: 0
         perception: 0
         authority: 0
         protect_tether_range: 0
-        move_speed: 0
+        move_speed: -6
       }
       skills {
       }
       specializations {
       }
-      archetypeName: "gumbo_Soldier"
+      archetypeName: "Non-Combatant"
       attitude: AttitudeAggressive
       attackRandom: AttackStyle_AllEqual
       vulnerabilities {
@@ -600,6 +672,7 @@ characters {
     portrait {
       filename: ""
     }
+    karma: 52
     scale_character_sheet: true
   }
 }
@@ -624,101 +697,6 @@ characters {
     char_name: "New Actor"
     enabled_at_start: true
     pc_spawn_number: 3
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: 5
-    y: 0
-    z: 9
-  }
-  orientation: ORIENTATION_S
-  idRef {
-    id: "561f2f97346435b037002216"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "HongKong:Drone/DroneHKSecurity"
-    character_sheet_id: "Errant_Low_Drone"
-    equipment_sheet_id: "Errant_Low_Drone_Gear"
-    character_mod {
-      stats {
-        body: 0
-        quickness: 0
-        strength: 0
-        charisma: 0
-        intelligence: 0
-        willpower: 0
-        essence: 0
-        magic: 0
-        hp: 0
-        ap: 0
-        armor: 0
-        force: 0
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-        vision_peripheral_distance: 0
-        vision_cone_distance: 0
-        vision_cone_angle: 0
-      }
-      skills {
-        ranged_combat: 0
-        close_combat: 0
-        throwing_weapons: 0
-        spellcasting: 0
-        decking: 0
-        conjuring: 0
-        spirit_summoning: 0
-        drone_control: 0
-        biotech: 0
-        dodge: 0
-        etiquette_corporate: 0
-        etiquette_security: 0
-        etiquette_gang: 0
-        etiquette_socialite: 0
-        chi_casting: 0
-        etiquette_shadowrunner: 0
-        etiquette_street: 0
-        etiquette_academic: 0
-        cyberware_affinity: 0
-      }
-      specializations {
-        pistol: 0
-        rifle: 0
-        shotgun: 0
-        smg: 0
-        edged: 0
-        unarmed: 0
-        spirit_control: 0
-        esp_control: 0
-        drone_combat: 0
-      }
-      archetypeName: "gumbo_Soldier"
-      attitude: AttitudeAggressive
-      attackRandom: AttackStyle_AllEqual
-      vulnerabilities {
-        bleed: VulnerabilityLevel_Immune
-        poison: VulnerabilityLevel_Immune
-        shock: VulnerabilityLevel_More
-        mental: VulnerabilityLevel_Immune
-      }
-    }
-    team_id: "LoneStar"
-    char_name: "Jury-rigged Drone"
-    pc_spawn_number: -1
-    hiring_type: HiringType_None
-    portrait {
-      filename: ""
-    }
-    karma: 39
-    hiring_cost_override: 1000
-    scale_character_sheet: true
   }
 }
 senseTags: "isRafik"
