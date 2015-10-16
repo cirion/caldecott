@@ -1,0 +1,33 @@
+id: "Damping (Persi)"
+uirep {
+  icon: "icon_ability_overclock_1"
+  name: "Neural Network"
+  description: "Protect drones against stun attacks."
+}
+apCostMod: 0
+hpDamageMod: 0
+apDamageMod: 0
+accuracyMod: 0
+prereqStrings: "TAG.Persi_Rigger_3 EXISTS"
+attackRatingMod: 0
+effectDuration: 1
+cooldown: 0
+fxrep {
+  preActionFxName: "Berlin:TaserAiming"
+  actionFxName: "Berlin:TaserFireAction"
+  postActionFxName: ""
+  hitReactionFxName: "Berlin:TaserHitReaction"
+  missReactionFxName: "GunMissReaction"
+}
+toHitFunction: "autoHitDroneActorInRange"
+damageFunction: "buffTarget"
+activationStatusEffects {
+  uirep {
+    icon: "icon_nitro"
+    name: "Immune to Stun"
+  }
+  stackingCategory: "Damping"
+  fxScript: "HongKong:DroneOverclockStatus"
+  statusConditions: "Condition_NoStun"
+  is_buff: true
+}

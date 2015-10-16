@@ -265,12 +265,51 @@ nodes {
   }
   branches {
     responseText: "Do you have any jobs I could do?"
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 36
     hideIfUnavailable: true
     onlyOnce: true
     idRef {
       id: "556e3e2d6434311d1ca42094:55f1ce06643431a11997cf5f"
     }
+    comment: "NOTE: This wasn\'t working out as well as I\'d hoped, so I\'m disabling it for now. Could bring back later."
   }
   branches {
     responseText: "{{CC}}Evidence of Atrocities{{/CC}} We found proof of the activities Saito has been involved in."

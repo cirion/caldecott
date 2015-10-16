@@ -1,0 +1,40 @@
+id: "Tank (Persi)"
+uirep {
+  icon: "icon_ability_overclock_1"
+  name: "Harden Drones"
+  description: "Persi instructs her drones to sacrifice accuracy for improved resilience. +5 Armor and -10% Accuracy for 2 RNDs."
+}
+apCostMod: 0
+hpDamageMod: 0
+apDamageMod: 0
+accuracyMod: 0
+prereqStrings: "TAG.Persi_Rigger_2 EXISTS"
+attackRatingMod: 0
+effectDuration: 2
+cooldown: 2
+fxrep {
+  preActionFxName: "Berlin:TaserAiming"
+  actionFxName: "Berlin:TaserFireAction"
+  postActionFxName: ""
+  hitReactionFxName: "Berlin:TaserHitReaction"
+  missReactionFxName: "GunMissReaction"
+}
+toHitFunction: "autoHitDroneActorInRange"
+damageFunction: "buffTarget"
+activationStatusEffects {
+  uirep {
+    icon: "icon_nitro"
+    name: "Tanking: Armor +5, Accuracy -10%"
+  }
+  stackingCategory: "Armor"
+  statMods {
+    attribute: Attribute_Armor
+    intModValue: 5
+  }
+  statMods {
+    attribute: Attribute_Accuracy
+    intModValue: -10
+  }
+  fxScript: "HongKong:DroneOverclockStatus"
+  is_buff: true
+}
