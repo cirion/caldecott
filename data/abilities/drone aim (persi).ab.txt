@@ -1,18 +1,33 @@
 id: "Drone Aim (Persi)"
 uirep {
-  icon: "icon_racter_augment_koschei_accuracy"
-  name: "Assisted Aim"
-  description: "Persi uploads a fresh targeting pattern to her drone, increasing accuracy by 12% for 1 RND."
+  icon: "icon_ability_overclock_1"
+  name: "Deathless"
+  description: "Drone will auto-restart after being destroyed."
 }
 apCostMod: 0
 hpDamageMod: 0
 apDamageMod: 0
 accuracyMod: 0
-prereqStrings: "TAstackingCategory: "Aim"
-  statMods {
-    attribute: Attribute_Accuracy
-    intModValue: 10
-  }
-  is_buff: true
-  activation_status_effect_weight: 0.3
+attackRatingMod: 0
+effectDuration: 1
+cooldown: 0
+fxrep {
+  preActionFxName: "Berlin:TaserAiming"
+  actionFxName: "Berlin:TaserFireAction"
+  postActionFxName: ""
+  hitReactionFxName: "Berlin:TaserHitReaction"
+  missReactionFxName: "GunMissReaction"
 }
+toHitFunction: "autoHitDroneActorInRange"
+damageFunction: "buffTarget"
+activationStatusEffects {
+  uirep {
+    icon: "icon_nitro"
+    name: "Immune to Stun"
+  }
+  stackingCategory: "Damping"
+  statusConditions: Condition_BuMoNAGold
+  fxScript: "HongKong:DroneOverclockStatus"
+  is_buff: true
+}
+
