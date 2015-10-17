@@ -863,11 +863,40 @@ nodes {
   }
   branches {
     responseText: "Are you interested in buying paydata?"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 116
     idRef {
       id: "55709fb5643431ae48a4044e:561d9345643431f17d639775"
     }
-    comment: "TODO: Only if > 1 mission complete."
   }
   branches {
     responseText: "Goodbye."
@@ -2877,6 +2906,7 @@ nodes {
   branches {
     responseText: "{{CC}}Halferville Construction Contracts{{/CC}}"
     nextNodeIndex: 121
+    hideIfUnavailable: true
     idRef {
       id: "55709fb5643431ae48a4044e:561d948f643431f17d639cbf"
     }
@@ -2885,6 +2915,7 @@ nodes {
   branches {
     responseText: "{{CC}}Hydropower Study{{/CC}}"
     nextNodeIndex: 126
+    hideIfUnavailable: true
     idRef {
       id: "55709fb5643431ae48a4044e:561d9490643431f17d639cc1"
     }
@@ -2893,6 +2924,7 @@ nodes {
   branches {
     responseText: "{{CC}}Shipping Manifests{{/CC}}"
     nextNodeIndex: 131
+    hideIfUnavailable: true
     idRef {
       id: "55709fb5643431ae48a4044e:561d9490643431f17d639cc3"
     }
@@ -2901,6 +2933,7 @@ nodes {
   branches {
     responseText: "{{CC}}Research Notes{{/CC}}"
     nextNodeIndex: 136
+    hideIfUnavailable: true
     idRef {
       id: "55709fb5643431ae48a4044e:561d9491643431f17d639cc5"
     }
@@ -2909,6 +2942,7 @@ nodes {
   branches {
     responseText: "{{CC}}Purchase Invoices{{/CC}}"
     nextNodeIndex: 141
+    hideIfUnavailable: true
     idRef {
       id: "55709fb5643431ae48a4044e:561d9492643431f17d639cc7"
     }
