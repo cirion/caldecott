@@ -558,7 +558,7 @@ triggers {
       }
     }
   }
-  isActive: true
+  isActive: false
   idRef {
     id: "555bf49334643520190008e1"
   }
@@ -4534,6 +4534,25 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "5621c6fc346435680100139e"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Seattle:General/standing_idle_repairing"
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -4698,6 +4717,9 @@ triggers {
 triggers {
   name: "SMOKE"
   events {
+    ops {
+      functionName: "On Map Start"
+    }
   }
   conditions {
   }
@@ -5349,7 +5371,7 @@ characters {
   gridPoint {
     x: 100
     y: 0
-    z: 65
+    z: 64
   }
   orientation: ORIENTATION_E
   GeneralTags: "isKora"
@@ -5371,7 +5393,6 @@ characters {
   character_instance {
     prefab_name: "Seattle:Core/DwarfFemale"
     character_sheet_id: "crew_kora_lv1"
-    equipment_sheet_id: "crew_kora_lv1_gear"
     character_mod {
       stats {
         body: 0
@@ -5433,6 +5454,9 @@ characters {
       attitude: AttitudeAggressive
       vulnerabilities {
       }
+    }
+    equipment {
+      prefab_name: "Player_DeckerJacket"
     }
     team_id: "Civilians"
     char_name: "Kora"
@@ -5459,7 +5483,7 @@ characters {
   gridPoint {
     x: 100
     y: 0
-    z: 66
+    z: 65
   }
   orientation: ORIENTATION_W
   idRef {
@@ -5479,7 +5503,6 @@ characters {
   character_instance {
     prefab_name: "Seattle:Core/OrkMale"
     character_sheet_id: "Crew_Rafik_Lv1"
-    equipment_sheet_id: "Crew_Rafik_Lv1_Gear"
     character_mod {
       stats {
         body: 0
@@ -5541,6 +5564,9 @@ characters {
       attitude: AttitudeAggressive
       vulnerabilities {
       }
+    }
+    equipment {
+      prefab_name: "Rafik_Coat Lv3"
     }
     team_id: "Civilians"
     char_name: "Rafik"
@@ -5691,7 +5717,6 @@ characters {
   character_instance {
     prefab_name: "Seattle:Core/OrkFemale"
     character_sheet_id: "Crew_Persi_Lv1"
-    equipment_sheet_id: "Crew_Persi_Lv1_Gear"
     character_mod {
       stats {
         body: 0
@@ -5753,6 +5778,9 @@ characters {
       attitude: AttitudeAggressive
       vulnerabilities {
       }
+    }
+    equipment {
+      prefab_name: "Persi_Clothes Lv1"
     }
     team_id: "Civilians"
     char_name: "Persi"
@@ -5798,7 +5826,6 @@ characters {
   character_instance {
     prefab_name: "Seattle:Core/TrollMale"
     character_sheet_id: "Crew_Sable_Lv1"
-    equipment_sheet_id: "Crew_Sable_Lv1_Gear"
     character_mod {
       stats {
         body: 0
@@ -5860,6 +5887,9 @@ characters {
       attitude: AttitudeAggressive
       vulnerabilities {
       }
+    }
+    equipment {
+      prefab_name: "Sable_Coat Lv1"
     }
     team_id: "Civilians"
     char_name: "Sable"
@@ -6393,7 +6423,7 @@ characters {
     hiring_type: HiringType_None
     karma: 2
     hiring_cost_override: 3000
-    is_prop_character: true
+    is_prop_character: false
     hide_floaties: true
   }
 }
@@ -6490,11 +6520,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 106
+    x: 95
     y: 0
-    z: 57
+    z: 58
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_E
   GeneralTags: "isDisActor"
   displayName: "Dis Marta Female Elf"
   idRef {
@@ -6573,6 +6603,7 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
@@ -6661,6 +6692,7 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
@@ -6670,7 +6702,7 @@ characters {
     y: 0
     z: 55
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_N
   GeneralTags: "isDisActor"
   displayName: "Dis Human Male Spiky Punk"
   idRef {
@@ -6749,94 +6781,7 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: 94
-    y: 0
-    z: 52
-  }
-  orientation: ORIENTATION_E
-  GeneralTags: "isDisActor"
-  displayName: "Dis Mary Louise"
-  idRef {
-    id: "561c225864343114583f2c38"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "Seattle:Story/MaryLouiseTelestrian"
-    character_sheet_id: "BaseCivilian"
-    character_mod {
-      stats {
-        body: 0
-        quickness: 0
-        strength: 0
-        charisma: 0
-        intelligence: 0
-        willpower: 0
-        essence: 0
-        magic: 0
-        hp: 0
-        ap: 0
-        armor: 0
-        force: 0
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-        vision_peripheral_distance: 0
-        vision_cone_distance: 0
-        vision_cone_angle: 0
-      }
-      skills {
-        ranged_combat: 0
-        close_combat: 0
-        throwing_weapons: 0
-        spellcasting: 0
-        decking: 0
-        conjuring: 0
-        spirit_summoning: 0
-        drone_control: 0
-        biotech: 0
-        dodge: 0
-        etiquette_corporate: 0
-        etiquette_security: 0
-        etiquette_gang: 0
-        etiquette_socialite: 0
-        chi_casting: 0
-        etiquette_shadowrunner: 0
-        etiquette_street: 0
-        etiquette_academic: 0
-      }
-      specializations {
-        pistol: 0
-        rifle: 0
-        shotgun: 0
-        smg: 0
-        edged: 0
-        unarmed: 0
-        spirit_control: 0
-        esp_control: 0
-        drone_combat: 0
-      }
-      archetypeName: "Non-Combatant"
-      attitude: AttitudeCautious
-      vulnerabilities {
-      }
-    }
-    team_id: "Civilians"
-    char_name: "Preen 4 Dis"
-    GeneralTags: "isDisActor"
-    enabled_at_start: true
-    pc_spawn_number: -1
-    hiring_type: HiringType_None
-    karma: 6
-    hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
@@ -6925,16 +6870,17 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 98
+    x: 97
     y: 0
-    z: 55
+    z: 53
   }
-  orientation: ORIENTATION_N
+  orientation: ORIENTATION_E
   GeneralTags: "isDisActor"
   displayName: "Dis Elf Female Prostitute"
   idRef {
@@ -7013,6 +6959,7 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
@@ -7101,6 +7048,7 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
@@ -7279,6 +7227,7 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
@@ -7367,6 +7316,7 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
@@ -7455,6 +7405,7 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
@@ -7543,6 +7494,7 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
@@ -7631,6 +7583,7 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
@@ -7719,6 +7672,7 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
@@ -7807,6 +7761,7 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
@@ -7895,6 +7850,7 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
@@ -7904,7 +7860,7 @@ characters {
     y: 0
     z: 63
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_W
   displayName: "DJ Omphalos"
   idRef {
     id: "561c228a64343114583f2c45"
@@ -7987,6 +7943,7 @@ characters {
     portrait_code_override: "s1h1c4"
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
@@ -8072,6 +8029,7 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
@@ -8157,16 +8115,17 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 95
+    x: 106
     y: 0
-    z: 58
+    z: 57
   }
-  orientation: ORIENTATION_E
+  orientation: ORIENTATION_S
   displayName: "Troll Female 1"
   idRef {
     id: "561c22f264343114583f2c49"
@@ -8242,6 +8201,7 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
@@ -8249,9 +8209,9 @@ characters {
   gridPoint {
     x: 94
     y: 0
-    z: 53
+    z: 52
   }
-  orientation: ORIENTATION_W
+  orientation: ORIENTATION_N
   displayName: "Ork Female 2 Oldschool"
   idRef {
     id: "561c22f664343114583f2c4a"
@@ -8327,6 +8287,7 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
@@ -8412,6 +8373,7 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
@@ -8497,6 +8459,7 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
@@ -8582,6 +8545,7 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
@@ -8667,6 +8631,7 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
@@ -8748,6 +8713,95 @@ characters {
     }
     team_id: "Civilians"
     char_name: "Dance 3"
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    karma: 6
+    hiring_cost_override: 3000
+    is_prop_character: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: 88
+    y: 0
+    z: 58
+  }
+  orientation: ORIENTATION_W
+  displayName: "DJ"
+  idRef {
+    id: "5621c6fc346435680100139e"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Core/HumanMale"
+    character_sheet_id: "BaseCivilian"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeCautious
+      vulnerabilities {
+      }
+    }
+    equipment {
+      prefab_name: "SamuraiBunny"
+    }
+    team_id: "Civilians"
+    char_name: "DJ"
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
