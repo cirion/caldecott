@@ -2376,6 +2376,56 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Sable Must Survive"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_SableTeamState"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
   }
   isActive: false
   idRef {
@@ -6637,7 +6687,7 @@ triggers {
         }
       }
       args {
-        string_value: "Sable chatters cheerfully you navigate back through the streets of Oakland. He seems to have become a local expert on the minutiae of the gang life here: who controls which corners, where the best product can be found, the optimal locations to hide dead bodies. He eagerly queries your own knowledge of your old beat, nodding enthusiastically as new revelations come to light.\n\nIt\342\200\231s almost a relief once you\342\200\231re back home. Sable now has a new environment to explore, and you have the next stage of your mission to plan."
+        string_value: "Sable chatters cheerfully you navigate back through the streets of Oakland. He seems to have become a local expert on the minutiae of the gang life here: who controls which corners, where the best product can be found, the optimal locations to hide dead bodies. He eagerly queries your own knowledge of your old beat, nodding enthusiastically as new revelations come to light.\n\nIt\'s almost a relief once you\'re back home. Sable now has a new environment to explore, and you have the next stage of your mission to plan."
       }
     }
   }
@@ -7639,6 +7689,17 @@ triggers {
           }
           args {
             int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Clear Waypoint from Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "55ee14d6346435c020001af5"
           }
         }
       }

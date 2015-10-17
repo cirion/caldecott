@@ -1,0 +1,36 @@
+id: "Activate Adrenaline Rush"
+uirep {
+  icon: "icon_ability_cyberware_wiredReflexes"
+  name: "Adrenaline Rush"
+  description: "Floods your bloodstream with adrenaline. Boosts your AP by 1 for 2 RNDS but inflicts -2 HP per RND."
+}
+apCostMod: 0
+hpDamageMod: 0
+apDamageMod: 0
+accuracyMod: 0
+damageBucket {
+  successEntries {
+    weight: 0.25
+    value: 2
+  }
+  successEntries {
+    weight: 0.25
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 0.5
+  }
+}
+attackRatingMod: 0
+offensiveAbility: false
+toHitFunction: "autoHitActorInRange"
+damageFunction: "buffTarget"
