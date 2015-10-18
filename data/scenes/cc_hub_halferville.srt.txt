@@ -82,6 +82,28 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55217cf3346435e810004e54"
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -290,6 +312,27 @@ triggers {
             string_value: "Seattle:General/standing_idle_repairing"
           }
         }
+      }
+    }
+    ops {
+      functionName: "Add Actor Karma"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 8
       }
     }
   }
@@ -5349,7 +5392,7 @@ triggers {
             string_value: "5505a99b346435a418004d07"
           }
           args {
-            string_value: "Global_MissionState_Recruit_Dorbi"
+            string_value: "Global_DorbiTeamState"
           }
         }
       }
@@ -5485,7 +5528,7 @@ triggers {
             string_value: "5505a99b346435a418004d07"
           }
           args {
-            string_value: "Global_MissionState_Recruit_Dorbi"
+            string_value: "Global_DorbiTeamState"
           }
         }
       }
@@ -5621,7 +5664,7 @@ triggers {
             string_value: "5505a99b346435a418004d07"
           }
           args {
-            string_value: "Global_MissionState_Recruit_Sable"
+            string_value: "Global_SableTeamState"
           }
         }
       }
@@ -5757,7 +5800,7 @@ triggers {
             string_value: "5505a99b346435a418004d07"
           }
           args {
-            string_value: "Global_MissionState_Recruit_Sable"
+            string_value: "Global_SableTeamState"
           }
         }
       }
@@ -5893,7 +5936,7 @@ triggers {
             string_value: "5505a99b346435a418004d07"
           }
           args {
-            string_value: "Global_MissionState_Recruit_Persi"
+            string_value: "Global_PersiTeamState"
           }
         }
       }
@@ -6029,7 +6072,7 @@ triggers {
             string_value: "5505a99b346435a418004d07"
           }
           args {
-            string_value: "Global_MissionState_Recruit_Persi"
+            string_value: "Global_PersiTeamState"
           }
         }
       }
@@ -8339,7 +8382,7 @@ triggers {
             string_value: "FacingDirection"
           }
           args {
-            int_value: 5
+            int_value: 4
           }
         }
       }
@@ -21068,6 +21111,204 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Exit Act 2"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55345b33346435700f004dcb"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_numMissionsCompleted"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 4
+          }
+        }
+      }
+      args {
+        int_value: 3
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "5573470d346435d417001fa8"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5622e11c3464355c07005f85"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Exit Act 3"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55345b33346435700f004dcb"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_numMissionsCompleted"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 3
+          }
+        }
+      }
+      args {
+        int_value: 3
+      }
+    }
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_numMissionsCompleted"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 4
+          }
+        }
+      }
+      args {
+        int_value: 6
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "56082b2a3464353c14006585"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5622e16d3464355c07005f86"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
 regions {
   name: "Camera Clinic"
   position {
@@ -24592,9 +24833,6 @@ characters {
       prefab_name: "Cram"
     }
     equipment {
-      prefab_name: "Flash"
-    }
-    equipment {
       prefab_name: "Bliss"
     }
     equipment {
@@ -24952,12 +25190,6 @@ characters {
     }
     equipment {
       prefab_name: "Hyper"
-    }
-    equipment {
-      prefab_name: "Flash"
-    }
-    equipment {
-      prefab_name: "Flash"
     }
     equipment {
       prefab_name: "Cram"
@@ -27353,7 +27585,7 @@ characters {
     team_id: "Civilians"
     char_name: "Bouncer 2 Slums"
     GeneralTags: "isSlumActor"
-    enabled_at_start: false
+    enabled_at_start: true
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -27402,7 +27634,7 @@ characters {
     team_id: "Civilians"
     char_name: "Bouncer 3 Slums"
     GeneralTags: "isSlumActor"
-    enabled_at_start: false
+    enabled_at_start: true
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -27492,7 +27724,7 @@ characters {
     team_id: "Civilians"
     char_name: "Talk 4 Slum"
     GeneralTags: "isSlumActor"
-    enabled_at_start: false
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -27580,7 +27812,7 @@ characters {
     team_id: "Civilians"
     char_name: "Sick Slum 1"
     GeneralTags: "isSlumActor"
-    enabled_at_start: false
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -27596,6 +27828,7 @@ characters {
   }
   orientation: ORIENTATION_E
   GeneralTags: "isSlumActor"
+  GeneralTags: "isWanderer"
   displayName: "Slum Ork Male Poor"
   idRef {
     id: "5615962a6434313307a28a05"
@@ -27668,7 +27901,8 @@ characters {
     team_id: "Civilians"
     char_name: "Wander 4 Slums"
     GeneralTags: "isSlumActor"
-    enabled_at_start: false
+    GeneralTags: "isWanderer"
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -27684,6 +27918,7 @@ characters {
   }
   orientation: ORIENTATION_N
   GeneralTags: "isSlumActor"
+  GeneralTags: "isWanderer"
   displayName: "Slum Troll Female Triad"
   idRef {
     id: "5615962b6434313307a28a06"
@@ -27756,7 +27991,8 @@ characters {
     team_id: "Civilians"
     char_name: "Wander 5 Slum"
     GeneralTags: "isSlumActor"
-    enabled_at_start: false
+    GeneralTags: "isWanderer"
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -27844,7 +28080,7 @@ characters {
     team_id: "Civilians"
     char_name: "Head Cradle 1 Slum"
     GeneralTags: "isSlumActor"
-    enabled_at_start: false
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -27932,7 +28168,7 @@ characters {
     team_id: "Civilians"
     char_name: "Poised 1 Slum"
     GeneralTags: "isSlumActor"
-    enabled_at_start: false
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -28020,7 +28256,7 @@ characters {
     team_id: "Civilians"
     char_name: "Head Cradle 2 Slum"
     GeneralTags: "isSlumActor"
-    enabled_at_start: false
+    enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
