@@ -104,6 +104,28 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "561b19523464351c240056b5"
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -333,6 +355,20 @@ triggers {
       }
       args {
         int_value: 8
+      }
+    }
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Event_RemoveItems"
+          }
+        }
+      }
+      args {
+        float_value: 4
       }
     }
   }
@@ -20426,7 +20462,10 @@ triggers {
   name: "Remove Quest Items"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Event_RemoveItems"
+      }
     }
   }
   conditions {
@@ -30115,6 +30154,7 @@ mapEvents: "Dorbi Greatly Disapproves"
 mapEvents: "Event_PC0BestSkillCheck"
 mapEvents: "Event_StartWandering"
 mapEvents: "Event_CheckScaleAmount"
+mapEvents: "Event_RemoveItems"
 senseTags: "isPC0"
 senseTags: "isSable"
 senseTags: "isPersi"

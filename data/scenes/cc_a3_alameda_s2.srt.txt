@@ -3697,10 +3697,24 @@ triggers {
   }
   actions {
     ops {
-      functionName: "Delete Prop"
+      functionName: "Enable/Disable Interactable Object"
       args {
         call_value {
-          functionName: "Triggering Prop"
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "5600ca93346435d41c003e6b"
+          }
         }
       }
     }
@@ -4320,6 +4334,23 @@ triggers {
             string_value: "554e624f346435142100454e"
           }
         }
+      }
+    }
+    ops {
+      functionName: "Set Variable (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Hub_LoadingText"
+          }
+        }
+      }
+      args {
+        string_value: "Freed of its captivity, the train rolls easily along the tracks eastward. You send word to Kora, who remotely manages the switching stations to ensure that the engine finds its way safely to your lockup in Halferville.\n\nThe rest of your team lazily walks back through the Faire, picking up a few odd trinkets here and there. With the Native Californian threat largely taken care of, at least for today, the merchants have re-emerged and show their gratitude with miniscule discounts off of their already enormous markups."
       }
     }
   }
