@@ -3708,6 +3708,17 @@ triggers {
         int_value: 1
       }
     }
+    ops {
+      functionName: "Clear Waypoint from Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55ea2fc36434318d013b7123"
+          }
+        }
+      }
+    }
   }
   isActive: false
   idRef {
@@ -3848,7 +3859,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Actor)"
           args {
-            string_value: "55ea2fab6434318d013b7122"
+            string_value: "55ea2fc36434318d013b7123"
           }
         }
       }
@@ -11066,21 +11077,10 @@ character_roster {
 }
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {
-  prereq_description: ""
+  prereq_description: "Must have at least 1 decker"
   prereq_conditions {
     ops {
-      functionName: "Evaluate If Team Has Cyberdeck"
-      args {
-        call_value {
-          functionName: "Get Preset Value (string)"
-          args {
-            string_value: "FactionList"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
+      functionName: "Compare Hire-able Has Cyberdeck"
       args {
         call_value {
           functionName: "Get Preset Value (int)"
@@ -11089,14 +11089,6 @@ scene_hiring_prerequisites {
           }
           args {
             int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (SceneDimension)"
-          args {
-            string_value: "Default"
           }
         }
       }

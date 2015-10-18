@@ -337,24 +337,17 @@ triggers {
       }
     }
     ops {
-      functionName: "Add Actor Karma"
+      functionName: "Send Event After Delay"
       args {
         call_value {
-          functionName: "Specific Actor"
+          functionName: "Get Map Item (Event)"
           args {
-            call_value {
-              functionName: "Get Map Item (Player)"
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
+            string_value: "Event_KarmaPayout"
           }
         }
       }
       args {
-        int_value: 8
+        float_value: 3
       }
     }
     ops {
@@ -21348,6 +21341,49 @@ triggers {
   }
   is_oneshot: false
 }
+triggers {
+  name: "Delayed Karma Grant"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Event_KarmaPayout"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Add Actor Karma"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 8
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5623ba193464357c0c005628"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Camera Clinic"
   position {
@@ -30155,6 +30191,7 @@ mapEvents: "Event_PC0BestSkillCheck"
 mapEvents: "Event_StartWandering"
 mapEvents: "Event_CheckScaleAmount"
 mapEvents: "Event_RemoveItems"
+mapEvents: "Event_KarmaPayout"
 senseTags: "isPC0"
 senseTags: "isSable"
 senseTags: "isPersi"
