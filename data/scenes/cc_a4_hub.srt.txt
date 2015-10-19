@@ -41,6 +41,28 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "56075add346435d0020057b9"
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -1020,6 +1042,43 @@ triggers {
           functionName: "Get Preset Value (int)"
           args {
             string_value: "TeleportMethod"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Remove Item from Actor by Item Type"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ItemType"
+          }
+          args {
+            int_value: 11
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
           }
           args {
             int_value: 0
@@ -2246,6 +2305,25 @@ triggers {
           }
           args {
           }
+        }
+      }
+    }
+    ops {
+      functionName: "Delete Props by Tag"
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isHPFFX"
+          }
+        }
+      }
+      args {
+        float_value: -1
+      }
+      args {
+        call_value {
+          functionName: "Everywhere"
         }
       }
     }
@@ -6324,6 +6402,47 @@ triggers {
       }
     }
     ops {
+      functionName: "Set Actor AI Script"
+      args {
+        call_value {
+          functionName: "All Actors on Team"
+          args {
+            call_value {
+              functionName: "Get Preset Value (string)"
+              args {
+                string_value: "FactionList"
+              }
+              args {
+                int_value: 3
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (SceneDimension)"
+              args {
+                string_value: "Default"
+              }
+            }
+          }
+        }
+      }
+      args {
+        string_value: "Non-Combatant"
+      }
+    }
+    ops {
       functionName: "Clear Actor Orders"
       args {
         call_value {
@@ -6452,9 +6571,6 @@ triggers {
       }
     }
     ops {
-      functionName: "End Current Team Round"
-    }
-    ops {
       functionName: "Enable/Disable Interactable Object"
       args {
         call_value {
@@ -6475,6 +6591,9 @@ triggers {
           }
         }
       }
+    }
+    ops {
+      functionName: "End Current Team Round"
     }
   }
   isActive: true
@@ -6860,6 +6979,9 @@ triggers {
           }
         }
       }
+    }
+    ops {
+      functionName: "End Current Team Round"
     }
   }
   isActive: false
@@ -9489,7 +9611,7 @@ regions {
   name: "Kroin Exit"
   position {
     x: 51
-    y: 42
+    y: 41
     width: 1
     height: 1
   }
@@ -10097,6 +10219,7 @@ characters {
     karma: 75
     hiring_cost_override: 0
     hiring_tag: "Crew: Shaman"
+    scale_character_sheet: true
     persistent_body: true
     id: "crew_lv1_rafik"
     first_name: "Rafik"
@@ -10245,6 +10368,7 @@ characters {
     karma: 76
     hiring_cost_override: 0
     hiring_tag: "Crew: Dorbi"
+    scale_character_sheet: true
     has_fist: true
     id: "crew_lv1_dorbi"
   }
@@ -10604,6 +10728,7 @@ characters {
     karma: 73
     hiring_cost_override: 0
     hiring_tag: "Crew: Decker"
+    scale_character_sheet: true
     persistent_body: true
     id: "crew_lv1_sable"
     cyberware_head: "(Head) Datajack"
@@ -11168,7 +11293,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_noncombatant"
+      archetypeName: "Non-Combatant"
       attitude: AttitudeAggressive
       vulnerabilities {
       }
@@ -11191,6 +11316,7 @@ characters {
     karma: 208
     hiring_cost_override: 0
     hiring_tag: "Crew: Ambulatory Decker"
+    scale_character_sheet: true
     id: "crew_lv1_kora"
     cyberware_head: "(Head) Datajack"
   }
@@ -13808,7 +13934,7 @@ variables {
   }
 }
 variables {
-  bool_value: true
+  bool_value: false
   variableref_value {
     scope: TsVariableScope_Scene
     name: "isDebugging"
@@ -13862,8 +13988,8 @@ mapName: "cc_hub_halferville"
 parentStory: ""
 scene_title: "ALL GOOD THINGS"
 scene_subtitle: ""
-scene_synopsis: "It\342\200\231s finished! Your engine cruises back into Halferville, and with the help a few eager locals you quickly unload the cargo car and cover your tracks. Multiple fist bumps and hugs are exchanged between various parties.\n\nFor the first time since you lost your skin, you feel like you can finally take a breath. Money isn\342\200\231t just a way of keeping score. Money will make your life better in a very concrete way, by allowing you to continue living in your new shell. A smile on your face, you stride back to Low York, ready for what comes next."
-scene_image: ""
+scene_synopsis: "It\342\200\231s finished! Your engine cruises back into Halferville, and with the help a few eager locals you quickly unload the cargo car and cover your tracks. Multiple fist bumps and hugs are exchanged between various parties.\n\nFor the first time since you lost your skin, you feel like you can finally take a breath. Money isn\342\200\231t just a way of keeping score. Money will make your life better in a very concrete way, by allowing you to continue living in your new shell. A smile on your face, you stride back to Little York, ready for what comes next."
+scene_image: "cc_hub_halferville_alt1"
 scene_continue_button_skip: false
 scene_restore_runner_health: true
 directional_light_dir {
