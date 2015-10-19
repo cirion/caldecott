@@ -728,6 +728,9 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "No Effect"
+    }
   }
   isActive: true
   idRef {
@@ -6423,6 +6426,9 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Autosave Game"
+    }
   }
   isActive: true
   idRef {
@@ -9504,6 +9510,9 @@ triggers {
   }
   actions {
     ops {
+      functionName: "Autosave Game"
+    }
+    ops {
       functionName: "Trigger: Run Alternate Trigger"
       args {
         call_value {
@@ -9848,100 +9857,7 @@ triggers {
     ops {
       functionName: "Trigger: Wait for Rounds"
       args {
-        int_value: 2
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (SceneDimension)"
-          args {
-            string_value: "Default"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Activate Actor Spawner"
-      args {
-        call_value {
-          functionName: "Get Map Item (Actor Reference)"
-          args {
-            string_value: "560ffbbd346435981a007e56"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Order Actor to Hunt And Destroy (Team)"
-      args {
-        call_value {
-          functionName: "All Actors on Team"
-          args {
-            call_value {
-              functionName: "Get Preset Value (string)"
-              args {
-                string_value: "FactionList"
-              }
-              args {
-                int_value: 1
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "AllOrAny"
-              }
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Map Item (SceneDimension)"
-              args {
-                string_value: "Default"
-              }
-            }
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (string)"
-          args {
-            string_value: "FactionList"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (SceneDimension)"
-          args {
-            string_value: "Default"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Trigger: Wait for Rounds"
-      args {
-        int_value: 2
+        int_value: 3
       }
       args {
         call_value {
@@ -13158,7 +13074,6 @@ characters {
   character_instance {
     prefab_name: "Seattle:Core/OrkFemale"
     character_sheet_id: "Crew_Persi_Lv1"
-    equipment_sheet_id: "Crew_Persi_Lv1_Gear"
     character_mod {
       stats {
         body: 0
@@ -13220,6 +13135,9 @@ characters {
       attitude: AttitudeAggressive
       vulnerabilities {
       }
+    }
+    equipment {
+      prefab_name: "Persi_Clothes Lv2"
     }
     team_id: "Civilians"
     char_name: "Persi"
@@ -15832,7 +15750,7 @@ characters {
         willpower: 9
         essence: 0
         magic: 0
-        hp: 140
+        hp: 110
         ap: -2
         armor: 0
         force: 0
