@@ -980,7 +980,7 @@ triggers {
             string_value: "WithOrWithout"
           }
           args {
-            int_value: 0
+            int_value: 1
           }
         }
       }
@@ -1536,6 +1536,23 @@ triggers {
             string_value: "5538692d346435700f004dfc"
           }
         }
+      }
+    }
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "CharacterScaleAmount"
+          }
+        }
+      }
+      args {
+        int_value: 5
       }
     }
   }
@@ -4538,7 +4555,7 @@ triggers {
             string_value: "WithOrWithout"
           }
           args {
-            int_value: 0
+            int_value: 1
           }
         }
       }
@@ -4719,7 +4736,7 @@ triggers {
             string_value: "WithOrWithout"
           }
           args {
-            int_value: 0
+            int_value: 1
           }
         }
       }
@@ -5661,63 +5678,6 @@ triggers {
         call_value {
           functionName: "Get Map Item (Actor)"
           args {
-            string_value: "561eb2e5643431240792db90"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Animation)"
-          args {
-            string_value: "Seattle:General/standing_idle_bouncer"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Play Animation From Manifest"
-      args {
-        call_value {
-          functionName: "Get Map Item (Actor)"
-          args {
-            string_value: "561eb2e5643431240792db91"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Animation)"
-          args {
-            string_value: "Seattle:General/standing_idle_bouncer"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Play Animation From Manifest"
-      args {
-        call_value {
-          functionName: "Get Map Item (Actor)"
-          args {
-            string_value: "561eb2e5643431240792db92"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Animation)"
-          args {
-            string_value: "Seattle:General/standing_idle_bouncer"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Play Animation From Manifest"
-      args {
-        call_value {
-          functionName: "Get Map Item (Actor)"
-          args {
             string_value: "561eb341643431240792db97"
           }
         }
@@ -5906,6 +5866,99 @@ triggers {
   isActive: true
   idRef {
     id: "5617da0e643431f61b4309f3"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Remove Disguise"
+  events {
+    ops {
+      functionName: "On Curtains Up"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Remove Item from Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Tsang Disguise"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Remove Item from Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Aztechnology Disguise"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "56263f71346435482d000dea"
   }
   elseActions {
   }
@@ -7917,12 +7970,6 @@ characters {
       prefab_name: "Hyper"
     }
     equipment {
-      prefab_name: "Flash"
-    }
-    equipment {
-      prefab_name: "Flash"
-    }
-    equipment {
       prefab_name: "Cram"
     }
     equipment {
@@ -8884,11 +8931,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -130
+    x: -157
     y: 0
-    z: 29
+    z: 24
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_W
   GeneralTags: "isSlumActor"
   displayName: "Slum Ork Female Haven 2"
   idRef {
@@ -8967,151 +9014,6 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -148
-    y: 0
-    z: 28
-  }
-  orientation: ORIENTATION_S
-  GeneralTags: "isSlumActor"
-  displayName: "Police Shotgun"
-  idRef {
-    id: "561eb2e5643431240792db90"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "Seattle:Security/DwarfMaleExecSecurity"
-    character_sheet_id: "Errant_Lv1_Ork_Shotgun"
-    character_mod {
-      stats {
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-      }
-      skills {
-      }
-      specializations {
-      }
-      archetypeName: "Non-Combatant"
-      attitude: AttitudeAggressive
-      attackRandom: AttackStyle_AllEqual
-      vulnerabilities {
-      }
-    }
-    team_id: "Civilians"
-    char_name: "Bouncer 1 Slums"
-    GeneralTags: "isSlumActor"
-    enabled_at_start: true
-    pc_spawn_number: -1
-    portrait {
-      filename: ""
-    }
-    karma: 41
-    scale_character_sheet: true
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -130
-    y: 0
-    z: 21
-  }
-  orientation: ORIENTATION_E
-  GeneralTags: "isSlumActor"
-  displayName: "Police Shaman"
-  idRef {
-    id: "561eb2e5643431240792db91"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "Seattle:Security/DwarfMaleSecurity"
-    character_sheet_id: "Errant_Lv1_Elf_Shaman"
-    character_mod {
-      stats {
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-      }
-      skills {
-      }
-      specializations {
-      }
-      archetypeName: "Non-Combatant"
-      vulnerabilities {
-      }
-    }
-    team_id: "Civilians"
-    char_name: "Bouncer 2 Slums"
-    GeneralTags: "isSlumActor"
-    enabled_at_start: true
-    pc_spawn_number: -1
-    portrait {
-      filename: ""
-    }
-    karma: 56
-    scale_character_sheet: true
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -160
-    y: 0
-    z: 29
-  }
-  orientation: ORIENTATION_S
-  GeneralTags: "isSlumActor"
-  displayName: "Police Pistol"
-  idRef {
-    id: "561eb2e5643431240792db92"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "Seattle:Security/DwarfFemaleSecurity"
-    character_sheet_id: "Errant_Lv1_Human_Pistol"
-    character_mod {
-      stats {
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-      }
-      skills {
-      }
-      specializations {
-      }
-      archetypeName: "Non-Combatant"
-      attitude: AttitudeAggressive
-      attackRandom: AttackStyle_AllEqual
-      vulnerabilities {
-      }
-    }
-    team_id: "Civilians"
-    char_name: "Bouncer 3 Slums"
-    GeneralTags: "isSlumActor"
-    enabled_at_start: true
-    pc_spawn_number: -1
-    portrait {
-      filename: ""
-    }
-    karma: 41
-    scale_character_sheet: true
   }
 }
 characters {
@@ -9295,7 +9197,7 @@ characters {
   gridPoint {
     x: -47
     y: 0
-    z: 8
+    z: 9
   }
   orientation: ORIENTATION_E
   GeneralTags: "isHallActor"
@@ -9839,6 +9741,7 @@ characters {
   }
   orientation: ORIENTATION_N
   GeneralTags: "isHallActor"
+  GeneralTags: "isWanderer"
   displayName: "Hall Dwarf Female Samurai Military"
   idRef {
     id: "561eb341643431240792db9b"
@@ -9914,6 +9817,7 @@ characters {
     team_id: "Civilians"
     char_name: "Wander Hall 2"
     GeneralTags: "isHallActor"
+    GeneralTags: "isWanderer"
     enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
@@ -10022,6 +9926,7 @@ characters {
   }
   orientation: ORIENTATION_E
   GeneralTags: "isHallActor"
+  GeneralTags: "isWanderer"
   displayName: "Hall Dwarf Male Rigger"
   idRef {
     id: "561eb341643431240792db9d"
@@ -10094,6 +9999,7 @@ characters {
     team_id: "Civilians"
     char_name: "Wander 1 Hall"
     GeneralTags: "isHallActor"
+    GeneralTags: "isWanderer"
     enabled_at_start: true
     pc_spawn_number: -1
     hiring_type: HiringType_None
@@ -10342,7 +10248,7 @@ parentStory: ""
 scene_title: "LAST GASP"
 scene_subtitle: ""
 scene_synopsis: "$(story.cc_a5_hub-LoadingText)"
-scene_image: ""
+scene_image: "cc_hub_halferville_alt2"
 scene_continue_button_skip: false
 scene_restore_runner_health: true
 directional_light_dir {
