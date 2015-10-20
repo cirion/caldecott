@@ -28163,7 +28163,7 @@ props {
   name: "secretLab_clutter_fireExtinguisher"
   gridPoint {
     x: 190.5
-    y: -1.3877788e-016
+    y: -1.3877788e-16
     z: 103
   }
   orientation: ORIENTATION_E
@@ -29557,9 +29557,9 @@ props {
 props {
   name: "brotherhood_furniture_weaponCloset01"
   gridPoint {
-    x: 50
+    x: 53.2
     y: 0
-    z: 86
+    z: 88.2
   }
   orientation: ORIENTATION_S
   lod: 0
@@ -45461,6 +45461,17 @@ props {
     property_id: "fxScript"
     string_value: "EnvironmentLoopCrowGroup"
   }
+  displayName: "Crows Center"
+  idRef {
+    id: "562533086434312996c77d86"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    dummyInteraciton {
+    }
+    interaction_info_text: ""
+  }
   lod: 0
 }
 props {
@@ -45474,6 +45485,17 @@ props {
   properties {
     property_id: "fxScript"
     string_value: "EnvironmentLoopCrowGroup"
+  }
+  displayName: "Crows West"
+  idRef {
+    id: "5625335e6434312996c77d8a"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    dummyInteraciton {
+    }
+    interaction_info_text: ""
   }
   lod: 0
 }
@@ -65943,7 +65965,7 @@ props {
   }
   lod: 0
   character_instance {
-    prefab_name: "Seattle:Core/HumanMale"
+    prefab_name: "HongKong:Spirits/SpiritShrineWater"
     character_sheet_id: "Shrine Spirit Water"
     equipment_sheet_id: "Shrine Spirit Water F6 Gear"
     character_mod {
@@ -66040,7 +66062,7 @@ props {
   }
   lod: 0
   character_instance {
-    prefab_name: "Seattle:Core/HumanMale"
+    prefab_name: "HongKong:Spirits/SpiritShrineEarth"
     character_sheet_id: "Shrine Spirit Nature"
     equipment_sheet_id: "Shrine Spirit Nature F6 Gear"
     character_mod {
@@ -71491,18 +71513,48 @@ props {
 props {
   name: "office_tech_keycardLanyard"
   gridPoint {
-    x: -103
-    y: 0
-    z: 70
+    x: 41.5
+    y: 2
+    z: 72.4
   }
-  orientation: ORIENTATION_S
-  displayName: "Dropped Nuyen 650 Act 3"
+  orientation: ORIENTATION_E
+  displayName: "Nuyen 650 Act 3"
   idRef {
     id: "561d22476434312e636b3cbe"
   }
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 5
+            }
+          }
+        }
+        args {
+          int_value: 6
+        }
+      }
+    }
     interactionIcon: InteractionIcon_ItemPickup
     interaction_info_text: "Credstick"
   }
@@ -71683,6 +71735,110 @@ props {
     dummyInteraciton {
     }
     interaction_info_text: ""
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: 44
+    y: 0
+    z: 83
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "56253ba16434312996c77d8e"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 5
+            }
+          }
+        }
+        args {
+          int_value: 6
+        }
+      }
+    }
+    pickupItem {
+      itemName: "Grenade 2 (Frag)"
+      destroyOnPickup: true
+    }
+    interaction_info_text: "Grenade"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: 41
+    y: 0
+    z: 83
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "56253ba26434312996c77d8f"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 5
+            }
+          }
+        }
+        args {
+          int_value: 6
+        }
+      }
+    }
+    pickupItem {
+      itemName: "Grenade 2 (Shock)"
+      destroyOnPickup: true
+    }
+    interaction_info_text: "Grenade"
   }
   lod: 0
 }
