@@ -64,6 +64,30 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "5611ebd9346435d02f007a25"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -208,6 +232,36 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Order Actor to Face Point"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Current Location of Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "55f215c264343109444633cb"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
   comment: "Empty interrogation node"
 }
 nodes {
@@ -329,7 +383,7 @@ nodes {
     id: "56048228643431dec7726784"
   }
   index: 11
-  text: "According to the scientist\'s notes, implanting a nanohive equipped with a black unicorn horn into the victim will allow you to reprogram the virus, dissociating the anti-trog payload from the metagene and rendering the infection inert.\n\nWith our own research halted, this seems like the only chance of a remedy."
+  text: "According to the scientist\'s notes, implanting a nanohive equipped with a black unicorn horn into the victim will allow you to reprogram the virus, dissociating the anti-trog payload from the metagene and rendering the infection inert.\n\nWith our own research halted, this may be the only chance of a remedy."
   branches {
     responseText: ""
     nextNodeIndex: 12
