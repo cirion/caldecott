@@ -149,6 +149,36 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Set Actor Wander Range"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isWanderer"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        int_value: 5
+      }
+    }
   }
   isActive: true
   idRef {
@@ -4274,25 +4304,6 @@ triggers {
         call_value {
           functionName: "Get Map Item (Actor)"
           args {
-            string_value: "561c225864343114583f2c38"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Animation)"
-          args {
-            string_value: "HongKong:General/sitting_idle_talking"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Play Animation From Manifest"
-      args {
-        call_value {
-          functionName: "Get Map Item (Actor)"
-          args {
             string_value: "561c228a64343114583f2c45"
           }
         }
@@ -4806,9 +4817,9 @@ regions {
   }
   ambience_template: ""
   combat_music: ""
-  default_music: ""
+  default_music: "HongKong-loudmusic"
   loop_combat_music: true
-  loop_default_music: false
+  loop_default_music: true
   no_fow_in_region: false
   combat_intense_music: ""
   combat_wrapup_music: ""
@@ -8850,7 +8861,7 @@ scene_subtitle: ""
 scene_synopsis: "It is finished.\n\nThe last explosives detonate shortly after your Zodiac re-enters the Bay. Looking back at the furious red flames reaching towards the sky, you allow yourself a brief moment to feel some relief. The last traces of Hemlock on the planet have been annihilated along with Shiawase\342\200\231s bio-weapon factory, and with their research destroyed, it may be gone for good.\n\nYou are not expecting the throngs of cheering dwarves who greet you upon your return to Halferville. Kora sent early word of your victory, and Little York has turned out in force to celebrate. Lifting you on their shoulders, they carry you into Dis, where still more smiling faces await to share in the triumph."
 scene_image: "cc_a5_finale"
 scene_continue_button_skip: false
-scene_restore_runner_health: false
+scene_restore_runner_health: true
 directional_light_dir {
   x: -0.5
   y: -1
@@ -8897,8 +8908,6 @@ team_affiliations {
 }
 scene_dimensions {
   dimension_name: "Default"
-}
-character_roster {
 }
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {

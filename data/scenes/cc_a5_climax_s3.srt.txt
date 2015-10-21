@@ -7779,6 +7779,39 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Exit the Facility"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -9320,6 +9353,25 @@ triggers {
       }
       args {
         float_value: 1
+      }
+    }
+    ops {
+      functionName: "Add Camera Point of Interest (Point)"
+      args {
+        call_value {
+          functionName: "Center of Region"
+          args {
+            call_value {
+              functionName: "Get Map Item (Region)"
+              args {
+                string_value: "5619b14b34643530160022b4"
+              }
+            }
+          }
+        }
+      }
+      args {
+        float_value: 0
       }
     }
     ops {
@@ -16639,6 +16691,11 @@ goals {
 goals {
   name: "Prevent the Spread of Hemlock"
   type: GoalType_Secondary
+  status: GoalStatus_Hidden
+}
+goals {
+  name: "Exit the Facility"
+  type: GoalType_Primary
   status: GoalStatus_Hidden
 }
 worldMapLocation {
