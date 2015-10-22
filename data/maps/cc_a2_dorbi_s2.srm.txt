@@ -23383,17 +23383,24 @@ props {
     interactionRadius: 1
     prerequisites {
       ops {
-        functionName: "Compare Actor Team"
+        functionName: "Evaluate Tag for Actor"
         args {
           call_value {
-            functionName: "Triggering Actor"
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
           }
         }
         args {
           call_value {
             functionName: "Get Preset Value (int)"
             args {
-              string_value: "IsOrIsNot"
+              string_value: "HasOrHasNot"
             }
             args {
               int_value: 1
@@ -23402,20 +23409,9 @@ props {
         }
         args {
           call_value {
-            functionName: "Get Preset Value (string)"
+            functionName: "Get Map Item (SenseTagList)"
             args {
-              string_value: "FactionList"
-            }
-            args {
-              int_value: 2
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Default"
+              string_value: "canOpenDoor"
             }
           }
         }
@@ -32629,9 +32625,9 @@ props {
 props {
   name: "system_invisible_nonsolidProp"
   gridPoint {
-    x: -37
+    x: -6
     y: 0
-    z: 75
+    z: 150
   }
   orientation: ORIENTATION_S
   displayName: "Debug Start Here"
@@ -51869,7 +51865,7 @@ props {
   gridPoint {
     x: -21.6
     y: 1.1
-    z: 148.3
+    z: 148.6
   }
   orientation: ORIENTATION_S
   properties {
@@ -51953,9 +51949,9 @@ props {
 props {
   name: "system_invisible_nonsolidProp"
   gridPoint {
-    x: 30
+    x: 31
     y: 0
-    z: 22
+    z: 23
   }
   orientation: ORIENTATION_S
   displayName: "Waypoint Fault"

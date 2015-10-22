@@ -75,7 +75,7 @@ triggers {
             call_value {
               functionName: "Get Map Item (Region)"
               args {
-                string_value: "560df388346435f81e002449"
+                string_value: "560f510d34643518270020a9"
               }
             }
           }
@@ -128,7 +128,7 @@ triggers {
             call_value {
               functionName: "Get Map Item (Region)"
               args {
-                string_value: "560df388346435f81e002449"
+                string_value: "560f510d34643518270020a9"
               }
             }
           }
@@ -541,7 +541,7 @@ triggers {
             string_value: "DeathMethod"
           }
           args {
-            int_value: 0
+            int_value: 3
           }
         }
       }
@@ -568,13 +568,73 @@ triggers {
         }
       }
     }
+  }
+  isActive: false
+  idRef {
+    id: "55ff00d2346435bc000038bc"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Debug Switch Team"
+  events {
     ops {
-      functionName: "Force-Use Interactable Object (Basic)"
+      functionName: "On Region Enter"
       args {
         call_value {
-          functionName: "Get Map Item (InteractableObject)"
+          functionName: "Get Map Item (Region)"
           args {
-            string_value: "552ab82934643538260019aa"
+            string_value: "5628563a346435cc290016d3"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "560ff92d346435981a007e2d"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
           }
         }
       }
@@ -582,7 +642,7 @@ triggers {
   }
   isActive: false
   idRef {
-    id: "55ff00d2346435bc000038bc"
+    id: "5628588c346435cc290016d6"
   }
   elseActions {
   }
@@ -854,17 +914,6 @@ triggers {
   events {
     ops {
       functionName: "On Conversation Complete"
-    }
-    ops {
-      functionName: "On New Round"
-      args {
-        call_value {
-          functionName: "Get Map Item (SceneDimension)"
-          args {
-            string_value: "Default"
-          }
-        }
-      }
     }
   }
   conditions {
@@ -9289,6 +9338,52 @@ triggers {
       }
     }
     ops {
+      functionName: "Order Actor to Move To (Region)"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isSecondarySecurity"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "5628563a346435cc290016d3"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
       functionName: "Enable/Disable Manual Turn Mode in Dimension"
       args {
         call_value {
@@ -12211,6 +12306,267 @@ triggers {
   }
   is_oneshot: false
 }
+triggers {
+  name: "Sable Never Jacked In"
+  events {
+    ops {
+      functionName: "On New Round"
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Current Battle Round"
+          args {
+            call_value {
+              functionName: "Get Map Item (SceneDimension)"
+              args {
+                string_value: "Default"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+    ops {
+      functionName: "OR"
+      args {
+        call_value {
+          functionName: "Comparison (int)"
+          args {
+            call_value {
+              functionName: "Get Count of Alive Actors"
+              args {
+                call_value {
+                  functionName: "All Actors on Team"
+                  args {
+                    call_value {
+                      functionName: "Get Preset Value (string)"
+                      args {
+                        string_value: "FactionList"
+                      }
+                      args {
+                        int_value: 0
+                      }
+                    }
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Preset Value (int)"
+                      args {
+                        string_value: "AllOrAny"
+                      }
+                      args {
+                        int_value: 0
+                      }
+                    }
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Map Item (SceneDimension)"
+                      args {
+                        string_value: "Matrix"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "Comparison Ops"
+              }
+              args {
+                int_value: 2
+              }
+            }
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Comparison (int)"
+          args {
+            call_value {
+              functionName: "Get Count of Alive Actors"
+              args {
+                call_value {
+                  functionName: "All Actors on Team"
+                  args {
+                    call_value {
+                      functionName: "Get Preset Value (string)"
+                      args {
+                        string_value: "FactionList"
+                      }
+                      args {
+                        int_value: 4
+                      }
+                    }
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Preset Value (int)"
+                      args {
+                        string_value: "AllOrAny"
+                      }
+                      args {
+                        int_value: 0
+                      }
+                    }
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Map Item (SceneDimension)"
+                      args {
+                        string_value: "Matrix"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "Comparison Ops"
+              }
+              args {
+                int_value: 2
+              }
+            }
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Sable Must Stay Jacked In"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 3
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "562851fe346435cc290016d2"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Remove Door Tag"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "5628563a346435cc290016d3"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Remove Tag from Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "canOpenDoor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "562856d1346435cc290016d5"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
 regions {
   name: "Camera Train"
   position {
@@ -13197,6 +13553,64 @@ regions {
   combat_outro_stinger: ""
   vfx_fill_prefab_name: ""
 }
+regions {
+  name: "Guard Secondary Area"
+  position {
+    x: -41
+    y: 149
+    width: 4
+    height: 3
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  is_matrix_node: false
+  is_vfx_fill_region: false
+  idRef {
+    id: "5628563a346435cc290016d3"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
+}
 characters {
   name: "system_spawner_playerSpawner"
   gridPoint {
@@ -13700,7 +14114,7 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -9
+    x: -8
     y: 0
     z: 149
   }
@@ -13991,6 +14405,7 @@ characters {
   }
   orientation: ORIENTATION_S
   GeneralTags: "isSecondarySecurity"
+  GeneralTags: "canOpenDoor"
   displayName: "Security Guard Secondary Heavy"
   idRef {
     id: "56085e06643431b1e715dae9"
@@ -14023,6 +14438,7 @@ characters {
     team_id: "LoneStar"
     char_name: "Security Guard"
     GeneralTags: "isSecondarySecurity"
+    GeneralTags: "canOpenDoor"
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -14040,6 +14456,7 @@ characters {
   }
   orientation: ORIENTATION_S
   GeneralTags: "isSecondarySecurity"
+  GeneralTags: "canOpenDoor"
   displayName: "Security Guard Secondary Mage"
   idRef {
     id: "56085e08643431b1e715daea"
@@ -14072,6 +14489,7 @@ characters {
     team_id: "LoneStar"
     char_name: "Security Mage"
     GeneralTags: "isSecondarySecurity"
+    GeneralTags: "canOpenDoor"
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -14089,6 +14507,7 @@ characters {
   }
   orientation: ORIENTATION_S
   GeneralTags: "isSecondarySecurity"
+  GeneralTags: "canOpenDoor"
   displayName: "Security Guard Secondary Pistol"
   idRef {
     id: "56085e0d643431b1e715daeb"
@@ -14121,6 +14540,7 @@ characters {
     team_id: "LoneStar"
     char_name: "Security"
     GeneralTags: "isSecondarySecurity"
+    GeneralTags: "canOpenDoor"
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -15125,11 +15545,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -12
+    x: -11
     y: 0
-    z: 149
+    z: 151
   }
-  orientation: ORIENTATION_S
+  orientation: ORIENTATION_W
   GeneralTags: "isTrainCivilian"
   displayName: "Bartender"
   idRef {
@@ -15274,6 +15694,7 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: true
   }
 }
 characters {
@@ -16242,6 +16663,7 @@ senseTags: "isDorbi"
 senseTags: "isPersi"
 senseTags: "isRafik"
 senseTags: "isSable"
+senseTags: "canOpenDoor"
 goals {
   name: "You Died"
   type: GoalType_Primary
