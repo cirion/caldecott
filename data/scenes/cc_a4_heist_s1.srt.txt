@@ -821,7 +821,7 @@ triggers {
       }
     }
   }
-  isActive: true
+  isActive: false
   idRef {
     id: "56285cef346435cc290016d9"
   }
@@ -1355,48 +1355,7 @@ triggers {
       }
     }
     ops {
-      functionName: "Trigger: Run Alternate Trigger"
-      args {
-        call_value {
-          functionName: "Get Map Item (Trigger)"
-          args {
-            string_value: "55fed34f346435d016002773"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WaitOrNot"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
+      functionName: "End Current Team Round"
     }
   }
   isActive: true
@@ -1405,7 +1364,7 @@ triggers {
   }
   elseActions {
   }
-  is_oneshot: false
+  is_oneshot: true
 }
 triggers {
   name: "PC0 Died"
@@ -12648,119 +12607,31 @@ triggers {
       }
     }
     ops {
-      functionName: "OR"
+      functionName: "Comparison (bool)"
       args {
         call_value {
-          functionName: "Comparison (int)"
+          functionName: "Get Variable (bool)"
           args {
-            call_value {
-              functionName: "Get Count of Alive Actors"
-              args {
-                call_value {
-                  functionName: "All Actors on Team"
-                  args {
-                    call_value {
-                      functionName: "Get Preset Value (string)"
-                      args {
-                        string_value: "FactionList"
-                      }
-                      args {
-                        int_value: 0
-                      }
-                    }
-                  }
-                  args {
-                    call_value {
-                      functionName: "Get Preset Value (int)"
-                      args {
-                        string_value: "AllOrAny"
-                      }
-                      args {
-                        int_value: 0
-                      }
-                    }
-                  }
-                  args {
-                    call_value {
-                      functionName: "Get Map Item (SceneDimension)"
-                      args {
-                        string_value: "Matrix"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "Comparison Ops"
-              }
-              args {
-                int_value: 2
-              }
-            }
-          }
-          args {
-            int_value: 0
+            string_value: "sableJackedIn"
           }
         }
       }
       args {
         call_value {
-          functionName: "Comparison (int)"
+          functionName: "Get Preset Value (int)"
           args {
-            call_value {
-              functionName: "Get Count of Alive Actors"
-              args {
-                call_value {
-                  functionName: "All Actors on Team"
-                  args {
-                    call_value {
-                      functionName: "Get Preset Value (string)"
-                      args {
-                        string_value: "FactionList"
-                      }
-                      args {
-                        int_value: 4
-                      }
-                    }
-                  }
-                  args {
-                    call_value {
-                      functionName: "Get Preset Value (int)"
-                      args {
-                        string_value: "AllOrAny"
-                      }
-                      args {
-                        int_value: 0
-                      }
-                    }
-                  }
-                  args {
-                    call_value {
-                      functionName: "Get Map Item (SceneDimension)"
-                      args {
-                        string_value: "Matrix"
-                      }
-                    }
-                  }
-                }
-              }
-            }
+            string_value: "IsOrIsNot"
           }
           args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "Comparison Ops"
-              }
-              args {
-                int_value: 2
-              }
-            }
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
           }
           args {
             int_value: 0
@@ -12861,6 +12732,137 @@ triggers {
   elseActions {
   }
   is_oneshot: false
+}
+triggers {
+  name: "Sable Jacked In"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "55fedb92346435d016002788"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Compare Actor Team"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Matrix"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "sableJackedIn"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "55fed34f346435d016002773"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "56286386346435cc290016da"
+  }
+  elseActions {
+  }
+  is_oneshot: true
 }
 regions {
   name: "Camera Train"
@@ -16940,6 +16942,14 @@ variables {
     typeName: "int"
   }
 }
+variables {
+  bool_value: false
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "sableJackedIn"
+    typeName: "bool"
+  }
+}
 mapEvents: "Dorbi Approves"
 mapEvents: "Dorbi Disapproves"
 mapEvents: "Persi Approves"
@@ -17142,18 +17152,21 @@ character_roster {
     hiring_conditions {
     }
     hiring_cost: -1
+    content_pack_source: "5505a99b346435a418004d07"
   }
   roster_entries {
     reference_id: "crew_lv4_dorbi"
     hiring_conditions {
     }
     hiring_cost: -1
+    content_pack_source: "5505a99b346435a418004d07"
   }
   roster_entries {
     reference_id: "crew_lv4_sable"
     hiring_conditions {
     }
     hiring_cost: -1
+    content_pack_source: "5505a99b346435a418004d07"
   }
 }
 show_hiring_screen_on_scene_load: true
