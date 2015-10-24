@@ -420,120 +420,6 @@ triggers {
       }
     }
     ops {
-      functionName: "Remove Item from Actor"
-      args {
-        call_value {
-          functionName: "Get Map Item (Item)"
-          args {
-            string_value: "Aztechnology Disguise"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "All Actors on Team"
-          args {
-            call_value {
-              functionName: "Get Preset Value (string)"
-              args {
-                string_value: "FactionList"
-              }
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "AllOrAny"
-              }
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Map Item (SceneDimension)"
-              args {
-                string_value: "Default"
-              }
-            }
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Remove Item from Actor"
-      args {
-        call_value {
-          functionName: "Get Map Item (Item)"
-          args {
-            string_value: "Tsang Disguise"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "All Actors on Team"
-          args {
-            call_value {
-              functionName: "Get Preset Value (string)"
-              args {
-                string_value: "FactionList"
-              }
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "AllOrAny"
-              }
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Map Item (SceneDimension)"
-              args {
-                string_value: "Default"
-              }
-            }
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-    ops {
       functionName: "Set Actor In Passive Mode"
       args {
         call_value {
@@ -997,10 +883,73 @@ triggers {
 triggers {
   name: "You Died"
   events {
+    ops {
+      functionName: "On Actor Death"
+    }
   }
   conditions {
+    ops {
+      functionName: "Comparison (Actor)"
+      args {
+        call_value {
+          functionName: "Triggering Target Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
   }
   actions {
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "You Died"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 3
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -11164,15 +11113,177 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "Remove Disguise"
+  name: "Start Removing Disguise"
   events {
     ops {
-      functionName: "On Curtains Up"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Event_RemoveDisguise"
+      }
     }
   }
   conditions {
+    ops {
+      functionName: "OR"
+      args {
+        call_value {
+          functionName: "Evaluate If Actor Has Item"
+          args {
+            call_value {
+              functionName: "Specific Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (Player)"
+                  args {
+                    int_value: 0
+                  }
+                }
+              }
+              args {
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "HasOrHasNot"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (Item)"
+              args {
+                string_value: "Aztechnology Disguise"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Evaluate If Actor Has Item"
+          args {
+            call_value {
+              functionName: "Specific Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (Player)"
+                  args {
+                    int_value: 0
+                  }
+                }
+              }
+              args {
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "HasOrHasNot"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (Item)"
+              args {
+                string_value: "Tsang Disguise"
+              }
+            }
+          }
+        }
+      }
+    }
   }
   actions {
+    ops {
+      functionName: "Display Text at Screen Position"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        string_value: "You discard the disguise from Ava\'s manor. It won\'t help you blend in around here."
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 5
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 0
+      }
+    }
+    ops {
+      functionName: "Fade Camera Out"
+      args {
+        float_value: 2
+      }
+      args {
+        float_value: 3
+      }
+    }
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Event_Wait"
+          }
+        }
+      }
+      args {
+        float_value: 5
+      }
+    }
+    ops {
+      functionName: "Trigger: Wait for Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Event_Wait"
+          }
+        }
+      }
+    }
     ops {
       functionName: "Remove Item from Actor"
       args {
@@ -11185,36 +11296,16 @@ triggers {
       }
       args {
         call_value {
-          functionName: "All Actors on Team"
+          functionName: "Specific Actor"
           args {
             call_value {
-              functionName: "Get Preset Value (string)"
-              args {
-                string_value: "FactionList"
-              }
+              functionName: "Get Map Item (Player)"
               args {
                 int_value: 0
               }
             }
           }
           args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "AllOrAny"
-              }
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Map Item (SceneDimension)"
-              args {
-                string_value: "Default"
-              }
-            }
           }
         }
       }
@@ -11225,7 +11316,7 @@ triggers {
             string_value: "WithOrWithout"
           }
           args {
-            int_value: 0
+            int_value: 1
           }
         }
       }
@@ -11242,6 +11333,46 @@ triggers {
       }
       args {
         call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Remove Item from Actor by Item Type"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ItemType"
+          }
+          args {
+            int_value: 20
+          }
+        }
+      }
+      args {
+        call_value {
           functionName: "All Actors on Team"
           args {
             call_value {
@@ -11282,15 +11413,82 @@ triggers {
             string_value: "WithOrWithout"
           }
           args {
-            int_value: 0
+            int_value: 1
           }
         }
+      }
+    }
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Event_Wait"
+          }
+        }
+      }
+      args {
+        float_value: 10
+      }
+    }
+    ops {
+      functionName: "Trigger: Wait for Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Event_Wait"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Fade Camera In"
+      args {
+        float_value: 2
+      }
+      args {
+        float_value: 0
       }
     }
   }
   isActive: true
   idRef {
-    id: "56263f71346435482d000dea"
+    id: "562a4cca643431f000c09268"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Delayed Remove Disguise"
+  events {
+    ops {
+      functionName: "On Curtains Up"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Event_RemoveDisguise"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "562a50d9643431bf05411b54"
   }
   elseActions {
   }
@@ -16299,6 +16497,8 @@ mapEvents: "Sable_JackIn"
 mapEvents: "Kora_JackIn"
 mapEvents: "Event_MatrixUpdatePuzzleState"
 mapEvents: "Event_MatrixPlayTeleportSound"
+mapEvents: "Event_Wait"
+mapEvents: "Event_RemoveDisguise"
 senseTags: "isDorbi"
 senseTags: "isPersi"
 senseTags: "isRafik"
