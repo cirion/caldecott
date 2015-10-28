@@ -234,6 +234,28 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Activate Actor Spawner"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor Reference)"
+          args {
+            string_value: "562ee6f03464354c0a0019e9"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
   }
   isActive: false
   idRef {
@@ -14158,7 +14180,7 @@ regions {
     x: -66
     y: -7
     width: 34
-    height: 5
+    height: 7
   }
   enabledAtStart: true
   is_camera_region: true
@@ -18724,6 +18746,9 @@ characters {
       vulnerabilities {
       }
     }
+    equipment {
+      prefab_name: "ClassC_Support_Smoker (Base)"
+    }
     team_id: "Shadowrunners"
     char_name: "Persi"
     GeneralTags: "isPersi"
@@ -19106,6 +19131,104 @@ characters {
     hiring_cost_override: 3000
   }
 }
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -51
+    y: 0
+    z: -3
+  }
+  orientation: ORIENTATION_S
+  displayName: "Rafik Debug"
+  idRef {
+    id: "562ee6f03464354c0a0019e9"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Core/OrkMale"
+    character_sheet_id: "Crew_Rafik_Lv1"
+    equipment_sheet_id: "Crew_Rafik_Lv1_Gear"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+        cyberware_affinity: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Player"
+      attitude: AttitudeAggressive
+      vulnerabilities {
+      }
+    }
+    team_id: "Shadowrunners"
+    char_name: "Rafik"
+    GeneralTags: "isRafik"
+    GeneralTags: "isCrew"
+    enabled_at_start: false
+    pc_spawn_number: -1
+    hiring_type: HiringType_Hireable
+    portrait {
+      filename: "pc_orkmale_04_slick"
+    }
+    portrait_code_override: "s1h11c8b0c0t0"
+    karma: 75
+    hiring_cost_override: 0
+    hiring_tag: "Crew: Shaman"
+    id: "Crew_Lv1_Rafik"
+    first_name: "Rafik"
+    last_name: "Toth"
+  }
+}
 variables {
   bool_value: false
   variableref_value {
@@ -19245,7 +19368,7 @@ mapName: "cc_a2_persi_s3"
 parentStory: ""
 scene_title: "UNDER THE TIDE"
 scene_subtitle: ""
-scene_synopsis: "Persi disconnects from the cargo ship, jacks into the sub, and you\342\200\231re on your way. The sound of approaching choppers and hydrofoils gradually fades as you make your escape deep beneath the waves.\n\nIn all the excitement, though, you didn\342\200\231t have time to thoroughly inspect the interior, and soon make an unpleasant discovery..."
+scene_synopsis: "Persi disconnects from the cargo ship, jacks into the sub, and you\342\200\231re on your way. The sound of approaching choppers and hydrofoils gradually fades as you make your escape deep beneath the waves.\n\nIn all the excitement, you didn\342\200\231t have time to thoroughly inspect the interior, and soon make an unpleasant discovery..."
 scene_image: "cc_a2_persi_s3"
 scene_continue_button_skip: false
 scene_restore_runner_health: false
@@ -19303,8 +19426,6 @@ scene_dimensions {
   is_matrix: true
   max_alarm_value: 100
   heat_response_rating: 3
-}
-character_roster {
 }
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {
