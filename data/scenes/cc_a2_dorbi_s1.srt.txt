@@ -236,7 +236,7 @@ triggers {
       }
     }
   }
-  isActive: false
+  isActive: true
   idRef {
     id: "555bf49334643520190008e1"
   }
@@ -10414,6 +10414,17 @@ triggers {
 triggers {
   name: "Police Talk"
   events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "5630f08f643431f856cae93c"
+          }
+        }
+      }
+    }
   }
   conditions {
     ops {
@@ -10470,6 +10481,7 @@ triggers {
         }
       }
       args {
+        string_value: "Move along, citizen."
       }
       args {
         float_value: 0
@@ -10521,6 +10533,7 @@ triggers {
         }
       }
       args {
+        string_value: "Move along, $(l.race)."
       }
       args {
         float_value: 0
@@ -12332,7 +12345,7 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -232
+    x: -233
     y: 0
     z: 20
   }
