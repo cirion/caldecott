@@ -69,7 +69,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Prop)"
           args {
-            string_value: "55fe1f463464354c1f00761a"
+            string_value: "563829703464355814003408"
           }
         }
       }
@@ -3375,168 +3375,6 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "Matrix_PC0 Jack In"
-  events {
-    ops {
-      functionName: "Get Map Item (Event)"
-      args {
-        string_value: "Matrix_SelfJackIn"
-      }
-    }
-  }
-  conditions {
-  }
-  actions {
-    ops {
-      functionName: "Force-Use Interactable Object (with Actor)"
-      args {
-        call_value {
-          functionName: "Get Map Item (InteractableObject)"
-          args {
-            string_value: "55f303f26434318b4eb56928"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Player)"
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "55eb6ede346435102d004e67"
-  }
-  elseActions {
-  }
-  is_oneshot: false
-}
-triggers {
-  name: "Matrix_Sable Jack In"
-  events {
-    ops {
-      functionName: "Get Map Item (Event)"
-      args {
-        string_value: "Matrix_SableJackIn"
-      }
-    }
-  }
-  conditions {
-  }
-  actions {
-    ops {
-      functionName: "Force-Use Interactable Object (with Actor)"
-      args {
-        call_value {
-          functionName: "Get Map Item (InteractableObject)"
-          args {
-            string_value: "55f303f26434318b4eb56928"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Nearest Tagged Actor to Prop"
-          args {
-            call_value {
-              functionName: "Get Map Item (SenseTagList)"
-              args {
-                string_value: "isSable"
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Map Item (Prop)"
-              args {
-                string_value: "55f303f26434318b4eb56928"
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "55eb6f20346435102d004e69"
-  }
-  elseActions {
-  }
-  is_oneshot: false
-}
-triggers {
-  name: "Matrix Jack Point Real on Turn-Based"
-  events {
-    ops {
-      functionName: "On Turn Mode Enter"
-    }
-  }
-  conditions {
-  }
-  actions {
-    ops {
-      functionName: "Move Prop"
-      args {
-        call_value {
-          functionName: "Get Map Item (Prop)"
-          args {
-            string_value: "55f303f26434318b4eb56928"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Center of Region"
-          args {
-            call_value {
-              functionName: "Get Map Item (Region)"
-              args {
-                string_value: "55fe1fd33464354c1f00761b"
-              }
-            }
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Move Prop"
-      args {
-        call_value {
-          functionName: "Get Map Item (Prop)"
-          args {
-            string_value: "55fe1f463464354c1f00761a"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Center of Region"
-          args {
-            call_value {
-              functionName: "Get Map Item (Region)"
-              args {
-                string_value: "55fe1ff13464354c1f00761e"
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "55fe20013464354c1f00761f"
-  }
-  elseActions {
-  }
-  is_oneshot: false
-}
-triggers {
   name: "Matrix Jack Point Fake on Freemove"
   events {
     ops {
@@ -3595,7 +3433,7 @@ triggers {
       }
     }
   }
-  isActive: true
+  isActive: false
   idRef {
     id: "55fe20403464354c1f007620"
   }
@@ -4195,6 +4033,17 @@ triggers {
       }
       args {
         string_value: "As promised, the basement connects to the old Muni Metro tunnels, abandoned for many years. Colonel Saito and the other Marines had feared that opposition groups could use them as gathering places for strikes against the Imperial government. Today, the tunnels provide a helpful escape route, bypassing the swarm of Shiawase security converging towards the building on the surface.\n\nYou emerge through a ventilation shaft several blocks south, then quietly make your way towards the Islais Channel. You board the hidden watercraft and soon are skimming east across the Bay back towards Halferville, pondering how the new information acquired from Shiawase can best be put to use."
+      }
+    }
+    ops {
+      functionName: "Clear Waypoint from Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "563829703464355814003408"
+          }
+        }
       }
     }
   }
@@ -17591,6 +17440,101 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Jack Sable Into Matrix"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Sable_JackIn"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Force-Use Interactable Object (with Actor)"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55f303f26434318b4eb56928"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Nearest Tagged Actor to Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isSable"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55ee176c3464353031000178"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Jack Self Into Matrix"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Self_JackIn"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Force-Use Interactable Object (with Actor)"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55f303f26434318b4eb56928"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55ee17a63464353031000179"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
 regions {
   name: "Camera Middle Floor"
   position {
@@ -21206,7 +21150,7 @@ characters {
       }
     }
     team_id: "LoneStar"
-    char_name: "Blocker IC: Rating 1"
+    char_name: "Blocker IC"
     GeneralTags: "Zone3_Blocker2"
     pc_spawn_number: -1
     spawn_type: SpawnType_BlockerIC
@@ -21307,7 +21251,7 @@ characters {
       }
     }
     team_id: "LoneStar"
-    char_name: "Blocker IC: Rating 1"
+    char_name: "Blocker IC"
     GeneralTags: "Zone3_Blocker1"
     pc_spawn_number: -1
     spawn_type: SpawnType_BlockerIC
@@ -21460,7 +21404,7 @@ characters {
       }
     }
     team_id: "LoneStar"
-    char_name: "Blocker IC: Rating 1"
+    char_name: "Blocker IC"
     GeneralTags: "Zone5_Blocker1"
     pc_spawn_number: -1
     spawn_type: SpawnType_BlockerIC
@@ -21631,58 +21575,6 @@ characters {
     team_id: "LoneStar"
     char_name: "White Ranged IC"
     GeneralTags: "isMatrixZone5Squad"
-    enabled_at_start: false
-    pc_spawn_number: -1
-    spawn_type: SpawnType_Matrix
-    hiring_type: HiringType_None
-    portrait {
-      filename: ""
-    }
-    dimension_name: "Matrix"
-    karma: 29
-    hiring_cost_override: 1000
-    scale_character_sheet: true
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -363
-    y: 0
-    z: -64
-  }
-  orientation: ORIENTATION_S
-  GeneralTags: "isMatrixZone3Squad"
-  idRef {
-    id: "55f303f36434318b4eb56b35"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "HongKong:Matrix/MatrixIC_Ranged"
-    character_sheet_id: "IC_Lv1_White_Ranged"
-    equipment_sheet_id: "IC White Ranged Lv1 Gear"
-    character_mod {
-      stats {
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-      }
-      skills {
-      }
-      specializations {
-      }
-      archetypeName: "gumbo_IC_Soldier"
-      attitude: AttitudeAggressive
-      vulnerabilities {
-      }
-    }
-    team_id: "IC"
-    char_name: "White Ranged IC"
-    GeneralTags: "isMatrixZone3Squad"
     enabled_at_start: false
     pc_spawn_number: -1
     spawn_type: SpawnType_Matrix
@@ -22171,7 +22063,7 @@ characters {
       }
     }
     team_id: "LoneStar"
-    char_name: "Blocker IC: Rating 1"
+    char_name: "Blocker IC"
     GeneralTags: "Zone5_Blocker1"
     pc_spawn_number: -1
     spawn_type: SpawnType_BlockerIC
@@ -25179,11 +25071,11 @@ mapEvents: "Rafik Approves"
 mapEvents: "Rafik Disapproves"
 mapEvents: "Persi Approves"
 mapEvents: "Persi Disapproves"
-mapEvents: "Matrix_SelfJackIn"
-mapEvents: "Matrix_SableJackIn"
 mapEvents: "Event_MatrixPlayTeleportSound"
 mapEvents: "Event_MatrixToggle"
 mapEvents: "Event_UpdateFloor2"
+mapEvents: "Self_JackIn"
+mapEvents: "Sable_JackIn"
 senseTags: "isDorbi"
 senseTags: "isPersi"
 senseTags: "isSable"
