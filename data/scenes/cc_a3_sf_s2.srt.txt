@@ -14439,10 +14439,13 @@ triggers {
   name: "Lonestar Floor 2 Hostile on Return"
   events {
     ops {
-      functionName: "On New Round"
+      functionName: "On Region Enter"
       args {
         call_value {
-          functionName: "Nothing Selected"
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554ea85d346435142100462b"
+          }
         }
       }
     }
@@ -17534,6 +17537,82 @@ triggers {
   elseActions {
   }
   is_oneshot: false
+}
+triggers {
+  name: "Disable Terminal on Reaching Floor 2"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "554ea85d346435142100462b"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (Actor)"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Enable/Disable Interactable Object"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "560716db3464352425001143"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "563ae3a3346435c829001712"
+  }
+  elseActions {
+  }
+  is_oneshot: true
 }
 regions {
   name: "Camera Middle Floor"
