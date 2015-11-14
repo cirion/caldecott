@@ -7,7 +7,7 @@ nodes {
     id: "55ff6ff3346435bc00003ae5"
   }
   index: 0
-  text: "The sight of the enormous dragon stops you short. It fills your entire field of vision, obliterating the rest of the Matrix behind its sheer bulk. Tendrils of cabling imply that the creature has somehow jacked in to this virtual space, but it feels more *present* than anything else in the digital world.\n\nFor that matter, it feels more present than anything in the *physical* world."
+  text: "The sight of an enormous dragon stops overloads the interface. It fills the entire field of vision, obliterating the rest of the Matrix behind its sheer bulk. Tendrils of cabling imply that the creature has somehow jacked in to this virtual space, but it feels more *present* than anything else in the digital world.\n\nFor that matter, it feels more present than anything in the *physical* world."
   branches {
     nextNodeIndex: 1
     idRef {
@@ -29,13 +29,32 @@ nodes {
     }
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Teleport Camera To Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55ff5066346435bc00003a0d"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Apply Camera Zoom"
+      args {
+        float_value: 1.6
+      }
+    }
+  }
 }
 nodes {
   idRef {
     id: "55ff6fe2346435bc00003ad5:56004ad3643431bd6464f5fc"
   }
   index: 2
-  text: "The dragon\342\200\231s voice penetrates your skull. Not through the datalink interface, nor through your ears: the words appear unbidden directly inside your mind. Telepathy, then."
+  text: "The dragon\342\200\231s voice penetrates your skull. Not through a datalink interface, nor through your ears: the words appear unbidden directly inside your mind. Telepathy, then."
   branches {
     nextNodeIndex: 3
     idRef {
