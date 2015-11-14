@@ -620,150 +620,6 @@ triggers {
       }
     }
     ops {
-      functionName: "Add Item to Actor"
-      args {
-        call_value {
-          functionName: "Get Map Item (Item)"
-          args {
-            string_value: "cc_a3_berkeley_s1-ElevatorCard"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Player)"
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Add Item to Actor"
-      args {
-        call_value {
-          functionName: "Get Map Item (Item)"
-          args {
-            string_value: "cc_a3_berkeley_s1-LibraryCard"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Player)"
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Add Item to Actor"
-      args {
-        call_value {
-          functionName: "Get Map Item (Item)"
-          args {
-            string_value: "cc_a3_berkeley_s1-SecurityCard"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Player)"
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-    }
-    ops {
       functionName: "Kill Actor"
       args {
         call_value {
@@ -819,54 +675,6 @@ triggers {
           }
           args {
             int_value: 0
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Add Item to Actor"
-      args {
-        call_value {
-          functionName: "Get Map Item (Item)"
-          args {
-            string_value: "cc_a5_chase_s3-Keycards"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Player)"
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 1
           }
         }
       }
@@ -11494,6 +11302,86 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Place Emergency Backup Elevator Keycard"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate If Actor Has Item"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "cc_a3_berkeley_s1-ElevatorCard"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Move Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "5646c31234643588210078c2"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Center of Region"
+          args {
+            call_value {
+              functionName: "Get Map Item (Region)"
+              args {
+                string_value: "561349363464350430002ab8"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5646c39534643588210078c3"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Camera Campus"
   position {
@@ -11555,8 +11443,8 @@ regions {
 regions {
   name: "Office Floor 1 Camera"
   position {
-    x: 170
-    y: 87
+    x: -85
+    y: 139
     width: 28
     height: 37
   }
@@ -11613,8 +11501,8 @@ regions {
 regions {
   name: "Office Floor 2 Camera"
   position {
-    x: 103
-    y: 76
+    x: -41
+    y: -49
     width: 24
     height: 43
   }
@@ -11671,8 +11559,8 @@ regions {
 regions {
   name: "Security Area Camera"
   position {
-    x: 35
-    y: 63
+    x: -196
+    y: 99
     width: 30
     height: 31
   }
@@ -11729,8 +11617,8 @@ regions {
 regions {
   name: "Library Camera"
   position {
-    x: 229
-    y: 100
+    x: -148
+    y: 91
     width: 33
     height: 24
   }
@@ -11787,8 +11675,8 @@ regions {
 regions {
   name: "Teleport_PaydataToCross"
   position {
-    x: -294
-    y: 22
+    x: -107
+    y: -32
     width: 1
     height: 2
   }
@@ -11853,8 +11741,8 @@ regions {
 regions {
   name: "Teleport_EntranceToCross"
   position {
-    x: -313
-    y: 19
+    x: -126
+    y: -35
     width: -2
     height: 1
   }
@@ -11919,8 +11807,8 @@ regions {
 regions {
   name: "Teleport_CrossToPaydata"
   position {
-    x: -302
-    y: 34
+    x: -115
+    y: -20
     width: 1
     height: 2
   }
@@ -11985,8 +11873,8 @@ regions {
 regions {
   name: "Teleport_CrossToEntrance"
   position {
-    x: -310
-    y: 29
+    x: -123
+    y: -25
     width: -2
     height: 1
   }
@@ -12051,8 +11939,8 @@ regions {
 regions {
   name: "Teleport_CrossToDrones"
   position {
-    x: -321
-    y: 34
+    x: -134
+    y: -20
     width: 1
     height: 2
   }
@@ -12117,8 +12005,8 @@ regions {
 regions {
   name: "Teleport_DronesToCross"
   position {
-    x: -330
-    y: 33
+    x: -143
+    y: -21
     width: 1
     height: 2
   }
@@ -12183,8 +12071,8 @@ regions {
 regions {
   name: "Teleport_HestabyToCross"
   position {
-    x: -378
-    y: 21
+    x: -191
+    y: -33
     width: -2
     height: 1
   }
@@ -12249,10 +12137,10 @@ regions {
 regions {
   name: "Hestaby Camera"
   position {
-    x: -392
-    y: -10
-    width: 28
-    height: 38
+    x: -200
+    y: -44
+    width: 22
+    height: 14
   }
   enabledAtStart: true
   is_camera_region: true
@@ -12307,8 +12195,8 @@ regions {
 regions {
   name: "Camera Holding Pen"
   position {
-    x: -112
-    y: 64
+    x: -108
+    y: 0
     width: 9
     height: 15
   }
@@ -12365,10 +12253,10 @@ regions {
 regions {
   name: "Matrix Camera"
   position {
-    x: -353
-    y: -23
-    width: 95
-    height: 69
+    x: -166
+    y: -73
+    width: 93
+    height: 62
   }
   enabledAtStart: true
   is_camera_region: true
@@ -12423,8 +12311,8 @@ regions {
 regions {
   name: "Matrix Entrance"
   position {
-    x: -325
-    y: -17
+    x: -138
+    y: -71
     width: 23
     height: 41
   }
@@ -12481,8 +12369,8 @@ regions {
 regions {
   name: "Matrix Block Movement East 1"
   position {
-    x: -313
-    y: 12
+    x: -126
+    y: -42
     width: 1
     height: 1
   }
@@ -12539,8 +12427,8 @@ regions {
 regions {
   name: "Matrix Block Movement East 2"
   position {
-    x: -314
-    y: 12
+    x: -127
+    y: -42
     width: 1
     height: 1
   }
@@ -12597,8 +12485,8 @@ regions {
 regions {
   name: "Matrix Block Movement East 3"
   position {
-    x: -315
-    y: 12
+    x: -128
+    y: -42
     width: 1
     height: 1
   }
@@ -12655,8 +12543,8 @@ regions {
 regions {
   name: "Matrix Block Movement East 4"
   position {
-    x: -316
-    y: 12
+    x: -129
+    y: -42
     width: 1
     height: 1
   }
@@ -12713,8 +12601,8 @@ regions {
 regions {
   name: "Matrix Block Movement Center 4"
   position {
-    x: -316
-    y: 8
+    x: -129
+    y: -46
     width: 1
     height: 1
   }
@@ -12771,8 +12659,8 @@ regions {
 regions {
   name: "Matrix Block Movement Center 3"
   position {
-    x: -315
-    y: 8
+    x: -128
+    y: -46
     width: 1
     height: 1
   }
@@ -12829,8 +12717,8 @@ regions {
 regions {
   name: "Matrix Block Movement Center 2"
   position {
-    x: -314
-    y: 8
+    x: -127
+    y: -46
     width: 1
     height: 1
   }
@@ -12887,8 +12775,8 @@ regions {
 regions {
   name: "Matrix Block Movement Center 1"
   position {
-    x: -313
-    y: 8
+    x: -126
+    y: -46
     width: 1
     height: 1
   }
@@ -12945,8 +12833,8 @@ regions {
 regions {
   name: "Matrix Block Movement West 4"
   position {
-    x: -316
-    y: -5
+    x: -129
+    y: -59
     width: 1
     height: 1
   }
@@ -13003,8 +12891,8 @@ regions {
 regions {
   name: "Matrix Block Movement West 1"
   position {
-    x: -313
-    y: -5
+    x: -126
+    y: -59
     width: 1
     height: 1
   }
@@ -13061,8 +12949,8 @@ regions {
 regions {
   name: "Matrix Block Movement West 2"
   position {
-    x: -314
-    y: -5
+    x: -127
+    y: -59
     width: 1
     height: 1
   }
@@ -13119,8 +13007,8 @@ regions {
 regions {
   name: "Matrix Block Movement West 3"
   position {
-    x: -315
-    y: -5
+    x: -128
+    y: -59
     width: 1
     height: 1
   }
@@ -13177,8 +13065,8 @@ regions {
 regions {
   name: "Matrix Block Movement Holding Pen"
   position {
-    x: -340
-    y: -15
+    x: -153
+    y: -69
     width: 2
     height: 2
   }
@@ -13235,8 +13123,8 @@ regions {
 regions {
   name: "Teleport_CrossToHestaby"
   position {
-    x: -294
-    y: 44
+    x: -107
+    y: -10
     width: -2
     height: 1
   }
@@ -13301,8 +13189,8 @@ regions {
 regions {
   name: "Matrix Ambush Squad 2"
   position {
-    x: -334
-    y: 32
+    x: -147
+    y: -22
     width: 1
     height: 4
   }
@@ -13359,8 +13247,8 @@ regions {
 regions {
   name: "Matrix Keycard Zone"
   position {
-    x: -294
-    y: 12
+    x: -107
+    y: -42
     width: 31
     height: 22
   }
@@ -13823,8 +13711,8 @@ regions {
 regions {
   name: "Mark Eriana Entrance"
   position {
-    x: 120
-    y: 87
+    x: -24
+    y: -38
     width: 1
     height: 1
   }
@@ -13881,8 +13769,8 @@ regions {
 regions {
   name: "Trigger Eriana"
   position {
-    x: 114
-    y: 91
+    x: -30
+    y: -34
     width: 1
     height: 7
   }
@@ -13939,8 +13827,8 @@ regions {
 regions {
   name: "Mark Eriana Exit"
   position {
-    x: 110
-    y: 105
+    x: -34
+    y: -20
     width: 1
     height: 1
   }
@@ -13997,8 +13885,8 @@ regions {
 regions {
   name: "Mark Office Drone"
   position {
-    x: 184
-    y: 101
+    x: -71
+    y: 153
     width: 1
     height: 1
   }
@@ -14055,8 +13943,8 @@ regions {
 regions {
   name: "Mark Office Pistol"
   position {
-    x: 183
-    y: 99
+    x: -72
+    y: 151
     width: 1
     height: 1
   }
@@ -14113,8 +14001,8 @@ regions {
 regions {
   name: "Mark Office Captain"
   position {
-    x: 183
-    y: 95
+    x: -72
+    y: 147
     width: 1
     height: 1
   }
@@ -14171,8 +14059,8 @@ regions {
 regions {
   name: "Mark Office Rigger"
   position {
-    x: 182
-    y: 119
+    x: -73
+    y: 171
     width: 1
     height: 1
   }
@@ -14229,8 +14117,8 @@ regions {
 regions {
   name: "Mark Office Mage"
   position {
-    x: 179
-    y: 113
+    x: -76
+    y: 165
     width: 1
     height: 1
   }
@@ -14287,8 +14175,8 @@ regions {
 regions {
   name: "Matrix Node Tee"
   position {
-    x: -322
-    y: 27
+    x: -135
+    y: -27
     width: 22
     height: 12
   }
@@ -14345,8 +14233,8 @@ regions {
 regions {
   name: "Matrix Node North"
   position {
-    x: -350
-    y: -3
+    x: -163
+    y: -57
     width: 22
     height: 41
   }
@@ -14403,10 +14291,10 @@ regions {
 regions {
   name: "Matrix Node Hes"
   position {
-    x: -383
-    y: 9
+    x: -195
+    y: -43
     width: 10
-    height: 15
+    height: 13
   }
   enabledAtStart: true
   is_camera_region: false
@@ -14484,9 +14372,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -106
+    x: -102
     y: 0
-    z: 68
+    z: 4
   }
   orientation: ORIENTATION_S
   GeneralTags: "isNC"
@@ -14529,9 +14417,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -107
+    x: -103
     y: 0
-    z: 68
+    z: 4
   }
   orientation: ORIENTATION_S
   GeneralTags: "isNC"
@@ -14577,9 +14465,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -108
+    x: -104
     y: 0
-    z: 68
+    z: 4
   }
   orientation: ORIENTATION_S
   GeneralTags: "isNC"
@@ -14625,9 +14513,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -109
+    x: -105
     y: 0
-    z: 68
+    z: 4
   }
   orientation: ORIENTATION_S
   GeneralTags: "isNC"
@@ -14673,9 +14561,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 246
+    x: -131
     y: 0
-    z: 103
+    z: 94
   }
   orientation: ORIENTATION_E
   GeneralTags: "isSquadLibrary"
@@ -14721,9 +14609,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 261
+    x: -116
     y: 0
-    z: 111
+    z: 102
   }
   orientation: ORIENTATION_N
   GeneralTags: "isSquadLibrary"
@@ -14769,9 +14657,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 243
+    x: -134
     y: 0
-    z: 110
+    z: 101
   }
   orientation: ORIENTATION_W
   GeneralTags: "isSquadLibrary"
@@ -14817,9 +14705,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 54
+    x: -177
     y: 0
-    z: 77
+    z: 113
   }
   orientation: ORIENTATION_W
   idRef {
@@ -14863,9 +14751,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 50
+    x: -181
     y: 0
-    z: 75
+    z: 111
   }
   orientation: ORIENTATION_S
   idRef {
@@ -14909,9 +14797,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -109
+    x: -105
     y: 0
-    z: 70
+    z: 6
   }
   orientation: ORIENTATION_W
   GeneralTags: "isOfficeSquad"
@@ -15002,9 +14890,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -107
+    x: -103
     y: 0
-    z: 71
+    z: 7
   }
   orientation: ORIENTATION_E
   GeneralTags: "isOfficeSquad"
@@ -15051,9 +14939,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -108
+    x: -104
     y: 0
-    z: 71
+    z: 7
   }
   orientation: ORIENTATION_E
   GeneralTags: "isOfficeSquad"
@@ -15100,9 +14988,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -109
+    x: -105
     y: 0
-    z: 71
+    z: 7
   }
   orientation: ORIENTATION_N
   GeneralTags: "isOfficeSquad"
@@ -15149,9 +15037,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -107
+    x: -103
     y: 0
-    z: 75
+    z: 11
   }
   orientation: ORIENTATION_S
   displayName: "Claude Bullion"
@@ -15242,9 +15130,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -107
+    x: -103
     y: 0
-    z: 76
+    z: 12
   }
   orientation: ORIENTATION_S
   displayName: "Eriana"
@@ -15399,9 +15287,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -379
+    x: -192
     y: 0
-    z: 12
+    z: -42
   }
   orientation: ORIENTATION_E
   displayName: "Hestaby"
@@ -15489,9 +15377,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -298
+    x: -111
     y: 0
-    z: -13
+    z: -67
   }
   orientation: ORIENTATION_S
   GeneralTags: "isResponseIC"
@@ -15536,9 +15424,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -299
+    x: -112
     y: 0
-    z: -13
+    z: -67
   }
   orientation: ORIENTATION_S
   GeneralTags: "isResponseIC"
@@ -15587,9 +15475,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -299
+    x: -112
     y: 0
-    z: -12
+    z: -66
   }
   orientation: ORIENTATION_S
   GeneralTags: "isResponseIC"
@@ -15638,9 +15526,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -298
+    x: -111
     y: 0
-    z: -12
+    z: -66
   }
   orientation: ORIENTATION_S
   GeneralTags: "isResponseIC"
@@ -15829,9 +15717,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -272
+    x: -85
     y: 0
-    z: 23
+    z: -31
   }
   orientation: ORIENTATION_N
   GeneralTags: "Matrix_DataBlocker"
@@ -15930,9 +15818,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -344
+    x: -157
     y: 0
-    z: 3
+    z: -51
   }
   orientation: ORIENTATION_E
   GeneralTags: "Matrix_DoorBlocker"
@@ -16031,9 +15919,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -106
+    x: -102
     y: 0
-    z: 71
+    z: 7
   }
   orientation: ORIENTATION_E
   GeneralTags: "isDrone"
@@ -16125,9 +16013,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -310
+    x: -123
     y: 0
-    z: 4
+    z: -50
   }
   orientation: ORIENTATION_W
   GeneralTags: "isMatrixSquad1"
@@ -16177,9 +16065,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -314
+    x: -127
     y: 0
-    z: 3
+    z: -51
   }
   orientation: ORIENTATION_W
   GeneralTags: "isMatrixSquad1"
@@ -16210,9 +16098,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -319
+    x: -132
     y: 0
-    z: 3
+    z: -51
   }
   orientation: ORIENTATION_W
   GeneralTags: "isMatrixSquad1"
@@ -16262,9 +16150,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -341
+    x: -154
     y: 0
-    z: 20
+    z: -34
   }
   orientation: ORIENTATION_E
   GeneralTags: "isMatrixSquad2"
@@ -16315,9 +16203,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -346
+    x: -159
     y: 0
-    z: 25
+    z: -29
   }
   orientation: ORIENTATION_S
   GeneralTags: "isMatrixSquad2"
@@ -16348,9 +16236,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -341
+    x: -154
     y: 0
-    z: 27
+    z: -27
   }
   orientation: ORIENTATION_S
   GeneralTags: "isMatrixSquad2"
@@ -16400,9 +16288,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -275
+    x: -88
     y: 0
-    z: 20
+    z: -34
   }
   orientation: ORIENTATION_N
   GeneralTags: "isMatrixSquad3"
@@ -16452,9 +16340,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -284
+    x: -97
     y: 0
-    z: 22
+    z: -32
   }
   orientation: ORIENTATION_N
   GeneralTags: "isMatrixSquad3"
@@ -16485,9 +16373,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -289
+    x: -102
     y: 0
-    z: 30
+    z: -24
   }
   orientation: ORIENTATION_W
   GeneralTags: "isMatrixSquad3"
