@@ -233,7 +233,7 @@ triggers {
       }
     }
   }
-  isActive: false
+  isActive: true
   idRef {
     id: "55eb90d7346435102d004e9c"
   }
@@ -251,6 +251,52 @@ triggers {
   conditions {
   }
   actions {
+    ops {
+      functionName: "Select Item on Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Fist"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "All Actors on Team"
+          args {
+            call_value {
+              functionName: "Get Preset Value (string)"
+              args {
+                string_value: "FactionList"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (SceneDimension)"
+              args {
+                string_value: "Default"
+              }
+            }
+          }
+        }
+      }
+    }
     ops {
       functionName: "Start Conversation"
       args {
@@ -5891,8 +5937,8 @@ regions {
 regions {
   name: "Camera Dis"
   position {
-    x: 85
-    y: 46
+    x: -162
+    y: -72
     width: 29
     height: 27
   }
@@ -6123,8 +6169,8 @@ regions {
 regions {
   name: "Dorbi Dis Mark"
   position {
-    x: 91
-    y: 61
+    x: -156
+    y: -57
     width: 1
     height: 1
   }
@@ -6181,8 +6227,8 @@ regions {
 regions {
   name: "Kroin Dis Mark"
   position {
-    x: 97
-    y: 52
+    x: -150
+    y: -66
     width: 1
     height: 1
   }
@@ -6239,8 +6285,8 @@ regions {
 regions {
   name: "Team Dis Mark"
   position {
-    x: 94
-    y: 63
+    x: -153
+    y: -55
     width: 3
     height: 2
   }
@@ -6471,8 +6517,8 @@ regions {
 regions {
   name: "Camera Holding"
   position {
-    x: 122
-    y: 58
+    x: -125
+    y: -60
     width: 14
     height: 15
   }
@@ -7834,9 +7880,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 127
+    x: -120
     y: 0
-    z: 65
+    z: -53
   }
   orientation: ORIENTATION_S
   displayName: "Post-election Dorbi"
