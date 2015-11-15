@@ -691,6 +691,42 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Redirect the Wastewater"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "No Effect"
+    }
   }
   isActive: false
   idRef {
@@ -9531,6 +9567,9 @@ triggers {
   }
   actions {
     ops {
+      functionName: "Trigger: Wait Until Triggered Again"
+    }
+    ops {
       functionName: "Teleport Actor"
       args {
         call_value {
@@ -9667,6 +9706,9 @@ triggers {
           }
         }
       }
+    }
+    ops {
+      functionName: "No Effect"
     }
   }
   isActive: true
