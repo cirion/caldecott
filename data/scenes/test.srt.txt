@@ -1,4 +1,40 @@
 triggers {
+  name: "Map Setup"
+  events {
+    ops {
+      functionName: "On Map Setup"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Hub_LoadingText"
+          }
+        }
+      }
+      args {
+        string_value: "You retreat to Rafik and Kora\'s apartment. Mutual relief at your miraculous survival quickly decays into dread as you ponder the few options available to escape from this mess."
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "564813333464359c2a003328"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
   name: "INIT GLOBAL VARS - story.men"
   events {
     ops {
@@ -5308,7 +5344,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Scene)"
           args {
-            string_value: "test_combat"
+            string_value: "test_global_string_1"
           }
         }
       }
@@ -5603,6 +5639,50 @@ triggers {
   isActive: true
   idRef {
     id: "55ee524b346435d834003f0c"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Update Global Var"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "56480ec13464359c2a003326"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_Hub_LoadingText"
+          }
+        }
+      }
+      args {
+        string_value: "The Lab may occupy a scenic location, but that same scenery makes it hard to secure. Your pursuers quickly lose sight of you as your team makes its way down through the ravines of the Berkeley Hills, and you quickly locate one of the numerous tunnels in the Diablo Range that will bring you back to Halferville.\n\nYou share a quick, quiet celebration with your teammates. With the Hayward Fault primed, another crucial element of your plan has fallen into place. It won\'t be long now until your preparations for the heist are complete."
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "56480eae3464359c2a003325"
   }
   elseActions {
   }
