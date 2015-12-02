@@ -376,72 +376,65 @@ triggers {
       }
     }
     ops {
-      functionName: "Kill Actor"
+      functionName: "Set Actor Base Skill"
       args {
         call_value {
-          functionName: "All Actors on Team"
+          functionName: "Specific Actor"
           args {
             call_value {
-              functionName: "Get Preset Value (string)"
-              args {
-                string_value: "FactionList"
-              }
-              args {
-                int_value: 5
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "AllOrAny"
-              }
+              functionName: "Get Map Item (Player)"
               args {
                 int_value: 0
               }
             }
           }
           args {
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorSkills"
+          }
+          args {
+            int_value: 14
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Actor Base Skill"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
             call_value {
-              functionName: "Get Map Item (SceneDimension)"
+              functionName: "Get Map Item (Player)"
               args {
-                string_value: "Default"
+                int_value: 0
               }
             }
           }
+          args {
+          }
         }
+      }
+      args {
+        int_value: 1
       }
       args {
         call_value {
           functionName: "Get Preset Value (int)"
           args {
-            string_value: "DeathMethod"
+            string_value: "ActorSkills"
           }
           args {
-            int_value: 3
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "FacingDirection"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 0
+            int_value: 13
           }
         }
       }
@@ -20531,7 +20524,7 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -105
+    x: -104
     y: 0
     z: -71
   }
