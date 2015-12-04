@@ -427,6 +427,20 @@ triggers {
         int_value: 8
       }
     }
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Event_RemoveItems"
+          }
+        }
+      }
+      args {
+        float_value: 4
+      }
+    }
   }
   isActive: true
   idRef {
@@ -4247,7 +4261,10 @@ triggers {
   name: "Remove Quest Items"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Event_RemoveItems"
+      }
     }
   }
   conditions {
@@ -6690,6 +6707,7 @@ mapEvents: "Rafik Look at You"
 mapEvents: "Sable Approves"
 mapEvents: "Sable Disapproves"
 mapEvents: "Sable Greatly Disapproves"
+mapEvents: "Event_RemoveItems"
 senseTags: "isPC0"
 goals {
   name: "Recruit a Decker"
