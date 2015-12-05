@@ -976,7 +976,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Item)"
           args {
-            string_value: "Aztechnology Disguise"
+            string_value: "Tsang Disguise"
           }
         }
       }
@@ -2540,7 +2540,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Prop)"
           args {
-            string_value: "5611c751346435ec1a006c5f"
+            string_value: "56626a35346435d812006c94"
           }
         }
       }
@@ -3565,6 +3565,204 @@ triggers {
   elseActions {
   }
   is_oneshot: false
+}
+triggers {
+  name: "SceneFlow_StartExit"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "56626a35346435d812006c94"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Fade Camera Out"
+      args {
+        float_value: 1
+      }
+      args {
+        float_value: 0
+      }
+    }
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "56626a61346435d812006c97"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "566269b8346435d812006c92"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "SceneFlow_OnFadeOutRemoveDisguiseAndExit"
+  events {
+    ops {
+      functionName: "On Camera Fade Out"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Remove Item from Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Tsang Disguise"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Remove Item from Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Aztechnology Disguise"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Event_Exit"
+          }
+        }
+      }
+      args {
+        float_value: 0
+      }
+    }
+  }
+  isActive: false
+  idRef {
+    id: "56626a61346435d812006c97"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "SceneFlow_Exit"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Event_Exit"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Open Scene"
+      args {
+        call_value {
+          functionName: "Get Map Item (Scene)"
+          args {
+            string_value: "cc_a5_chase_s3"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "56626ad8346435d812006c98"
+  }
+  elseActions {
+  }
+  is_oneshot: true
 }
 regions {
   name: "Camera"
@@ -5000,7 +5198,7 @@ characters {
       }
     }
     equipment {
-      prefab_name: "Tsang Disguise"
+      prefab_name: "Tsang Outfit"
     }
     team_id: "Civilians"
     char_name: "Guest"
@@ -5273,7 +5471,7 @@ characters {
       }
     }
     equipment {
-      prefab_name: "Tsang Disguise"
+      prefab_name: "Tsang Outfit"
     }
     team_id: "Civilians"
     char_name: "Guest"
@@ -6599,6 +6797,7 @@ variables {
   }
 }
 mapEvents: "Wait"
+mapEvents: "Event_Exit"
 senseTags: "isRafik"
 senseTags: "isDorbi"
 senseTags: "isPersi"
