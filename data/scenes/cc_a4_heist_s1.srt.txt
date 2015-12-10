@@ -608,7 +608,7 @@ triggers {
       }
     }
   }
-  isActive: true
+  isActive: false
   idRef {
     id: "55ff00d2346435bc000038bc"
   }
@@ -739,28 +739,6 @@ triggers {
           functionName: "Get Map Item (Player)"
           args {
             int_value: 0
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Enable/Disable Trigger"
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "EnableOrDisable"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Trigger)"
-          args {
-            string_value: "560f3eb1346435a01a00450a"
           }
         }
       }
@@ -6842,6 +6820,44 @@ triggers {
     }
   }
   conditions {
+    ops {
+      functionName: "Compare Actor Team"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Matrix"
+          }
+        }
+      }
+    }
   }
   actions {
     ops {
@@ -11069,6 +11085,44 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Compare Actor Team"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Matrix"
+          }
+        }
+      }
+    }
   }
   actions {
     ops {
@@ -13221,6 +13275,44 @@ triggers {
     }
   }
   conditions {
+    ops {
+      functionName: "Compare Actor Team"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Matrix"
+          }
+        }
+      }
+    }
   }
   actions {
     ops {
@@ -13953,8 +14045,8 @@ regions {
 regions {
   name: "IC Holding Camera"
   position {
-    x: -77
-    y: 25
+    x: -86
+    y: 23
     width: 8
     height: 8
   }
@@ -14321,6 +14413,122 @@ regions {
   }
   visible_at_start: false
   is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
+}
+regions {
+  name: "Security Closet Holding Camera"
+  position {
+    x: -81
+    y: 41
+    width: 11
+    height: 8
+  }
+  enabledAtStart: true
+  is_camera_region: true
+  is_matrix_node: false
+  is_vfx_fill_region: false
+  idRef {
+    id: "56690a656261637421000c16"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: true
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
+}
+regions {
+  name: "Persi Holding Closet"
+  position {
+    x: -81
+    y: 15
+    width: 5
+    height: 4
+  }
+  enabledAtStart: true
+  is_camera_region: true
+  is_matrix_node: false
+  is_vfx_fill_region: false
+  idRef {
+    id: "56690a7d6261637421000c17"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: true
   is_teleporter_region: false
   directional_light_dir {
     x: -0.5
@@ -15791,7 +15999,7 @@ characters {
       vulnerabilities {
       }
     }
-    team_id: "IC"
+    team_id: "Blocker IC"
     char_name: "Blocker IC"
     enabled_at_start: false
     pc_spawn_number: -1
@@ -15891,7 +16099,7 @@ characters {
       vulnerabilities {
       }
     }
-    team_id: "IC"
+    team_id: "Blocker IC"
     char_name: "Blocker IC"
     pc_spawn_number: -1
     spawn_type: SpawnType_BlockerIC
@@ -17531,6 +17739,7 @@ team_affiliations {
   affiliation: 0
   affiliation: 1
   affiliation: 0
+  affiliation: 1
 }
 team_affiliations {
   team_name: "Monsters"
@@ -17541,9 +17750,11 @@ team_affiliations {
   affiliation: 0
   affiliation: 0
   affiliation: 0
+  affiliation: 0
 }
 team_affiliations {
   team_name: "LoneStar"
+  affiliation: 0
   affiliation: 0
   affiliation: 0
   affiliation: 0
@@ -17561,9 +17772,11 @@ team_affiliations {
   affiliation: 0
   affiliation: 0
   affiliation: 0
+  affiliation: 0
 }
 team_affiliations {
   team_name: "Inactive Shadowrunners"
+  affiliation: 0
   affiliation: 0
   affiliation: 0
   affiliation: 0
@@ -17581,9 +17794,22 @@ team_affiliations {
   affiliation: 0
   affiliation: 0
   affiliation: 0
+  affiliation: 0
 }
 team_affiliations {
   team_name: "Fault"
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+}
+team_affiliations {
+  team_name: "Blocker IC"
+  affiliation: 1
   affiliation: 0
   affiliation: 0
   affiliation: 0
@@ -17609,21 +17835,18 @@ character_roster {
     hiring_conditions {
     }
     hiring_cost: -1
-    content_pack_source: "5505a99b346435a418004d07"
   }
   roster_entries {
     reference_id: "crew_lv4_dorbi"
     hiring_conditions {
     }
     hiring_cost: -1
-    content_pack_source: "5505a99b346435a418004d07"
   }
   roster_entries {
     reference_id: "crew_lv4_sable"
     hiring_conditions {
     }
     hiring_cost: -1
-    content_pack_source: "5505a99b346435a418004d07"
   }
 }
 show_hiring_screen_on_scene_load: true
