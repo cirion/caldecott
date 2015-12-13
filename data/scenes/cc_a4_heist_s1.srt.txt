@@ -13291,6 +13291,76 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Logging Killed Reinforce Guard"
+  events {
+    ops {
+      functionName: "On Actor Death"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Target Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isSecondarySecurity"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Log Debug Message"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Log Levels"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        string_value: "Killed a secondary security guard"
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "566d11033438376c030000fc"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
 regions {
   name: "Camera Train"
   position {
