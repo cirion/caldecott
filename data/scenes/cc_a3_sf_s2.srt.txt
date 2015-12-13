@@ -4030,12 +4030,31 @@ triggers {
       }
     }
     ops {
-      functionName: "Enable/Disable Trigger"
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "56072b6f34643524250012b0"
+          }
+        }
+      }
       args {
         call_value {
           functionName: "Get Preset Value (int)"
           args {
-            string_value: "EnableOrDisable"
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
           }
           args {
             int_value: 0
@@ -4044,9 +4063,12 @@ triggers {
       }
       args {
         call_value {
-          functionName: "Get Map Item (Trigger)"
+          functionName: "Get Preset Value (int)"
           args {
-            string_value: "56072b6f34643524250012b0"
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
           }
         }
       }
@@ -8200,11 +8222,8 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Security Arriving_OFF"
+  name: "Security Arriving"
   events {
-    ops {
-      functionName: "On Host Jacked Out"
-    }
   }
   conditions {
   }
@@ -8509,7 +8528,7 @@ triggers {
       }
     }
   }
-  isActive: false
+  isActive: true
   idRef {
     id: "56072b6f34643524250012b0"
   }
@@ -17924,6 +17943,23 @@ triggers {
       }
       args {
         int_value: 1
+      }
+    }
+    ops {
+      functionName: "Log Debug Message"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Log Levels"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        string_value: "Forcing a Shadowrunner turn in the default after loading a saved game. This works around a bug in the Hong Kong engine. Can remove the two Skip Shadowrunner triggers if the bug is fixed later."
       }
     }
   }
