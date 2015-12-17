@@ -13529,6 +13529,28 @@ triggers {
         call_value {
           functionName: "Get Map Item (Trigger)"
           args {
+            string_value: "560ffacb346435981a007e4d"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
             string_value: "560830843464353c140065a3"
           }
         }
@@ -13879,12 +13901,32 @@ triggers {
       }
     }
     ops {
-      functionName: "Set Goal Status"
+      functionName: "Teleport Actor"
       args {
         call_value {
-          functionName: "Get Map Item (Goal)"
+          functionName: "Specific Actor"
           args {
-            string_value: "Return to Halferville"
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "55fed02d346435d016002766"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Center of Region"
+          args {
+            call_value {
+              functionName: "Get Map Item (Region)"
+              args {
+                string_value: "560f510d34643518270020a9"
+              }
+            }
           }
         }
       }
@@ -13892,10 +13934,32 @@ triggers {
         call_value {
           functionName: "Get Preset Value (int)"
           args {
-            string_value: "GoalStatus"
+            string_value: "FacingDirection"
           }
           args {
-            int_value: 1
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeleportMethod"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "56100987346435981a007e72"
           }
         }
       }
@@ -13910,25 +13974,25 @@ triggers {
           }
         }
       }
-    }
-    ops {
-      functionName: "Set Waypoint on Prop"
       args {
         call_value {
           functionName: "Get Preset Value (int)"
           args {
-            string_value: "PrimaryOrSecondary"
+            string_value: "WaitOrNot"
           }
           args {
-            int_value: 0
+            int_value: 1
           }
         }
       }
       args {
         call_value {
-          functionName: "Get Map Item (Prop)"
+          functionName: "Get Preset Value (int)"
           args {
-            string_value: "561013ed346435981a007edd"
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
           }
         }
       }
