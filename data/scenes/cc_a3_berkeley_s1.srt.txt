@@ -21471,6 +21471,150 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Reset Puzzle on Jackout"
+  events {
+    ops {
+      functionName: "On Host Jacked Out"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Remove Tag from Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isMatrixPuzzleActive"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "55f38fa0346435940c00061a"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Remove Tag from Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isMatrixPuzzleActive"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "55f38f9f346435940c000463"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Remove Tag from Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isMatrixPuzzleActive"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "55f38f9e346435940c00025a"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Remove Tag from Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isMatrixPuzzleActive"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "55f38fa0346435940c0005c0"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add Tag to Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isMatrixPuzzleActive"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "55f38f9e346435940c000390"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add Tag to Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isMatrixPuzzleActive"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "55f38f9e346435940c000237"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Event_MatrixUpdatePuzzleState"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "569093b0343837641e006a51"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
 regions {
   name: "Lower Outside Camera"
   position {
