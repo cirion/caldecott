@@ -1,4 +1,120 @@
 triggers {
+  name: "Map_Setup"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55ea65cd346435bc1f0046c5"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "HongKong:General/sitting_idle_eating"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Dorbi Casts Fireball"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Actor In Passive Mode"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "55e79076643431edb205cf45"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55e8686e64343129d872688b"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Seattle:General/standing_idle_bouncer"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55e79076643431edb205cf45"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Seattle:General/standing_idle_cower"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55ea6ef6346435bc1f0046cb"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
   name: "Debug"
   events {
     ops {
@@ -216,123 +332,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Set up map"
-  events {
-    ops {
-      functionName: "On Map Start"
-    }
-  }
-  conditions {
-  }
-  actions {
-    ops {
-      functionName: "Play Animation From Manifest"
-      args {
-        call_value {
-          functionName: "Get Map Item (Actor)"
-          args {
-            string_value: "55ea65cd346435bc1f0046c5"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Animation)"
-          args {
-            string_value: "HongKong:General/sitting_idle_eating"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Send Event"
-      args {
-        call_value {
-          functionName: "Get Map Item (Event)"
-          args {
-            string_value: "Dorbi Casts Fireball"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Actor In Passive Mode"
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Actor)"
-              args {
-                string_value: "55e79076643431edb205cf45"
-              }
-            }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "IsOrIsNot"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Play Animation From Manifest"
-      args {
-        call_value {
-          functionName: "Get Map Item (Actor)"
-          args {
-            string_value: "55e8686e64343129d872688b"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Animation)"
-          args {
-            string_value: "Seattle:General/standing_idle_bouncer"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Play Animation From Manifest"
-      args {
-        call_value {
-          functionName: "Get Map Item (Actor)"
-          args {
-            string_value: "55e79076643431edb205cf45"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Animation)"
-          args {
-            string_value: "Seattle:General/standing_idle_cower"
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "55ea6ef6346435bc1f0046cb"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
-  name: "Clear Rubble_OFF"
+  name: "ClearRubble_OFF"
   events {
     ops {
       functionName: "On Conversation Complete"
@@ -615,7 +615,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Update goal for cleared rubble"
+  name: "UpdateGoalForClearedRubble"
   events {
   }
   conditions {
@@ -697,7 +697,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Clear Rubble Vehicle Noise_OFF"
+  name: "ClearRubbleVehicleNoise_OFF"
   events {
     ops {
       functionName: "On Conversation Complete"
@@ -769,7 +769,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Start rubble quest"
+  name: "StartRubbleQuest"
   events {
     ops {
       functionName: "On Item Interaction"
@@ -829,7 +829,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Summon spirit"
+  name: "SummonSpirit"
   events {
     ops {
       functionName: "On Item Interaction"
@@ -933,7 +933,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Pick up 987 nuyen"
+  name: "PickUp987Nuyen"
   events {
     ops {
       functionName: "On Item Interaction"
@@ -974,7 +974,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Pick up 311 nuyen"
+  name: "PickUp311Nuyen"
   events {
     ops {
       functionName: "On Item Interaction"
@@ -1015,7 +1015,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Pick up 230 nuyen"
+  name: "PickUp230Nuyen"
   events {
     ops {
       functionName: "On Item Interaction"
@@ -1214,7 +1214,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Dorbi begins casting"
+  name: "DorbiBeginsCasting"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -1392,7 +1392,7 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "See Final HPF"
+  name: "SeeFinalHPF"
   events {
     ops {
       functionName: "On Actor Awareness of Another Actor"
@@ -1546,7 +1546,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Start Final HPF Fight_OFF"
+  name: "StartFinalHPFFight_OFF"
   events {
     ops {
       functionName: "On Conversation Complete"
@@ -1714,7 +1714,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Final HPF Reinforces"
+  name: "FinalHPFReinforces"
   events {
     ops {
       functionName: "On Actor Death"
@@ -1881,7 +1881,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Killed all HPF"
+  name: "KilledAllHPF"
   events {
     ops {
       functionName: "On Combat Exited"
@@ -1998,7 +1998,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "NPC Exit"
+  name: "NPCExit"
   events {
     ops {
       functionName: "On Region Enter"
@@ -2107,7 +2107,7 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "Father Exits_OFF"
+  name: "FatherExits_OFF"
   events {
     ops {
       functionName: "On Conversation Complete"
@@ -2215,7 +2215,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Final Goals_OFF"
+  name: "FinalGoals_OFF"
   events {
     ops {
       functionName: "On Conversation Complete"
@@ -2322,7 +2322,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Hear Explosion"
+  name: "HearExplosion"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -2409,7 +2409,7 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "See Second HPF"
+  name: "SeeSecondHPF"
   events {
     ops {
       functionName: "On Region Enter"
@@ -2515,7 +2515,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Recruited Dwarf_OFF"
+  name: "RecruitedDwarf_OFF"
   events {
     ops {
       functionName: "On Conversation Complete"
@@ -2626,7 +2626,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Start Second HPF Fight_OFF"
+  name: "StartSecondHPFFight_OFF"
   events {
     ops {
       functionName: "On Conversation Complete"
@@ -2710,7 +2710,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Second Fight Finished Minion Survived"
+  name: "SecondFightFinishedMinionSurvived"
   events {
     ops {
       functionName: "On Combat Exited"
@@ -2889,7 +2889,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Minion Leaves_OFF"
+  name: "MinionLeaves_OFF"
   events {
     ops {
       functionName: "On Conversation Complete"
@@ -3061,7 +3061,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Drop 987 Nuyen"
+  name: "Drop987Nuyen"
   events {
     ops {
       functionName: "On Actor Death"
@@ -3128,7 +3128,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Squad 1 Bark"
+  name: "Squad1Bark"
   events {
     ops {
       functionName: "On Actor Damage"
@@ -3273,7 +3273,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "PC0 Jack In"
+  name: "PC0JackIn"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -3314,7 +3314,7 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "Sable Jack In"
+  name: "SableJackIn"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -8471,7 +8471,7 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "Father Rewarded Nuyen_OFF"
+  name: "FatherRewardedNuyen_OFF"
   events {
     ops {
       functionName: "On Conversation Complete"
@@ -8496,7 +8496,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Father Rewarded Karma_OFF"
+  name: "FatherRewardedKarma_OFF"
   events {
     ops {
       functionName: "On Conversation Complete"
@@ -8536,7 +8536,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Debug Kill All HPF"
+  name: "Debug_KillAllHPF"
   events {
     ops {
       functionName: "On Item Interaction"
