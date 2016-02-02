@@ -9,10 +9,49 @@ nodes {
   index: 0
   text: "Well, well! If it isn\342\200\231t $(l.name), the Hero of Halferville!\n\n{{GM}}Sable bows low with an elaborate flourish that may or may not be sardonic.{{/GM}}"
   branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_Romance_SableLoveTalks"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 1
+    idRef {
+      id: "55f1ace8643431a119978f48:56b01c07336465ec220066f2"
+    }
+    comment: "Acknowledge that Sable was PARTIALLY romanced "
+  }
+  branches {
+    nextNodeIndex: 2
     idRef {
       id: "55f1ace8643431a119978f48:55f1acf6643431a119978f56"
     }
+    comment: "Fallback: Sable wasn\'t romanced (or you broke up)"
   }
   nodeType: ConversationNodeType_Simple
   actions {
@@ -42,27 +81,43 @@ nodes {
 }
 nodes {
   idRef {
-    id: "55f1ace8643431a119978f48:55f1acf6643431a119978f58"
+    id: "56b01c10336465ec220066f5"
   }
   index: 1
+  text: "It feels like we have reached the final chapter of our time together. Will there be more to come?\n\nI have enjoyed the brief moments spent together, you and I, as we prepared for this task before us. I do wish we had more of those moments, that we could have taken our relationship to a higher level. If events had not interceded and distracted us...\n\nWell. Perhaps in some parallel universe, we grew even closer. But that possibility will not detract from the pleasure I took in knowing you."
+  branches {
+    responseText: ""
+    nextNodeIndex: 2
+    idRef {
+      id: "55f1ace8643431a119978f48:56b01c4f336465ec22006757"
+    }
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55f1ace8643431a119978f48:55f1acf6643431a119978f58"
+  }
+  index: 2
   text: "I had a feeling that traveling with you would be interesting, but I had no idea just HOW interesting it would be! When you first showed up in that Orkland Raider base, I thought I might take a quick course on the shadowrunner life. Instead, I ended up in a master\342\200\231s class on power struggles in the Bay Area."
   branches {
     responseText: "I notice that you did more than just learn, though. You acted when we needed it."
-    nextNodeIndex: 2
+    nextNodeIndex: 3
     idRef {
       id: "55f1ace8643431a119978f48:55f1acfb643431a119978f5c"
     }
   }
   branches {
     responseText: "I\342\200\231ve enjoyed seeing your curiosity."
-    nextNodeIndex: 3
+    nextNodeIndex: 4
     idRef {
       id: "55f1ace8643431a119978f48:55f1ad1c643431a119978f62"
     }
   }
   branches {
     responseText: "Which reminds me, you still need to give a presentation to the group. It\342\200\231s a quarter of your final grade."
-    nextNodeIndex: 4
+    nextNodeIndex: 5
     idRef {
       id: "55f1ace8643431a119978f48:55f1ad1e643431a119978f6b"
     }
@@ -73,11 +128,11 @@ nodes {
   idRef {
     id: "55f1ace8643431a119978f48:55f1acfb643431a119978f5e"
   }
-  index: 2
+  index: 3
   text: "Yes, and that might be the most important thing I\342\200\231ve learned: that learning alone is not sufficient. It\342\200\231s a dangerous world out there, and we need to respond to it."
   branches {
     responseText: ""
-    nextNodeIndex: 5
+    nextNodeIndex: 6
     idRef {
       id: "55f1ace8643431a119978f48:55f1ad1b643431a119978f60"
     }
@@ -89,11 +144,11 @@ nodes {
   idRef {
     id: "55f1ace8643431a119978f48:55f1ad1c643431a119978f64"
   }
-  index: 3
+  index: 4
   text: "Thank you for indulging me so much throughout our travels. You have opened doors that I could never have opened on my own, and given me entry to fascinating - and dangerous! - environments to study."
   branches {
     responseText: ""
-    nextNodeIndex: 5
+    nextNodeIndex: 6
     idRef {
       id: "55f1ace8643431a119978f48:55f1ad1c643431a119978f66"
     }
@@ -105,11 +160,11 @@ nodes {
   idRef {
     id: "55f1ace8643431a119978f48:55f1ad1e643431a119978f6d"
   }
-  index: 4
+  index: 5
   text: "Ha! I think I will title my talk \342\200\234Why $(l.name) Is Dangerous To $+(l.him)self And Others.\342\200\235 I may need to record some trideo of you in action first."
   branches {
     responseText: ""
-    nextNodeIndex: 5
+    nextNodeIndex: 6
     idRef {
       id: "55f1ace8643431a119978f48:55f1ad1e643431a119978f6f"
     }
@@ -120,11 +175,11 @@ nodes {
   idRef {
     id: "55f1ad20643431a119978f72"
   }
-  index: 5
+  index: 6
   text: "Seeing you out there, moving between varied environments and cultures, has been truly fascinating. You use a different set of skills among the corporate elite in San Francisco, versus the desperately violent poverty in Oakland, versus the ivory-towered academia of Berkeley, and so on."
   branches {
     responseText: ""
-    nextNodeIndex: 6
+    nextNodeIndex: 7
     idRef {
       id: "55f1ace8643431a119978f48:55f1ad61643431a119978f8c"
     }
@@ -135,7 +190,7 @@ nodes {
   idRef {
     id: "55f1ace8643431a119978f48:55f1ad61643431a119978f8e"
   }
-  index: 6
+  index: 7
   text: "I notice that you seem to always have a handle on the best way to approach a given situation, using the right tool at your disposal for any particular encounter. It\342\200\231s so much more rewarding than the gauche \342\200\234one size fits all\342\200\235 approach to gunslinging that we see so often on the trideo."
   branches {
     responseText: ""
@@ -177,7 +232,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 7
+    nextNodeIndex: 8
     idRef {
       id: "55f1ace8643431a119978f48:55f1ad65643431a119978f92"
     }
@@ -223,7 +278,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 8
+    nextNodeIndex: 9
     idRef {
       id: "55f1ace8643431a119978f48:55f1ad81643431a119978fb3"
     }
@@ -231,7 +286,7 @@ nodes {
   }
   branches {
     responseText: ""
-    nextNodeIndex: 9
+    nextNodeIndex: 10
     idRef {
       id: "55f1ace8643431a119978f48:55f1ad83643431a119978fbc"
     }
@@ -243,11 +298,11 @@ nodes {
   idRef {
     id: "55f1ace8643431a119978f48:55f1ad65643431a119978f94"
   }
-  index: 7
+  index: 8
   text: "Like what happened with our dear friend Ava. I felt certain that you would slay her - she does seem to be the villain of the piece, after all. But you showed that you were more interested in results than petty revenge, and surprised us all by bringing her to your side through diplomacy rather than destroying her with violence."
   branches {
     responseText: ""
-    nextNodeIndex: 10
+    nextNodeIndex: 11
     idRef {
       id: "55f1ace8643431a119978f48:55f1ad7f643431a119978fb1"
     }
@@ -259,11 +314,11 @@ nodes {
   idRef {
     id: "55f1ace8643431a119978f48:55f1ad81643431a119978fb5"
   }
-  index: 8
+  index: 9
   text: "Like what happened with our dear friend Ava. You showed great flexibility throughout that encounter. You extended an olive branch when it seemed like that would provide the best outcome.\n\nBut, when she reneged on her agreement, you stood firm and did what needed to be done."
   branches {
     responseText: ""
-    nextNodeIndex: 10
+    nextNodeIndex: 11
     idRef {
       id: "55f1ace8643431a119978f48:55f1ad81643431a119978fb7"
     }
@@ -275,11 +330,11 @@ nodes {
   idRef {
     id: "55f1ace8643431a119978f48:55f1ad83643431a119978fbe"
   }
-  index: 9
+  index: 10
   text: "Like what happened with our dear friend Ava. She couldn\342\200\231t be touched while safely ensconced within the protection of Shiawase security. But once you were able to change the venue, and isolate her in that factory, you did what needed to be done."
   branches {
     responseText: ""
-    nextNodeIndex: 10
+    nextNodeIndex: 11
     idRef {
       id: "55f1ace8643431a119978f48:55f1ad83643431a119978fc0"
     }
@@ -290,25 +345,25 @@ nodes {
   idRef {
     id: "55f1add0643431a119978fc3"
   }
-  index: 10
+  index: 11
   text: "Needless to say, I\342\200\231ve burned all my bridges with Shiawase CalFree, and in any case I feel like I\342\200\231ve learned just about all that I can from the lifestyle of a criminal mastermind. It\342\200\231s time to move on to the next thing."
   branches {
     responseText: "You haven\342\200\231t worked for any governments before. I hear Sacramento\342\200\231s Matrix node is a mess and could use some help."
-    nextNodeIndex: 11
+    nextNodeIndex: 12
     idRef {
       id: "55f1ace8643431a119978f48:55f1add3643431a119978fc5"
     }
   }
   branches {
     responseText: "You might consider visiting Hestaby up in Shasta. Seeing a dragon must be a rare experience."
-    nextNodeIndex: 12
+    nextNodeIndex: 13
     idRef {
       id: "55f1ace8643431a119978f48:55f1adf4643431a119978fd6"
     }
   }
   branches {
     responseText: "You\342\200\231ve talked before about joining the Metahuman People\342\200\231s Army. I\342\200\231m sure they would love to have you."
-    nextNodeIndex: 13
+    nextNodeIndex: 14
     idRef {
       id: "55f1ace8643431a119978f48:55f1adf5643431a119978fdf"
     }
@@ -345,7 +400,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 15
+    nextNodeIndex: 16
     hideIfUnavailable: true
     idRef {
       id: "55f1ace8643431a119978f48:5648b7d0346435042e004e49"
@@ -383,7 +438,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 16
+    nextNodeIndex: 17
     hideIfUnavailable: true
     idRef {
       id: "55f1ace8643431a119978f48:5648b8eb346435042e004e55"
@@ -395,11 +450,11 @@ nodes {
   idRef {
     id: "55f1ace8643431a119978f48:55f1add3643431a119978fc7"
   }
-  index: 11
+  index: 12
   text: "Ooh, that would be a fine puzzle to untangle! One hears awful things about the bureaucratic gridlock of government work, but I could learn for myself whether such tales are exaggerated. And completely refactoring the IC and node architecture of such a massive system would be a supreme achievement for any decker."
   branches {
     responseText: ""
-    nextNodeIndex: 14
+    nextNodeIndex: 15
     idRef {
       id: "55f1ace8643431a119978f48:55f1adf1643431a119978fd4"
     }
@@ -411,11 +466,11 @@ nodes {
   idRef {
     id: "55f1ace8643431a119978f48:55f1adf4643431a119978fd8"
   }
-  index: 12
+  index: 13
   text: "Indeed! I\342\200\231ve been fascinated by Dorbi\342\200\231s tales of the dragon. I rarely experience much magic, but this may be the perfect excuse for me to do so. Based on her reputation, I imagine she will be pleased to make time for someone who took part in stopping Hemlock and halting Saito\342\200\231s plot to invade CalFree."
   branches {
     responseText: ""
-    nextNodeIndex: 14
+    nextNodeIndex: 15
     idRef {
       id: "55f1ace8643431a119978f48:55f1adf4643431a119978fda"
     }
@@ -427,11 +482,11 @@ nodes {
   idRef {
     id: "55f1ace8643431a119978f48:55f1adf5643431a119978fe1"
   }
-  index: 13
+  index: 14
   text: "Yes, it has been on my mind for a while. Granted, they seem like violent and uncouth people, but that has its own roguish charm. And such passion for the struggle! Few people are so willing to die for their cause. I feel that I could learn a great deal by fighting alongside them."
   branches {
     responseText: ""
-    nextNodeIndex: 14
+    nextNodeIndex: 15
     idRef {
       id: "55f1ace8643431a119978f48:55f1adf5643431a119978fe3"
     }
@@ -442,7 +497,7 @@ nodes {
   idRef {
     id: "55f1adf8643431a119978fe6"
   }
-  index: 14
+  index: 15
   text: "Anyways! I shall not keep you any longer. This is your night to celebrate all that you have accomplished. If I do not see you again, know that I will always think fondly of our time together."
   nodeType: ConversationNodeType_Simple
 }
@@ -450,11 +505,11 @@ nodes {
   idRef {
     id: "5648b822346435042e004e4c"
   }
-  index: 15
+  index: 16
   text: "Ah, yes! I haven\'t heard anything from her recently. I do hope that she\'s all right - she seems like a resourceful young lady.\n\nSeattle may be the ideal vantage point from which to observe the upcoming election. They\'re far from the center of power in UCAS, but that same distance gives the citizenry a unique perspective. I will find Hitomi and see if she is willing to be my guide to the rambunctious political scene."
   branches {
     responseText: ""
-    nextNodeIndex: 14
+    nextNodeIndex: 15
     idRef {
       id: "55f1ace8643431a119978f48:5648b8dd346435042e004e4e"
     }
@@ -466,11 +521,11 @@ nodes {
   idRef {
     id: "55f1ace8643431a119978f48:5648b8eb346435042e004e57"
   }
-  index: 16
+  index: 17
   text: "Indeed I did! To be honest, the excitement of the last few days had driven it completely from my mind. It may be one of the most momentous events of our time - just imagine what it would be like to live in a world where dragons are elected to become heads of state!\n\nCalFree will still be here if I ever return. In the meantime, I shall return to the lands of UCAS, following the campaign as closely as I can."
   branches {
     responseText: ""
-    nextNodeIndex: 14
+    nextNodeIndex: 15
     idRef {
       id: "55f1ace8643431a119978f48:5648b8eb346435042e004e59"
     }
