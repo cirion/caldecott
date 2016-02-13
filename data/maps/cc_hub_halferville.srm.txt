@@ -21998,6 +21998,41 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Travel to the Halferville Depths."
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     interactionIcon: InteractionIcon_Warp
     interaction_info_text: "Halferville Slums"
   }
@@ -27699,9 +27734,9 @@ props {
 props {
   name: "system_invisible_nonsolidProp"
   gridPoint {
-    x: -206
+    x: -162
     y: 0
-    z: -79
+    z: 33
   }
   orientation: ORIENTATION_S
   displayName: "Debug Start Here"
@@ -30406,4 +30441,57 @@ props {
     id: "565fc0c1346435c80b002207"
   }
   lod: 0
+}
+props {
+  name: "vfx_fx_oceanSplashConstant"
+  gridPoint {
+    x: -154
+    y: -2
+    z: 29
+  }
+  orientation: ORIENTATION_S
+  properties {
+    property_id: "fxScript"
+    string_value: "HongKong:EnvironmentLoopOceanSplashConstant"
+  }
+  lod: 0
+}
+props {
+  name: "vfx_fx_oceanSplashConstant"
+  gridPoint {
+    x: -154
+    y: -2
+    z: 28.6
+  }
+  orientation: ORIENTATION_S
+  properties {
+    property_id: "fxScript"
+    string_value: "HongKong:EnvironmentLoopOceanSplashConstant"
+  }
+  idRef {
+    id: "56bec6b739356520080079a2"
+  }
+  lod: 0
+}
+props {
+  name: "system_gizmo_audio"
+  gridPoint {
+    x: -153
+    y: 0
+    z: 27
+  }
+  orientation: ORIENTATION_S
+  lod: 0
+  ambientNode {
+    override_camera_ambient: false
+    sound_file: "HongKong:props:fountainloop"
+    attenuation_type: 1
+    min_volume: 0
+    max_volume: 0.5
+    min_radius: 4
+    max_radius: 8
+    crossfade_in_time: 1
+    crossfade_out_time: 1
+    music_fade_volume: 1
+  }
 }
