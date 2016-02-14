@@ -27734,9 +27734,9 @@ props {
 props {
   name: "system_invisible_nonsolidProp"
   gridPoint {
-    x: -44
+    x: -130
     y: 0
-    z: 12
+    z: 26
   }
   orientation: ORIENTATION_S
   displayName: "Debug Start Here"
@@ -30494,4 +30494,59 @@ props {
     crossfade_out_time: 1
     music_fade_volume: 1
   }
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -202
+    y: 0
+    z: -68
+  }
+  orientation: ORIENTATION_S
+  displayName: "Debug Trigger"
+  idRef {
+    id: "56bff6d33935658c19004dbb"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "isDebugging"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    interactionIcon: InteractionIcon_Generic
+    interaction_info_text: "Debug"
+  }
+  lod: 0
 }
