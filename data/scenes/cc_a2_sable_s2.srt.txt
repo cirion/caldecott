@@ -28,6 +28,35 @@ triggers {
   }
   actions {
     ops {
+      functionName: "Change Actor Control"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "55ecfc4b3464352c0e000dd4"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PlayerOrAI"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
       functionName: "Set Actor In Passive Mode"
       args {
         call_value {
@@ -348,6 +377,110 @@ triggers {
           }
           args {
             int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Kill Actor"
+      args {
+        call_value {
+          functionName: "All Actors on Team"
+          args {
+            call_value {
+              functionName: "Get Preset Value (string)"
+              args {
+                string_value: "FactionList"
+              }
+              args {
+                int_value: 2
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (SceneDimension)"
+              args {
+                string_value: "Default"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "DeathMethod"
+          }
+          args {
+            int_value: 3
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Defend Against Matrix Invasion"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
           }
         }
       }
@@ -17953,54 +18086,6 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 87
-    y: 0
-    z: 14
-  }
-  orientation: ORIENTATION_S
-  displayName: "Toxic Barrel"
-  idRef {
-    id: "55ea00e9643431dbf3961099"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "Berlin:Objects/ExplosiveBarrel"
-    character_sheet_id: "Environment_Barrel_Explosive"
-    equipment_sheet_id: "Environment_Barrel_Toxic"
-    character_mod {
-      stats {
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-        vision_peripheral_distance: 0
-        vision_cone_distance: 0
-        vision_cone_angle: 0
-      }
-      skills {
-      }
-      specializations {
-      }
-      archetypeName: "Non-Combatant"
-      vulnerabilities {
-      }
-    }
-    team_id: "Barrels"
-    char_name: "Toxic Barrel"
-    pc_spawn_number: -1
-    ai_ignores: true
-    portrait {
-      filename: ""
-    }
-    karma: 9
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
     x: 104
     y: 0
     z: 29
@@ -18454,7 +18539,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "Non-Combatant"
+      archetypeName: "Player"
       attitude: AttitudeAggressive
       vulnerabilities {
       }
@@ -19350,502 +19435,6 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -118
-    y: 0
-    z: 11
-  }
-  orientation: ORIENTATION_E
-  GeneralTags: "Zone4_Blocker1"
-  displayName: "Zone4_Blocker1"
-  idRef {
-    id: "55ee1242346435e025001cc0"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    interactionIcon: InteractionIcon_BlockerIC
-    interaction_info_text: ""
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "HongKong:Matrix/MatrixIC_Blocker"
-    character_sheet_id: "IC_Lv1_White_Blocker"
-    equipment_sheet_id: "IC White Blocker Lv1 Gear"
-    character_mod {
-      stats {
-        body: 0
-        quickness: 0
-        strength: 0
-        charisma: 0
-        intelligence: 0
-        willpower: 0
-        essence: 0
-        magic: 0
-        hp: 0
-        ap: 0
-        armor: 0
-        force: 0
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-        vision_peripheral_distance: 0
-        vision_cone_distance: 0
-        vision_cone_angle: 0
-      }
-      skills {
-        ranged_combat: 0
-        close_combat: 0
-        throwing_weapons: 0
-        spellcasting: 0
-        decking: 0
-        conjuring: 0
-        spirit_summoning: 0
-        drone_control: 0
-        biotech: 0
-        dodge: 0
-        etiquette_corporate: 0
-        etiquette_security: 0
-        etiquette_gang: 0
-        etiquette_socialite: 0
-        chi_casting: 0
-        etiquette_shadowrunner: 0
-        etiquette_street: 0
-        etiquette_academic: 0
-      }
-      specializations {
-        pistol: 0
-        rifle: 0
-        shotgun: 0
-        smg: 0
-        edged: 0
-        unarmed: 0
-        spirit_control: 0
-        esp_control: 0
-        drone_combat: 0
-      }
-      archetypeName: "gumbo_G_BlockerIC"
-      attitude: AttitudeAggressive
-      vulnerabilities {
-      }
-    }
-    team_id: "Friendly IC"
-    char_name: "Blocker IC"
-    GeneralTags: "Zone4_Blocker1"
-    pc_spawn_number: -1
-    spawn_type: SpawnType_BlockerIC
-    hiring_type: HiringType_None
-    portrait {
-      filename: ""
-    }
-    dimension_name: "Matrix"
-    karma: 29
-    hiring_cost_override: 1000
-    scale_character_sheet: true
-    blocker_ic_panel_difficulty: 2
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -118
-    y: 0
-    z: 10
-  }
-  orientation: ORIENTATION_E
-  GeneralTags: "Zone4_Blocker2"
-  displayName: "Zone4_Blocker2"
-  idRef {
-    id: "55ee1242346435e025001d4d"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    interactionIcon: InteractionIcon_BlockerIC
-    interaction_info_text: ""
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "HongKong:Matrix/MatrixIC_Blocker"
-    character_sheet_id: "IC_Lv1_White_Blocker"
-    equipment_sheet_id: "IC White Blocker Lv1 Gear"
-    character_mod {
-      stats {
-        body: 0
-        quickness: 0
-        strength: 0
-        charisma: 0
-        intelligence: 0
-        willpower: 0
-        essence: 0
-        magic: 0
-        hp: 0
-        ap: 0
-        armor: 0
-        force: 0
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-        vision_peripheral_distance: 0
-        vision_cone_distance: 0
-        vision_cone_angle: 0
-      }
-      skills {
-        ranged_combat: 0
-        close_combat: 0
-        throwing_weapons: 0
-        spellcasting: 0
-        decking: 0
-        conjuring: 0
-        spirit_summoning: 0
-        drone_control: 0
-        biotech: 0
-        dodge: 0
-        etiquette_corporate: 0
-        etiquette_security: 0
-        etiquette_gang: 0
-        etiquette_socialite: 0
-        chi_casting: 0
-        etiquette_shadowrunner: 0
-        etiquette_street: 0
-        etiquette_academic: 0
-      }
-      specializations {
-        pistol: 0
-        rifle: 0
-        shotgun: 0
-        smg: 0
-        edged: 0
-        unarmed: 0
-        spirit_control: 0
-        esp_control: 0
-        drone_combat: 0
-      }
-      archetypeName: "gumbo_G_BlockerIC"
-      attitude: AttitudeAggressive
-      vulnerabilities {
-      }
-    }
-    team_id: "Friendly IC"
-    char_name: "Blocker IC"
-    GeneralTags: "Zone4_Blocker2"
-    pc_spawn_number: -1
-    spawn_type: SpawnType_BlockerIC
-    hiring_type: HiringType_None
-    portrait {
-      filename: ""
-    }
-    dimension_name: "Matrix"
-    karma: 29
-    hiring_cost_override: 1000
-    scale_character_sheet: true
-    blocker_ic_panel_difficulty: 2
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -118
-    y: 0
-    z: 12
-  }
-  orientation: ORIENTATION_S
-  GeneralTags: "Zone4_Blocker3"
-  displayName: "Zone4_Blocker3"
-  idRef {
-    id: "55ee1242346435e025001db7"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    interactionIcon: InteractionIcon_BlockerIC
-    interaction_info_text: ""
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "HongKong:Matrix/MatrixIC_Blocker"
-    character_sheet_id: "IC_Lv1_White_Blocker"
-    equipment_sheet_id: "IC White Blocker Lv1 Gear"
-    character_mod {
-      stats {
-        body: 0
-        quickness: 0
-        strength: 0
-        charisma: 0
-        intelligence: 0
-        willpower: 0
-        essence: 0
-        magic: 0
-        hp: 0
-        ap: 0
-        armor: 0
-        force: 0
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-        vision_peripheral_distance: 0
-        vision_cone_distance: 0
-        vision_cone_angle: 0
-      }
-      skills {
-        ranged_combat: 0
-        close_combat: 0
-        throwing_weapons: 0
-        spellcasting: 0
-        decking: 0
-        conjuring: 0
-        spirit_summoning: 0
-        drone_control: 0
-        biotech: 0
-        dodge: 0
-        etiquette_corporate: 0
-        etiquette_security: 0
-        etiquette_gang: 0
-        etiquette_socialite: 0
-        chi_casting: 0
-        etiquette_shadowrunner: 0
-        etiquette_street: 0
-        etiquette_academic: 0
-      }
-      specializations {
-        pistol: 0
-        rifle: 0
-        shotgun: 0
-        smg: 0
-        edged: 0
-        unarmed: 0
-        spirit_control: 0
-        esp_control: 0
-        drone_combat: 0
-      }
-      archetypeName: "gumbo_G_BlockerIC"
-      attitude: AttitudeAggressive
-      vulnerabilities {
-      }
-    }
-    team_id: "Friendly IC"
-    char_name: "Blocker IC"
-    GeneralTags: "Zone4_Blocker3"
-    pc_spawn_number: -1
-    spawn_type: SpawnType_BlockerIC
-    hiring_type: HiringType_None
-    portrait {
-      filename: ""
-    }
-    dimension_name: "Matrix"
-    karma: 29
-    hiring_cost_override: 1000
-    scale_character_sheet: true
-    blocker_ic_panel_difficulty: 2
-    blocker_ic_panel_bypass_code: "c0rt3xFRZ"
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -163
-    y: 0
-    z: -8
-  }
-  orientation: ORIENTATION_W
-  idRef {
-    id: "55ee139f346435c020001aef"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "HongKong:Matrix/MatrixIC_Melee"
-    character_sheet_id: "IC_Lv1_White_Melee"
-    equipment_sheet_id: "IC White Melee Lv1 Gear"
-    character_mod {
-      stats {
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-      }
-      skills {
-      }
-      specializations {
-      }
-      archetypeName: "gumbo_IC_Soldier"
-      attitude: AttitudeAggressive
-      vulnerabilities {
-      }
-    }
-    team_id: "Friendly IC"
-    char_name: "White Melee IC"
-    pc_spawn_number: -1
-    spawn_type: SpawnType_Matrix
-    portrait {
-      filename: ""
-    }
-    dimension_name: "Matrix"
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -162
-    y: 0
-    z: 7
-  }
-  orientation: ORIENTATION_W
-  idRef {
-    id: "55ee13a2346435c020001af0"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "HongKong:Matrix/MatrixIC_Ranged"
-    character_sheet_id: "IC_Lv1_White_Ranged"
-    equipment_sheet_id: "IC White Ranged Lv1 Gear"
-    character_mod {
-      stats {
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-      }
-      skills {
-      }
-      specializations {
-      }
-      archetypeName: "gumbo_IC_Soldier"
-      attitude: AttitudeAggressive
-      vulnerabilities {
-      }
-    }
-    team_id: "Friendly IC"
-    char_name: "White Ranged IC"
-    pc_spawn_number: -1
-    spawn_type: SpawnType_Matrix
-    hiring_type: HiringType_None
-    portrait {
-      filename: ""
-    }
-    dimension_name: "Matrix"
-    karma: 29
-    hiring_cost_override: 1000
-    scale_character_sheet: true
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -160
-    y: 0
-    z: -15
-  }
-  orientation: ORIENTATION_N
-  idRef {
-    id: "55ee13a5346435c020001af1"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "HongKong:Matrix/MatrixIC_Support"
-    character_sheet_id: "IC_Lv1_White_Ranged"
-    equipment_sheet_id: "IC White Support Lv1 Gear"
-    character_mod {
-      stats {
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-      }
-      skills {
-      }
-      specializations {
-      }
-      archetypeName: "gumbo_IC_Shield"
-      attitude: AttitudeAggressive
-      vulnerabilities {
-      }
-    }
-    team_id: "Friendly IC"
-    char_name: "White Sentry IC"
-    pc_spawn_number: -1
-    spawn_type: SpawnType_Matrix
-    hiring_type: HiringType_None
-    portrait {
-      filename: ""
-    }
-    dimension_name: "Matrix"
-    karma: 29
-    hiring_cost_override: 1000
-    scale_character_sheet: true
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -144
-    y: 0
-    z: 3
-  }
-  orientation: ORIENTATION_W
-  idRef {
-    id: "55ee13a8346435c020001af2"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "HongKong:Matrix/MatrixIC_whiteLaser"
-    character_sheet_id: "IC_Lv1_White_ChargeLaser"
-    equipment_sheet_id: "IC White ChargeLaser Lv1 Gear"
-    character_mod {
-      stats {
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-      }
-      skills {
-      }
-      specializations {
-      }
-      archetypeName: "gumbo_IC_Laser"
-      attitude: AttitudeAggressive
-      vulnerabilities {
-      }
-    }
-    team_id: "Friendly IC"
-    char_name: "White Charge IC"
-    pc_spawn_number: -1
-    spawn_type: SpawnType_Matrix
-    hiring_type: HiringType_None
-    portrait {
-      filename: ""
-    }
-    dimension_name: "Matrix"
-    karma: 29
-    hiring_cost_override: 1000
-    scale_character_sheet: true
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
     x: -167
     y: 0
     z: -3
@@ -20717,6 +20306,551 @@ characters {
     first_name: "Persi"
     cyberware_head: "(Head) Datajack"
     cyberware_skin: "(Skin) Orthoskin (Bioware)"
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -144
+    y: 0
+    z: 3
+  }
+  orientation: ORIENTATION_W
+  idRef {
+    id: "56c273ec39356540290042bd"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Matrix/MatrixIC_goldLaser"
+    character_sheet_id: "IC_Lv1_White_ChargeLaser"
+    equipment_sheet_id: "IC White ChargeLaser Lv1 Gear"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_IC_Laser"
+      attitude: AttitudeAggressive
+      vulnerabilities {
+      }
+    }
+    team_id: "Friendly IC"
+    char_name: "White Charge IC"
+    pc_spawn_number: -1
+    spawn_type: SpawnType_Matrix
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    dimension_name: "Matrix"
+    karma: 29
+    hiring_cost_override: 1000
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -160
+    y: 0
+    z: -15
+  }
+  orientation: ORIENTATION_N
+  idRef {
+    id: "56c273ec39356540290042be"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Matrix/MatrixIC_goldSupport"
+    character_sheet_id: "IC_Lv1_White_Ranged"
+    equipment_sheet_id: "IC White Support Lv1 Gear"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_IC_Shield"
+      attitude: AttitudeAggressive
+      vulnerabilities {
+      }
+    }
+    team_id: "Friendly IC"
+    char_name: "White Sentry IC"
+    pc_spawn_number: -1
+    spawn_type: SpawnType_Matrix
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    dimension_name: "Matrix"
+    karma: 29
+    hiring_cost_override: 1000
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -162
+    y: 0
+    z: 7
+  }
+  orientation: ORIENTATION_W
+  idRef {
+    id: "56c273ec39356540290042bf"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Matrix/MatrixIC_goldRanged"
+    character_sheet_id: "IC_Lv1_White_Ranged"
+    equipment_sheet_id: "IC White Ranged Lv1 Gear"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_IC_Soldier"
+      attitude: AttitudeAggressive
+      vulnerabilities {
+      }
+    }
+    team_id: "Friendly IC"
+    char_name: "White Ranged IC"
+    pc_spawn_number: -1
+    spawn_type: SpawnType_Matrix
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    dimension_name: "Matrix"
+    karma: 29
+    hiring_cost_override: 1000
+    scale_character_sheet: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -163
+    y: 0
+    z: -8
+  }
+  orientation: ORIENTATION_W
+  idRef {
+    id: "56c273ec39356540290042c0"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Matrix/MatrixIC_goldMelee"
+    character_sheet_id: "IC_Lv1_White_Melee"
+    equipment_sheet_id: "IC White Melee Lv1 Gear"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "gumbo_IC_Soldier"
+      attitude: AttitudeAggressive
+      vulnerabilities {
+      }
+    }
+    team_id: "Friendly IC"
+    char_name: "White Melee IC"
+    pc_spawn_number: -1
+    spawn_type: SpawnType_Matrix
+    portrait {
+      filename: ""
+    }
+    dimension_name: "Matrix"
+    karma: 29
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -118
+    y: 0
+    z: 12
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "Zone4_Blocker3"
+  displayName: "Zone4_Blocker3"
+  idRef {
+    id: "56c273ec39356540290042c1"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    interactionIcon: InteractionIcon_BlockerIC
+    interaction_info_text: ""
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Matrix/MatrixIC_Blocker"
+    character_sheet_id: "IC_Lv1_White_Blocker"
+    equipment_sheet_id: "IC White Blocker Lv1 Gear"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "gumbo_G_BlockerIC"
+      attitude: AttitudeAggressive
+      vulnerabilities {
+      }
+    }
+    team_id: "Friendly IC"
+    char_name: "Blocker IC"
+    GeneralTags: "Zone4_Blocker3"
+    pc_spawn_number: -1
+    spawn_type: SpawnType_BlockerIC
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    dimension_name: "Matrix"
+    karma: 29
+    hiring_cost_override: 1000
+    scale_character_sheet: true
+    blocker_ic_panel_difficulty: 2
+    blocker_ic_panel_bypass_code: "c0rt3xFRZ"
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -118
+    y: 0
+    z: 10
+  }
+  orientation: ORIENTATION_E
+  GeneralTags: "Zone4_Blocker2"
+  displayName: "Zone4_Blocker2"
+  idRef {
+    id: "56c273ec39356540290042c2"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    interactionIcon: InteractionIcon_BlockerIC
+    interaction_info_text: ""
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Matrix/MatrixIC_Blocker"
+    character_sheet_id: "IC_Lv1_White_Blocker"
+    equipment_sheet_id: "IC White Blocker Lv1 Gear"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "gumbo_G_BlockerIC"
+      attitude: AttitudeAggressive
+      vulnerabilities {
+      }
+    }
+    team_id: "Friendly IC"
+    char_name: "Blocker IC"
+    GeneralTags: "Zone4_Blocker2"
+    pc_spawn_number: -1
+    spawn_type: SpawnType_BlockerIC
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    dimension_name: "Matrix"
+    karma: 29
+    hiring_cost_override: 1000
+    scale_character_sheet: true
+    blocker_ic_panel_difficulty: 2
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -118
+    y: 0
+    z: 11
+  }
+  orientation: ORIENTATION_E
+  GeneralTags: "Zone4_Blocker1"
+  displayName: "Zone4_Blocker1"
+  idRef {
+    id: "56c273ec39356540290042c3"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    interactionIcon: InteractionIcon_BlockerIC
+    interaction_info_text: ""
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "HongKong:Matrix/MatrixIC_Blocker"
+    character_sheet_id: "IC_Lv1_White_Blocker"
+    equipment_sheet_id: "IC White Blocker Lv1 Gear"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "gumbo_G_BlockerIC"
+      attitude: AttitudeAggressive
+      vulnerabilities {
+      }
+    }
+    team_id: "Friendly IC"
+    char_name: "Blocker IC"
+    GeneralTags: "Zone4_Blocker1"
+    pc_spawn_number: -1
+    spawn_type: SpawnType_BlockerIC
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    dimension_name: "Matrix"
+    karma: 29
+    hiring_cost_override: 1000
+    scale_character_sheet: true
+    blocker_ic_panel_difficulty: 2
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: 87
+    y: 0
+    z: 14
+  }
+  orientation: ORIENTATION_S
+  displayName: "Toxic Barrel"
+  idRef {
+    id: "56c273ec39356540290042c4"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Berlin:Objects/ExplosiveBarrel"
+    character_sheet_id: "Environment_Barrel_Explosive"
+    equipment_sheet_id: "Environment_Barrel_Toxic"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      archetypeName: "Non-Combatant"
+      vulnerabilities {
+      }
+    }
+    team_id: "Barrels"
+    char_name: "Toxic Barrel"
+    pc_spawn_number: -1
+    ai_ignores: true
+    portrait {
+      filename: ""
+    }
+    karma: 9
   }
 }
 variables {

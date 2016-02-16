@@ -64,6 +64,9 @@ triggers {
         int_value: 1
       }
     }
+    ops {
+      functionName: "No Effect"
+    }
   }
   isActive: true
   idRef {
@@ -372,6 +375,77 @@ triggers {
           functionName: "Get Map Item (Trigger)"
           args {
             string_value: "5605fdce3464356021007577"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Kill Actor"
+      args {
+        call_value {
+          functionName: "All Actors on Team"
+          args {
+            call_value {
+              functionName: "Get Preset Value (string)"
+              args {
+                string_value: "FactionList"
+              }
+              args {
+                int_value: 2
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (SceneDimension)"
+              args {
+                string_value: "Default"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "DeathMethod"
+          }
+          args {
+            int_value: 3
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
           }
         }
       }
@@ -1834,6 +1908,34 @@ triggers {
   actions {
     ops {
       functionName: "End Current Team Round"
+    }
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "HongKong:props"
+          }
+          args {
+            string_value: "PDA-Ring1"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
     }
     ops {
       functionName: "Start Conversation"
@@ -12132,7 +12234,7 @@ characters {
   }
   lod: 0
   character_instance {
-    prefab_name: "Berlin:KnightErrants/HumanMaleEliteCorpGuard"
+    prefab_name: "HongKong:Shiawase/ElfMaleShiawaseGuard"
     character_sheet_id: "Errant_Lv1_Heavy_Explosive"
     equipment_sheet_id: "Errant_Lv1_Explosive"
     character_mod {
@@ -12191,7 +12293,7 @@ characters {
   }
   lod: 0
   character_instance {
-    prefab_name: "Berlin:KnightErrants/HumanMaleEliteCorpGuard"
+    prefab_name: "HongKong:Shiawase/HumanMaleShiawaseGuard"
     character_sheet_id: "Errant_Lv1_Heavy_Explosive"
     equipment_sheet_id: "Errant_Lv1_Explosive"
     character_mod {
