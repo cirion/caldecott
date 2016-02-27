@@ -4774,6 +4774,111 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Cage Lights Performance"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Check Cage Lights"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "loadCount"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 2
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Delete Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "564808223464359c2a003309"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "56d0db5f643431733d5cfb7e"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Check Cage Lights Delayed"
+  events {
+    ops {
+      functionName: "On Curtains Up"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Check Cage Lights"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "loadCount"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "56d1309c393565580b0013d5"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
 regions {
   name: "Camera Dis"
   position {
@@ -8827,6 +8932,22 @@ variables {
     typeName: "float"
   }
 }
+variables {
+  bool_value: false
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "deleteCageLights"
+    typeName: "bool"
+  }
+}
+variables {
+  int_value: 0
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "loadCount"
+    typeName: "int"
+  }
+}
 mapEvents: "Cycle Dis Lights"
 mapEvents: "Move Light A"
 mapEvents: "Move Light B"
@@ -8842,6 +8963,7 @@ mapEvents: "Flip Light 2 On"
 mapEvents: "ITSOVER"
 mapEvents: "Event_PersiExiting"
 mapEvents: "Wait"
+mapEvents: "Check Cage Lights"
 senseTags: "isDorbi"
 senseTags: "isPersi"
 senseTags: "isRafik"
