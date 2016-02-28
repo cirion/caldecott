@@ -18783,7 +18783,7 @@ props {
   name: "morgue_clutter_sharpsContainer"
   gridPoint {
     x: -103
-    y: 2.7755576e-17
+    y: 2.7755576e-017
     z: -117.2
   }
   orientation: ORIENTATION_S
@@ -30027,6 +30027,13 @@ props {
   idRef {
     id: "564808223464359c2a003309"
   }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    dummyInteraciton {
+    }
+    interaction_info_text: ""
+  }
   lod: 0
 }
 props {
@@ -31530,7 +31537,7 @@ props {
     z: 27
   }
   orientation: ORIENTATION_S
-  displayName: "Commentary Slums"
+  displayName: "Commentary Hub Slums"
   idRef {
     id: "56cfa1616434316a7c943552"
   }
@@ -31716,7 +31723,7 @@ props {
     z: -57
   }
   orientation: ORIENTATION_S
-  displayName: "Commentary Dis 1"
+  displayName: "Commentary Hub Dis 1"
   idRef {
     id: "56cfa21e6434316a7c943557"
   }
@@ -31809,7 +31816,7 @@ props {
     z: -57
   }
   orientation: ORIENTATION_S
-  displayName: "Commentary Dis 2"
+  displayName: "Commentary Hub Dis 2"
   idRef {
     id: "56cfa2746434316a7c94355a"
   }
@@ -32387,7 +32394,7 @@ props {
     z: -56
   }
   orientation: ORIENTATION_S
-  displayName: "Commentary"
+  displayName: "Commentary Finale"
   idRef {
     id: "56d0e0ff6434317743b69f38"
   }
@@ -32441,6 +32448,99 @@ props {
     }
     interactionIcon: InteractionIcon_Explosion
     interaction_info_text: "Developer Commentary: Goodbye!"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -214
+    y: 0
+    z: -73
+  }
+  orientation: ORIENTATION_S
+  displayName: "Commentary Hub Dialog"
+  idRef {
+    id: "56d243d5393565b84000085d"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_CommentaryEnabled"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "No Condition"
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_numMissionsCompleted"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+    }
+    conversationPoint {
+      conversationID: "56d243f6393565b84000087f"
+      turnToFace: false
+    }
+    interactionIcon: InteractionIcon_Explosion
+    interaction_info_text: "Developer Commentary: Structuring Dialogue"
   }
   lod: 0
 }

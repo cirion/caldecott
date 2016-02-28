@@ -743,7 +743,7 @@ triggers {
   name: "Animate Cosmetic Civilians"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "On Curtains Up"
     }
   }
   conditions {
@@ -1345,7 +1345,7 @@ triggers {
   }
   elseActions {
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 triggers {
   name: "Dummy"
@@ -22582,6 +22582,92 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "CageLightsPerformance"
+  events {
+    ops {
+      functionName: "On Curtains Up"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "curtainUpCount"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Delete Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "564808223464359c2a003309"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Log Debug Message"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Log Levels"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        string_value: "Working around a SRHK engine bug by deleting an FX on reload. Should remove CageLightsPerformance trigger if the bug gets fixed."
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "56d0db5f643431733d5cfb7e"
+  }
+  elseActions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "curtainUpCount"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  is_oneshot: false
+}
 regions {
   name: "Camera Clinic"
   position {
@@ -26711,7 +26797,7 @@ characters {
   }
   lod: 0
   character_instance {
-    prefab_name: "HongKong:Creatures/HKPoliceDog"
+    prefab_name: "Berlin:Creatures/CreatureDogFriendly"
     character_sheet_id: "Creature_Lv1_Hellhound"
     equipment_sheet_id: "AttackDog_Lv1_Powers"
     character_mod {
@@ -26807,7 +26893,7 @@ characters {
   }
   lod: 0
   character_instance {
-    prefab_name: "HongKong:Creatures/HKPoliceDog"
+    prefab_name: "Berlin:Creatures/CreatureDogAngry"
     character_sheet_id: "Creature_Lv1_Hellhound"
     equipment_sheet_id: "AttackDog_Lv1_Powers"
     character_mod {
@@ -31399,6 +31485,14 @@ variables {
   variableref_value {
     scope: TsVariableScope_Scene
     name: "numTalksRafik"
+    typeName: "int"
+  }
+}
+variables {
+  int_value: 0
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "curtainUpCount"
     typeName: "int"
   }
 }
