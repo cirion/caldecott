@@ -619,113 +619,79 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Kill Cosmetic Civilians"
+  name: "StartOrRestartNPCAnimations"
   events {
     ops {
-      functionName: "On Map Setup"
+      functionName: "On Curtains Up"
     }
   }
   conditions {
-    ops {
-      functionName: "Comparison (bool)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (bool)"
-          args {
-            string_value: "5505a99b346435a418004d07"
-          }
-          args {
-            string_value: "Global_SlowComputer"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "IsOrIsNot"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "bool"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-    }
   }
   actions {
     ops {
-      functionName: "Activate Actor Spawner By Tag"
+      functionName: "Play Animation From Manifest"
       args {
         call_value {
-          functionName: "Get Map Item (SenseTagList)"
+          functionName: "Get Map Item (Actor)"
           args {
-            string_value: "isSlumActor"
+            string_value: "55f5fb673464355413007bff"
           }
         }
       }
       args {
         call_value {
-          functionName: "Get Preset Value (int)"
+          functionName: "Get Map Item (Animation)"
           args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 0
+            string_value: "HongKong:General/sitting_idle"
           }
         }
       }
     }
     ops {
-      functionName: "Activate Actor Spawner By Tag"
+      functionName: "Play FX on Actor"
       args {
-        call_value {
-          functionName: "Get Map Item (SenseTagList)"
-          args {
-            string_value: "isHallActor"
-          }
-        }
+        string_value: "Berlin:LoopedSmokingIdle"
       }
       args {
         call_value {
-          functionName: "Get Preset Value (int)"
+          functionName: "All Actors With Tag"
           args {
-            string_value: "WithOrWithout"
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isSmoker"
+              }
+            }
           }
           args {
-            int_value: 0
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
           }
         }
       }
     }
     ops {
-      functionName: "Activate Actor Spawner By Tag"
+      functionName: "Play Animation From Manifest"
       args {
         call_value {
-          functionName: "Get Map Item (SenseTagList)"
+          functionName: "Get Map Item (Actor)"
           args {
-            string_value: "isDisActor"
+            string_value: "560758df346435d0020055fb"
           }
         }
       }
       args {
         call_value {
-          functionName: "Get Preset Value (int)"
+          functionName: "Get Map Item (Animation)"
           args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 0
+            string_value: "Seattle:General/standing_idle_repairing"
           }
         }
       }
@@ -733,7 +699,7 @@ triggers {
   }
   isActive: true
   idRef {
-    id: "56173cda64343183136962ac"
+    id: "56d329463666362813007cff"
   }
   elseActions {
   }
@@ -1346,6 +1312,127 @@ triggers {
   elseActions {
   }
   is_oneshot: false
+}
+triggers {
+  name: "Kill Cosmetic Civilians"
+  events {
+    ops {
+      functionName: "On Map Setup"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_SlowComputer"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Activate Actor Spawner By Tag"
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isSlumActor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Activate Actor Spawner By Tag"
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isHallActor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Activate Actor Spawner By Tag"
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "isDisActor"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "56173cda64343183136962ac"
+  }
+  elseActions {
+  }
+  is_oneshot: true
 }
 triggers {
   name: "Dummy"
@@ -22612,7 +22699,7 @@ triggers {
         }
       }
       args {
-        int_value: 1
+        int_value: 0
       }
     }
   }
