@@ -8266,6 +8266,20 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Event_TeleportCameraToPC0"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+    }
   }
   isActive: true
   idRef {
@@ -12781,6 +12795,39 @@ triggers {
   isActive: true
   idRef {
     id: "566e51e33438376c1e004892"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Teleport Camera to PC0"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Event_TeleportCameraToPC0"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Teleport Camera To Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "56d23bdd393565b84000084e"
   }
   elseActions {
   }
@@ -17691,6 +17738,7 @@ mapEvents: "Event_CausedPain"
 mapEvents: "Event_DivertHemlock"
 mapEvents: "Event_AllUpstairs"
 mapEvents: "Event_MatrixPlayTeleportSound"
+mapEvents: "Event_TeleportCameraToPC0"
 senseTags: "isDorbi"
 senseTags: "isPersi"
 senseTags: "isRafik"
