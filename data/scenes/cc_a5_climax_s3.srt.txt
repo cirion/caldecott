@@ -1,51 +1,4 @@
 triggers {
-  name: "Map_Start"
-  events {
-    ops {
-      functionName: "On Map Start"
-    }
-  }
-  conditions {
-  }
-  actions {
-    ops {
-      functionName: "Play Music"
-      args {
-        call_value {
-          functionName: "Get Map Item (Music)"
-          args {
-            string_value: "HongKong_Title"
-          }
-          args {
-            string_value: "HongKong-TitleTheme-UI"
-          }
-        }
-      }
-      args {
-        float_value: 0.75
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "bool"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "55f1f431643431743dd6126e"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
   name: "Map_Setup"
   events {
     ops {
@@ -214,6 +167,56 @@ triggers {
   is_oneshot: true
 }
 triggers {
+  name: "Map_Start"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Play Music"
+      args {
+        call_value {
+          functionName: "Get Map Item (Music)"
+          args {
+            string_value: "HongKong_Title"
+          }
+          args {
+            string_value: "HongKong-TitleTheme-UI"
+          }
+        }
+      }
+      args {
+        float_value: 0.75
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "No Effect"
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55f1f431643431743dd6126e"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
   name: "Debug"
   events {
     ops {
@@ -358,6 +361,66 @@ triggers {
           functionName: "Get Map Item (Actor Reference)"
           args {
             string_value: "566e4f333438376c1e004874"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Kill Actor"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isIC"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "DeathMethod"
+          }
+          args {
+            int_value: 3
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
           }
         }
       }
@@ -4730,6 +4793,28 @@ triggers {
           }
           args {
             int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Clear Waypoint from Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "561998f1346435301600196b"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Clear Waypoint from Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "561998703464353016001966"
           }
         }
       }
@@ -12833,6 +12918,185 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "DefeatedAvaWithAresHelp"
+  events {
+    ops {
+      functionName: "On Actor Death"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Count of Alive Actors"
+          args {
+            call_value {
+              functionName: "All Actors on Team"
+              args {
+                call_value {
+                  functionName: "Get Preset Value (string)"
+                  args {
+                    string_value: "FactionList"
+                  }
+                  args {
+                    int_value: 5
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Preset Value (int)"
+                  args {
+                    string_value: "AllOrAny"
+                  }
+                  args {
+                    int_value: 0
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Map Item (SceneDimension)"
+                  args {
+                    string_value: "Default"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Count of Alive Actors"
+          args {
+            call_value {
+              functionName: "Specific Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (Actor)"
+                  args {
+                    string_value: "5619c08334643530160022b7"
+                  }
+                }
+              }
+              args {
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "cc_a5_climax_s3-AlliedWithErrant"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "56d8d57a643431c81a78fdc5"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "5619c08334643530160022b7"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: false
+  idRef {
+    id: "56d8d66d643431c81a78fdec"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Camera Ground Floor"
   position {
@@ -14920,6 +15184,7 @@ characters {
     z: -79
   }
   orientation: ORIENTATION_E
+  GeneralTags: "isIC"
   displayName: "MagicLab_Security_IC_2"
   idRef {
     id: "55f3913a346435d01a0076a3"
@@ -14950,6 +15215,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "White Ranged IC"
+    GeneralTags: "isIC"
     pc_spawn_number: -1
     spawn_type: SpawnType_Matrix
     hiring_type: HiringType_None
@@ -15069,6 +15335,7 @@ characters {
     z: -81
   }
   orientation: ORIENTATION_E
+  GeneralTags: "isIC"
   displayName: "MagicLab_Security_IC_1"
   idRef {
     id: "55f3913a346435d01a0076f3"
@@ -15099,6 +15366,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "White Ranged IC"
+    GeneralTags: "isIC"
     pc_spawn_number: -1
     spawn_type: SpawnType_Matrix
     hiring_type: HiringType_None
@@ -15119,6 +15387,7 @@ characters {
     z: -65
   }
   orientation: ORIENTATION_S
+  GeneralTags: "isIC"
   displayName: "MagicLab_Security_IC_3"
   idRef {
     id: "55f3913a346435d01a0077aa"
@@ -15149,6 +15418,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "White Sentry IC"
+    GeneralTags: "isIC"
     pc_spawn_number: -1
     spawn_type: SpawnType_Matrix
     hiring_type: HiringType_None
@@ -15169,6 +15439,7 @@ characters {
     z: -46
   }
   orientation: ORIENTATION_N
+  GeneralTags: "isIC"
   idRef {
     id: "55f3913a346435d01a007805"
   }
@@ -15198,6 +15469,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Black Melee IC"
+    GeneralTags: "isIC"
     pc_spawn_number: -1
     spawn_type: SpawnType_Matrix
     portrait {
@@ -15216,6 +15488,7 @@ characters {
     z: -71
   }
   orientation: ORIENTATION_E
+  GeneralTags: "isIC"
   displayName: "DestroyerIC_CoreSystem_Office"
   idRef {
     id: "55f3913a346435d01a007853"
@@ -15288,6 +15561,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Destroyer IC"
+    GeneralTags: "isIC"
     pc_spawn_number: -1
     spawn_type: SpawnType_Matrix
     hiring_type: HiringType_None
@@ -15305,6 +15579,7 @@ characters {
     z: -52
   }
   orientation: ORIENTATION_N
+  GeneralTags: "isIC"
   displayName: "MagicLab_DataStore_IC_1"
   idRef {
     id: "55f3913a346435d01a007897"
@@ -15335,6 +15610,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "White Ranged IC"
+    GeneralTags: "isIC"
     pc_spawn_number: -1
     spawn_type: SpawnType_Matrix
     hiring_type: HiringType_None
@@ -15355,6 +15631,7 @@ characters {
     z: -68
   }
   orientation: ORIENTATION_W
+  GeneralTags: "isIC"
   displayName: "MagicLab_DataStore_IC_2"
   idRef {
     id: "55f3913a346435d01a0079bc"
@@ -15385,6 +15662,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "White Ranged IC"
+    GeneralTags: "isIC"
     pc_spawn_number: -1
     spawn_type: SpawnType_Matrix
     hiring_type: HiringType_None
