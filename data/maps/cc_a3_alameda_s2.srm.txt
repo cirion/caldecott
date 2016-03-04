@@ -6976,7 +6976,7 @@ props {
   name: "undergroundBase_wallDecoration_netting02"
   gridPoint {
     x: -3.2999992
-    y: -1.1920929e-008
+    y: -1.1920929e-08
     z: 41.2
   }
   orientation: ORIENTATION_S
@@ -17513,6 +17513,71 @@ props {
     interactionRadius: 1
     interactionIcon: InteractionIcon_ItemPickup
     interaction_info_text: ""
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -25
+    y: 0
+    z: -26
+  }
+  orientation: ORIENTATION_S
+  displayName: "Commentary Bunker Puzzle"
+  idRef {
+    id: "56d08978643431470768da41"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "5505a99b346435a418004d07"
+            }
+            args {
+              string_value: "Global_CommentaryEnabled"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "No Condition"
+      }
+    }
+    conversationPoint {
+      conversationID: "56c92aca393565c84600803d"
+      turnToFace: false
+    }
+    interactionIcon: InteractionIcon_Explosion
+    interaction_info_text: "Developer Commentary: Puzzles"
   }
   lod: 0
 }
