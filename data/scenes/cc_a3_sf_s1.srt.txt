@@ -3037,6 +3037,62 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "HongKong:weapons"
+          }
+          args {
+            string_value: "AR"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "HongKong:props"
+          }
+          args {
+            string_value: "DoorMetal"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -10796,6 +10852,91 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Disturb Crows"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "56d5195e3666364c1e001b4e"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Play FX at Point"
+      args {
+        string_value: "EnvironmentCrowFlyAway"
+      }
+      args {
+        call_value {
+          functionName: "Current Location of Prop"
+          args {
+            call_value {
+              functionName: "Get Map Item (Prop)"
+              args {
+                string_value: "5557db08346435fc1900025a"
+              }
+            }
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Delete Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "5557db08346435fc1900025a"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "HongKong:ambient_graveyard"
+          }
+          args {
+            string_value: "Raven"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "56d519513666364c1e001b4d"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Camera"
   position {
@@ -11622,6 +11763,64 @@ regions {
   is_vfx_fill_region: false
   idRef {
     id: "5621c0fa346435b40c000134"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
+}
+regions {
+  name: "Disturb Crows"
+  position {
+    x: -37
+    y: -32
+    width: 7
+    height: 7
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  is_matrix_node: false
+  is_vfx_fill_region: false
+  idRef {
+    id: "56d5195e3666364c1e001b4e"
   }
   highlight_color {
     r: 0
@@ -13008,7 +13207,7 @@ mapName: "cc_a3_sf_s1"
 parentStory: ""
 scene_title: "BAGHDAD BY THE BAY"
 scene_subtitle: ""
-scene_synopsis: "With each passing year, San Francisco more closely resembles a fortress city. The Imperial Marines carefully screen all people entering the city, and the megacorps\342\200\231 private security forces keep a close eye on anyone coming near their arcologies.\n\nTheir focus on bridge checkpoints works to your advantage, as Persi is able to pilot a low-profile Zodiac boat to an abandoned pier in the Dogpatch neighborhood. Your aquatic arrival has avoided attention, but you\342\200\231ll need much more luck to reach Shiawase\342\200\231s branch office undetected."
+scene_synopsis: "With each passing year, San Francisco more closely resembles a fortress city. The Imperial Marines carefully screen all people entering the city, and the megacorps\342\200\231 private security forces keep a close eye on anyone coming near their arcologies.\n\nTheir focus on bridge checkpoints works to your advantage, and successfully pilots a low-profile Zodiac boat to an abandoned pier in the Dogpatch neighborhood. Your aquatic arrival has avoided attention, but you\342\200\231ll need much more luck to reach Shiawase\342\200\231s branch office undetected."
 scene_image: "cc_a3_sf_s1"
 scene_continue_button_skip: false
 scene_restore_runner_health: true

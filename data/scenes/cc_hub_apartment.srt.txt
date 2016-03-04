@@ -339,25 +339,6 @@ triggers {
       }
     }
     ops {
-      functionName: "Play Animation From Manifest"
-      args {
-        call_value {
-          functionName: "Get Map Item (Actor)"
-          args {
-            string_value: "55730e90346435d804006d16"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Animation)"
-          args {
-            string_value: "HongKong:General/sitting_idle"
-          }
-        }
-      }
-    }
-    ops {
       functionName: "Set Actor Run Speed"
       args {
         call_value {
@@ -445,6 +426,148 @@ triggers {
   isActive: true
   idRef {
     id: "55730fa0346435d804006d1b"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Resume Animations"
+  events {
+    ops {
+      functionName: "On Curtains Up"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55f5f25e3464355413005a56"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Berlin:General/standing_idle_leaning"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55f5f8513464355413007a17"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Animate Sable"
+  events {
+    ops {
+      functionName: "On Curtains Up"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_SableTeamState"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55ee1e8f34643530310001e9"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "HongKong:General/standing_idle_lookaround"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "56d13896393565580b0013d6"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "StartOrRestartAnims"
+  events {
+    ops {
+      functionName: "On Curtains Up"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55730e90346435d804006d16"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "HongKong:General/sitting_idle"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "56d281ea366636b41d002220"
   }
   elseActions {
   }
@@ -4201,44 +4324,6 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Resume Animations"
-  events {
-    ops {
-      functionName: "On Conversation Complete"
-    }
-  }
-  conditions {
-  }
-  actions {
-    ops {
-      functionName: "Play Animation From Manifest"
-      args {
-        call_value {
-          functionName: "Get Map Item (Actor)"
-          args {
-            string_value: "55f5f25e3464355413005a56"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Animation)"
-          args {
-            string_value: "Berlin:General/standing_idle_leaning"
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "55f5f8513464355413007a17"
-  }
-  elseActions {
-  }
-  is_oneshot: false
-}
-triggers {
   name: "Remove Quest Items"
   events {
     ops {
@@ -4888,72 +4973,6 @@ triggers {
   elseActions {
   }
   is_oneshot: true
-}
-triggers {
-  name: "Animate Sable"
-  events {
-    ops {
-      functionName: "On Curtains Up"
-    }
-  }
-  conditions {
-    ops {
-      functionName: "Comparison (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "5505a99b346435a418004d07"
-          }
-          args {
-            string_value: "Global_SableTeamState"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "Comparison Ops"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        int_value: 1
-      }
-    }
-  }
-  actions {
-    ops {
-      functionName: "Play Animation From Manifest"
-      args {
-        call_value {
-          functionName: "Get Map Item (Actor)"
-          args {
-            string_value: "55ee1e8f34643530310001e9"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Animation)"
-          args {
-            string_value: "HongKong:General/standing_idle_lookaround"
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "56d13896393565580b0013d6"
-  }
-  elseActions {
-  }
-  is_oneshot: false
 }
 regions {
   name: "Camera"
