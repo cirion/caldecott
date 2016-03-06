@@ -3060,6 +3060,70 @@ triggers {
   is_oneshot: true
 }
 triggers {
+  name: "Ending FX"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "ITSOVER"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Wait"
+          }
+        }
+      }
+      args {
+        float_value: 10
+      }
+    }
+    ops {
+      functionName: "Trigger: Wait for Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Wait"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Environmental Effect Amount"
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "EnvironmentalEffects"
+          }
+          args {
+            int_value: 4
+          }
+        }
+      }
+      args {
+        int_value: 500
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "56dbae93326132b427005992"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
   name: "Ending Persi Ava"
   events {
     ops {
