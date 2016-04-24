@@ -604,7 +604,40 @@ triggers {
             string_value: "WithOrWithout"
           }
           args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Get the Karaoke Machine from Kora"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
             int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
           }
         }
       }
@@ -8947,6 +8980,17 @@ triggers {
   actions {
     ops {
       functionName: "Open Equip Screen"
+    }
+    ops {
+      functionName: "Clear Waypoint from Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "55f5fc393464355413007c07"
+          }
+        }
+      }
     }
   }
   isActive: true
@@ -18681,6 +18725,28 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Set Waypoint on Prop"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PrimaryOrSecondary"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "55f5fc393464355413007c07"
+          }
+        }
+      }
+    }
   }
   isActive: false
   idRef {
@@ -20641,6 +20707,17 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Force-Use Interactable Object (Basic)"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55343f4b3464359c130001fc"
+          }
+        }
+      }
+    }
   }
   isActive: false
   idRef {
@@ -20848,6 +20925,28 @@ triggers {
       }
       args {
         float_value: 0.5
+      }
+    }
+    ops {
+      functionName: "Set Waypoint on Prop"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PrimaryOrSecondary"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "55f5fc393464355413007c07"
+          }
+        }
       }
     }
   }

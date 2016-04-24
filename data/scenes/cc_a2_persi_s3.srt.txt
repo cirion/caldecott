@@ -253,6 +253,79 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Teleport Actor"
+      args {
+        call_value {
+          functionName: "All Actors on Team"
+          args {
+            call_value {
+              functionName: "Get Preset Value (string)"
+              args {
+                string_value: "FactionList"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (SceneDimension)"
+              args {
+                string_value: "Default"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Current Location of Prop"
+          args {
+            call_value {
+              functionName: "Get Map Item (Prop)"
+              args {
+                string_value: "571c65fd653136001e006e60"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeleportMethod"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
   }
   isActive: false
   idRef {
@@ -18036,7 +18109,7 @@ regions {
 regions {
   name: "Banter"
   position {
-    x: 55
+    x: 54
     y: -6
     width: 1
     height: 7
@@ -20753,7 +20826,7 @@ characters {
   lod: 0
   character_instance {
     prefab_name: "Seattle:Core/OrkFemale"
-    character_sheet_id: "Crew_Persi_Lv2"
+    character_sheet_id: "Crew_Persi_Lv3"
     equipment_sheet_id: "Crew_Persi_Lv1_Gear"
     character_mod {
       stats {
@@ -21497,6 +21570,8 @@ scene_dimensions {
   is_matrix: true
   max_alarm_value: 125
   heat_response_rating: 3
+}
+character_roster {
 }
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {
