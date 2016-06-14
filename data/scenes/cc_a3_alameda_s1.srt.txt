@@ -87,15 +87,12 @@ triggers {
       functionName: "Kill Actor"
       args {
         call_value {
-          functionName: "All Actors on Team"
+          functionName: "All Actors With Tag"
           args {
             call_value {
-              functionName: "Get Preset Value (string)"
+              functionName: "Get Map Item (SenseTagList)"
               args {
-                string_value: "FactionList"
-              }
-              args {
-                int_value: 2
+                string_value: "wave1"
               }
             }
           }
@@ -107,14 +104,6 @@ triggers {
               }
               args {
                 int_value: 0
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Map Item (SceneDimension)"
-              args {
-                string_value: "Default"
               }
             }
           }
@@ -11898,7 +11887,7 @@ characters {
   }
   lod: 0
   character_instance {
-    prefab_name: "Wealthy/HumanMaleAutumn"
+    prefab_name: "Seattle:Wealthy/HumanMaleAutumn"
     character_sheet_id: "BaseCivilian"
     character_mod {
       stats {
@@ -11958,10 +11947,15 @@ characters {
       }
       archetypeName: "Non-Combatant"
       attitude: AttitudeCautious
+      vulnerabilities {
+        death: VulnerabilityLevel_Default
+        permadeath: VulnerabilityLevel_Default
+      }
     }
     team_id: "Civilians"
     char_name: "Caleb"
     pc_spawn_number: -1
+    unkillable: false
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
@@ -12237,6 +12231,8 @@ team_affiliations {
 }
 scene_dimensions {
   dimension_name: "Default"
+}
+character_roster {
 }
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {
