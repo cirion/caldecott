@@ -9,6 +9,146 @@ nodes {
   index: 0
   text: "This terminal is unlocked."
   branches {
+    responseText: "{{GM}}Have Sable jack in.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Evaluate Turn Mode in Dimension"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TurnBasedOrFreeMove"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Evaluate Tag for Actor"
+        args {
+          call_value {
+            functionName: "All Actors on Team"
+            args {
+              call_value {
+                functionName: "Get Preset Value (string)"
+                args {
+                  string_value: "FactionList"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (SceneDimension)"
+                args {
+                  string_value: "Default"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "isSable"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Evaluate If Actor Is Downed"
+        args {
+          call_value {
+            functionName: "All Actors With Tag"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "isSable"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Sable_JackIn"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+    idRef {
+      id: "55ff2522346435bc00003936:55ff2541346435bc00003946"
+    }
+  }
+  branches {
     responseText: "{{CC}}Decking: 1, Cyberdeck{{/CC}} {{GM}}Jack in.{{/GM}}"
     conditions {
       ops {
@@ -275,7 +415,10 @@ nodes {
                                 functionName: "Specific Actor"
                                 args {
                                   call_value {
-                                    functionName: "Triggering Actor"
+                                    functionName: "Get Map Item (Player)"
+                                    args {
+                                      int_value: 0
+                                    }
                                   }
                                 }
                                 args {
@@ -329,146 +472,6 @@ nodes {
     nextNodeIndex: -1
     idRef {
       id: "55ff2522346435bc00003936:55ff2541346435bc00003944"
-    }
-  }
-  branches {
-    responseText: "{{GM}}Have Sable jack in.{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Evaluate Turn Mode in Dimension"
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "TurnBasedOrFreeMove"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Default"
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Evaluate Tag for Actor"
-        args {
-          call_value {
-            functionName: "All Actors on Team"
-            args {
-              call_value {
-                functionName: "Get Preset Value (string)"
-                args {
-                  string_value: "FactionList"
-                }
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-              call_value {
-                functionName: "Get Preset Value (int)"
-                args {
-                  string_value: "AllOrAny"
-                }
-                args {
-                  int_value: 1
-                }
-              }
-            }
-            args {
-              call_value {
-                functionName: "Get Map Item (SceneDimension)"
-                args {
-                  string_value: "Default"
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "HasOrHasNot"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SenseTagList)"
-            args {
-              string_value: "isSable"
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Evaluate If Actor Is Downed"
-        args {
-          call_value {
-            functionName: "All Actors With Tag"
-            args {
-              call_value {
-                functionName: "Get Map Item (SenseTagList)"
-                args {
-                  string_value: "isSable"
-                }
-              }
-            }
-            args {
-              call_value {
-                functionName: "Get Preset Value (int)"
-                args {
-                  string_value: "AllOrAny"
-                }
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "IsOrIsNot"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Send Event"
-        args {
-          call_value {
-            functionName: "Get Map Item (Event)"
-            args {
-              string_value: "Sable_JackIn"
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: -1
-    hideIfUnavailable: true
-    idRef {
-      id: "55ff2522346435bc00003936:55ff2541346435bc00003946"
     }
   }
   branches {
