@@ -691,6 +691,17 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Delete Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "552ab82934643538260019aa"
+          }
+        }
+      }
+    }
   }
   isActive: false
   idRef {
@@ -734,7 +745,7 @@ triggers {
             call_value {
               functionName: "Get Map Item (Prop)"
               args {
-                string_value: "55ea5708346435bc1f004415"
+                string_value: "58729472373135c487006cb2"
               }
             }
           }
@@ -787,7 +798,7 @@ triggers {
             call_value {
               functionName: "Get Map Item (Prop)"
               args {
-                string_value: "55ea5708346435bc1f004415"
+                string_value: "58729472373135c487006cb2"
               }
             }
           }
@@ -8698,6 +8709,68 @@ triggers {
     }
     ops {
       functionName: "Clear Camera Points of Interest"
+    }
+    ops {
+      functionName: "Teleport Actor"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "isRafik"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Current Location of Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeleportMethod"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
     }
   }
   isActive: false
