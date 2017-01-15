@@ -32187,16 +32187,83 @@ props {
     z: 150
   }
   orientation: ORIENTATION_S
-  displayName: "Debug Start Here"
+  displayName: "Debug Start Here Train"
   idRef {
     id: "55ea5708346435bc1f004415"
   }
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
-    dummyInteraciton {
+    prerequisites {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "isDebugging"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Evaluate Goal"
+        args {
+          call_value {
+            functionName: "Get Map Item (Goal)"
+            args {
+              string_value: "Deactivate the Train Couplings"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "GoalStatus"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
     }
-    interaction_info_text: ""
+    interactionIcon: InteractionIcon_Generic
+    interaction_info_text: "Debug Kill All Guards"
   }
   lod: 0
 }
@@ -51647,7 +51714,7 @@ props {
     z: 73
   }
   orientation: ORIENTATION_S
-  displayName: "Debug Start Here"
+  displayName: "Debug Start Here Recruit"
   idRef {
     id: "5648d7c7346435902e002c73"
   }
