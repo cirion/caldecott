@@ -204,7 +204,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Goal)"
           args {
-            string_value: "Find Answers in the Ship Terminal"
+            string_value: "Confront Elena"
           }
         }
       }
@@ -6206,6 +6206,39 @@ triggers {
     }
   }
   actions {
+    ops {
+      functionName: "Interrupt Team\'s Movement"
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
     ops {
       functionName: "Play Music"
       args {
@@ -17630,7 +17663,7 @@ regions {
 regions {
   name: "Near Terminal"
   position {
-    x: -53
+    x: -52
     y: -7
     width: 7
     height: 5
