@@ -9266,6 +9266,28 @@ triggers {
       }
     }
     ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5d27ad766434312c8317b83b"
+          }
+        }
+      }
+    }
+    ops {
       functionName: "End Current Team Round"
     }
   }
@@ -23095,6 +23117,99 @@ triggers {
   isActive: true
   idRef {
     id: "587ad670656337fc7b002989"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "onConvoEnd_RestartAnimsMissions3"
+  events {
+    ops {
+      functionName: "On Conversation Complete"
+    }
+    ops {
+      functionName: "On New Round"
+      args {
+        call_value {
+          functionName: "Nothing Selected"
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "5505a99b346435a418004d07"
+          }
+          args {
+            string_value: "Global_numMissionsCompleted"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 3
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55f5fab03464355413007bf7"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "HongKong:General/rigging_idle"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "55f5facf3464355413007bf8"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "HongKong:General/standing_idle_talking"
+          }
+        }
+      }
+    }
+  }
+  isActive: false
+  idRef {
+    id: "5d27ad766434312c8317b83b"
   }
   elseActions {
   }
